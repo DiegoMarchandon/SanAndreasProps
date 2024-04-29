@@ -1,0 +1,44 @@
+@import url('https://fonts.cdnfonts.com/css/old-london');
+
+#home{
+    background-color: rgb(243, 163, 65);
+    height: 350px;
+}
+
+
+#home h1{
+    background-color: darkorange;
+    font-family:"Old London";
+    font-size: 40px;
+    width: 400px;    
+    margin: auto;
+}
+
+
+.choice{
+    width: 100%;
+    display: flex;
+    background-color: orangered;
+}
+
+
+.choice div {
+    margin: 5%;
+}
+#losSantos{
+    width: 250px;
+    height: 250px;
+    background-color: rgb(230, 187, 130);
+}
+
+#sanFierro{
+    width: 250px;
+    height: 250px;
+    background-color: rgb(246, 148, 113);
+}
+
+#lasVenturas{
+    width: 250px;
+    height: 250px;
+    background-color: rgb(178, 109, 224);
+}
