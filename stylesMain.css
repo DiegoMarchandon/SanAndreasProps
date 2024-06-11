@@ -42,3 +42,29 @@
     height: 250px;
     background-color: rgb(178, 109, 224);
 }
+
+a{
+    margin: auto;
+    color: black;
+    text-decoration: none;
+}
+
+.input{
+    background-color: orange;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px; 
+    width: 50%;
+}
+
+ul{
+    list-style-type: none;
+    margin: 10px;
+    padding: 0px;
+    
+}
+li{
+    display: inline;
+    /* float: left; */
+}

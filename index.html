@@ -5,27 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>San Andreas Props</title>
     <link rel="icon" href="imagenes/ICOfavicon.png">
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="stylesMain.css">
 </head>
 <body>
+    <div id="navbar">
+        <ul>
+            <li><a href="">Mapa</a></li>
+            <li><a href="">Localidades</a></li>
+            <li><a href="">Nosotros</a></li>
+            <li><a href="">Contacto</a></li>
+            <li><a href="">Iniciar</a> Sesión</li>
+        </ul>
+    </div>
     <div id="home">
         <h1>San Andreas Properties</h1>    
+
+        <div class="input">
+            <form action="">
+                <label for=""></label>
+                <input type="text" name="eleccion" id="eleccion" placeholder="dónde quisieras mudarte">
+                <select name="tipoPropiedad" id="tipoPropiedad">
+                    <option value="sanfierro">San Fierro</option>
+                    <option value="lossantos">Los Santos</option>
+                    <option value="lasventuras">Las Venturas</option>   
+                </select>
+                <input type="submit" value="Buscar"> <!-- onclick=return propiedades() -->
+            </form>
+        </div>
     </div>
-    
 
     <div class="choice">
-        <div id="losSantos">
-            <h2>Los Santos</h2>
+
+        <a href="LosSantos.html">
+            <div id="losSantos">
+                <h2>Los Santos</h2>
                 <p>Ciudad con precios más accesibles</p>
-        </div>
-        <div id="sanFierro">
-            <h2>San Fierro</h2>
+            </div>
+        </a>
+        
+        <a href="SanFierro.html">
+            <div id="sanFierro">
+                <h2>San Fierro</h2>
                 <p>Ciudad con mayor variedad de precios y actividades</p>
-        </div>
-        <div id="lasVenturas">
-            <h2>Las Venturas</h2>
+            </div>
+        </a>
+
+        <a href="LasVenturas.html">
+            <div id="lasVenturas">
+                <h2>Las Venturas</h2>
                 <p>Ciudad con mayor actividad nocturna y viviendas lujosas</p>
-        </div>
+            </div>
+        </a>
     </div>
 
 </body>
