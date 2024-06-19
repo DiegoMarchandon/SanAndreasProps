@@ -7,11 +7,15 @@
 
 
 #home h1{
-    background-color: darkorange;
+    /* background-color: darkorange; */
     font-family:"Old London";
-    font-size: 40px;
+    font-size: 45px;
     width: 400px;    
     margin: auto;
+    color: black;
+    /* border: 1px solid white; */
+    -webkit-text-stroke: 0.01px rgb(250, 235, 215);
+    /* text-shadow: 0 0 2px white; */
 }
 
 
@@ -70,3 +74,11 @@ li{
     /* float: left; */
 }
 
+/* estilos de formulario */
+
+#nuevaCuenta, #cuentaExistente{
+    /* nos permite cambiar el color del cursos que vemos en el input
+     cuando vamos a escribir. */
+    caret-color: orange;
+    background-color: orangered;
+}

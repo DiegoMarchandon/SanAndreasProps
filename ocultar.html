@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .caja{
+        width: 100px;
+        height: 100px;
+        background-color: lightblue;
+    }
+    .caja p{
+        text-align: center;
+    }
+
+</style>
+<body>
+    
+<p>click en el botón para ocultar el div. doble click para mostrarlo.</p>
+<button class="button">click me</button>
+<div class="caja">
+    <p>soy un div en forma de caja</p>
+</div>
+
+<script>
+    boton = document.getElementsByClassName('button')[0];
+    caja = document.getElementsByClassName('caja')[0];
+    boton.addEventListener("click",function(){
+        caja.style = 'display:none';
+        boton.addEventListener("dblclick",function(){
+            caja.style = 'display:block';
+        })
+    })
+
+</script>
+</body>
+</html>
