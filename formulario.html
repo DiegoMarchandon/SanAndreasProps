@@ -14,13 +14,36 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        background-image: url(imagenes/fondo-form.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        font-family:'Times New Roman', Times, serif;
+        /* text-shadow: 1px 1px 2px black; */
     }
     #box-form{
         width: 300px;
         height: 400px;
-        background-color: orange;
+        background-color: white;
         margin: 150px;
+        opacity: 0.7;
+        border-radius: 15px;
+    }
+
+    input[type=text]{
+        background-color: orange;
         
+    }
+
+    form{
+        text-align: center;
+    }
+    label{
+        vertical-align: middle;
+        margin: auto;
+        color: orangered;
+        font-weight: bold;
+        font-size: 15px;
+        /* font-size: 0.5px solid; */
     }
 </style>
 <body>
@@ -28,11 +51,10 @@
 
     <div id="box-form" >
         <form action="">
-            <label for="nombre">Bienvenido. Ingrese su nombre o su mail:</label>
+            <label for="nombre">Bienvenido. <br>Ingrese su nombre o su mail:</label>
             <input type="text" name="nombre" id="nombre"><br>
             <label for="apellido">Ingrese su apellido:</label>
             <input type="text" name="apellido" id="apellido"><br>
-
         </form>
         
         <div id="registrarse" style="display: none;">
