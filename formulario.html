@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<script src="validacionForms.js">
-
-</script>
 
 <style>
     body{
@@ -23,18 +20,20 @@
     #box-form{
         width: 300px;
         height: 400px;
-        background-color: white;
+        background-color: aliceblue;
         margin: 150px;
-        opacity: 0.7;
+        opacity: 0.8;
         border-radius: 15px;
     }
 
     input[type=text]{
-        background-color: orange;
+        /* background-color: orange; */
+        background-image: linear-gradient(to right, rgb(255, 255, 255) , orange);
         
     }
 
     form{
+        margin-top: 50px;
         text-align: center;
     }
     label{
@@ -45,21 +44,41 @@
         font-size: 15px;
         /* font-size: 0.5px solid; */
     }
+    #nuevoUsuario{
+        display: none;
+        vertical-align: middle;
+        margin: auto;
+    }
+
+    #box-form #botonIngreso{
+        background-color: orangered;
+        margin: 15px;
+
+    }
 </style>
+
+<script src="validacionForms.js">
+    
+</script>
 <body>
 
-
     <div id="box-form" >
-        <form action="">
+        <form action="" id="registro">
             <label for="nombre">Bienvenido. <br>Ingrese su nombre o su mail:</label>
             <input type="text" name="nombre" id="nombre"><br>
             <label for="apellido">Ingrese su apellido:</label>
             <input type="text" name="apellido" id="apellido"><br>
         </form>
-        
-        <div id="registrarse" style="display: none;">
-
-        </div>
+        <input type="button" value="ingresar" id="botonIngreso">
+        <p>nuevo en la página? <u onclick="mostrarForm()" id="imNew" style="color: orangered">Regístrese</u></p>
+        <form action="" id="nuevoUsuario">
+            <label for="newNombre">Nombre</label>
+            <input type="text" name="newNombre" id="newNombre"><br>
+            <label for="newApellido">Apellido</label>
+            <input type="text" name="newApellido" id="newApellido"><br>
+            <label for="newEmail">email</label>
+            <input type="text" name="newEmail" id="newEmail"><br>
+        </form>
     </div>
 </body>
 </html>
