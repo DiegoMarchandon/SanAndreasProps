@@ -1,48 +1,93 @@
 @import url('https://fonts.cdnfonts.com/css/old-london');
 
-#home{
-    background-color: rgb(243, 163, 65);
-    height: 350px;
+body{
+    background-color: white;
 }
 
 
+#home{
+    display: grid;
+    grid-template-rows: auto auto auto;
+    background-image: url(imagenes/saProps.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center -75px;
+    height: 750px;
+}
+
 #home h1{
-    /* background-color: darkorange; */
+    grid-row: 1;
     font-family:"Old London";
     font-size: 45px;
     width: 400px;    
     margin: auto;
     color: black;
     /* border: 1px solid white; */
-    -webkit-text-stroke: 0.01px rgb(250, 235, 215);
-    /* text-shadow: 0 0 2px white; */
+    /* -webkit-text-stroke: 0.01px rgb(255, 252, 249); */
+    text-shadow: 
+                -1px -1px 0 rgb(255, 252, 249), /* Sombra arriba-izquierda */
+                1px -1px 0 rgb(255, 252, 249),  /* Sombra arriba-derecha */
+                -1px 1px 0 rgb(255, 252, 249),  /* Sombra abajo-izquierda */
+                1px 1px 0 rgb(255, 252, 249);   /* Sombra abajo-derecha */       
 }
 
-
-.choice{
-    width: 100%;
+.ciudades{
+    background-image: url(imagenes/vector-naranja2.jpg);
+    background-size:contain;
+    /* position: absolute; */
+    grid-row: 3;
     display: flex;
-    background-color: orangered;
+    flex-direction: column;
+    grid-template-rows: 10% 30% auto;
+    /* height: 85%; */
+    display: flex;
+    /* background-color: rgba(0, 0, 0, 0.6); Fondo negro con opacidad. "a" = Alpha. Transparencia del color */
+    /* opacity: 0.6; */
 }
 
-.choice div {
+.ciudades div {
     margin: 5%;
 }
-#losSantos{
-    width: 250px;
-    height: 250px;
+
+.losSantos, .sanFierro, .lasVenturas{
+    position: relative;
+
+    width: 600px;
+    height: 300px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.losSantos{
+    background-image: url(imagenes/los\ santos.png);
+    
+}
+
+.sanFierro{
+    background-image: url(imagenes/sFierro.jpg);
+    left: 50%;
+}
+
+.lasVenturas{
+    background-image: url(imagenes/las\ venturas.png);
+}
+
+#descripcionLS, #descripcionSF, #descripcionLV{
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    left: 400px;
+    border-radius: 5px;
+}
+
+
+#descripcionLS{
     background-color: rgb(230, 187, 130);
 }
-
-#sanFierro{
-    width: 250px;
-    height: 250px;
+#descripcionSF{
     background-color: rgb(246, 148, 113);
+    right: 500px;
 }
-
-#lasVenturas{
-    width: 250px;
-    height: 250px;
+#descripcionLV{
     background-color: rgb(178, 109, 224);
 }
 
@@ -52,14 +97,23 @@ a{
     text-decoration: none;
 }
 
-.input{
+.buscarCiudad{
+    grid-row: 2;
     background-color: orange;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 25px; 
-    width: 50%;
+    padding: 25px;
+    margin: 200px; 
+    width: 500px;
+    height: 50px;
+    /* centra un div dentro de una fila grid */
+    justify-self: center;
+    border-radius: 20px;
+    opacity: 0.8;
+   
 }
+
 
 ul{
     display: flex;
@@ -71,14 +125,4 @@ ul{
 }
 li{
     display: inline;
-    /* float: left; */
-}
-
-/* estilos de formulario */
-
-#nuevaCuenta, #cuentaExistente{
-    /* nos permite cambiar el color del cursos que vemos en el input
-     cuando vamos a escribir. */
-    caret-color: orange;
-    background-color: orangered;
 }

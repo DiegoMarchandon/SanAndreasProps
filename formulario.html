@@ -17,19 +17,27 @@
         font-family:'Times New Roman', Times, serif;
         /* text-shadow: 1px 1px 2px black; */
     }
+    h2{
+        color: orange;
+    }
     #box-form{
+        position: relative;
         width: 300px;
         height: 400px;
-        background-color: aliceblue;
+        background-color: white;
+        /* opacity: 0.8; */
+        /* background-image: linear-gradient(white,antiquewhite); */
         margin: 150px;
-        opacity: 0.8;
-        border-radius: 15px;
+        border-radius: 15px;   
     }
 
     input[type=text]{
         /* background-color: orange; */
-        background-image: linear-gradient(to right, rgb(255, 255, 255) , orange);
-        
+        /* background-image: linear-gradient(to right, rgb(255, 255, 255) , orange); */
+        border:none;
+        border-bottom: solid gray;
+        padding: 10px;
+        margin: 5px;
     }
 
     form{
@@ -38,7 +46,7 @@
     }
     label{
         vertical-align: middle;
-        margin: auto;
+       
         color: orangered;
         font-weight: bold;
         font-size: 15px;
@@ -46,14 +54,29 @@
     }
     #nuevoUsuario{
         display: none;
-        vertical-align: middle;
-        margin: auto;
     }
 
-    #box-form #botonIngreso{
-        background-color: orangered;
-        margin: 15px;
+    #botonIngreso{
+        background-image: linear-gradient(to right, orangered , orange);
+        padding: 10px 60px;
+        border-radius: 10px;
+        margin: 10px;
+        position: absolute;
+        left: 18%;
+        border: none;
+        cursor: pointer;
+    }
 
+    #imNew{
+        position: absolute;
+        bottom: 25%;
+        left: 10%;
+    }
+
+    /* accedo al pseudo-elemento de los input text a través de sus id*/
+    #contraseña::placeholder, #usuario::placeholder{
+        font-size: 16px;
+        padding: 5px;
     }
 </style>
 
@@ -64,21 +87,24 @@
 
     <div id="box-form" >
         <form action="" id="registro">
-            <label for="nombre">Bienvenido. <br>Ingrese su nombre o su mail:</label>
-            <input type="text" name="nombre" id="nombre"><br>
-            <label for="apellido">Ingrese su apellido:</label>
-            <input type="text" name="apellido" id="apellido"><br>
+            <h2>Bienvenido</h2>
+            <!-- <label for="nombre">Ingrese su nombre o su mail:</label><br> -->
+            <input type="text" name="usuario" id="usuario" placeholder="ingrese su usuario"><br>
+            <!-- <label for="apellido">Ingrese su apellido:</label><br> -->
+            <input type="text" name="contraseña" id="contraseña" placeholder="ingrese su contraseña"><br>
         </form>
-        <input type="button" value="ingresar" id="botonIngreso">
-        <p>nuevo en la página? <u onclick="mostrarForm()" id="imNew" style="color: orangered">Regístrese</u></p>
         <form action="" id="nuevoUsuario">
-            <label for="newNombre">Nombre</label>
+            <h2>Registro</h2>
+            <label for="newNombre">Nombre</label><br>
             <input type="text" name="newNombre" id="newNombre"><br>
-            <label for="newApellido">Apellido</label>
+            <label for="newApellido">Apellido</label><br>
             <input type="text" name="newApellido" id="newApellido"><br>
-            <label for="newEmail">email</label>
+            <label for="newEmail">email</label><br>
             <input type="text" name="newEmail" id="newEmail"><br>
         </form>
+        <input type="button" value="ingresar" id="botonIngreso">
+        <p id="imNew">nuevo en la página? <u onclick="mostrarForm()" style="color: orangered; cursor:pointer">Regístrese</u></p>
+
     </div>
 </body>
 </html>
