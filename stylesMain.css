@@ -15,6 +15,12 @@ body{
     height: 750px;
 }
 
+
+/* 
+input[type=text]{
+    
+} */
+
 #home h1{
     grid-row: 1;
     font-family:"Old London";
@@ -32,7 +38,7 @@ body{
 }
 
 .ciudades{
-    background-image: url(imagenes/vector-naranja2.jpg);
+    /* background-image: url(imagenes/vector-naranja2.jpg); */
     background-size:contain;
     /* position: absolute; */
     grid-row: 3;
@@ -63,15 +69,15 @@ body{
 }
 
 .sanFierro{
-    background-image: url(imagenes/sFierro.jpg);
-    left: 50%;
+    background-image: url(imagenes/sFierroAI.jpg);
+    left: 46%;
 }
 
 .lasVenturas{
     background-image: url(imagenes/las\ venturas.png);
 }
 
-#descripcionLS, #descripcionSF, #descripcionLV{
+#descripcionLS, #descripcionLV{
     width: 200px;
     height: 200px;
     position: absolute;
@@ -84,13 +90,34 @@ body{
     background-color: rgb(230, 187, 130);
 }
 #descripcionSF{
-    background-color: rgb(246, 148, 113);
-    right: 500px;
+    background-color: rgb(248, 163, 132);
+    width: 200px;
+    height: 230px;
+    position: absolute;
+    left: -80px;
+    top: 50px;
+    border-radius: 5px;
 }
 #descripcionLV{
     background-color: rgb(178, 109, 224);
+    height: 250px;
 }
 
+.fontLS, .fontLV, .fontSF{
+    margin: 0px;
+}
+
+.fontLS{
+    background-image: conic-gradient(rgb(255, 255, 160),orange);
+}
+
+.fontSF{
+    background-image: conic-gradient(gray ,rgb(255, 156, 121));
+}
+
+.fontLV{
+    background-image: conic-gradient(rgb(163, 65, 205) ,rgb(113, 113, 255));
+}
 a{
     margin: auto;
     color: black;
@@ -114,6 +141,11 @@ a{
    
 }
 
+
+#navbar{
+
+    background-color: orange;
+}
 
 ul{
     display: flex;

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #colorLinesDiv {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            background-color: white; /* Color de fondo del div principal */
+        }
+        /* Pseudo-elementos para líneas horizontales y verticales */
+        #colorLinesDiv::before, #colorLinesDiv::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 10px; /* Altura de las líneas horizontales */
+            z-index: 1; /* Asegura que las líneas estén delante del contenido */
+        }
+        #colorLinesDiv::before {
+            top: 0;
+            background-color: red; /* Color de la línea superior */
+        }
+        #colorLinesDiv::after {
+            bottom: 0;
+            background-color: blue; /* Color de la línea inferior */
+        }
+        #colorLinesDiv::before.vertical {
+            width: 10px; /* Ancho de las líneas verticales */
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: green; /* Color de la línea izquierda */
+        }
+        #colorLinesDiv::after.vertical {
+            width: 10px; /* Ancho de las líneas verticales */
+            height: 100%;
+            top: 0;
+            right: 0;
+            background-color: yellow; /* Color de la línea derecha */
+        }
+    </style>
+</head>
+<body>
+    <div id="colorLinesDiv"></div>
+</body>
+</html>

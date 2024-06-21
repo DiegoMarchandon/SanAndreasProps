@@ -9,7 +9,7 @@ function mostrarForm(){
     nuevoUsuario.style.display = 'block';
     registrarse.style.display = 'none';
     parrafoSoyNuevo.style.display = 'none';
-
+    document.getElementById('box-form').style.height = '500px';
     /* manualmente, me aseguro de que todos los estilos se apliquen .*/
     // var formulario = document.getElementsByTagName("form")[1];
     /* la coleccion devuelta no es un array real sino un objeto de tipo
