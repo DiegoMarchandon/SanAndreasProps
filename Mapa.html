@@ -3,110 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todas nuestras propiedades</title>
-</head>
-<style>
-    body {
-        background-color: black;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-        overflow: hidden;
-    }
-    #mapa {
-        width: 800px;
-        height: 800px;
-        background-image: url(imagenes/SanAndreasMap.png);
-        background-repeat: no-repeat;
-        background-size: cover;
-        cursor: grab;
-        /* transition: transform 0.3s ease; */
-        transform-origin: top left;
-    }
-    #mapa:active {
-        cursor: grabbing;
-    }
-</style>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const zoomContainer = document.querySelector('#mapa');
-        let scale = 1; // Escala inicial de la imagen
-        let isDragging = false;
-        let startX, startY;
-        let translateX = 0, translateY = 0;
+    <title>Document</title>
 
-        // Aplica la transformación de escala y traducción a la imagen
-        function updateTransform() {
-            zoomContainer.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            outline: 0;
+            overflow: hidden;
         }
 
-        zoomContainer.addEventListener('wheel', function(event) {
-            event.preventDefault(); // Evita el comportamiento por defecto de la rueda del mouse
-
-            // Almacenar la escala anterior
-            const prevScale = scale;
-
-            // Ajusta la escala según la dirección de la rueda del mouse (deltaY)
-            scale += event.deltaY * -0.005;
-
-            // Limita el zoom mínimo (.8) y máximo(8)
-            scale = Math.min(Math.max(0.8, scale), 8);
-
-            // Devuelve el tamaño de un elemento y su posición relativa respecto a la ventana de visualización (viewport)
-            const rect = zoomContainer.getBoundingClientRect();
-
-            const offsetX = (event.clientX - rect.left) / rect.width;
-            const offsetY = (event.clientY - rect.top) / rect.height;
-
-            // calcular la diferencia en escala;
-            const scaleDiff = scale - prevScale;
-
-            translateX -= offsetX * rect.width * scaleDiff;
-            translateY -= offsetY * rect.height * scaleDiff;
-
-            // Asegurar que la imagen no se vaya fuera de los límites visibles
-            const maxTranslateX = (rect.width * scale - rect.width) / 2;
-            const maxTranslateY = (rect.height * scale - rect.height) / 2;
-
-            translateX = Math.min(Math.max(translateX, -maxTranslateX), maxTranslateX);
-            translateY = Math.min(Math.max(translateY, -maxTranslateY), maxTranslateY);
-
-            updateTransform();
-        });
-
-        zoomContainer.addEventListener('mousedown', function(event) {
-            isDragging = true;
-            startX = event.clientX - translateX;
-            startY = event.clientY - translateY;
-            zoomContainer.style.cursor = 'grabbing';
-        });
-
-        zoomContainer.addEventListener('mouseleave', function() {
-            isDragging = false;
-            zoomContainer.style.cursor = 'grab';
-        });
-
-        zoomContainer.addEventListener('mouseup', function() {
-            isDragging = false;
-            zoomContainer.style.cursor = 'grab';
-        });
-
-        zoomContainer.addEventListener('mousemove', function(event) {
-            if (!isDragging) return;
-            event.preventDefault();
-            translateX = event.clientX - startX;
-            translateY = event.clientY - startY;
-
-            // Asegurar que la imagen no se vaya fuera de los límites visibles
-            const rect = zoomContainer.getBoundingClientRect();
-
-            updateTransform();
-        });
-    });
-</script>
+        html,body{
+            background-color: black;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .zoom_outer {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        .zoom{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            transform-origin: 0px 0px;
+            transform: scale(1) translate(0px, 0px);
+            cursor: grab; 
+        }
+        .zoom img{
+            width: 800px;
+            height: 800px;
+        }
+    </style>
+</head>
 <body>
-    <div id="mapa"></div>
+    
+<div class = "zoom_outer">
+    <div class = "zoom" id="zoom">
+        <img src="imagenes/SanAndreasMap.png" alt="GTA MAP">
+    </div>
+</div>
+
+<script>
+    var scale = 1,
+    panning = false,
+    pointX = 0,
+    pointY = 0,
+    start = {x: 0, y: 0},
+    zoom = document.getElementById("zoom");
+
+    function setTransform(){
+        zoom.style.transform = "translate("+ pointX + "px," + pointY + "px) scale("+scale+")";
+    }
+
+    zoom.onmousedown = function(e){
+        e.preventDefault();
+
+        start = {x : e.clientX - pointX, y : e.clientY - pointY};
+        panning = true;
+    }
+    zoom.onmouseup = function(e){
+        panning = false;
+    }
+
+    zoom.onmousemove = function(e){
+        e.preventDefault();
+
+        if(!panning){
+            return;
+        }
+
+        pointX = (e.clientX - start.x);
+        pointY = (e.clientY - start.y);
+        setTransform();
+    }
+
+    zoom.onwheel = function(e){
+        e.preventDefault();
+
+        var xs = (e.clientX - pointX) / scale,
+            ys = (e.clientY - pointY) / scale,
+            delta = (e.wheelDelta ? e.wheelDelta : -e.deltaY);
+        (delta > 0 ) ? (scale *= 1.2) : (scale /= 1.2);
+
+        pointX = e.clientX - xs * scale;
+        pointY = e.clientY - ys * scale;
+
+        setTransform();
+    }
+</script>
 </body>
 </html>
