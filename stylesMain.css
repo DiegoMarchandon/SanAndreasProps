@@ -16,21 +16,19 @@ body{
 }
 
 .search-button{
-    /* position: relative; */
     width: 35px;
     height: 35px;
-    margin: 0px;
     padding: 0px;
+    position: absolute;
 }
 .search-icon{
-    position: absolute;
     display: flex;
-    /* padding: 10px 10px; */
+    justify-content: center;
+    align-items: center;
     cursor:pointer;
     width: 30px;
     border-radius: 5px;
     height: 30px;
-    bottom: 475px;
 
     background-image: url(imagenes/lupaLogo.png);
     background-size: cover;
@@ -38,6 +36,7 @@ body{
 
 }
 
+/* #eleccion{ } */
 input[type=text]{
     background-color: white solid;
     caret-color: orangered;
@@ -47,13 +46,33 @@ input[type=text]{
     /* opacity: 0.7; */
     font-size: 20px;
     height: 30px;
+    align-items: center;
+    justify-content: center;
 }
 
 select{
     background-color: orangered;
     height: 35px;
-    margin: 0px;
-    padding: 0px;
+    font-size: 15px;
+}
+
+
+.buscarCiudad{
+    grid-row: 2;
+    background-color: orange;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 20px;
+    margin: 200px; 
+    width: 500px;
+    height: 50px;
+    /* centra un div dentro de una fila grid */
+    justify-self: center;
+    border-radius: 20px;
+    opacity: 0.8;
+   
 }
 
 #home h1{
@@ -159,28 +178,12 @@ a{
     text-decoration: none;
 }
 
-.buscarCiudad{
-    grid-row: 2;
-    background-color: orange;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 25px;
-    margin: 200px; 
-    width: 500px;
-    height: 50px;
-    /* centra un div dentro de una fila grid */
-    justify-self: center;
-    border-radius: 20px;
-    opacity: 0.8;
-   
-}
 
 
-#navbar{
+/* #navbar{
 
     background-color: orange;
-}
+}*/
 
 ul{
     display: flex;
@@ -192,4 +195,42 @@ ul{
 }
 li{
     display: inline;
+} 
+#navbar {
+    background-color: #333;
+}
+
+#navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#navbar ul li {
+    float: left;
+}
+
+#navbar ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    transition: background 0.3s ease;
+}
+
+#navbar ul li a:hover,
+#navbar ul li a:focus {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+    background-size: 10px 10px;
+    color: #ffeb3b;
+}
+
+/* Clear floats after the list items */
+#navbar:after {
+    content: "";
+    display: table;
+    clear: both;
 }
