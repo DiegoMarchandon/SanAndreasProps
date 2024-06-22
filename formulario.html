@@ -74,22 +74,21 @@
     }
 
     /* accedo al pseudo-elemento de los input text a través de sus id*/
-    #contraseña::placeholder, #usuario::placeholder{
+    #contraseña::placeholder, #email::placeholder{
         font-size: 16px;
         padding: 5px;
     }
+    input[type="text"]::placeholder {
+            color: grey;
+        }
 </style>
-
-<script src="validacionForms.js">
-    
-</script>
 <body>
 
     <div id="box-form" >
         <form action="" id="ingreso">
             <h2>Bienvenido</h2>
             <!-- <label for="nombre">Ingrese su nombre o su mail:</label><br> -->
-            <input type="text" name="usuario" id="usuario" placeholder="ingrese su usuario"><br>
+            <input type="text" name="email" id="email" placeholder="ingrese su email"><br>
             <!-- <label for="apellido">Ingrese su apellido:</label><br> -->
             <input type="text" name="contraseña" id="contraseña" placeholder="ingrese su contraseña"><br>
             <!-- olvidé mi contraseña: opción que paarezca si se ingresa mal la contraseña 2 veces -->
@@ -107,9 +106,13 @@
             <label for="newEmail">reescriba contraseña</label><br>
             <input type="text" name="newContraRep" id="newContraRep"><br>
         </form>
-        <input type="button" value="ingresar" id="botonIngreso">
+        <input type="button" value="ingresar" id="botonIngreso" onclick="return validar()">
         <p id="imNew">nuevo en la página? <u onclick="mostrarForm()" style="color: orangered; cursor:pointer">Regístrese</u></p>
 
     </div>
+    
+<script src="validacionForms.js">
+    
+</script>
 </body>
 </html>
