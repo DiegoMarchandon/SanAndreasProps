@@ -1,7 +1,7 @@
 @import url('https://fonts.cdnfonts.com/css/old-london');
 
 body{
-    background-color: white;
+    background-image: linear-gradient(to right, orangered , orange);
 }
 
 
@@ -15,11 +15,46 @@ body{
     height: 750px;
 }
 
+.search-button{
+    /* position: relative; */
+    width: 35px;
+    height: 35px;
+    margin: 0px;
+    padding: 0px;
+}
+.search-icon{
+    position: absolute;
+    display: flex;
+    /* padding: 10px 10px; */
+    cursor:pointer;
+    width: 30px;
+    border-radius: 5px;
+    height: 30px;
+    bottom: 475px;
 
-/* 
+    background-image: url(imagenes/lupaLogo.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
 input[type=text]{
-    
-} */
+    background-color: white solid;
+    caret-color: orangered;
+    border: none;
+    border-bottom: 5px solid orangered;
+    border-left: 5px solid orangered;
+    /* opacity: 0.7; */
+    font-size: 20px;
+    height: 30px;
+}
+
+select{
+    background-color: orangered;
+    height: 35px;
+    margin: 0px;
+    padding: 0px;
+}
 
 #home h1{
     grid-row: 1;
