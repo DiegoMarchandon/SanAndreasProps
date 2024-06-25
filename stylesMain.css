@@ -1,17 +1,22 @@
 @import url('https://fonts.cdnfonts.com/css/old-london');
 
 body{
-    background-image: linear-gradient(to right, orangered , orange);
+    background-image: linear-gradient(orangered , orange);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 
 #home{
     display: grid;
     grid-template-rows: auto auto auto;
-    background-image: url(imagenes/saProps.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center -75px;
+    /* background-image: url(imagenes/saProps.png); */
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
+    /* background-position: center -75px; */
+    background: linear-gradient(to bottom, rgba(255,0,0,0) 60%, rgba(255, 148, 0,1)), 
+                url(imagenes/saProps.png) no-repeat center -75px / cover;
     height: 750px;
 }
 
@@ -124,7 +129,7 @@ select{
 
 .sanFierro{
     background-image: url(imagenes/sFierroAI.jpg);
-    left: 46%;
+    left: 50%;
 }
 
 .lasVenturas{
@@ -149,7 +154,7 @@ select{
     height: 230px;
     position: absolute;
     left: -80px;
-    top: 50px;
+    top: 10px;
     border-radius: 5px;
 }
 #descripcionLV{
@@ -171,6 +176,27 @@ select{
 
 .fontLV{
     background-image: conic-gradient(rgb(163, 65, 205) ,rgb(113, 113, 255));
+}
+
+#LSfuente{
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 68%;
+    height: 18%;
+}
+
+#SFfuente{
+    margin-top: 10px;
+    margin-left: 40px;
+    width: 68%;
+    height: 15%;
+}
+
+#LVfuente{
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 80%;
+    height: 14%;
 }
 a{
     margin: auto;
@@ -234,4 +260,22 @@ li{
     content: "";
     display: table;
     clear: both;
+}
+
+footer {
+    background: linear-gradient(180deg, black, orange);
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer img{
+    height: 40px;
+}
+footer a{
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
 }
