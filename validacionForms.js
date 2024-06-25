@@ -1,7 +1,7 @@
 // página para realizar la validacion de formulario de ingreso a la pagina web
 
 // usuarios y contraseñas precargados:
-let users = {
+/* let users = {
     "user1":{
         Email: "jSanchez777@gmail.com",
         Contraseña: "30agosto1998"
@@ -15,6 +15,26 @@ let users = {
         Contraseña: "contraseña"
     }
 };
+// local storage guarda string. Y lo que tengo es un objeto. Por los que necesito convertirlo a un formato que pueda ser guardado
+// Para ello, utilizo JSON.stringify, este último se encarga de recibir el objeto y convertirlo a string
+
+localStorage.setItem("usuarios", JSON.stringify(users));
+ */
+
+console.log(localStorage.getItem("usuarios"));
+
+function compareUsernames(username){
+    // obtengo los nombres de usuario almacenados en el localStorage
+    let usersGuardados = JSON.parse(localStorage.getItem('usuarios') || {});
+
+    // verifico si el nombre de usuario existe en los usuarios almacenados
+    if(usersGuardados[username]){
+
+    }else{
+
+    }
+}
+
 
 function mostrarForm(){
     // alert("fui clickeado");
@@ -91,6 +111,7 @@ function contraseñaValida(contra){
     return valido;
 }
 
+// validar datos de un usuario nuevo. Si son todos válidos, se almacenan en el local storage
 function validar(){
     const nombreYapellidoValid = /^[a-zA-ZÀ-ÿ\s]{1,40}$/;
     var validezForm = true;
