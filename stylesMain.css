@@ -26,9 +26,9 @@ body{
     /* background-repeat: no-repeat; */
     /* background-size: cover; */
     /* background-position: center -75px; */
-    background: linear-gradient(to bottom, rgba(255,0,0,0) 60%, rgba(255, 155, 0,1)), 
+    background: linear-gradient(to bottom, rgba(255,0,0,0) 60%, rgba(255, 152, 0,1)), 
                 url(imagenes/saProps.png) no-repeat center -75px / cover;
-    background-size: 100% 800px;
+    background-size: 100% 700px;
     height: auto;
 }
 
@@ -141,7 +141,7 @@ select{
 
 .sanFierro{
     background-image: url(imagenes/sFierroAI.jpg);
-    left: 50%;
+    left: 35%;
 }
 
 .lasVenturas{

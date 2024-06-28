@@ -21,21 +21,47 @@
 localStorage.setItem("usuarios", JSON.stringify(users));
  */
 
-console.log(localStorage.getItem("usuarios"));
 
-function compareUsernames(username){
+function compareUserData(){
+    let usuarioExistente = false;
+    let mailIngresado = document.getElementById("email").value;
+    let contraIngresada = document.getElementById("contraseña").value;
     // obtengo los nombres de usuario almacenados en el localStorage
-    let usersGuardados = JSON.parse(localStorage.getItem('usuarios') || {});
-
-    // verifico si el nombre de usuario existe en los usuarios almacenados
-    if(usersGuardados[username]){
-
-    }else{
-
+        // parseo el JSON y obtengo el objeto javascript. 
+    let usersGuardados = JSON.parse(localStorage.getItem('usuarios'));
+    // recorro los usuarios almacenados para verificar 
+    // si el mail ingresado coincide coincide con alguno de los emails de los usuarios 
+    for (const user in usersGuardados) {
+        if(usersGuardados[user].Email == mailIngresado && usersGuardados[user].Contraseña == contraIngresada){
+            usuarioExistente = true;
+            // alert("mismo email");
+        }else{
+            alert("email no reconocido");
+        }
     }
+    return !usuarioExistente;
 }
 
 
+function cambiarVisibilidad(){
+    let ojoClick = document.getElementById("eyeButton");
+    let mostrar = document.getElementById("showPass");
+    let ocultar = document.getElementById("hidePass");
+    let contraseña = document.getElementById("contraseña");
+    ojoClick.addEventListener("click", function(event){
+        // alert("mensaje");
+        // event.preventDefault();
+        if(mostrar.style.display === 'none'){
+            ocultar.style.display = 'none';
+            mostrar.style.display = 'inline';
+            contraseña.type = 'text';
+        }else{
+            ocultar.style.display = 'inline';
+            mostrar.style.display = 'none';
+            contraseña.type = 'password';
+        }
+    })
+}
 function mostrarForm(){
     // alert("fui clickeado");
     var registro = document.getElementById("registro");
@@ -141,7 +167,7 @@ function validar(){
             validezForm = false;
         }
 
-    }else{
+    }else{ /* iniciar sesión */
         var emailExists = document.getElementById("email");
         var contraExists = document.getElementById("contraseña");
 
@@ -149,6 +175,9 @@ function validar(){
             validezForm = false;
         }
         if(!contraseñaValida(contraExists)){
+            validezForm = false;
+        }
+        if(!compareUserData()){
             validezForm = false;
         }
     }   

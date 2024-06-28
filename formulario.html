@@ -76,7 +76,7 @@
             border-radius: 15px;   
         }
     
-        input[type=text]{
+        input[type=text], input[type=password]{
             /* background-color: orange; */
             /* background-image: linear-gradient(to right, rgb(255, 255, 255) , orange); */
             border:none;
@@ -124,8 +124,32 @@
             padding: 5px;
         }
         input[type="text"]::placeholder {
-                color: grey;
-            }
+            color: grey;
+        }
+        .icon{
+            position: relative;
+            width: 20px;
+            height: 20px;
+            /* transform: translateY(-50%); */
+            cursor: pointer;
+        }
+
+        .passDiv{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #eyeButton{
+            border: none;
+            background-color: white;
+            width: 30px;
+            height: 20px;
+            opacity: 0.5;
+            margin: 0px;
+            padding: 0px;
+        }
+
     </style>
 </head>
 
@@ -147,8 +171,14 @@
             <!-- <label for="nombre">Ingrese su nombre o su mail:</label><br> -->
             <input type="text" name="email" id="email" placeholder="ingrese su email"><br>
             <!-- <label for="apellido">Ingrese su apellido:</label><br> -->
-            <input type="text" name="contraseña" id="contraseña" placeholder="ingrese su contraseña"><br>
-            <!-- olvidé mi contraseña: opción que paarezca si se ingresa mal la contraseña 2 veces -->
+             <div class= "passDiv">
+                 <input type="text" name="contraseña" id="contraseña" placeholder="ingrese su contraseña">
+                 <button type="button" id="eyeButton" onclick="cambiarVisibilidad()">
+                     <img src="imagenes/showEye.png" alt="" class= "icon" id="showPass">
+                     <img src="imagenes/hideEye.jpg" alt="" class= "icon" id="hidePass" style="display: none;">
+                 </button>
+             </div>
+            <!-- olvidé mi contraseña: opción que parezca si se ingresa mal la contraseña 2 veces -->
         </form>
         <form action="" id="registro">
             <h2>Registro</h2>
@@ -169,7 +199,6 @@
     </div>
     
 <script src="validacionForms.js">
-    
 </script>
 </body>
 </html>
