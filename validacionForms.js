@@ -18,9 +18,9 @@
 // local storage guarda string. Y lo que tengo es un objeto. Por los que necesito convertirlo a un formato que pueda ser guardado
 // Para ello, utilizo JSON.stringify, este último se encarga de recibir el objeto y convertirlo a string
 
-localStorage.setItem("usuarios", JSON.stringify(users));
- */
-
+*/
+// localStorage.setItem("usuarios", JSON.stringify(users));
+// console.log(localStorage.getItem("usuarios", JSON.stringify(users)));
 
 function compareUserData(){
     let usuarioExistente = false;
@@ -31,14 +31,18 @@ function compareUserData(){
     let usersGuardados = JSON.parse(localStorage.getItem('usuarios'));
     // recorro los usuarios almacenados para verificar 
     // si el mail ingresado coincide coincide con alguno de los emails de los usuarios 
-    for (const user in usersGuardados) {
-        if(usersGuardados[user].Email == mailIngresado && usersGuardados[user].Contraseña == contraIngresada){
+    let userNum = 0;
+    do{
+        let clave = Object.keys(usersGuardados)[userNum];
+        let valorMail = usersGuardados[clave].Email;
+        let valorContraseña = usersGuardados[clave].Contraseña;
+        if(valorMail == mailIngresado && valorContraseña == contraIngresada){
             usuarioExistente = true;
-            // alert("mismo email");
-        }else{
-            alert("email no reconocido");
+            alert(valorMail + " y " + mailIngresado + "<br>" + valorContraseña + " y " + contraIngresada);
         }
-    }
+        userNum++;
+    }while(userNum <= Object.keys(usersGuardados).length && !usuarioExistente);
+
     return !usuarioExistente;
 }
 
