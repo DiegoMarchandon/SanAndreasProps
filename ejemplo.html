@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    .panel-lateral{
+        width: 200px;
+        height: 600px;
+        background-color: black;
+        position: fixed;
+        left: -150px;
+    }
+    #desplegable{
+        background-image: url(imagenes/double_arrow_icon.png);
+        background-repeat: no-repeat;
+        /* background-attachment: fixed; */
+        background-size: cover;
+        position: absolute;
+        left: 100%;
+        bottom: 50%;
+        width: 50px;
+        height: 50px;
+        cursor:pointer;
+    }
+    .color{
+        height: 300px;
+    }
+</style>
+<body>
+    
+<div class="panel-lateral">
+    <button id="desplegable">
+        
+    </button>
+</div>
+
+<div class="color" style="background-color: red;"></div>
+<div class="color" style="background-color: yellow;"></div>
+<div class="color" style="background-color: green;"></div>
+<div class="color" style="background-color: aqua;"></div>
+
+</body>
+</html>

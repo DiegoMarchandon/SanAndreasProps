@@ -38,7 +38,6 @@ function compareUserData(){
         let valorContraseña = usersGuardados[clave].Contraseña;
         if(valorMail == mailIngresado && valorContraseña == contraIngresada){
             usuarioExistente = true;
-            alert(valorMail + " y " + mailIngresado + "<br>" + valorContraseña + " y " + contraIngresada);
         }
         userNum++;
     }while(userNum <= Object.keys(usersGuardados).length && !usuarioExistente);
@@ -103,31 +102,31 @@ function nombreValido(names){
 }
 
 function mailValido(email){
-        const emailValid = /^[a-zA-Z0-9][a-zA-Z0-9_.+-]*@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
-        // var email = document.getElementById("newEmail");
-        var valido = true;
+    const emailValid = /^[a-zA-Z0-9][a-zA-Z0-9_.+-]*@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+    // var email = document.getElementById("newEmail");
+    var valido = true;
 
-        // var email = document.getElementById("email");
-        var emailValor = email.value;
-        var emailPartes = emailValor.split('@');
-        var user = emailPartes[0];
-        var dominio = emailPartes[1];
+    // var email = document.getElementById("email");
+    var emailValor = email.value;
+    var emailPartes = emailValor.split('@');
+    var user = emailPartes[0];
+    var dominio = emailPartes[1];
 
-        if(!(emailValor.includes("@")) || (emailValor.includes("..")) || 
-        user.length === 0 || dominio.length === 0 || user[0] === "." || dominio[0] === "."
-            || user[user.length-1] === "." || dominio[dominio.length-1] === "."){
-            valido = false;
-        }
-        if(!(emailValid.test(emailValor))){
-            valido = false; 
-            email.placeholder = "mail inválido";
-            email.style.borderColor = 'red';
-        }else{  
-             
-            email.style.borderColor = 'green';
-        }
-        
-        return valido;
+    if(!(emailValor.includes("@")) || (emailValor.includes("..")) || 
+    user.length === 0 || dominio.length === 0 || user[0] === "." || dominio[0] === "."
+        || user[user.length-1] === "." || dominio[dominio.length-1] === "."){
+        valido = false;
+    }
+    if(!(emailValid.test(emailValor))){
+        valido = false; 
+        email.placeholder = "mail inválido";
+        email.style.borderColor = 'red';
+    }else{  
+            
+        email.style.borderColor = 'green';
+    }
+    
+    return valido;
 }
 
 function contraseñaValida(contra){
@@ -147,7 +146,7 @@ function validar(){
     var validezForm = true;
 
     var registro = document.getElementById("registro");
-    if(registro.style.display === 'block'){ // si el registro ahora se muestra visible, valido los campos del mismo.
+    if(registro.style.display === 'block'){ /* registrarse (ahora se encuentra visible) */
         var nombre = document.getElementById("newNombre");
         var apellido = document.getElementById("newApellido");
         var email = document.getElementById("newEmail");
@@ -163,12 +162,53 @@ function validar(){
         if(!nombreValido(apellido)){
             validezForm = false;
         }
-        if( (contraseña.value != contraDenuevo.value) ||
-         (!contraseñaValida(contraseña))){
+        // defino el elemento padre
+        const elementoPadre = document.querySelector('#registro');
+        if( contraseña.value !== contraDenuevo.value){
+            validezForm = false;
+            contraseña.style.borderColor = 'red';
+            contraDenuevo.style.borderColor = 'red';
+            
+            // creo los nodos (si todavía no existen)
+            if(elementoPadre.getElementsByTagName('p').length == 0){
+                const parrafoAdvertencia = document.createElement('p');
+                const textoAdvertencia = document.createTextNode("contraseñas distintas.");
+                // agrego los nodos al elemento padre definido
+                elementoPadre.appendChild(parrafoAdvertencia);
+                parrafoAdvertencia.appendChild(textoAdvertencia);
+
+            }
+            
+
+        }else{
+            contraseña.style.borderColor = 'green';
+            contraDenuevo.style.borderColor = 'green';
+            const parrafoAdv = elementoPadre.querySelector('p');
+
+            if(parrafoAdv){ /* si parrafoAdv existe */
+                parrafoAdv.parentNode.removeChild(parrafoAdv);            
+
+            }
+        }
+        if(!(contraseñaValida(contraseña))){
             validezForm = false;
         }
         if(!(contraseñaValida(contraDenuevo))){
             validezForm = false;
+        }
+
+        // si los datos son válidos, guardo el email y la contraseña
+        if(validezForm){
+            alert("todos los datos validos");
+            let cantClaves = Object.keys(usersGuardados).length;
+            let userNro = "user"+(cantClaves+1);
+            usersGuardados[userNro] = {
+                Email: email.value,
+                Contraseña: contraseña.value
+            };
+            // actualizo el localStorage con el nuevo usuario
+            localStorage.setItem('usuarios', JSON.stringify(usersGuardados));
+            window.location.replace('index.html');
         }
 
     }else{ /* iniciar sesión */
@@ -180,9 +220,16 @@ function validar(){
         }
         if(!contraseñaValida(contraExists)){
             validezForm = false;
+        }else{
+            contraExists.style.borderColor = 'green';
         }
-        if(!compareUserData()){
+        if(compareUserData()){
             validezForm = false;
+        }
+
+        if(validezForm){
+            alert("el usuario existe");
+            window.location.replace('index.html');
         }
     }   
     return validezForm;
