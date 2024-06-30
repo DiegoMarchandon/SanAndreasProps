@@ -13,85 +13,105 @@
         <div id="navbar">
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="">Localidades</a></li>
+                <li><a href="propiedades.html">Propiedades</a></li>
                 <li><a href="Nosotros.html">Nosotros</a></li>
                 <li><a href="Mapa.html">Mapa</a></li>
                 <li><a href="formulario.html">Iniciar Sesión</a></li>
             </ul>
+            
         </div>
         <div id="home">
     
-                <h1><strong>San Andreas Properties</strong></h1>    
+            <h1><strong>San Andreas Properties</strong></h1>    
     
             <div class="buscarCiudad">
-                <form action="">
-                    <input type="text" name="eleccion" id="eleccion" placeholder="dónde quisieras mudarte">
-                    <select name="tipoPropiedad" id="tipoPropiedad">
-                        <option value="sanfierro">Todas las localidades</option>
-                        <option value="sanfierro">San Fierro</option>
-                        <option value="lossantos">Los Santos</option>
-                        <option value="lasventuras">Las Venturas</option>   
-                    </select>
-                    <!-- <input type="submit" value="Buscar"> onclick=return propiedades() -->
-                    <button class="search-button">
-                        <span class="search-icon"></span>
-                    </button>
-                </form>
+                <div id="button-container">
+                    <button id="buton1" onclick="verPropuesta(this)">ver <br> Localidades</button>
+                    <button id="buton2" onclick="verPropuesta(this)">ver <br> Emprendimientos</button>
+                    <button id="buton3" onclick="verPropuesta(this)">ver <br> Alquileres</button>
+                    <button id="buton4" onclick="verPropuesta(this)">ver <br> Propiedades</button>
+                </div>
+                <div id="form-container">
+                    <form action="">
+                        <input type="text" name="eleccion" id="eleccion" placeholder="dónde quisieras mudarte">
+                        <select name="tipoPropiedad" id="tipoPropiedad">
+                            <option value="sanfierro">Todas las localidades</option>
+                            <option value="sanfierro">San Fierro</option>
+                            <option value="lossantos">Los Santos</option>
+                            <option value="lasventuras">Las Venturas</option>   
+                        </select>
+                        <!-- <input type="submit" value="Buscar"> onclick=return propiedades() -->
+                        <button class="search-button">
+                            <span class="search-icon"></span>
+                        </button>
+                    </form>
+                </div>
             </div>
-            <div class="ciudades">
-                <div class="fontLS">
-                    <div class="losSantos">
-                        <a href="LosSantos.html">
-                            <div id="descripcionLS">
-                                <img src="imagenes/losSantos.png" alt="letra los santos" id="LSfuente">
-                                <!-- <h2>Los Santos</h2> -->
-                                <p>Ciudad con precios más accesibles y la más fácil para adaptarse. Propiedades sospechosamente baratas
-                                    <br><br><u><b>ir a SA props Los Santos</b></u>
-                                </p>
-                                
-                            </div>
-                        </a>
+
+            <div id="seccionElegida">
+
+                <!-- ver ciudades -->
+                <div class="ciudades" style="display: none">
+                    <div class="ciudad fontLS" style="display: none">
+                        <div class="losSantos">
+                            <a href="LosSantos.html">
+                                <div id="descripcionLS">
+                                    <img src="imagenes/losSantos.png" alt="letra los santos" id="LSfuente">
+                                    <!-- <h2>Los Santos</h2> -->
+                                    <p>Ciudad con precios más accesibles y la más fácil para adaptarse. Propiedades sospechosamente baratas
+                                        <br><br><u><b>ver propiedades en Los Santos</b></u>
+                                    </p>
+                                    
+                                </div>
+                            </a>
+                        </div>
                     </div>
-                </div>
-    
-                <div class="fontSF">
-                    <div class="sanFierro">
-                        <a href="SanFierro.html">
-                            <div id="descripcionSF">
-                                <img src="imagenes/sanFierro.png" alt="letra san fierro" id="SFfuente">
-                                <!-- <h2>San Fierro</h2> -->
-                                <p>Ciudad con mayor variedad de precios, propiedades y actividades. Viviendas desde lo bohemio hasta lo elegante.
-                                    Espacio para todos los estilos de vida.
-                                    <br><br><u><b>ir a SA props San Fierro</b></u>
-                                </p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
         
-                <div class="fontLV">
-                    <div class="lasVenturas">
-                        <a href="LasVenturas.html">
-                            <div id="descripcionLV">
-                                <img src="imagenes/lasVenturas.png" alt="letra las venturas" id="LVfuente">
-                                <!-- <h2>Las Venturas</h2> -->
-                                <p>Ciudad con mayor vida nocturna y viviendas lujosas. 
-                                    Predominancia de hoteles y alquileres temporales para las personas poder
-                                    que buscan disfrutar de las variadas actividades
-                                    <br><br><u><b>ir a SA props Las Venturas</b></u>
-                                </p>
-                            </div>
-                        </a>
+                    <div class="ciudad fontSF" style="display: none">
+                        <div class="sanFierro" >
+                            <a href="SanFierro.html">
+                                <div id="descripcionSF">
+                                    <img src="imagenes/sanFierro.png" alt="letra san fierro" id="SFfuente">
+                                    <!-- <h2>San Fierro</h2> -->
+                                    <p>Ciudad con mayor variedad de precios, propiedades y actividades. Viviendas desde lo bohemio hasta lo elegante.
+                                        Espacio para todos los estilos de vida.
+                                        <br><br><u><b>ver propiedades en San Fierro</b></u>
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+            
+                    <div class="ciudad fontLV" style="display: none">
+                        <div class="lasVenturas">
+                            <a href="LasVenturas.html">
+                                <div id="descripcionLV">
+                                    <img src="imagenes/lasVenturas.png" alt="letra las venturas" id="LVfuente">
+                                    <!-- <h2>Las Venturas</h2> -->
+                                    <p>Ciudad con mayor vida nocturna y viviendas lujosas. 
+                                        Predominancia de hoteles y alquileres temporales para las personas poder
+                                        que buscan disfrutar de las variadas actividades
+                                        <br><br><u><b>ver propiedades en Las Venturas</b></u>
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
-    </div>
+        </div>
+
+            
     <!-- <div class="panel-lateral">
         <button id="boton-desplegable">
 
         </button>
     </div> -->
+    <div class="userView">
+
+    </div>
 <footer>
     <div class="TermsYcond">
         <a href="https://pedco.uncoma.edu.ar/mod/page/view.php?id=6882">Términos y condiciones</a>
@@ -102,5 +122,6 @@
         </a>
     </div>
 </footer>
+<script src="home.js"></script>
 </body>
 </html>

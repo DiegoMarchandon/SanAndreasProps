@@ -37,15 +37,17 @@ body{
     height: 35px;
     padding: 0px;
     position: absolute;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 .search-icon{
     display: flex;
     justify-content: center;
     align-items: center;
     cursor:pointer;
-    width: 30px;
+    width: 25px;
     border-radius: 5px;
-    height: 30px;
+    height: 25px;
 
     background-image: url(imagenes/lupaLogo.png);
     background-size: cover;
@@ -53,13 +55,21 @@ body{
 
 }
 
-/* #eleccion{ } */
+#form-container form{
+    display: inline-block;
+}
+
+#eleccion{
+    height: 33px;
+    padding: 0px;
+    margin: 0px;
+ }
 input[type=text]{
     background-color: white solid;
     caret-color: orangered;
     border: none;
-    border-bottom: 5px solid orangered;
-    border-left: 5px solid orangered;
+    border-right: 5px solid orange;
+    border-left: 5px solid orange;
     /* opacity: 0.7; */
     font-size: 20px;
     height: 30px;
@@ -68,28 +78,47 @@ input[type=text]{
 }
 
 select{
-    background-color: orangered;
+    background-color: orange;
     height: 35px;
     font-size: 15px;
+    margin: 0px;
+    padding: 0px;
 }
 
 
 .buscarCiudad{
     grid-row: 2;
-    background-color: orange;
+    background-color: rgba(248, 204, 124, 0.5);
     display: flex;
+    flex-direction: column;
     align-items: center;
     /* justify-content: center; */
     position: relative;
-    padding: 10px;
+    padding: 10px 30px 10px 10px;
     margin: 200px; 
     width: 470px;
-    height: 40px;
+    height: 100px;
     /* centra un div dentro de una fila grid */
     justify-self: center;
     border-radius: 20px;
-    opacity: 0.8;
-   
+    /* opacity: 0.8; */
+}
+
+#button-container{
+    display: flex;
+    justify-content: space-between;
+    /* background-color: black; */
+    width: 100%;
+    padding: 10px;
+    
+}
+
+#button-container button{
+    background-color: orange;
+    width: 100px;
+    height: 40px;
+    border-radius: 15px;
+    font-size: 10px;
 }
 
 #home h1{
@@ -113,24 +142,25 @@ select{
     background-size:contain;
     /* position: absolute; */
     grid-row: 3;
-    display: flex;
-    flex-direction: column;
-    grid-template-rows: 10% 30% auto;
-    /* height: 85%; */
-    display: flex;
-    /* background-color: rgba(0, 0, 0, 0.6); Fondo negro con opacidad. "a" = Alpha. Transparencia del color */
-    /* opacity: 0.6; */
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    /* grid-template-rows: 10% 30% auto; */
+    /* height: 500px; */
+    background-color: black;
+    
 }
 
 .ciudades div {
-    margin: 5%;
+    margin: 10%;
 }
 
 .losSantos, .sanFierro, .lasVenturas{
     position: relative;
-
-    width: 600px;
-    height: 300px;
+    width: 390px;
+    height: 250px;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -141,7 +171,7 @@ select{
 
 .sanFierro{
     background-image: url(imagenes/sFierroAI.jpg);
-    left: 35%;
+    left: 50%;
 }
 
 .lasVenturas{
@@ -149,66 +179,78 @@ select{
 }
 
 #descripcionLS, #descripcionLV{
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 150px;
     position: absolute;
-    left: 400px;
+    left: 330px;
+    bottom: 40px;
     border-radius: 5px;
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.6);
+}
+
+#descripcionLS p, #descripcionLV p, #descripcionSF{
+    font-size: 14px;
 }
 
 
 #descripcionLS{
     background-color: rgb(230, 187, 130);
 }
+
 #descripcionSF{
-    background-color: rgb(248, 163, 132);
-    width: 200px;
-    height: 230px;
+    background-color: rgb(235, 161, 163);
+    width: 300px;
+    height: 150px;
     position: absolute;
-    left: -80px;
-    top: 10px;
+    right: 290px;
+    top: 75px;
     border-radius: 5px;
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.6);
 }
 #descripcionLV{
-    background-color: rgb(178, 109, 224);
-    height: 250px;
+    background-color: rgb(170, 130, 196);
+    height: 170px;
+    width: 320px;
+    
 }
 
 .fontLS, .fontLV, .fontSF{
     margin: 0px;
+    width: 80%;
+    height: 400px;
 }
 
 .fontLS{
-    background-image: conic-gradient(rgb(255, 255, 160),orange);
+    background-image: conic-gradient(white, rgb(246, 246, 100));
 }
 
 .fontSF{
-    background-image: conic-gradient(gray ,rgb(255, 156, 121));
+    background-image: conic-gradient(rgb(246, 142, 104), white);
 }
 
 .fontLV{
-    background-image: conic-gradient(rgb(163, 65, 205) ,rgb(113, 113, 255));
+    background-image: conic-gradient(white ,rgb(113, 113, 255));
 }
 
 #LSfuente{
     margin-top: 10px;
     margin-left: 10px;
-    width: 68%;
+    width: 35%;
     height: 18%;
 }
 
 #SFfuente{
     margin-top: 10px;
     margin-left: 40px;
-    width: 68%;
+    width: 35%;
     height: 15%;
 }
 
 #LVfuente{
     margin-top: 10px;
     margin-left: 10px;
-    width: 80%;
-    height: 14%;
+    width: 40%;
+    height: 16%;
 }
 a{
     margin: auto;
@@ -216,12 +258,6 @@ a{
     text-decoration: none;
 }
 
-
-
-/* #navbar{
-
-    background-color: orange;
-}*/
 
 ul{
     display: flex;
