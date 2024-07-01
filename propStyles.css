@@ -71,7 +71,7 @@ nav{
     display: grid;
     grid-template-columns: 40% 60%;
     height: 200px;
-    width: 400px;
+    width: 500px;
     background-color: white;
     margin: 10px;
     border-radius: 20px;
@@ -92,9 +92,47 @@ nav{
 }
 
 .img-container{
-    /* width: 40%; */
-    background-color: orange;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-image: url(imagenes/slider/paisaje.jpg);
+    background-repeat: no-repeat;
+    /* background-attachment: fixed; */
+    background-size: cover;
     height: 100%;
+}
+
+/* estilos de la imagen en el div */
+/* #imagenInicial{
+    width: 50px;
+    height: 30px;
+} */
+
+#prev, #next{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: none;
+    opacity: 0.6;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: opacity 0.3s, border-shadow 0.3s;
+}
+
+#prev:hover, #next:hover{
+    opacity: 1;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+#prev{
+    transform: rotate(180deg);
+}
+
+#prevIMG, #nextIMG{
+    width: 25px;
+    height: 25px;
 }
 
 #favoritos{
@@ -129,10 +167,12 @@ nav{
 }
 
 #propValue{
+    margin: 10px;
     font-size: 25px;
     grid-row: 1;
 }
 #propZona{
+    margin: 10px;
     grid-row: 2;
 }
 #favoritos{
