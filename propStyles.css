@@ -102,13 +102,18 @@ nav{
     height: 100%;
 }
 
-/* estilos de la imagen en el div */
-/* #imagenInicial{
-    width: 50px;
-    height: 30px;
+/* #imagenActual{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    object-fit: cover; 
+    z-index: -1; 
 } */
 
 #prev, #next{
+    z-index: 1;
     display: flex;
     align-items: center;
     justify-content: center;
