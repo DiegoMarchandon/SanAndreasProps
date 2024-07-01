@@ -87,11 +87,55 @@ nav{
 }
 
 .text-prop{
-    background-color: orangered;
+    background-color: grey;
+    position: relative;
 }
 
 .img-container{
     /* width: 40%; */
     background-color: orange;
     height: 100%;
+}
+
+#favoritos{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: 5px;
+    top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: grey;
+    border: none;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+#favoritos:hover{
+    transform: scale(1.1);
+}
+
+#favoritos img{
+    width: 35px;
+    height: 35px;
+    margin: 5px;
+}
+
+.text-prop{
+    display: grid;
+    grid-template-rows: repeat(2,1fr);
+}
+
+#propValue{
+    font-size: 25px;
+    grid-row: 1;
+}
+#propZona{
+    grid-row: 2;
+}
+#favoritos{
+    grid-row: 1;
+    justify-self: end;
 }
