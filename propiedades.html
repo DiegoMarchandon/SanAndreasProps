@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>propiedades</title>
+<link rel="stylesheet" href="propStyles.css">
 </head>
 <body>
     <div id="navbar">
@@ -14,9 +15,81 @@
             <li><a href="Mapa.html">Mapa</a></li>
             <li><a href="formulario.html">Iniciar Sesión</a></li>
         </ul>
-        
     </div>
 
-    
+    <div class="filter-navbar">
+        <nav>
+
+            <div id="especificacion">
+                <input type="text" name="especificacion" placeholder="ingresa un lugar">
+            </div>
+            <div id="tipoPropiedad">
+                <select name="tipoPropiedad" placeholder="tipoPropiedad">
+                    <option value="casa">casa</option>
+                    <option value="departamento">departamento</option>
+                    <option value="local">local</option>
+                    <option value="hotel">hotel</option>
+                </select>
+            </div>
+
+            <select name="accion" id="accion">
+                <option value="comprar">comprar</option>
+                <option value="alquilar">alquilar</option>
+                <option value="alquiler temprario">alquiler temporario</option>
+            </select>
+
+            <div id="precio">
+                
+                <select name="precio" placeholder="precio">
+                    <option value="" disabled selected hidden>Precio</option>
+                    <div id="opcionesPrecio" style="display: none">
+                        <select name="moneda" id="moneda">
+                            <option value="USD">USD</option>
+                            <option value="ARS">ARS</option>
+                            <option value="CLP">CLP</option>
+                            <option value="BRL">BRL</option>
+                            <option value="UYU">UYU</option>
+                        </select>
+                        <div id="desde">
+                            <p>desde</p>
+                            <input type="text" name="desde" id="desdeValue">
+                        </div>
+                        <div id="hasta">
+                            <p>hasta</p>
+                            <input type="text" name="hasta" id="hastaValue">
+                        </div>
+                    </div>
+                </select>
+            </div>
+        </nav>
+    </div>
+
+    <div class="vistaPropiedades">
+
+        <div class="prop-container">
+            <div class="img-container">
+                
+            </div>
+            <div class="text-prop">
+                <p id="propValue">15.000 USD</p>
+                <p id="propZona">av Argentina 123</p>
+
+            </div>
+        </div>
+
+
+        <div class="prop-container"></div>
+        <div class="prop-container"></div>
+        <div class="prop-container"></div>
+
+    </div>
+
+    <div class="paginas">
+
+    </div>
+
+    <div id="propSeleccionada">
+
+    </div>
 </body>
 </html>

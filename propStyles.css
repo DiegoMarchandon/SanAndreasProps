@@ -1,0 +1,97 @@
+/* estilos body */
+body{
+    background-color: rgb(61, 59, 54);
+}
+
+
+/* estilos navbar */
+ul{
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    margin: 10px;
+    padding: 0px;
+}
+li{
+    display: inline;
+} 
+
+#navbar {
+    background-color: #333;
+}
+
+#navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#navbar ul li {
+    float: left;
+}
+
+#navbar ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    font-family: 'Garamond';
+    transition: background 0.3s ease;
+}
+
+#navbar ul li a:hover,
+#navbar ul li a:focus {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+    background-size: 10px 10px;
+    color: #ffeb3b;
+}
+
+/* Clear floats after the list items */
+#navbar:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* navbar de filtado */
+
+nav{
+    display: flex;
+    background-color: grey;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+/* contenedor de propiedad */
+.prop-container{
+    display: grid;
+    grid-template-columns: 40% 60%;
+    height: 200px;
+    width: 400px;
+    background-color: white;
+    margin: 10px;
+    border-radius: 20px;
+    border:solid 5px red;
+    transition: border-color 1s ease;
+}
+.prop-container:hover{
+    border-color: blue;
+}
+
+.text-prop p{
+    font-family:'Times New Roman', Times, serif;
+}
+
+.text-prop{
+    background-color: orangered;
+}
+
+.img-container{
+    /* width: 40%; */
+    background-color: orange;
+    height: 100%;
+}

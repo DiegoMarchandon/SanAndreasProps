@@ -34,13 +34,25 @@ function slideCiudades() {
 function verPropuesta(button){
     // location.href='#seccionElegida';
     let seccion = document.getElementById('seccionElegida');
-    seccion.scrollIntoView({
-        behavior: "smooth",
-        block: "start" 
+    let buttonContainer = document.getElementById('button-container');
+    let botones = buttonContainer.querySelectorAll('button');
+    // Restablecer el estilo de todos los botones
+    botones.forEach(btn => {
+       
+        btn.style.borderColor = 'black';
+        btn.style.backgroundColor = 'orange';
     });
+    
+    button.style.borderColor = 'white';
+    button.style.backgroundColor = 'orangered';
+    
     switch(button.id){
         case 'buton1':
             slideCiudades();
+            seccion.scrollIntoView({
+            behavior: "smooth",
+            block: "start" 
+            });
         // alert("presionado boton 1");
         break;
         case 'buton2':
@@ -53,4 +65,5 @@ function verPropuesta(button){
         // alert("presionado boton 4");
         break;
     }
+    
 }
