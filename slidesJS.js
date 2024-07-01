@@ -1,3 +1,5 @@
+import imagenes from './imagenes.js';
+
 let coleccionIMG = [
     'imagenes/slider/paisaje.jpg',
     'imagenes/slider/RE59Mik.jpg',
@@ -5,8 +7,13 @@ let coleccionIMG = [
 ];
 
 let casasLS = {
-    ["Verdant Bluffs", 'casa',''],
-    []
+    casa1LS: {
+        ubicacion: "Verdant Bluffs",
+        tipoProp: "casa",
+        opcion: "comprar",
+        precio: 15000
+    }
+    
 };
 
 
