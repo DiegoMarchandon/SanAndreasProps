@@ -282,18 +282,76 @@ const contenedorPropiedades = document.getElementById('vistaPropiedades');
  */
 function divProp(propiedad){
     // creo un nuevo div
-const divPropiedad = document.createElement('div');
+const divPropContainer = document.createElement('div');
+divPropContainer.className = 'prop-container';
 
+// creo el div de los slides
+const divSlideContainer = document.createElement('div');
+divSlideContainer.className = 'img-container';
 
+const buttonPrev = document.createElement('button');
+buttonPrev.id = 'prev';
+const imgPrev = document.createElement('img');
+imgPrev.src = 'imagenes/arrowNextPrev.png';
+imgPrev.alt = 'prev';
+imgPrev.id = 'prevIMG';
+buttonPrev.appendChild(imgPrev);
 
-// agrego el nuevo div dentro del contenedor principal
-contenedorPropiedades.appendChild(divPropiedad);
+const buttonNext = document.createElement('button');
+buttonNext.id = 'next';
+const imgNext = document.createElement('img');
+imgNext.src = 'imagenes/arrowNextPrev.png';
+imgNext.alt = 'next';
+imgNext.id = 'nextIMG';
+buttonNext.appendChild(imgNext);
+
+divSlideContainer.append(buttonNext,buttonPrev);
+
+// creo el div de los textos descriptivos
+const divTextsContainer = document.createElement('div');
+divTextsContainer.className = 'text-prop';
+
+const propValue = document.createElement('p');
+propValue.id = 'propValue';
+propValue.textContent = propiedad.precio;
+
+const tipoCambio = document.createElement('p');
+tipoCambio.id = 'tipoCambio';
+tipoCambio.textContent = propiedad.moneda;
+
+const ciudadPropiedad = document.createElement('p');
+ciudadPropiedad.id = 'ciudadPropiedad';
+ciudadPropiedad.textContent = propiedad.localidad;
+
+const propZona = document.createElement('p');
+propZona.id = 'propZona';
+propZona.textContent = propiedad.ubicacion;
+
+const buttonFavoritos = document.createElement('button');
+buttonFavoritos.id = 'favoritos';
+
+const imgFavoritos = document.createElement('img');
+imgFavoritos.src = 'imagenes/orangeHeart.png';
+imgFavoritos.alt = 'imagen de favorito';
+buttonFavoritos.appendChild(imgFavoritos);
+
+// incorporo todos los elementos text al div
+divTextsContainer.append(propValue,tipoCambio,ciudadPropiedad,propZona,buttonFavoritos);
+
+// incorporo ambos divs al div principal
+divPropContainer.append(divSlideContainer,divTextsContainer);
+
+return divPropContainer;
 }
 
 /**
  * muestra una coleccion de propiedades que cumplen con el filtro
  */
 function colProps(){
+
+
+// agrego el nuevo div dentro del contenedor principal
+contenedorPropiedades.appendChild(divPropContainer);
 
 }
 

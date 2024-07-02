@@ -276,11 +276,21 @@ nav{
     cursor: pointer;
 }
 
-#propValue{
+#propValue, #tipoCambio, #ciudadPropiedad{
     margin: 10px;
     font-size: 25px;
     grid-row: 1;
+    grid-column: 1;
 }
+#propValue{
+    position: absolute;
+    left: 60px;
+}
+#ciudadPropiedad{
+    position: absolute;
+    top: 50px;
+}
+
 #propZona{
     margin: 10px;
     grid-row: 2;
