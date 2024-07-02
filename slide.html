@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+
+
+<script>
+var Casa1LSfotos = [
+    'imagenes\slider\casasFotos\gallery32Casa1LS.jpg',
+    'imagenes\slider\casasFotos\gallery24.jpg',
+    'imagenes\slider\casasFotos\gallery25.jpg',
+    'imagenes\slider\casasFotos\gallery26.jpg',
+    'imagenes\slider\casasFotos\gallery27.jpg',
+    'imagenes\slider\casasFotos\gallery28.jpg',
+    'imagenes\slider\casasFotos\gallery30.jpg',
+    'imagenes\slider\casasFotos\gallery31.jpg'
+];
+var Casa2LSfotos = [
+    'imagenes\slider\casasFotos\gallery32Casa2LS.jpg',
+    'imagenes\slider\casasFotos\gallery35.jpg',
+    'imagenes\slider\casasFotos\gallery32N.jpg',
+    'imagenes\slider\casasFotos\gallery33.jpg',
+    'imagenes\slider\casasFotos\gallery34.jpg'
+];
+
+let casasTotales = {
+    casa1LS: {
+        localidad: "Los Santos",
+        ubicacion: "Verdant Bluffs",
+        tipoProp: "Casa",
+        opcion: "Alquilar",
+        precio: 355000,
+        moneda: "ARS",
+        imagenes: Casa1LSfotos
+    },
+    Casa2LS: {
+        localidad: "Los Santos",
+        ubicacion: "Willowfield",
+        tipoProp: "Casa",
+        opcion: "Comprar",
+        precio: 15000,
+        moneda: "USD",
+        imagenes: Casa2LSfotos
+    }
+}
+
+var actualIndex = 0;
+function cambioImagen(action, contenedorIMG, coleccionIMG){
+
+    if(action === 'next'){
+        // aplico el resto % para que en caso de llegar al final, se pueda reiniciar
+        actualIndex = (actualIndex +1) % coleccionIMG.length;
+    }else if(action === 'prev'){
+        
+        actualIndex = (actualIndex -1 + coleccionIMG.length) % coleccionIMG.length;
+    }
+    contenedorIMG.style.backgroundImage = 'url('+coleccionIMG[actualIndex]+')';
+}
+
+</script>
+</body>
+</html>

@@ -278,13 +278,17 @@ let casasTotales = {
 // contenedor principal de las propiedades
 const contenedorPropiedades = document.getElementById('vistaPropiedades');
 
+// elimino todos los elementos del contenedor padre uno por uno
+/* while(contenedorPropiedades.firstChild){
+    contenedorPropiedades.removeChild(contenedorPropiedades.firstChild);
+} */
 
 /**
  * crea un div a partir de un elemento del arreglo de coleccion de casas
  */
 function divProp(propiedad){
 
-    // creo un nuevo div
+// creo un nuevo div
 const divPropContainer = document.createElement('div');
 divPropContainer.className = 'prop-container';
 
@@ -307,7 +311,6 @@ imgPrev.src = 'imagenes/arrowNextPrev.png';
 imgPrev.alt = 'prev';
 imgPrev.id = 'prevIMG';
 buttonPrev.appendChild(imgPrev);
-
 
 divSlideContainer.append(buttonPrev, buttonNext);
 
@@ -347,22 +350,14 @@ divPropContainer.append(divSlideContainer,divTextsContainer);
 
 var propImagenes = propiedad.imagenes;
 
-let prevButton = document.getElementById('prev');
-let nextButton = document.getElementById('next');
-
-prevButton.addEventListener('click', function(){
-
-    cambioImagen('prev', divSlideContainer, propImagenes);  
-});
-
-nextButton.addEventListener('click', function(){
-
-    cambioImagen('next', divSlideContainer, propImagenes);
-});
+cambioImagen('next', divSlideContainer, propImagenes);
 
 contenedorPropiedades.appendChild(divPropContainer);
 return divPropContainer;
 }
+
+// limpio el contenedor padre antes de crear nuevos
+    // contenedorPropiedades.innerHTML = '';
 
 /**
  * almacena los valores recibidos en los inputs y que se envían al presionar submit
@@ -394,7 +389,6 @@ function filtro(event){
           (inputValorMin === "" && inputValorMax === "") ||
           (inputValorMin === "" && casa.precio < valorMax) ||
           (casa.precio > valorMin && inputValorMax === ""))){
-            console.log(inputValorMax);
             divProp(casa);
         }
     });
@@ -405,17 +399,30 @@ var actualIndex = 0;
  * cambia la imagen del slide
 */
 function cambioImagen(action, contenedorIMG, coleccionIMG){
-    
+
+
     if(action === 'next'){
         // aplico el resto % para que en caso de llegar al final, se pueda reiniciar
         actualIndex = (actualIndex +1) % coleccionIMG.length;
     }else if(action === 'prev'){
-        
         actualIndex = (actualIndex -1 + coleccionIMG.length) % coleccionIMG.length;
     }
     contenedorIMG.style.backgroundImage = 'url('+coleccionIMG[actualIndex]+')';
 }
 
+
+let prevButton = document.getElementById('prev');
+let nextButton = document.getElementById('next');
+
+prevButton.addEventListener('click', function(){
+
+cambioImagen('prev', contenedorIMG, coleccionIMG);  
+});
+
+nextButton.addEventListener('click', function(){
+
+cambioImagen('next', contenedorIMG, coleccionIMG);
+});
 
 /* llamo al formulario */
 document.getElementById("form-filtros").addEventListener('submit',filtro);
