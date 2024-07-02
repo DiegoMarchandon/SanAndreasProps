@@ -1,6 +1,6 @@
 /* estilos body */
 body{
-    background-color: rgb(61, 59, 54);
+    background-color: white;
 }
 
 
@@ -58,28 +58,124 @@ li{
 
 /* navbar de filtado */
 
+#especificacion, #tipoPropiedad, #accion, #desdeContainer, #hastaContainer, #monedaContainer, #localidad{
+    background-color: white;
+    border-radius: 10px;
+}
+#especificacion input[type="text"], #tipoPropiedad select, #accion select, #localidad select{
+    margin: 5px;
+    border: none;
+    outline: none;
+}
+
+#tipoProp-container p, #localidad-container p, #accion-container p{
+    margin: 0px;
+    font-size: 13px;
+    font-family: italic;
+    font-weight: bold;
+}
+
+#tipoPropiedad, #localidad, #accion{
+    margin-bottom: 15px;
+}
+
+#precio{
+    border-radius: 10px;
+    border: 1px solid white;
+}
+
+#valor{
+    margin: 0px;
+    grid-row: 1;
+    display: inline;
+}
+
+
+#precio p{
+    margin: 0px;
+}
+
 nav{
     display: flex;
-    background-color: grey;
+    background-color: orange;
     align-items: center;
     justify-content: space-around;
 }
 
+#opcionesPrecio{
+    margin: 3px;
+    background-color: rgb(193, 193, 193);
+    border-radius: 10px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr; /* repeat(3, 1fr); */
+    grid-row: 2;
+    column-gap: 10px;
+    padding: 5px;
+}
+
+.textInputs{
+    font-family: italic;
+    font-weight: bold;
+    align-self: end;
+    font-size: 13px;
+}
+
+.monedaText{
+    grid-row: 1;
+    grid-column: 1;
+}
+#moneda{
+    border: none;
+    grid-row: 2;
+    grid-column: 1;
+}
+#monedaContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.desdeText{
+    grid-row: 1;
+    grid-column: 2;
+}
+#desde{
+    grid-row: 2;
+    grid-column: 2;
+}
+
+.hastaText{
+    grid-row: 1;
+    grid-column: 3;
+}
+#hasta{
+    grid-row: 2;
+    grid-column: 3;
+}
+
+
+#desdeValue, #hastaValue{
+    width: 50px;
+    margin: 5px;
+    border: none;
+}
 
 /* contenedor de propiedad */
 .prop-container{
     display: grid;
     grid-template-columns: 40% 60%;
-    height: 200px;
-    width: 500px;
+    height: 300px;
+    width: 800px;
     background-color: white;
     margin: 10px;
     border-radius: 20px;
-    border:solid 5px red;
+    overflow: hidden;
+    border:solid 3px lightgray;
     transition: border-color 1s ease;
 }
 .prop-container:hover{
-    border-color: blue;
+    border-color: orange;
 }
 
 .text-prop p{
@@ -87,7 +183,7 @@ nav{
 }
 
 .text-prop{
-    background-color: grey;
+    background-color: rgb(229, 229, 229);
     position: relative;
 }
 
@@ -101,16 +197,6 @@ nav{
     background-size: cover;
     height: 100%;
 }
-
-/* #imagenActual{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 10px;
-    height: 10px;
-    object-fit: cover; 
-    z-index: -1; 
-} */
 
 #prev, #next{
     z-index: 1;
@@ -150,7 +236,7 @@ nav{
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    background-color: grey;
+    background-color:  rgb(229, 229, 229);
     border: none;
     border-radius: 50%;
     transition: transform 0.3s ease;
@@ -169,6 +255,25 @@ nav{
 .text-prop{
     display: grid;
     grid-template-rows: repeat(2,1fr);
+}
+
+#aplicoFiltro{
+    width: 55px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: rgb(226, 226, 226);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+}
+
+#aplicoFiltro input[type="submit"]{
+    border: none;
+    outline: none;
+    background-color: rgb(226, 226, 226);
+    cursor: pointer;
 }
 
 #propValue{
