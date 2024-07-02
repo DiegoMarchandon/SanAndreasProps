@@ -19,49 +19,49 @@
 
     <div class="filter-navbar">
         <nav>
-
-            <div id="localidad-container">
-                <p>localidad</p>
-                <div id="localidad">
-                    <select name="localidad">
-                        <option value="Todas">Todas</option>
-                        <option value="Los Santos">Los Santos</option>
-                        <option value="San Fierro">San Fierro</option>
-                        <option value="Las Venturas">Las Venturas</option>
-                    </select>
+            <form id="form-filtros">
+                <div id="localidad-container">
+                    <p>localidad</p>
+                    <div id="localidad">
+                        <select name="localidad" id="selectLocalidad">
+                            <option value="Todas">Todas</option>
+                            <option value="Los Santos">Los Santos</option>
+                            <option value="San Fierro">San Fierro</option>
+                            <option value="Las Venturas">Las Venturas</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
-
-            <div id="especificacion">
-                <input type="text" name="especificacion" placeholder="ingresa un lugar">
-            </div>
-            
-            <div id="tipoProp-container">
-                <p>propiedad</p>
-                <div id="tipoPropiedad">
-                    <select name="tipoPropiedad" placeholder="tipoPropiedad">
-                        <option value="Todas">Todas</option>
-                        <option value="Casa">Casa</option>
-                        <option value="Departamento">Departamento</option>
-                        <!-- <option value="Local">Local</option> -->
-                        <option value="Hotel">Hotel</option>
-                    </select>
+    
+                <div id="especificacion">
+                    <input type="text" name="especificacion" id="inputZona" placeholder="ingresa un lugar">
                 </div>
-            </div>
-
-            <div id="accion-container">
-                <p>accion</p>
-                <div id="accion">
-                    <select name="accion">
-                        <option value=""></option>
-                        <option value="Comprar">Comprar</option>
-                        <option value="Alquilar">Alquilar</option>
-                        <option value="Alquiler Temporario">Alquiler Temporario</option>
-                    </select>
+                
+                <div id="tipoProp-container">
+                    <p>propiedad</p>
+                    <div id="tipoPropiedad">
+                        <select name="tipoPropiedad" id="selectPropiedad">
+                            <option value="Todas">Todas</option>
+                            <option value="Casa">Casa</option>
+                            <option value="Departamento">Departamento</option>
+                            <!-- <option value="Local">Local</option> -->
+                            <option value="Hotel">Hotel</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
-
-            <div id="precio">
+    
+                <div id="accion-container">
+                    <p>accion</p>
+                    <div id="accion">
+                        <select name="accion" id="selectAccion">
+                            <option value=""></option>
+                            <option value="Comprar">Comprar</option>
+                            <option value="Alquilar">Alquilar</option>
+                            <option value="Alquiler Temporario">Alquiler Temporario</option>
+                        </select>
+                    </div>
+                </div>
+    
+                <div id="precio">
                     <!-- <p id="valor">precio</p> -->    
                     <div id="opcionesPrecio">
                         <p class="textInputs monedaText">moneda</p>
@@ -81,11 +81,12 @@
                             <input type="text" name="hasta" id="hastaValue">
                         </div>
                     </div>
-            </div>
-
-            <div id="aplicoFiltro">
-                <input type="submit" value="Filtrar" onclick="filtro()">
-            </div>
+                </div>
+    
+                <div id="aplicoFiltro">
+                    <input type="submit" value="Filtrar">
+                </div>
+            </form>           
         </nav>
     </div>
 
@@ -115,8 +116,6 @@
 
 
         <div class="prop-container"></div>
-        <div class="prop-container"></div>
-        <div class="prop-container"></div>
 
     </div>
 
@@ -127,6 +126,6 @@
     <div id="propSeleccionada">
 
     </div>
-    <script src="slidesJS.js"></script>
+    <script type="module" src="slidesJS.js"></script>
 </body>
 </html>

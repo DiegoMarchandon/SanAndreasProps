@@ -1,5 +1,11 @@
-import imagenes from './imagenes.js';
-
+// import imagenes from './imagenes.js';
+import {
+    Casa1LSfotos, Casa2LSfotos, Casa3LSfotos, Casa4LSfotos, Depto1LSfotos, 
+    Casa5LSfotos, Depto2LSfotos, Mansion1LSfotos, Mansion2LSfotos, Casa1SFfotos, 
+    Casa2SFfotos, Casa3SFfotos, Depto1SFfotos, Casa4SFfotos, Casa5SFfotos, 
+    Casa6SFfotos, Casa1LVfotos, Casa2LVfotos, Casa3LVfotos, Depto1LVfotos, 
+    Depto2LVfotos, Depto3LVfotos, Depto4LVfotos, Depto5LVfotos, Casa4LVfotos
+} from './imagenes.js';
 /* 
 ciudades/pueblos de San Andreas: 
 Red County: Dillimore, Blueberry, Montgomery, Palomino Creek.
@@ -32,14 +38,15 @@ The Emerald Isle, Roca Escalante, Redsands West, Rockshore East, Rockshore West,
 K.A.C.C. Military Fuels, Creek, Randolph Industrial Estate, Yellow Bell Golf Course, Greenglass College, 
 Aeropuerto Las Venturas, The Pirates In Men's Pants
 */
-
+/* 
 let coleccionIMG = [
     'imagenes/slider/paisaje.jpg',
     'imagenes/slider/RE59Mik.jpg',
     'imagenes/slider/vista.jpg'
 ];
+ */
 
-let casasLS = {
+let casasTotales = {
     casa1LS: {
         localidad: "Los Santos",
         ubicacion: "Verdant Bluffs",
@@ -67,7 +74,7 @@ let casasLS = {
         moneda: "USD",
         imagenes: Casa3LSfotos
     },
-    Casa4LSfotos: {
+    Casa4LS: {
         localidad: "Los Santos",
         ubicacion: "Jefferson",
         tipoProp: "Casa",
@@ -85,7 +92,7 @@ let casasLS = {
         moneda: "USD",
         imagenes: Depto1LSfotos
     },
-    Casa5LSfotos: {
+    Casa5LS: {
         localidad: "Los Santos",
         ubicacion: "Santa Maria Beach",
         tipoProp: "Casa",
@@ -120,10 +127,7 @@ let casasLS = {
         precio: 55451323,
         moneda: "ARS",
         imagenes: Mansion2LSfotos
-    }
-};
-
-let casasSF = {
+    },
     Casa1SF: {
         localidad: "San Fierro",
         ubicacion: "Doherty",
@@ -186,10 +190,7 @@ let casasSF = {
         precio: 1300,
         moneda: "USD",
         imagenes: Casa6SFfotos
-    }
-};
-
-let casasLV = {
+    },
     Casa1LV: {
         localidad: "Las Venturas",
         ubicacion: "Whitewood Estates",
@@ -272,8 +273,9 @@ let casasLV = {
         moneda: "ARS",
         imagenes: Casa4LVfotos
     }
-}
+};
 
+// contenedor principal de las propiedades
 const contenedorPropiedades = document.getElementById('vistaPropiedades');
 
 
@@ -281,6 +283,7 @@ const contenedorPropiedades = document.getElementById('vistaPropiedades');
  * crea un div a partir de un elemento del arreglo de coleccion de casas
  */
 function divProp(propiedad){
+
     // creo un nuevo div
 const divPropContainer = document.createElement('div');
 divPropContainer.className = 'prop-container';
@@ -288,14 +291,6 @@ divPropContainer.className = 'prop-container';
 // creo el div de los slides
 const divSlideContainer = document.createElement('div');
 divSlideContainer.className = 'img-container';
-
-const buttonPrev = document.createElement('button');
-buttonPrev.id = 'prev';
-const imgPrev = document.createElement('img');
-imgPrev.src = 'imagenes/arrowNextPrev.png';
-imgPrev.alt = 'prev';
-imgPrev.id = 'prevIMG';
-buttonPrev.appendChild(imgPrev);
 
 const buttonNext = document.createElement('button');
 buttonNext.id = 'next';
@@ -305,7 +300,16 @@ imgNext.alt = 'next';
 imgNext.id = 'nextIMG';
 buttonNext.appendChild(imgNext);
 
-divSlideContainer.append(buttonNext,buttonPrev);
+const buttonPrev = document.createElement('button');
+buttonPrev.id = 'prev';
+const imgPrev = document.createElement('img');
+imgPrev.src = 'imagenes/arrowNextPrev.png';
+imgPrev.alt = 'prev';
+imgPrev.id = 'prevIMG';
+buttonPrev.appendChild(imgPrev);
+
+
+divSlideContainer.append(buttonPrev, buttonNext);
 
 // creo el div de los textos descriptivos
 const divTextsContainer = document.createElement('div');
@@ -341,51 +345,77 @@ divTextsContainer.append(propValue,tipoCambio,ciudadPropiedad,propZona,buttonFav
 // incorporo ambos divs al div principal
 divPropContainer.append(divSlideContainer,divTextsContainer);
 
-return divPropContainer;
-}
-
-/**
- * muestra una coleccion de propiedades que cumplen con el filtro
- */
-function colProps(){
-
-
-// agrego el nuevo div dentro del contenedor principal
-contenedorPropiedades.appendChild(divPropContainer);
-
-}
-
-
+var propImagenes = propiedad.imagenes;
 
 let prevButton = document.getElementById('prev');
 let nextButton = document.getElementById('next');
 
-let actualIndex = 0;
+prevButton.addEventListener('click', function(){
 
+    cambioImagen('prev', divSlideContainer, propImagenes);  
+});
+
+nextButton.addEventListener('click', function(){
+
+    cambioImagen('next', divSlideContainer, propImagenes);
+});
+
+contenedorPropiedades.appendChild(divPropContainer);
+return divPropContainer;
+}
+
+/**
+ * almacena los valores recibidos en los inputs y que se envían al presionar submit
+ * y aplica el filtro mostrando en el contenedor las propiedades que cumplen
+ */
+function filtro(event){
+    // evito que el formulario se envíe
+    event.preventDefault();
+
+    // obtengo los valores de los inputs y select
+    const selectCiudad = document.getElementById("selectLocalidad").value;
+    const inputBarrio = document.getElementById("inputZona").value;
+    const selectProp = document.getElementById("selectPropiedad").value;
+    const selectAccion = document.getElementById("selectAccion").value;
+    const selectMoneda = document.getElementById("moneda").value;
+    const inputValorMin = document.getElementById("desdeValue").value;
+    const inputValorMax = document.getElementById("hastaValue").value; 
+
+    var valorMin = parseInt(inputValorMin);
+    var valorMax = parseInt(inputValorMax); 
+
+    Object.values(casasTotales).forEach(casa => {
+        if((casa.localidad === selectCiudad || selectCiudad === "Todas") &&
+         (casa.ubicacion === inputBarrio || inputBarrio === "" ) &&
+         (casa.tipoProp === selectProp || selectProp === "Todas") &&
+         (casa.opcion === selectAccion || selectAccion === "") && 
+         (casa.moneda === selectMoneda) && 
+         ((casa.precio > valorMin && casa.precio < valorMax) || 
+          (inputValorMin === "" && inputValorMax === "") ||
+          (inputValorMin === "" && casa.precio < valorMax) ||
+          (casa.precio > valorMin && inputValorMax === ""))){
+            console.log(inputValorMax);
+            divProp(casa);
+        }
+    });
+}
+
+var actualIndex = 0;
 /**
  * cambia la imagen del slide
 */
-function cambioImagen(action){
-    var contenedorIMG = document.querySelector(".img-container");
+function cambioImagen(action, contenedorIMG, coleccionIMG){
+    
     if(action === 'next'){
-        // alert("boton siguiente");
         // aplico el resto % para que en caso de llegar al final, se pueda reiniciar
         actualIndex = (actualIndex +1) % coleccionIMG.length;
     }else if(action === 'prev'){
-        // alert("boton anterior");
+        
         actualIndex = (actualIndex -1 + coleccionIMG.length) % coleccionIMG.length;
-    }else{
-        // alert("ningun boton");
     }
     contenedorIMG.style.backgroundImage = 'url('+coleccionIMG[actualIndex]+')';
 }
 
-prevButton.addEventListener('click', function(){
-    // alert("llamado previo");
-    cambioImagen('prev');  
-});
 
-nextButton.addEventListener('click', function(){
-    // alert("llamado siguiente");
-    cambioImagen('next');
-});
+/* llamo al formulario */
+document.getElementById("form-filtros").addEventListener('submit',filtro);

@@ -62,7 +62,7 @@ li{
     background-color: white;
     border-radius: 10px;
 }
-#especificacion input[type="text"], #tipoPropiedad select, #accion select, #localidad select{
+#especificacion input[type="text"], #tipoPropiedad select, #accion select, #localidad select, #desdeValue, #hastaValue, #moneda{
     margin: 5px;
     border: none;
     outline: none;
@@ -95,7 +95,7 @@ li{
     margin: 0px;
 }
 
-nav{
+#form-filtros{
     display: flex;
     background-color: orange;
     align-items: center;
@@ -126,7 +126,6 @@ nav{
     grid-column: 1;
 }
 #moneda{
-    border: none;
     grid-row: 2;
     grid-column: 1;
 }
@@ -157,8 +156,6 @@ nav{
 
 #desdeValue, #hastaValue{
     width: 50px;
-    margin: 5px;
-    border: none;
 }
 
 /* contenedor de propiedad */
