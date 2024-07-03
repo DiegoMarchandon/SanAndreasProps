@@ -54,7 +54,8 @@ let casasTotales = {
         opcion: "Alquilar",
         precio: 355000,
         moneda: "ARS",
-        imagenes: Casa1LSfotos
+        imagenes: Casa1LSfotos,
+        primaryKey: 1
     },
     Casa2LS: {
         localidad: "Los Santos",
@@ -63,7 +64,8 @@ let casasTotales = {
         opcion: "Comprar",
         precio: 15000,
         moneda: "USD",
-        imagenes: Casa2LSfotos
+        imagenes: Casa2LSfotos,
+        primaryKey: 2
     },
     Casa3LS: {
         localidad: "Los Santos",
@@ -72,7 +74,8 @@ let casasTotales = {
         opcion: "Comprar",
         precio: 45000,
         moneda: "USD",
-        imagenes: Casa3LSfotos
+        imagenes: Casa3LSfotos,
+        primaryKey: 3
     },
     Casa4LS: {
         localidad: "Los Santos",
@@ -81,7 +84,8 @@ let casasTotales = {
         opcion: "Comprar",
         precio: 15255000,
         moneda: "ARS",
-        imagenes: Casa4LSfotos
+        imagenes: Casa4LSfotos,
+        primaryKey: 4
     },
     Depto1LS: {
         localidad: "Los Santos",
@@ -90,7 +94,8 @@ let casasTotales = {
         opcion: "Alquilar",
         precio: 1500,
         moneda: "USD",
-        imagenes: Depto1LSfotos
+        imagenes: Depto1LSfotos,
+        primaryKey: 5
     },
     Casa5LS: {
         localidad: "Los Santos",
@@ -99,7 +104,8 @@ let casasTotales = {
         opcion: "Alquilar",
         precio: 2500,
         moneda: "USD",
-        imagenes: Casa5LSfotos
+        imagenes: Casa5LSfotos,
+        primaryKey: 6
     },
     Depto2LS: {
         localidad: "Los Santos",
@@ -108,7 +114,8 @@ let casasTotales = {
         opcion: "Alquiler Temporario",
         precio: 75000,
         moneda: "ARS",
-        imagenes: Depto2LSfotos
+        imagenes: Depto2LSfotos,
+        primaryKey: 7
     },
     Mansion1LS: {
         localidad: "Los Santos",
@@ -117,7 +124,8 @@ let casasTotales = {
         opcion: "Comprar",
         precio: 500000,
         moneda: "USD",
-        imagenes: Mansion1LSfotos
+        imagenes: Mansion1LSfotos,
+        primaryKey: 8
     },
     Mansion2LS: {
         localidad: "Los Santos",
@@ -126,7 +134,8 @@ let casasTotales = {
         opcion: "Comprar",
         precio: 55451323,
         moneda: "ARS",
-        imagenes: Mansion2LSfotos
+        imagenes: Mansion2LSfotos,
+        primaryKey: 9
     },
     Casa1SF: {
         localidad: "San Fierro",
@@ -135,7 +144,8 @@ let casasTotales = {
         opcion: "Comprar",
         precio: 12150200,
         moneda: "ARS",
-        imagenes: Casa1SFfotos
+        imagenes: Casa1SFfotos,
+        primaryKey: 10
     },
     Casa2SF: {
         localidad: "San Fierro",
@@ -144,7 +154,8 @@ let casasTotales = {
         opcion: "Comprar",
         precio: 35000,
         moneda: "USD",
-        imagenes: Casa2SFfotos
+        imagenes: Casa2SFfotos,
+        primaryKey: 11
     },
     Casa3SF: {
         localidad: "San Fierro",
@@ -153,7 +164,8 @@ let casasTotales = {
         opcion: "Alquilar",
         precio: 3500,
         moneda: "USD",
-        imagenes: Casa3SFfotos
+        imagenes: Casa3SFfotos,
+        primaryKey: 12
     },
     Depto1SF: {
         localidad: "San Fierro",
@@ -162,7 +174,8 @@ let casasTotales = {
         opcion: "Alquiler Temporario",
         precio: 85120,
         moneda: "ARS",
-        imagenes: Depto1SFfotos
+        imagenes: Depto1SFfotos,
+        primaryKey: 13
     },
     Casa4SF: {
         localidad: "San Fierro",
@@ -171,7 +184,8 @@ let casasTotales = {
         opcion: "Alquilar",
         precio: 122000,
         moneda: "ARS",
-        imagenes: Casa4SFfotos
+        imagenes: Casa4SFfotos,
+        primaryKey: 14
     },
     Casa5SF: {
         localidad: "San Fierro",
@@ -180,7 +194,8 @@ let casasTotales = {
         opcion: "Comprar",
         precio: 19750100,
         moneda: "ARS",
-        imagenes: Casa5SFfotos
+        imagenes: Casa5SFfotos,
+        primaryKey: 15
     },
     Casa6SF: {
         localidad: "San Fierro",
@@ -189,7 +204,8 @@ let casasTotales = {
         opcion: "Alquilar",
         precio: 1300,
         moneda: "USD",
-        imagenes: Casa6SFfotos
+        imagenes: Casa6SFfotos,
+        primaryKey: 16
     },
     Casa1LV: {
         localidad: "Las Venturas",
@@ -198,7 +214,8 @@ let casasTotales = {
         opcion: "Alquilar",
         precio: 1550,
         moneda: "USD",
-        imagenes: Casa1LVfotos
+        imagenes: Casa1LVfotos,
+        primaryKey: 17
     },
     Casa2LV: {
         localidad: "Las Venturas",
@@ -207,7 +224,8 @@ let casasTotales = {
         opcion: "Comprar",
         precio: 12500150,
         moneda: "ARS",
-        imagenes: Casa2LVfotos
+        imagenes: Casa2LVfotos,
+        primaryKey: 18
     },
     Casa3LV: {
         localidad: "Las Venturas",
@@ -216,7 +234,8 @@ let casasTotales = {
         opcion: "Comprar",
         precio: 2250125,
         moneda: "USD",
-        imagenes: Casa3LVfotos
+        imagenes: Casa3LVfotos,
+        primaryKey: 19
     },
     Depto1LV: {
         localidad: "Las Venturas",
@@ -225,7 +244,8 @@ let casasTotales = {
         opcion: "Alquilar",
         precio: 1250,
         moneda: "USD",
-        imagenes: Depto1LVfotos
+        imagenes: Depto1LVfotos,
+        primaryKey: 20
     },
     Depto2LV: {
         localidad: "Las Venturas",
@@ -234,7 +254,8 @@ let casasTotales = {
         opcion: "Alquiler Temporario",
         precio: 150,
         moneda: "USD",
-        imagenes: Depto2LVfotos
+        imagenes: Depto2LVfotos,
+        primaryKey: 21
     },
     Depto3LV: {
         localidad: "Las Venturas",
@@ -243,7 +264,8 @@ let casasTotales = {
         opcion: "Alquiler Temporario",
         precio: 95000,
         moneda: "ARS",
-        imagenes: Depto3LVfotos
+        imagenes: Depto3LVfotos,
+        primaryKey: 22
     },
     Depto4LV: {
         localidad: "Las Venturas",
@@ -252,7 +274,8 @@ let casasTotales = {
         opcion: "Alquilar",
         precio: 750000,
         moneda: "ARS",
-        imagenes: Depto4LVfotos
+        imagenes: Depto4LVfotos,
+        primaryKey: 23
     },
     Depto5LV: {
         localidad: "Las Venturas",
@@ -261,7 +284,8 @@ let casasTotales = {
         opcion: "Alquilar",
         precio: 525000,
         moneda: "ARS",
-        imagenes: Depto5LVfotos
+        imagenes: Depto5LVfotos,
+        primaryKey: 24
     },
 
     Casa4LV: {
@@ -271,9 +295,13 @@ let casasTotales = {
         opcion: "Alquilar",
         precio: 150000,
         moneda: "ARS",
-        imagenes: Casa4LVfotos
+        imagenes: Casa4LVfotos,
+        primaryKey: 25
     }
 };
+
+var casaEjemplo = casasTotales.Casa1LV;
+console.log(casaEjemplo.imagenes[0]);
 
 // contenedor principal de las propiedades
 const contenedorPropiedades = document.getElementById('vistaPropiedades');
@@ -296,46 +324,50 @@ divPropContainer.className = 'prop-container';
 const divSlideContainer = document.createElement('div');
 divSlideContainer.className = 'img-container';
 
+// incorporo los botones al slide container
 const buttonNext = document.createElement('button');
-buttonNext.id = 'next';
+buttonNext.id = 'next-'+propiedad.primaryKey;
 const imgNext = document.createElement('img');
 imgNext.src = 'imagenes/arrowNextPrev.png';
 imgNext.alt = 'next';
-imgNext.id = 'nextIMG';
+imgNext.id = 'nextIMG-'+propiedad.primaryKey;
 buttonNext.appendChild(imgNext);
 
 const buttonPrev = document.createElement('button');
-buttonPrev.id = 'prev';
+buttonPrev.id = 'prev-'+propiedad.primaryKey;
 const imgPrev = document.createElement('img');
 imgPrev.src = 'imagenes/arrowNextPrev.png';
 imgPrev.alt = 'prev';
-imgPrev.id = 'prevIMG';
+imgPrev.id = 'prevIMG-'+propiedad.primaryKey;
 buttonPrev.appendChild(imgPrev);
 
 divSlideContainer.append(buttonPrev, buttonNext);
+
+// incorporo la primer imagen al slide
+divSlideContainer.style.backgroundImage = 'url('+propiedad.imagenes[0]+')';
 
 // creo el div de los textos descriptivos
 const divTextsContainer = document.createElement('div');
 divTextsContainer.className = 'text-prop';
 
 const propValue = document.createElement('p');
-propValue.id = 'propValue';
+propValue.id = 'propValue-'+propiedad.primaryKey;
 propValue.textContent = propiedad.precio;
 
 const tipoCambio = document.createElement('p');
-tipoCambio.id = 'tipoCambio';
+tipoCambio.id = 'tipoCambio-'+propiedad.primaryKey;
 tipoCambio.textContent = propiedad.moneda;
 
 const ciudadPropiedad = document.createElement('p');
-ciudadPropiedad.id = 'ciudadPropiedad';
+ciudadPropiedad.id = 'ciudadPropiedad-'+propiedad.primaryKey;
 ciudadPropiedad.textContent = propiedad.localidad;
 
 const propZona = document.createElement('p');
-propZona.id = 'propZona';
+propZona.id = 'propZona-'+propiedad.primaryKey;
 propZona.textContent = propiedad.ubicacion;
 
 const buttonFavoritos = document.createElement('button');
-buttonFavoritos.id = 'favoritos';
+buttonFavoritos.id = 'favoritos-'+propiedad.primaryKey;
 
 const imgFavoritos = document.createElement('img');
 imgFavoritos.src = 'imagenes/orangeHeart.png';
@@ -348,9 +380,7 @@ divTextsContainer.append(propValue,tipoCambio,ciudadPropiedad,propZona,buttonFav
 // incorporo ambos divs al div principal
 divPropContainer.append(divSlideContainer,divTextsContainer);
 
-var propImagenes = propiedad.imagenes;
-
-cambioImagen('next', divSlideContainer, propImagenes);
+// var propImagenes = propiedad.imagenes;
 
 contenedorPropiedades.appendChild(divPropContainer);
 return divPropContainer;
@@ -392,21 +422,25 @@ function filtro(event){
             divProp(casa);
         }
     });
+    // alert("filtro aplicado");
 }
 
 var actualIndex = 0;
 /**
  * cambia la imagen del slide
 */
-function cambioImagen(action, contenedorIMG, coleccionIMG){
+function cambioImagen(action, coleccionIMG){
 
+    contenedorIMG = document.getElementById('vistaPropiedades');
 
     if(action === 'next'){
         // aplico el resto % para que en caso de llegar al final, se pueda reiniciar
+       
         actualIndex = (actualIndex +1) % coleccionIMG.length;
     }else if(action === 'prev'){
+        
         actualIndex = (actualIndex -1 + coleccionIMG.length) % coleccionIMG.length;
-    }
+    }else alert("no presiono ninguno");
     contenedorIMG.style.backgroundImage = 'url('+coleccionIMG[actualIndex]+')';
 }
 
@@ -415,13 +449,13 @@ let prevButton = document.getElementById('prev');
 let nextButton = document.getElementById('next');
 
 prevButton.addEventListener('click', function(){
-
-cambioImagen('prev', contenedorIMG, coleccionIMG);  
+    alert("presiono next");
+cambioImagen('prev', coleccionIMG);  
 });
 
 nextButton.addEventListener('click', function(){
-
-cambioImagen('next', contenedorIMG, coleccionIMG);
+    alert("presiono prev");
+cambioImagen('next', coleccionIMG);
 });
 
 /* llamo al formulario */

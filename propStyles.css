@@ -161,7 +161,7 @@ li{
 /* contenedor de propiedad */
 .prop-container{
     display: grid;
-    grid-template-columns: 40% 60%;
+    grid-template-columns: 50% 50%;
     height: 300px;
     width: 800px;
     background-color: white;
@@ -188,11 +188,12 @@ li{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-image: url(imagenes/slider/paisaje.jpg);
+    background-image: url(imagenes/slider/RE59Mik.jpg);
     background-repeat: no-repeat;
-    /* background-attachment: fixed; */
+    background-position: center;
     background-size: cover;
     height: 100%;
+    width: 100%;
 }
 
 #prev, #next{
@@ -218,7 +219,7 @@ li{
     transform: rotate(180deg);
 }
 
-#prevIMG, #nextIMG{
+.prevIMG, .nextIMG{
     width: 25px;
     height: 25px;
 }

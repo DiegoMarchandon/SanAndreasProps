@@ -4,11 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="propStyles.css">
+
+<style>
+    body{
+        background-image: url('imagenes/slider/casasFotos/gallery100.jpg');
+    }
+</style>
 </head>
 <body>
     
 
+    <div id="vistaPropiedades">
 
+        <!-- un contenedor de ejemplo -->
+        <div class="prop-container">
+            <div class="img-container">
+                <button id="prev">
+                    <img src="imagenes/arrowNextPrev.png" alt="" id="prevIMG">
+                </button>
+                <button id="next">
+                    <img src="imagenes/arrowNextPrev.png" alt="" id="nextIMG">
+                </button>
+                
+            </div>
+            <div class="text-prop">
+                <p id="propValue">15.000</p>
+                <p id="tipoCambio"> USD</p>
+                <p id="ciudadPropiedad">ciudad</p>
+                <p id="propZona">av Argentina 123</p>
+                <button id="favoritos">
+                    <img src="imagenes/orangeHeart.png" alt="">
+                </button>
+            </div>
+        </div>
+
+
+        <div class="prop-container"></div>
+
+    </div>
 
 
 <script>
@@ -52,18 +86,40 @@ let casasTotales = {
 }
 
 var actualIndex = 0;
-function cambioImagen(action, contenedorIMG, coleccionIMG){
+function cambioImagen(action, casa){
+
+    coleccionIMG = casa.imagenes;
+    contenedorIMG = document.getElementById("vistaPropiedades");
 
     if(action === 'next'){
+        alert("presiono next");
         // aplico el resto % para que en caso de llegar al final, se pueda reiniciar
         actualIndex = (actualIndex +1) % coleccionIMG.length;
     }else if(action === 'prev'){
-        
+        alert("presiono prev");
         actualIndex = (actualIndex -1 + coleccionIMG.length) % coleccionIMG.length;
+    }else{
+        alert("no presiono ninguno");
     }
     contenedorIMG.style.backgroundImage = 'url('+coleccionIMG[actualIndex]+')';
 }
 
+let prevButton = document.getElementById('prev');
+let nextButton = document.getElementById('next');
+
+prevButton.addEventListener('click', function(){
+
+cambioImagen('prev', casa);  
+});
+
+nextButton.addEventListener('click', function(){
+
+cambioImagen('next', casa);
+});
+
+casasTotales.forEach(casa => {
+    cambioImagen(casa);
+});
 </script>
 </body>
 </html>
