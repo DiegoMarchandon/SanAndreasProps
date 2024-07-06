@@ -411,11 +411,10 @@ return divPropContainer;
 }
 
 // recorro y genero todas las propiedades para el filtro por defecto
-/* if()
 Object.values(casasTotales).forEach(casa => {
-    divProp(casa);
+        divProp(casa);
 });
- */
+
 /**
  * almacena los valores recibidos en los inputs y que se envían al presionar submit
  * y aplica el filtro mostrando en el contenedor las propiedades que cumplen
