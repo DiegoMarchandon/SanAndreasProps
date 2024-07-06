@@ -196,7 +196,7 @@ li{
     width: 100%;
 }
 
-#prev, #next{
+.prev, .next{
     z-index: 1;
     display: flex;
     align-items: center;
@@ -210,12 +210,12 @@ li{
     transition: opacity 0.3s, border-shadow 0.3s;
 }
 
-#prev:hover, #next:hover{
+.prev:hover, .next:hover{
     opacity: 1;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
-#prev{
+.prev{
     transform: rotate(180deg);
 }
 
@@ -224,7 +224,7 @@ li{
     height: 25px;
 }
 
-#favoritos{
+.favoritos{
     width: 40px;
     height: 40px;
     position: absolute;
@@ -240,11 +240,11 @@ li{
     transition: transform 0.3s ease;
 }
 
-#favoritos:hover{
+.favoritos:hover{
     transform: scale(1.1);
 }
 
-#favoritos img{
+.favoritos img{
     width: 35px;
     height: 35px;
     margin: 5px;
@@ -274,26 +274,26 @@ li{
     cursor: pointer;
 }
 
-#propValue, #tipoCambio, #ciudadPropiedad{
+.propValue, .tipoCambio, .ciudadPropiedad{
     margin: 10px;
     font-size: 25px;
     grid-row: 1;
     grid-column: 1;
 }
-#propValue{
+.propValue{
     position: absolute;
     left: 60px;
 }
-#ciudadPropiedad{
+.ciudadPropiedad{
     position: absolute;
     top: 50px;
 }
 
-#propZona{
+.propZona{
     margin: 10px;
     grid-row: 2;
 }
-#favoritos{
+.favoritos{
     grid-row: 1;
     justify-self: end;
 }

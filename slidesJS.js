@@ -326,20 +326,37 @@ divSlideContainer.className = 'img-container';
 
 // incorporo los botones al slide container
 const buttonNext = document.createElement('button');
+buttonNext.className = 'next';
 buttonNext.id = 'next-'+propiedad.primaryKey;
 const imgNext = document.createElement('img');
 imgNext.src = 'imagenes/arrowNextPrev.png';
 imgNext.alt = 'next';
+
+imgNext.className = 'nextIMG';
 imgNext.id = 'nextIMG-'+propiedad.primaryKey;
 buttonNext.appendChild(imgNext);
 
 const buttonPrev = document.createElement('button');
+buttonPrev.className = 'prev';
 buttonPrev.id = 'prev-'+propiedad.primaryKey;
 const imgPrev = document.createElement('img');
 imgPrev.src = 'imagenes/arrowNextPrev.png';
 imgPrev.alt = 'prev';
+
+imgPrev.className = 'prevIMG';
 imgPrev.id = 'prevIMG-'+propiedad.primaryKey;
 buttonPrev.appendChild(imgPrev);
+
+var propIMGS = propiedad.imagenes;
+
+buttonPrev.addEventListener('click', function(){
+    // alert("presiono next");
+cambioImagen('prev', propIMGS, divSlideContainer);  
+});
+buttonNext.addEventListener('click', function(){
+    // alert("presiono prev");
+cambioImagen('next', propIMGS, divSlideContainer);
+});
 
 divSlideContainer.append(buttonPrev, buttonNext);
 
@@ -351,24 +368,29 @@ const divTextsContainer = document.createElement('div');
 divTextsContainer.className = 'text-prop';
 
 const propValue = document.createElement('p');
+
+propValue.className= 'propValue';
 propValue.id = 'propValue-'+propiedad.primaryKey;
 propValue.textContent = propiedad.precio;
 
 const tipoCambio = document.createElement('p');
+tipoCambio.className = 'tipoCambio';
 tipoCambio.id = 'tipoCambio-'+propiedad.primaryKey;
 tipoCambio.textContent = propiedad.moneda;
 
 const ciudadPropiedad = document.createElement('p');
+ciudadPropiedad.className = 'ciudadPropiedad';
 ciudadPropiedad.id = 'ciudadPropiedad-'+propiedad.primaryKey;
 ciudadPropiedad.textContent = propiedad.localidad;
 
 const propZona = document.createElement('p');
+propZona.className = 'propZona';
 propZona.id = 'propZona-'+propiedad.primaryKey;
 propZona.textContent = propiedad.ubicacion;
 
 const buttonFavoritos = document.createElement('button');
+buttonFavoritos.className = 'favoritos';
 buttonFavoritos.id = 'favoritos-'+propiedad.primaryKey;
-
 const imgFavoritos = document.createElement('img');
 imgFavoritos.src = 'imagenes/orangeHeart.png';
 imgFavoritos.alt = 'imagen de favorito';
@@ -383,6 +405,8 @@ divPropContainer.append(divSlideContainer,divTextsContainer);
 // var propImagenes = propiedad.imagenes;
 
 contenedorPropiedades.appendChild(divPropContainer);
+
+
 return divPropContainer;
 }
 
@@ -396,7 +420,7 @@ return divPropContainer;
 function filtro(event){
     // evito que el formulario se envíe
     event.preventDefault();
-
+    
     // obtengo los valores de los inputs y select
     const selectCiudad = document.getElementById("selectLocalidad").value;
     const inputBarrio = document.getElementById("inputZona").value;
@@ -422,16 +446,14 @@ function filtro(event){
             divProp(casa);
         }
     });
-    // alert("filtro aplicado");
+    
 }
 
 var actualIndex = 0;
 /**
  * cambia la imagen del slide
 */
-function cambioImagen(action, coleccionIMG){
-
-    contenedorIMG = document.getElementById('vistaPropiedades');
+function cambioImagen(action, coleccionIMG, containerIMG){
 
     if(action === 'next'){
         // aplico el resto % para que en caso de llegar al final, se pueda reiniciar
@@ -441,22 +463,11 @@ function cambioImagen(action, coleccionIMG){
         
         actualIndex = (actualIndex -1 + coleccionIMG.length) % coleccionIMG.length;
     }else alert("no presiono ninguno");
-    contenedorIMG.style.backgroundImage = 'url('+coleccionIMG[actualIndex]+')';
+    containerIMG.style.backgroundImage = 'url('+coleccionIMG[actualIndex]+')';
 }
 
-
-let prevButton = document.getElementById('prev');
-let nextButton = document.getElementById('next');
-
-prevButton.addEventListener('click', function(){
-    alert("presiono next");
-cambioImagen('prev', coleccionIMG);  
-});
-
-nextButton.addEventListener('click', function(){
-    alert("presiono prev");
-cambioImagen('next', coleccionIMG);
-});
+// ver cómo solucionar el problema de los botones ahora que son clases en vez de id
+    // (buscar el botón de ese container específico)
 
 /* llamo al formulario */
 document.getElementById("form-filtros").addEventListener('submit',filtro);
