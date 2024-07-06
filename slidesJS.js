@@ -443,10 +443,7 @@ function filtro(event){
              (casa.tipoProp === selectProp || selectProp === "Todas") &&
              (casa.opcion === selectAccion || selectAccion === "") && 
              (casa.moneda === selectMoneda || selectMoneda === "Todas") && 
-             ((casa.precio > valorMin && casa.precio < valorMax) || 
-              (inputValorMin === "" && inputValorMax === "") ||
-              (inputValorMin === "" && casa.precio < valorMax) ||
-              (casa.precio > valorMin && inputValorMax === ""))){
+             ((casa.precio > valorMin && casa.precio < valorMax))){
                 divProp(casa);
             }
         });
@@ -494,13 +491,17 @@ var actualIndex = 0;
 function cambioImagen(action, coleccionIMG, containerIMG){
 
     if(action === 'next'){
-        // aplico el resto % para que en caso de llegar al final, se pueda reiniciar
+        // aplico el modulo % para que en caso de llegar al final, se pueda reiniciar
        
         actualIndex = (actualIndex +1) % coleccionIMG.length;
     }else if(action === 'prev'){
         
         actualIndex = (actualIndex -1 + coleccionIMG.length) % coleccionIMG.length;
     }else alert("no presiono ninguno");
+    containerIMG.style.transition = '0.6s';
+    containerIMG.style.opacity = '0.1';
+    containerIMG.style.transition = '0.6s';
+    containerIMG.style.opacity = '1';
     containerIMG.style.backgroundImage = 'url('+coleccionIMG[actualIndex]+')';
 }
 
