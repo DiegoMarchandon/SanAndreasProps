@@ -410,9 +410,12 @@ contenedorPropiedades.appendChild(divPropContainer);
 return divPropContainer;
 }
 
-// limpio el contenedor padre antes de crear nuevos
-    // contenedorPropiedades.innerHTML = '';
-
+// recorro y genero todas las propiedades para el filtro por defecto
+/* if()
+Object.values(casasTotales).forEach(casa => {
+    divProp(casa);
+});
+ */
 /**
  * almacena los valores recibidos en los inputs y que se envían al presionar submit
  * y aplica el filtro mostrando en el contenedor las propiedades que cumplen
@@ -432,21 +435,57 @@ function filtro(event){
 
     var valorMin = parseInt(inputValorMin);
     var valorMax = parseInt(inputValorMax); 
+    // limpio el contenedor antes de generar nuevas propiedades
+    contenedorPropiedades.innerHTML = '';
 
-    Object.values(casasTotales).forEach(casa => {
-        if((casa.localidad === selectCiudad || selectCiudad === "Todas") &&
-         (casa.ubicacion === inputBarrio || inputBarrio === "" ) &&
-         (casa.tipoProp === selectProp || selectProp === "Todas") &&
-         (casa.opcion === selectAccion || selectAccion === "") && 
-         (casa.moneda === selectMoneda) && 
-         ((casa.precio > valorMin && casa.precio < valorMax) || 
-          (inputValorMin === "" && inputValorMax === "") ||
-          (inputValorMin === "" && casa.precio < valorMax) ||
-          (casa.precio > valorMin && inputValorMax === ""))){
-            divProp(casa);
+        Object.values(casasTotales).forEach(casa => {
+            if((casa.localidad === selectCiudad || selectCiudad === "Todas") &&
+             (casa.ubicacion === inputBarrio || inputBarrio === "" ) &&
+             (casa.tipoProp === selectProp || selectProp === "Todas") &&
+             (casa.opcion === selectAccion || selectAccion === "") && 
+             (casa.moneda === selectMoneda || selectMoneda === "Todas") && 
+             ((casa.precio > valorMin && casa.precio < valorMax) || 
+              (inputValorMin === "" && inputValorMax === "") ||
+              (inputValorMin === "" && casa.precio < valorMax) ||
+              (casa.precio > valorMin && inputValorMax === ""))){
+                divProp(casa);
+            }
+        });
+        // si después del filtrado se muestran 0 propiedades:
+        if(contenedorPropiedades.childElementCount == 0){
+
+            // creo el contenedor
+            const sinResultadosDiv = document.createElement('div');
+            sinResultadosDiv.style.width = '500px';
+            sinResultadosDiv.style.height = '500px';
+            sinResultadosDiv.style.marginTop = '100px';
+            
+            sinResultadosDiv.style.display = 'flex';
+            sinResultadosDiv.style.flexDirection = 'column';
+            sinResultadosDiv.style.alignItems = 'center';
+            
+            // creo la imagen
+            const sinResultadosIMG = document.createElement('img');
+            sinResultadosIMG.src = 'imagenes/orangeHouseEmpty.png';
+            sinResultadosIMG.alt = 'busqueda vacía';
+            sinResultadosIMG.style.width = '250px';
+            sinResultadosIMG.style.height = '250px';
+            sinResultadosIMG.style.opacity = '0.3';
+
+            // creo el texto 
+            const sinResultadosTXT = document.createElement('p');
+            sinResultadosTXT.innerText = "No se encontraron propiedades con estas especificaciones";
+            sinResultadosTXT.style.textAlign = 'center';
+            sinResultadosTXT.style.fontSize = '30px';
+            sinResultadosTXT.style.fontWeight = '700';
+            sinResultadosTXT.style.fontFamily = 'sans-serif';
+            sinResultadosTXT.style.color = 'orange';
+            sinResultadosTXT.style.opacity = '0.6';
+            
+            sinResultadosDiv.append(sinResultadosIMG, sinResultadosTXT);
+            contenedorPropiedades.appendChild(sinResultadosDiv);
         }
-    });
-    
+    // alert(contenedorPropiedades.childElementCount);
 }
 
 var actualIndex = 0;
