@@ -192,6 +192,7 @@ export var Depto5LVfotos = [
 ];
 
 export var Casa4LVfotos = [
+    'imagenes/slider/casasFotos/gallery146.jpg',
     'imagenes/slider/casasFotos/gallery32N.jpg',
     'imagenes/slider/casasFotos/gallery33.jpg',
     'imagenes/slider/casasFotos/gallery34.jpg'
