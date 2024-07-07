@@ -38,13 +38,6 @@ The Emerald Isle, Roca Escalante, Redsands West, Rockshore East, Rockshore West,
 K.A.C.C. Military Fuels, Creek, Randolph Industrial Estate, Yellow Bell Golf Course, Greenglass College, 
 Aeropuerto Las Venturas, The Pirates In Men's Pants
 */
-/* 
-let coleccionIMG = [
-    'imagenes/slider/paisaje.jpg',
-    'imagenes/slider/RE59Mik.jpg',
-    'imagenes/slider/vista.jpg'
-];
- */
 
 let casasTotales = {
     casa1LS: {
@@ -300,16 +293,9 @@ let casasTotales = {
     }
 };
 
-var casaEjemplo = casasTotales.Casa1LV;
-console.log(casaEjemplo.imagenes[0]);
 
 // contenedor principal de las propiedades
 const contenedorPropiedades = document.getElementById('vistaPropiedades');
-
-// elimino todos los elementos del contenedor padre uno por uno
-/* while(contenedorPropiedades.firstChild){
-    contenedorPropiedades.removeChild(contenedorPropiedades.firstChild);
-} */
 
 /**
  * crea un div a partir de un elemento del arreglo de coleccion de casas
@@ -481,7 +467,7 @@ function filtro(event){
             sinResultadosDiv.append(sinResultadosIMG, sinResultadosTXT);
             contenedorPropiedades.appendChild(sinResultadosDiv);
         }
-    // alert(contenedorPropiedades.childElementCount);
+    
 }
 
 var actualIndex = 0;
@@ -504,9 +490,6 @@ function cambioImagen(action, coleccionIMG, containerIMG){
     containerIMG.style.opacity = '1';
     containerIMG.style.backgroundImage = 'url('+coleccionIMG[actualIndex]+')';
 }
-
-// ver cómo solucionar el problema de los botones ahora que son clases en vez de id
-    // (buscar el botón de ese container específico)
 
 /* llamo al formulario */
 document.getElementById("form-filtros").addEventListener('submit',filtro);

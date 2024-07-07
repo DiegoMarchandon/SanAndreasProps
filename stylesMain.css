@@ -63,7 +63,8 @@ body{
     height: 33px;
     padding: 0px;
     margin: 0px;
- }
+}
+
 input[type=text]{
     background-color: white solid;
     caret-color: orangered;
@@ -159,23 +160,27 @@ select{
 
 .losSantos, .sanFierro, .lasVenturas{
     position: relative;
-    width: 390px;
-    height: 250px;
+    width: 450px;
+    height: 270px;
     background-repeat: no-repeat;
     background-size: cover;
 }
 .losSantos{
     background-image: url(imagenes/los\ santos.png);
-    
+    bottom: 10%;
+    right: 5%;
 }
 
 .sanFierro{
     background-image: url(imagenes/sFierroAI.jpg);
-    left: 50%;
+    left: 47%;
+    bottom: 10%;
 }
 
 .lasVenturas{
     background-image: url(imagenes/las\ venturas.png);
+    bottom: 10%;
+    right: 5%;
 }
 
 #descripcionLS, #descripcionLV{
@@ -188,8 +193,8 @@ select{
     box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.6);
 }
 
-#descripcionLS p, #descripcionLV p, #descripcionSF{
-    font-size: 14px;
+#descripcionLS p, #descripcionLV p, #descripcionSF p{
+    font-size: 15px;
 }
 
 
@@ -199,7 +204,7 @@ select{
 
 #descripcionSF{
     background-color: rgb(235, 161, 163);
-    width: 300px;
+    width: 320px;
     height: 150px;
     position: absolute;
     right: 290px;
@@ -242,8 +247,8 @@ select{
 #SFfuente{
     margin-top: 10px;
     margin-left: 40px;
-    width: 35%;
-    height: 15%;
+    width: 33%;
+    height: 17%;
 }
 
 #LVfuente{

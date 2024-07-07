@@ -8,7 +8,7 @@ function slideCiudades() {
     
 
     // Función para mostrar ciudades secuencialmente
-    index = 0;
+    var index = 0;
     function mostrarCiudad() {
         
             // Oculto todas las ciudades
@@ -17,7 +17,9 @@ function slideCiudades() {
             }
                 // muestro la ciudad actual
                 ciudades[index].style.display = 'block';
-
+                // var ciudadImagen = getComputedStyle(ciudades[index]).backgroundImage;
+                // ciudadContainer.style.backgroundImage = ciudadImagen; 
+                // ciudadContainer.style.backdropFilter = 'blur(20px);'
                 // Incrementar el índice y resetear si es necesario
                 index = (index + 1) % ciudades.length;
                 
