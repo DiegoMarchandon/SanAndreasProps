@@ -139,19 +139,12 @@ select{
 }
 
 .ciudades{
-    /* background-image: url(imagenes/vector-naranja2.jpg); */
-    background-size:contain;
-    /* position: absolute; */
-    grid-row: 3;
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
-    /* grid-template-rows: 10% 30% auto; */
-    /* height: 500px; */
-    background-color: black;
     
+    background-size:contain;
+    grid-row: 3;
+    background-color: rgba(255, 255, 255, 0.5); 
+    height: 700px;
+    background-size: cover;
 }
 
 .ciudades div {
@@ -166,7 +159,7 @@ select{
     background-size: cover;
 }
 .losSantos{
-    background-image: url(imagenes/los\ santos.png);
+    background-image: url(imagenes/losSantosCityFoto.png);
     bottom: 10%;
     right: 5%;
 }
@@ -178,7 +171,7 @@ select{
 }
 
 .lasVenturas{
-    background-image: url(imagenes/las\ venturas.png);
+    background-image: url(imagenes/lasVenturasCityFoto.png);
     bottom: 10%;
     right: 5%;
 }
