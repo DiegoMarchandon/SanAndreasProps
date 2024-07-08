@@ -436,7 +436,7 @@ function filtro(event){
         // si después del filtrado se muestran 0 propiedades:
         if(contenedorPropiedades.childElementCount == 0){
 
-            // creo el contenedor
+            // creo el contenedor de sin resultados:
             const sinResultadosDiv = document.createElement('div');
             sinResultadosDiv.style.width = '500px';
             sinResultadosDiv.style.height = '500px';
