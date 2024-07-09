@@ -301,7 +301,6 @@ const contenedorPropiedades = document.getElementById('vistaPropiedades');
  * crea un div a partir de un elemento del arreglo de coleccion de casas
  */
 function divProp(propiedad){
-
 // creo un nuevo div
 const divPropContainer = document.createElement('div');
 divPropContainer.className = 'prop-container';
@@ -418,9 +417,34 @@ function filtro(event){
     const inputValorMin = document.getElementById("desdeValue").value;
     const inputValorMax = document.getElementById("hastaValue").value; 
 
-    var valorMin = parseInt(inputValorMin);
-    var valorMax = parseInt(inputValorMax); 
-    // limpio el contenedor antes de generar nuevas propiedades
+    // convierto los strings vacíos en ceros
+    var valorMin = inputValorMin === "" ? 0 : parseInt(inputValorMin);
+    var valorMax = inputValorMax === "" ? 0 : parseInt(inputValorMax); 
+    
+    // verifico que el usuario haya ingresado bien los valores, si los ingresó. 
+    if((isNaN(valorMin) && isNaN(valorMax)) || (valorMin > valorMax && valorMax != 0)){
+        document.getElementById('desdeValue').style.backgroundColor = 'rgb(255, 122, 122)';
+        document.getElementById('desdeContainer').style.backgroundColor = 'rgb(255, 122, 122)';
+        document.getElementById('hastaValue').style.backgroundColor = 'rgb(255, 122, 122)';
+        document.getElementById('hastaContainer').style.backgroundColor = 'rgb(255, 122, 122)';
+    }else if(isNaN(valorMax)){
+        document.getElementById('desdeValue').style.backgroundColor = '';
+        document.getElementById('desdeContainer').style.backgroundColor = '';
+        document.getElementById('hastaValue').style.backgroundColor = 'rgb(255, 122, 122)';
+        document.getElementById('hastaContainer').style.backgroundColor = 'rgb(255, 122, 122)';
+    }else if(isNaN(valorMin)){
+        document.getElementById('hastaValue').style.backgroundColor = '';
+        document.getElementById('hastaContainer').style.backgroundColor = '';
+        document.getElementById('desdeValue').style.backgroundColor = 'rgb(255, 122, 122)';
+        document.getElementById('desdeContainer').style.backgroundColor = 'rgb(255, 122, 122)';
+    }else{
+
+        // limpio los fondos de los campos en caso de que antes se hayan ingresado datos inválidos
+        document.getElementById('desdeValue').style.backgroundColor = '';
+        document.getElementById('desdeContainer').style.backgroundColor = '';
+        document.getElementById('hastaValue').style.backgroundColor = '';
+        document.getElementById('hastaContainer').style.backgroundColor = '';
+        // limpio el contenedor antes de generar nuevas propiedades
     contenedorPropiedades.innerHTML = '';
 
         Object.values(casasTotales).forEach(casa => {
@@ -429,13 +453,15 @@ function filtro(event){
              (casa.tipoProp === selectProp || selectProp === "Todas") &&
              (casa.opcion === selectAccion || selectAccion === "") && 
              (casa.moneda === selectMoneda || selectMoneda === "Todas") && 
-             ((casa.precio > valorMin && casa.precio < valorMax))){
+             ((casa.precio > valorMin && casa.precio < valorMax)  || 
+             (valorMin === 0 && valorMax === 0) ||
+             (casa.precio > valorMin && valorMax === 0))){
                 divProp(casa);
             }
         });
         // si después del filtrado se muestran 0 propiedades:
         if(contenedorPropiedades.childElementCount == 0){
-
+           
             // creo el contenedor de sin resultados:
             const sinResultadosDiv = document.createElement('div');
             sinResultadosDiv.style.width = '500px';
@@ -467,6 +493,9 @@ function filtro(event){
             sinResultadosDiv.append(sinResultadosIMG, sinResultadosTXT);
             contenedorPropiedades.appendChild(sinResultadosDiv);
         }
+    } 
+
+    
     
 }
 
