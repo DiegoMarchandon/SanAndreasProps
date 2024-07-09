@@ -318,23 +318,17 @@ li{
                          "ubiMap     ubiMap   fContacto"
 }
 
-#slideAmpliado, #vertical-slide, #detallesProp, #formContacto, #propUbicacion{
+ #vertical-slide, #detallesProp, #formContacto, #propUbicacion{
     background-color: rgb(243, 243, 243);
     border-radius: 20px;
     overflow: hidden;
     border:solid 3px lightgray;
     transition: border-color 1s ease;
 }
-#slideAmpliado:hover, #vertical-slide:hover, #detallesProp:hover, #formContacto:hover, #propUbicacion:hover{
+#vertical-slide:hover, #detallesProp:hover, #formContacto:hover, #propUbicacion:hover{
     border-color: orange;
 }
 
-#slideAmpliado{
-    grid-area: slideAmpl;
-    height: 400px;
-    width: 600px;
-    justify-self: center;
-}
 #vertical-slide{
     grid-area: Vslide;
     height: 350px;

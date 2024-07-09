@@ -341,15 +341,24 @@ divPropContainer.addEventListener('dblclick',function(){
     // oculto la vista de todas las propiedades
     contenedorPropiedades.style.display = 'none';
     // muestro la vista de las características de la propiedad
-    propiedadSeleccionada.style.display = 'block';
+    propiedadSeleccionada.style.display = 'grid';
     propiedadSeleccionada.id = 'propSeleccionada';
     // elementos de la propiedad seleccionada: 
     // slide 
-    const slideAumentado = document.createElement('div');
-    slideAumentado.id = 'slideAmpliado';
-    slideAumentado.className = 'img-container';
-    slideAumentado.append(divSlideContainer, buttonPrev, buttonNext);
+    // const slideAumentado = document.createElement('div');
+    // slideAumentado.id = 'slideAmpliado';
+    // slideAumentado.className = 'img-container';
+    // slideAumentado.append(divSlideContainer, buttonPrev, buttonNext);
 
+    // realizo modificaciones al div de imagenes 
+    divSlideContainer.style.gridArea = 'slideAmpl';
+    divSlideContainer.style.height = '400px';
+    divSlideContainer.style.width = '600px';
+    divSlideContainer.style.justifySelf = 'center';
+    divSlideContainer.style.borderRadius = '20px';
+    divSlideContainer.style.overflow = 'hidden';
+    divSlideContainer.style.border = 'solid 3px lightgray';
+    divSlideContainer.style.boxShadow = '5px 5px 5px 0px rgba(0, 0, 0, 0.3)';
     // slide vertical
     const verticalSlide = document.createElement('div');
     verticalSlide.id = 'vertical-slide';
@@ -366,7 +375,7 @@ divPropContainer.addEventListener('dblclick',function(){
     propiedadUbicacion.id = 'propUbicacion';
 
     // agrego los elementos al contenedor padre
-    propiedadSeleccionada.append(slideAumentado, verticalSlide, detallesPropiedad, formularioContacto, propiedadUbicacion);
+    propiedadSeleccionada.append(divSlideContainer, verticalSlide, detallesPropiedad, formularioContacto, propiedadUbicacion);
 })
 
 // si el evento del contenedor de propiedades fuera 'click' en lugar de 'dblclick', 
