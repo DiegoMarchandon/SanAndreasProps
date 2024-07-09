@@ -356,7 +356,13 @@ const propValue = document.createElement('p');
 
 propValue.className= 'propValue';
 propValue.id = 'propValue-'+propiedad.primaryKey;
-propValue.textContent = propiedad.precio;
+if(propiedad.opcion === "Alquilar"){
+    propValue.textContent = propiedad.precio + " al mes";
+}else if(propiedad.opcion === "Comprar"){
+    propValue.textContent = propiedad.precio + " contado";
+}else if(propiedad.opcion === "Alquiler Temporario"){
+    propValue.textContent = propiedad.precio + " por dia";
+}
 
 const tipoCambio = document.createElement('p');
 tipoCambio.className = 'tipoCambio';
