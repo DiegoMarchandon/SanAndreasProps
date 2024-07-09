@@ -294,9 +294,11 @@ let casasTotales = {
 };
 
 
-// contenedor principal de las propiedades
+// contenedor principal para visualización de las propiedades
 const contenedorPropiedades = document.getElementById('vistaPropiedades');
 
+// contenedor específico de la propiedad seleccionada
+const propiedadSeleccionada = document.getElementById('propSeleccionada');
 /**
  * crea un div a partir de un elemento del arreglo de coleccion de casas
  */
@@ -334,6 +336,42 @@ buttonPrev.appendChild(imgPrev);
 
 var propIMGS = propiedad.imagenes;
 
+// si se hace doble click en el contenedor, se creará la plantilla con información de la propiedad
+divPropContainer.addEventListener('dblclick',function(){
+    // oculto la vista de todas las propiedades
+    contenedorPropiedades.style.display = 'none';
+    // muestro la vista de las características de la propiedad
+    propiedadSeleccionada.style.display = 'block';
+    propiedadSeleccionada.id = 'propSeleccionada';
+    // elementos de la propiedad seleccionada: 
+    // slide 
+    const slideAumentado = document.createElement('div');
+    slideAumentado.id = 'slideAmpliado';
+    slideAumentado.className = 'img-container';
+    slideAumentado.append(divSlideContainer, buttonPrev, buttonNext);
+
+    // slide vertical
+    const verticalSlide = document.createElement('div');
+    verticalSlide.id = 'vertical-slide';
+    // detalles de la propiedad
+    const detallesPropiedad = document.createElement('div');
+    detallesPropiedad.id = 'detallesProp';
+
+    // formulario de contacto con el corredor
+    const formularioContacto = document.createElement('div');
+    formularioContacto.id = 'formContacto';
+
+    // ubicacion de la propiedad en el mapa
+    const propiedadUbicacion = document.createElement('div');
+    propiedadUbicacion.id = 'propUbicacion';
+
+    // agrego los elementos al contenedor padre
+    propiedadSeleccionada.append(slideAumentado, verticalSlide, detallesPropiedad, formularioContacto, propiedadUbicacion);
+})
+
+// si el evento del contenedor de propiedades fuera 'click' en lugar de 'dblclick', 
+// debería poner 'event.stopPropagation() en los botones, para que la propagación del evento principal
+// no interfiera en la aplicación del evento de los contenedores hijos.
 buttonPrev.addEventListener('click', function(){
     // alert("presiono next");
 cambioImagen('prev', propIMGS, divSlideContainer);  

@@ -173,6 +173,7 @@ li{
     margin: 10px;
     border-radius: 20px;
     overflow: hidden;
+    cursor: pointer;
     border:solid 3px lightgray;
     transition: border-color 1s ease;
 }
@@ -301,4 +302,58 @@ li{
 .favoritos{
     grid-row: 1;
     justify-self: end;
+}
+
+
+/* estilos para la propiedad seleccionada  */
+
+#propSeleccionada{
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(4, auto);
+    grid-template-areas: "slideAmpl slideAmpl Vslide"
+                         "slideAmpl slideAmpl Vslide"
+                         "propDet    propDet  fContacto"
+                         "ubiMap     ubiMap   fContacto"
+}
+
+#slideAmpliado, #vertical-slide, #detallesProp, #formContacto, #propUbicacion{
+    background-color: rgb(243, 243, 243);
+    border-radius: 20px;
+    overflow: hidden;
+    border:solid 3px lightgray;
+    transition: border-color 1s ease;
+}
+#slideAmpliado:hover, #vertical-slide:hover, #detallesProp:hover, #formContacto:hover, #propUbicacion:hover{
+    border-color: orange;
+}
+
+#slideAmpliado{
+    grid-area: slideAmpl;
+    height: 400px;
+    width: 600px;
+    justify-self: center;
+}
+#vertical-slide{
+    grid-area: Vslide;
+    height: 350px;
+    width: 200px;
+}
+#detallesProp{
+    grid-area: propDet;
+    height: 150px;
+    width: 500px;
+    justify-self: center;
+}
+#formContacto{
+    grid-area: fContacto;
+    height: 400px;
+    width: 300px;
+}
+#propUbicacion{
+    grid-area: ubiMap;
+    width: 650px;
+    height: 400px;
+    justify-self: center;
 }

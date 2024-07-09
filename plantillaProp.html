@@ -11,11 +11,53 @@
     
     #propSeleccionada{
         display: grid;
-        grid-template-columns: 2;
-        grid-template-rows: 3;
+        gap: 20px;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: repeat(4, auto);
+        grid-template-areas: "slideAmpl slideAmpl Vslide"
+                             "slideAmpl slideAmpl Vslide"
+                             "propDet    propDet  fContacto"
+                             "ubiMap     ubiMap   fContacto"
     }
+
+    #slideAmpliado, #vertical-slide, #detallesProp, #formContacto, #propUbicacion{
+        background-color: rgb(243, 243, 243);
+        border-radius: 20px;
+        overflow: hidden;
+        border:solid 3px lightgray;
+        transition: border-color 1s ease;
+    }
+    #slideAmpliado:hover, #vertical-slide:hover, #detallesProp:hover, #formContacto:hover, #propUbicacion:hover{
+        border-color: orange;
+    }
+
     #slideAmpliado{
-        grid-row: 1;
+        grid-area: slideAmpl;
+        height: 400px;
+        width: 600px;
+        justify-self: center;
+    }
+    #vertical-slide{
+        grid-area: Vslide;
+        height: 350px;
+        width: 200px;
+    }
+    #detallesProp{
+        grid-area: propDet;
+        height: 150px;
+        width: 500px;
+        justify-self: center;
+    }
+    #formContacto{
+        grid-area: fContacto;
+        height: 400px;
+        width: 300px;
+    }
+    #propUbicacion{
+        grid-area: ubiMap;
+        width: 650px;
+        height: 400px;
+        justify-self: center;
     }
 
 </style>
@@ -24,13 +66,20 @@
 
     <div id="propSeleccionada">
         <div id="slideAmpliado">
-            
+            slide ampliado
         </div>        
+        <div id="vertical-slide">
+            slide vertical
+        </div>
         <div id="detallesProp">
-
+            detalles propiedad
         </div>
         <div id="formContacto">
+            formulario de contacto
+        </div>
 
+        <div id="propUbicacion">
+            ubicacion en el mapa
         </div>
     </div>
 
