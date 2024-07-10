@@ -101,6 +101,16 @@ function nombreValido(names){
     return valido;
 }
 
+function telefonoValido(telefono){
+    var telefonoInput = telefono.value;
+    const numeros = /^[0-9]+$/;
+    var telValido = true;
+    if(!numeros.test(telefonoInput)){
+        telValido = false;
+    }
+    return telValido; 
+}
+
 function mailValido(email){
     const emailValid = /^[a-zA-Z0-9][a-zA-Z0-9_.+-]*@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
     // var email = document.getElementById("newEmail");
@@ -233,4 +243,64 @@ function validar(){
         }
     }   
     return validezForm;
+}
+
+/* funciones de validación de datos de contacto: */
+
+const formularioContacto = document.getElementById('formContacto');
+const nombreYApellido = document.getElementById('NomYape');
+const telContacto = document.getElementById('telefonoContacto');
+const emailContacto = document.getElementById('emailContacto');
+
+// divs contenedores de los inputs 
+let NomYApeContainer = nombreYApellido.parentElement;
+let telefonoContainer = telContacto.parentElement;
+let emailContainer = emailContacto.parentElement;
+
+nombreYApellido.addEventListener('input',function(){
+
+    // nombreYApellido.style.color = 'red';
+
+    if(!nombreValido(nombreYApellido)){
+        document.getElementById('errorNomYape').textContent = 'nombre inválido.';
+        nombreYApellido.style.backgroundColor = 'rgb(255, 209, 124)';
+        NomYApeContainer.style.backgroundColor = 'rgb(255, 209, 124)';
+    }else{
+        document.getElementById('errorNomYape').textContent = '';
+        nombreYApellido.style.backgroundColor = '';
+        NomYApeContainer.style.backgroundColor = '';
+    }
+})
+telContacto.addEventListener('input',function(){ 
+    if(!telefonoValido(telContacto)){
+        document.getElementById('errorTelefono').textContent = 'telefono inválido.';
+        telContacto.style.backgroundColor = 'rgb(255, 209, 124)';
+        telefonoContainer.style.backgroundColor = 'rgb(255, 209, 124)';
+    }else{
+        document.getElementById('errorTelefono').textContent = '';
+        telContacto.style.backgroundColor = '';
+        telefonoContainer.style.backgroundColor = '';
+    }
+})
+
+emailContacto.addEventListener('input',function(){
+    if(!mailValido(emailContacto)){
+        document.getElementById('errorEmail').textContent = 'email inválido. ';
+        emailContacto.style.backgroundColor = 'rgb(255, 209, 124)';
+        emailContainer.style.backgroundColor = 'rgb(255, 209, 124)';
+    }else{
+        document.getElementById('errorEmail').textContent = '';
+        emailContacto.style.backgroundColor = '';
+        emailContainer.style.backgroundColor = '';
+    }
+})
+
+// si se comprueba que todos los datos son válidos, se activa el botón submit
+function validacionDatos(){
+    let botonEnvio = document.getElementById('enviarDatos');
+    if(nombreValido(nombreYApellido) && telefonoValido(telContacto) && mailValido(emailContacto)){
+        botonEnvio.removeAttribute("disabled");
+        botonEnvio.style.backgroundColor = 'orange';
+        botonEnvio.style.cursor = 'pointer';
+    }   
 }

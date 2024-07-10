@@ -51,7 +51,7 @@
     #formContacto{
         position: relative;
         grid-area: fContacto;
-        height: 500px;
+        height: 550px;
         width: 300px;
     }
     #propUbicacion{
@@ -78,7 +78,7 @@
         width: 40px;
         height: 40px;
         left: 240px;
-        bottom: 435px;
+        bottom: 490px;
         transition: background-color 1s ease;
     }
     .logosContacto:hover{
@@ -88,6 +88,10 @@
         /* bottom: 100px; */
         left: 180px;
     }
+
+    #formContacto h2, #formContacto h3, #formContacto p{
+        font-family: sans-serif;
+    } 
 
     #formContacto h2{
         margin-left: 15px;
@@ -168,20 +172,24 @@
             <img src="imagenes/gallery149.jpg" alt="Corredor Carl Johnson" id="CJ">
             <img id="mailLogo" class="logosContacto" src="imagenes/mailLogo.png" alt="logo mail">
             <img id="phoneLogo" class="logosContacto" src="imagenes/phoneLogo.png" alt="logo telefono">
+            
             <form class="datosContacto">
                 <div>
                     <input type="text" name="" id="NomYape" placeholder="Nombre y apellido *">
                 </div>
+                    <span id="errorNomYape" style="color: red; font-size: 10px; font-family: monospace"></span>
                 <div>
                     <input type="text" name="" id="telefonoContacto" placeholder="Teléfono *">
                 </div>
+                    <span id="errorTelefono" style="color: red; font-size: 10px; font-family: monospace"></span>
                 <div>
                     <input type="text" name="" id="emailContacto" placeholder="Email *">
                 </div>
+                    <span id="errorEmail" style="color: red; font-size: 10px; font-family: monospace"></span>
                 <div id="textArea-Container">
                     <textarea name="" id="mensajeContacto" placeholder="mensaje" rows="6"></textarea>
                 </div>
-                <input type="submit" value="Contactar" disabled>
+                <input id="enviarDatos" type="submit" value="Contactar" disabled>
             </form>
         </div>
 
@@ -189,6 +197,6 @@
             ubicacion en el mapa
         </div>
     </div>
-
+<script src="validacionForms.js"></script>
 </body>
 </html>
