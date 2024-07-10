@@ -6,6 +6,14 @@ import {
     Casa6SFfotos, Casa1LVfotos, Casa2LVfotos, Casa3LVfotos, Depto1LVfotos, 
     Depto2LVfotos, Depto3LVfotos, Depto4LVfotos, Depto5LVfotos, Casa4LVfotos
 } from './imagenes.js';
+  
+export {
+    NomYApeContainer, nomYapeInput, errorNombreYapellido,
+    telefonoContainer, telefonoContacto, errorTelefono,
+    emailContainer, mailInput, errorEmail,
+    envioDatos
+};
+
 /* 
 ciudades/pueblos de San Andreas: 
 Red County: Dillimore, Blueberry, Montgomery, Palomino Creek.
@@ -345,10 +353,6 @@ divPropContainer.addEventListener('dblclick',function(){
     propiedadSeleccionada.id = 'propSeleccionada';
     // elementos de la propiedad seleccionada: 
     // slide 
-    // const slideAumentado = document.createElement('div');
-    // slideAumentado.id = 'slideAmpliado';
-    // slideAumentado.className = 'img-container';
-    // slideAumentado.append(divSlideContainer, buttonPrev, buttonNext);
 
     // realizo modificaciones al div de imagenes 
     divSlideContainer.style.gridArea = 'slideAmpl';
@@ -359,9 +363,11 @@ divPropContainer.addEventListener('dblclick',function(){
     divSlideContainer.style.overflow = 'hidden';
     divSlideContainer.style.border = 'solid 3px lightgray';
     divSlideContainer.style.boxShadow = '5px 5px 5px 0px rgba(0, 0, 0, 0.3)';
+
     // slide vertical
     const verticalSlide = document.createElement('div');
     verticalSlide.id = 'vertical-slide';
+    
     // detalles de la propiedad
     const detallesPropiedad = document.createElement('div');
     detallesPropiedad.id = 'detallesProp';
@@ -369,10 +375,106 @@ divPropContainer.addEventListener('dblclick',function(){
     // formulario de contacto con el corredor
     const formularioContacto = document.createElement('div');
     formularioContacto.id = 'formContacto';
+    // creo imagenes y textos del div: 
+    let contactoH2 = document.createElement('h2');
+    contactoH2.innerText = 'Contacto';
+    let nombreCorredor = document.createElement('h3');
+    nombreCorredor.innerText = 'Carl Johnson';
+    let corredorCaracteristicas = document.createElement('p');
+    corredorCaracteristicas.innerHTML = '<i><strong>SA PROPS</strong> Ganton</i>';
+    let contactanos = document.createElement('h2');
+    contactanos.innerText = 'déjanos tu contacto';
+    let imgCJ = document.createElement('img');
+    imgCJ.id = 'CJ';
+    imgCJ.src = 'imagenes/gallery149.jpg';
+    imgCJ.alt = 'Corredor Carl Johnson';
+    let imgMailLogo = document.createElement('img');
+    imgMailLogo.id = 'mailLogo';
+    imgMailLogo.className = 'logosContacto';
+    imgMailLogo.src = 'imagenes/mailLogo.png';
+    imgMailLogo.alt = 'logo mail';
+    let imgTelLogo = document.createElement('img');
+    imgTelLogo.id = 'phoneLogo';
+    imgTelLogo.className = 'logosContacto';
+    imgTelLogo.src = 'imagenes/phoneLogo.png';
+    imgTelLogo.alt = 'logo telefono';
+
+    // creo un objeto con los estilos que tendrán los span de error 
+    const spanEstilos = {
+        color: 'red',
+        fontSize: '10px',
+        fontFamily: 'monospace'
+    };
+
+    // creo elementos propios del formulario:
+    let contactoDatos = document.createElement('form');
+    contactoDatos.className = 'datosContacto';
+    // input nombre:
+     let NomYApeContainer = document.createElement('div');
+     let nomYapeInput = document.createElement('input');
+    nomYapeInput.type = "text";
+    nomYapeInput.id = 'NomYape';
+    nomYapeInput.placeholder = 'Nombre y apellido *';
+    NomYApeContainer.appendChild(nomYapeInput);  
+    
+     let errorNombreYapellido = document.createElement('span');
+    errorNombreYapellido.id = 'errorNomYape';
+    // asigno el objeto con los estilos del span 
+    Object.assign(errorNombreYapellido.style, spanEstilos);
+
+    // input telefono:
+     let telefonoContainer = document.createElement('div');
+     let telefonoContacto = document.createElement('input');
+    telefonoContacto.type = "text";
+    telefonoContacto.id = 'telefonoContacto';
+    telefonoContacto.placeholder = 'Teléfono *';
+    telefonoContainer.appendChild(telefonoContacto);
+
+     let errorTelefono = document.createElement('span');
+    errorTelefono.id = 'errorTelefono';
+    Object.assign(errorTelefono.style, spanEstilos);
+
+    // input mail:
+     let emailContainer = document.createElement('div');
+     let mailInput = document.createElement('input');
+    mailInput.type = "text";
+    mailInput.id = 'emailContacto';
+    mailInput.placeholder = 'Email *';
+    emailContainer.appendChild(mailInput);
+
+     let errorEmail = document.createElement('span');
+    errorEmail.id = 'errorEmail';
+    Object.assign(errorEmail.style, spanEstilos);
+
+    // textarea: 
+    let mensajeContainer = document.createElement('div');
+    mensajeContainer.id = 'textArea-Container';
+    let mensajeDeContacto = document.createElement('textarea');
+    mensajeDeContacto.id = 'mensajeContacto';
+    mensajeDeContacto.rows = "6";
+    mensajeDeContacto.placeholder = 'mensaje';
+    mensajeContainer.appendChild(mensajeDeContacto);
+
+    // input submit
+     let envioDatos = document.createElement('input');
+    envioDatos.type = "submit";
+    envioDatos.id = 'enviarDatos';
+    envioDatos.value = 'Contactar';
+    envioDatos.disabled = true;
+
+    // inserto todos los elementos en el formulario
+    contactoDatos.append(NomYApeContainer, errorNombreYapellido, telefonoContainer, errorTelefono, emailContainer, errorEmail, mensajeContainer, envioDatos);
+
+    // inserto el formulario + textos + imagenes en el div de formulario
+    formularioContacto.append(contactoH2, nombreCorredor, corredorCaracteristicas, contactanos, imgCJ, imgMailLogo, imgTelLogo, contactoDatos);
 
     // ubicacion de la propiedad en el mapa
     const propiedadUbicacion = document.createElement('div');
     propiedadUbicacion.id = 'propUbicacion';
+
+
+
+
 
     // agrego los elementos al contenedor padre
     propiedadSeleccionada.append(divSlideContainer, verticalSlide, detallesPropiedad, formularioContacto, propiedadUbicacion);

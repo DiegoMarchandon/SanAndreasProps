@@ -1,5 +1,5 @@
 
-var seccion = document.getElementById('seccionElegida');
+const seccion = document.getElementById('seccionElegida');
 
 var ciudades = {
             LosSantos: {
@@ -101,6 +101,16 @@ var ciudades = {
 
     }
 
+    function mostrarEmprendimientos(){
+        // antes de mostrar la tarjeta, borro los anteriores hijos:
+        if(seccion.childElementCount != 0){
+            seccion.innerHTML = '';
+        }else{
+            
+        }
+
+    }
+
 function verPropuesta(button){
     // location.href='#seccionElegida';
     let buttonContainer = document.getElementById('button-container');
@@ -125,6 +135,11 @@ function verPropuesta(button){
         // alert("presionado boton 1");
         break;
         case 'buton2':
+            mostrarEmprendimientos();
+            seccion.scrollIntoView({
+            behavior: "smooth",
+            block: "start" 
+            });
         // alert("presionado boton 2");
         break;
         case 'buton3':

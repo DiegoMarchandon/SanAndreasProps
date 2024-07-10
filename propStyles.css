@@ -322,12 +322,14 @@ li{
     background-color: rgb(243, 243, 243);
     border-radius: 20px;
     overflow: hidden;
-    border:solid 3px lightgray;
-    transition: border-color 1s ease;
+    border:solid 1px lightgray;
+    transition: border-color 0.5s ease;
 }
 #vertical-slide:hover, #detallesProp:hover, #formContacto:hover, #propUbicacion:hover{
     border-color: orange;
 }
+
+/* slideAmpliado no está porque se usa el mismo slide con su gridArea */
 
 #vertical-slide{
     grid-area: Vslide;
@@ -341,13 +343,103 @@ li{
     justify-self: center;
 }
 #formContacto{
+    position: relative;
     grid-area: fContacto;
-    height: 400px;
+    height: 550px;
     width: 300px;
+
 }
 #propUbicacion{
     grid-area: ubiMap;
     width: 650px;
     height: 400px;
     justify-self: center;
+}
+#CJ, .logosContacto{
+    position: absolute;
+    border-radius: 50%;
+    border: 2px solid orange;
+}   
+
+#CJ{
+    top: 80px;
+    right: 210px;
+    width: 70px;
+    height: 70px;
+}
+
+.logosContacto{
+    width: 40px;
+    height: 40px;
+    left: 240px;
+    bottom: 490px;
+    transition: background-color 1s ease;
+}
+.logosContacto:hover{
+    background-color: rgb(255, 200, 99);
+}
+#mailLogo{
+    /* bottom: 100px; */
+    left: 180px;
+}
+
+#formContacto h2, #formContacto h3, #formContacto p{
+    font-family: sans-serif;
+} 
+
+#formContacto h2{
+    margin-left: 15px;
+}
+#formContacto h3{
+    margin-top: 40px;
+    margin-left: 95px;
+}
+#formContacto p{
+    margin-left: 95px;
+}
+.datosContacto{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 10px;
+}
+.datosContacto input[type="submit"]{
+    height: 40px;
+    border-radius: 10px;
+    background-color: rgb(255, 209, 124);
+    color: white;
+    font-size: 19px;
+    font-weight: 700;
+    /* cursor: pointer; */
+    border: 'none';
+}
+.datosContacto input[type="text"]{
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+.datosContacto div{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 20px;
+    border: 1px solid rgb(254, 217, 150);
+    overflow: hidden;
+    height: 25px;
+    transition: border 0.5s ease;
+}
+.datosContacto div:hover{
+    border: 2px solid orange;
+}
+#mensajeContacto{
+    overflow: hidden;
+    outline: none;
+    border: none;
+}
+#textArea-Container, #mensajeContacto{
+    height: auto;
+}
+#textArea-Container{
+    border: 1px solid rgb(254, 217, 150);
 }
