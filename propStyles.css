@@ -333,21 +333,46 @@ li{
 /* slideAmpliado no está porque se usa el mismo slide con su gridArea */
 
 #vertical-slide{
-    /* padding: 5px; */
     margin-top: 20px;
-    display: flex;
-    flex-wrap: wrap;
     grid-area: Vslide;
-    height: 350px;
-    width: 310px;
-    overflow: auto;
+    height: 325px;
+    width: 306px;
 }
 #vertical-slide img{
     cursor: pointer;
     border: 1px solid white;
     width: 100px;
-    height: 100px
+    max-width: 100%;
+    height: 100px;
+    transition: transform 0.5s ease;
 }
+#vertical-slide img:hover{
+    transform: scale(1.1);
+}
+#IMGcontainer{
+    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+    /* padding: 5px; */
+    height: 100%;
+    width: 100%;
+    /* -ms-overflow-style: none; */
+}
+
+#IMGcontainer::-webkit-scrollbar{
+    width: 8px;
+}
+#IMGcontainer::-webkit-scrollbar-track{
+    background: #f9e2bf;
+}
+#IMGcontainer::-webkit-scrollbar-thumb {
+    background: rgb(255, 189, 68);
+    border-radius: 10px;
+}
+#IMGcontainer::-webkit-scrollbar-thumb:hover {
+    background: orange;
+}
+
 #detallesProp{
     grid-area: propDet;
     height: 150px;
@@ -371,6 +396,7 @@ li{
     position: absolute;
     border-radius: 50%;
     border: 2px solid orange;
+    cursor: pointer;
 }   
 
 #CJ{

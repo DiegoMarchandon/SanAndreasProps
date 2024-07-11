@@ -444,12 +444,20 @@ function propiedadElegida(slidePropiedad, imagenesProp){
     /* ------------HACER---------------------- */
     // slide vertical
     const verticalSlide = document.createElement('div');
-    // const verticalInnerSlide = document.createa
     verticalSlide.id = 'vertical-slide';
+    const VIMGContainer = document.createElement('div');
+    VIMGContainer.id = 'IMGcontainer';
     imagenesProp.forEach(imagenProp =>
-        verticalSlide.innerHTML += '<img src='+ imagenProp +' alt="" id=" imagenNro'+imagenesProp.indexOf(imagenProp)+'"><br>'
+        VIMGContainer.innerHTML += '<img src='+ imagenProp +' alt="" id=" imagenNro'+imagenesProp.indexOf(imagenProp)+'"><br>'
     );
-
+    verticalSlide.appendChild(VIMGContainer);
+    // modifico la altura por defecto del container en caso de que la propiedad seleccionada tenga menos de 9 imagenes
+    // (para eliminar el espacio vacío) 
+    if(imagenesProp.length <= 3){
+        verticalSlide.style.height = '150px'; 
+    }else if(imagenesProp.length <= 6){
+        verticalSlide.style.height = '250px';
+    }
 
     // detalles de la propiedad
     const detallesPropiedad = document.createElement('div');
@@ -506,9 +514,6 @@ function propiedadElegida(slidePropiedad, imagenesProp){
     errorNyA.id = 'errorNomYape';
     // asigno el objeto con los estilos del span 
     Object.assign(errorNyA.style, spanEstilos);
-
-    
-
 
     // input telefono:
     let telefonoContainer = document.createElement('div');
@@ -574,7 +579,7 @@ function propiedadElegida(slidePropiedad, imagenesProp){
         // nombreYApellido.style.color = 'red';
     
         if(!nombreValido(NyAInput)){
-            errorNyA.textContent = 'nombre y apellido de hasta y (solo) 40 letras';
+            errorNyA.textContent = 'nombre + apellido de hasta (y solo) 40 letras';
             NyAInput.style.backgroundColor = 'rgb(255, 209, 124)';
             NyAContainer.style.backgroundColor = 'rgb(255, 209, 124)';
         }else{

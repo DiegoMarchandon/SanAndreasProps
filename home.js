@@ -119,7 +119,7 @@ function verPropuesta(button){
     botones.forEach(btn => {
        
         btn.style.borderColor = 'black';
-        btn.style.backgroundColor = 'orange';
+        btn.style.backgroundColor = 'rgb(255, 184, 51)';
     });
     
     button.style.borderColor = 'white';
