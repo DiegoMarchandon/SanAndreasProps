@@ -7,12 +7,9 @@ import {
     Depto2LVfotos, Depto3LVfotos, Depto4LVfotos, Depto5LVfotos, Casa4LVfotos
 } from './imagenes.js';
   
-export {
-    NomYApeContainer, nomYapeInput, errorNombreYapellido,
-    telefonoContainer, telefonoContacto, errorTelefono,
-    emailContainer, mailInput, errorEmail,
-    envioDatos
-};
+import {
+    nombreValido, telefonoValido, mailValido
+} from './validacionForms.js';
 
 /* 
 ciudades/pueblos de San Andreas: 
@@ -410,39 +407,42 @@ divPropContainer.addEventListener('dblclick',function(){
     let contactoDatos = document.createElement('form');
     contactoDatos.className = 'datosContacto';
     // input nombre:
-     let NomYApeContainer = document.createElement('div');
-     let nomYapeInput = document.createElement('input');
-    nomYapeInput.type = "text";
-    nomYapeInput.id = 'NomYape';
-    nomYapeInput.placeholder = 'Nombre y apellido *';
-    NomYApeContainer.appendChild(nomYapeInput);  
+    let NyAContainer = document.createElement('div');
+    let NyAInput = document.createElement('input');
+    NyAInput.type = "text";
+    NyAInput.id = 'NomYape';
+    NyAInput.placeholder = 'Nombre y apellido *';
+    NyAContainer.appendChild(NyAInput);  
     
-     let errorNombreYapellido = document.createElement('span');
-    errorNombreYapellido.id = 'errorNomYape';
+    let errorNyA = document.createElement('span');
+    errorNyA.id = 'errorNomYape';
     // asigno el objeto con los estilos del span 
-    Object.assign(errorNombreYapellido.style, spanEstilos);
+    Object.assign(errorNyA.style, spanEstilos);
+
+    
+
 
     // input telefono:
-     let telefonoContainer = document.createElement('div');
-     let telefonoContacto = document.createElement('input');
+    let telefonoContainer = document.createElement('div');
+    let telefonoContacto = document.createElement('input');
     telefonoContacto.type = "text";
     telefonoContacto.id = 'telefonoContacto';
     telefonoContacto.placeholder = 'Teléfono *';
     telefonoContainer.appendChild(telefonoContacto);
 
-     let errorTelefono = document.createElement('span');
+    let errorTelefono = document.createElement('span');
     errorTelefono.id = 'errorTelefono';
     Object.assign(errorTelefono.style, spanEstilos);
 
     // input mail:
-     let emailContainer = document.createElement('div');
-     let mailInput = document.createElement('input');
+    let emailContainer = document.createElement('div');
+    let mailInput = document.createElement('input');
     mailInput.type = "text";
     mailInput.id = 'emailContacto';
     mailInput.placeholder = 'Email *';
     emailContainer.appendChild(mailInput);
 
-     let errorEmail = document.createElement('span');
+    let errorEmail = document.createElement('span');
     errorEmail.id = 'errorEmail';
     Object.assign(errorEmail.style, spanEstilos);
 
@@ -456,18 +456,73 @@ divPropContainer.addEventListener('dblclick',function(){
     mensajeContainer.appendChild(mensajeDeContacto);
 
     // input submit
-     let envioDatos = document.createElement('input');
+    let envioDatos = document.createElement('input');
     envioDatos.type = "submit";
     envioDatos.id = 'enviarDatos';
     envioDatos.value = 'Contactar';
     envioDatos.disabled = true;
 
     // inserto todos los elementos en el formulario
-    contactoDatos.append(NomYApeContainer, errorNombreYapellido, telefonoContainer, errorTelefono, emailContainer, errorEmail, mensajeContainer, envioDatos);
+    contactoDatos.append(NyAContainer, errorNyA, telefonoContainer, errorTelefono, emailContainer, errorEmail, mensajeContainer, envioDatos);
 
     // inserto el formulario + textos + imagenes en el div de formulario
     formularioContacto.append(contactoH2, nombreCorredor, corredorCaracteristicas, contactanos, imgCJ, imgMailLogo, imgTelLogo, contactoDatos);
 
+    // si se comprueba que todos los datos son válidos, se activa el botón submit
+    function validacionDatos(){
+    if(nombreValido(NyAInput) && telefonoValido(telefonoContacto) && mailValido(mailInput)){
+        envioDatos.removeAttribute("disabled");
+        envioDatos.style.backgroundColor = 'orange';
+        envioDatos.style.cursor = 'pointer';
+    }else{
+        envioDatos.setAttribute("disabled", true);
+        envioDatos.style.backgroundColor = 'rgb(255, 209, 124)';
+        envioDatos.style.cursor = '';
+    }
+    }
+
+    NyAInput.addEventListener('input',function(){
+
+        // nombreYApellido.style.color = 'red';
+    
+        if(!nombreValido(NyAInput)){
+            errorNyA.textContent = 'nombre y apellido de hasta y (solo) 40 letras';
+            NyAInput.style.backgroundColor = 'rgb(255, 209, 124)';
+            NyAContainer.style.backgroundColor = 'rgb(255, 209, 124)';
+        }else{
+            errorNyA.textContent = '';
+            NyAInput.style.backgroundColor = '';
+            NyAContainer.style.backgroundColor = '';
+        }
+        // llamo a la función para verificar si, en este caso, el nombre ya es válido
+        validacionDatos();
+    })
+    
+    telefonoContacto.addEventListener('input',function(){ 
+        if(!telefonoValido(telefonoContacto)){
+            errorTelefono.textContent = 'el numero debe ser de 9 o 10 digitos';
+            telefonoContacto.style.backgroundColor = 'rgb(255, 209, 124)';
+            telefonoContainer.style.backgroundColor = 'rgb(255, 209, 124)';
+        }else{
+            errorTelefono.textContent = '';
+            telefonoContacto.style.backgroundColor = '';
+            telefonoContainer.style.backgroundColor = '';
+        }
+        validacionDatos();
+    })
+    
+    mailInput.addEventListener('input',function(){
+        if(!mailValido(mailInput)){
+            errorEmail.textContent = 'estructura ejemplo: user@dominio.com ';
+            mailInput.style.backgroundColor = 'rgb(255, 209, 124)';
+            emailContainer.style.backgroundColor = 'rgb(255, 209, 124)';
+        }else{
+            errorEmail.textContent = '';
+            mailInput.style.backgroundColor = '';
+            emailContainer.style.backgroundColor = '';
+        }
+        validacionDatos();
+    })
     // ubicacion de la propiedad en el mapa
     const propiedadUbicacion = document.createElement('div');
     propiedadUbicacion.id = 'propUbicacion';
@@ -479,6 +534,8 @@ divPropContainer.addEventListener('dblclick',function(){
     // agrego los elementos al contenedor padre
     propiedadSeleccionada.append(divSlideContainer, verticalSlide, detallesPropiedad, formularioContacto, propiedadUbicacion);
 })
+
+
 
 // si el evento del contenedor de propiedades fuera 'click' en lugar de 'dblclick', 
 // debería poner 'event.stopPropagation() en los botones, para que la propagación del evento principal

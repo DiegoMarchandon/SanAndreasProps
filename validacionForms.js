@@ -83,7 +83,7 @@ function mostrarForm(){
     return registro;
 }
 
-function nombreValido(names){
+export function nombreValido(names){
     var namesInput = names.value;
 
     var expresionNames = /^[a-zA-ZÀ-ÿ\s]{2,40}$/; // Letras y espacios, pueden llevar acentos.
@@ -101,7 +101,7 @@ function nombreValido(names){
     return valido;
 }
 
-function telefonoValido(telefono){
+export function telefonoValido(telefono){
     var telefonoInput = telefono.value;
     const numeros = /^[0-9]{9,10}$/;
     var telValido = true;
@@ -111,7 +111,7 @@ function telefonoValido(telefono){
     return telValido; 
 }
 
-function mailValido(email){
+export function mailValido(email){
     const emailValid = /^[a-zA-Z0-9][a-zA-Z0-9_.+-]*@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
     // var email = document.getElementById("newEmail");
     var valido = true;
@@ -152,7 +152,6 @@ function contraseñaValida(contra){
 
 // validar datos de un usuario nuevo. Si son todos válidos, se almacenan en el local storage
 function validar(){
-    const nombreYapellidoValid = /^[a-zA-ZÀ-ÿ\s]{1,40}$/;
     var validezForm = true;
 
     var registro = document.getElementById("registro");
@@ -247,27 +246,9 @@ function validar(){
 
 /* funciones de validación de datos de contacto: */
 
-import{
-    NomYApeContainer, nomYapeInput, errorNombreYapellido, 
-    telefonoContainer, telefonoContacto, errorTelefono,
-    emailContainer, mailInput, errorEmail,
-    envioDatos
-} from './slidesJS';
-
 // let botonEnvio = document.getElementById('enviarDatos');
 
-// si se comprueba que todos los datos son válidos, se activa el botón submit
-function validacionDatos(){
-    if(nombreValido(nombreYApellido) && telefonoValido(telContacto) && mailValido(emailContacto)){
-        envioDatos.removeAttribute("disabled");
-        envioDatos.style.backgroundColor = 'orange';
-        envioDatos.style.cursor = 'pointer';
-    }else{
-        envioDatos.setAttribute("disabled", true);
-        envioDatos.style.backgroundColor = 'rgb(255, 209, 124)';
-        envioDatos.style.cursor = '';
-    }
-}
+
 
 // const formularioContacto = document.getElementById('formContacto');
 // const nombreYApellido = document.getElementById('NomYape');
@@ -279,46 +260,5 @@ function validacionDatos(){
 // let telefonoContainer = telContacto.parentElement;
 // let emailContainer = emailContacto.parentElement;
 
-NomYapeInput.addEventListener('input',function(){
 
-    // nombreYApellido.style.color = 'red';
-
-    if(!nombreValido(NomYapeInput)){
-        document.getElementById('errorNomYape').textContent = 'nombre y apellido de hasta y (solo) 40 letras';
-        NomYapeInput.style.backgroundColor = 'rgb(255, 209, 124)';
-        NomYApeContainer.style.backgroundColor = 'rgb(255, 209, 124)';
-    }else{
-        document.getElementById('errorNomYape').textContent = '';
-        NomYapeInput.style.backgroundColor = '';
-        NomYApeContainer.style.backgroundColor = '';
-    }
-    // llamo a la función para verificar si, en este caso, el nombre ya es válido
-    validacionDatos();
-})
-
-telContacto.addEventListener('input',function(){ 
-    if(!telefonoValido(telContacto)){
-        document.getElementById('errorTelefono').textContent = 'el numero debe ser de 9 o 10 digitos';
-        telContacto.style.backgroundColor = 'rgb(255, 209, 124)';
-        telefonoContainer.style.backgroundColor = 'rgb(255, 209, 124)';
-    }else{
-        document.getElementById('errorTelefono').textContent = '';
-        telContacto.style.backgroundColor = '';
-        telefonoContainer.style.backgroundColor = '';
-    }
-    validacionDatos();
-})
-
-emailContacto.addEventListener('input',function(){
-    if(!mailValido(emailContacto)){
-        document.getElementById('errorEmail').textContent = 'estructura ejemplo: user@dominio.com ';
-        emailContacto.style.backgroundColor = 'rgb(255, 209, 124)';
-        emailContainer.style.backgroundColor = 'rgb(255, 209, 124)';
-    }else{
-        document.getElementById('errorEmail').textContent = '';
-        emailContacto.style.backgroundColor = '';
-        emailContainer.style.backgroundColor = '';
-    }
-    validacionDatos();
-})
 
