@@ -332,9 +332,18 @@ li{
 /* slideAmpliado no está porque se usa el mismo slide con su gridArea */
 
 #vertical-slide{
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
     grid-area: Vslide;
     height: 350px;
-    width: 200px;
+    width: 310px;
+}
+#vertical-slide img{
+    cursor: pointer;
+    border: 1px solid white;
+    width: 100px;
+    height: 100px
 }
 #detallesProp{
     grid-area: propDet;

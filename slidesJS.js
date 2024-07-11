@@ -308,66 +308,153 @@ const propiedadSeleccionada = document.getElementById('propSeleccionada');
  * crea un div a partir de un elemento del arreglo de coleccion de casas
  */
 function divProp(propiedad){
-// creo un nuevo div
-const divPropContainer = document.createElement('div');
-divPropContainer.className = 'prop-container';
+    // creo un nuevo div
+    const divPropContainer = document.createElement('div');
+    divPropContainer.className = 'prop-container';
 
-// creo el div de los slides
-const divSlideContainer = document.createElement('div');
-divSlideContainer.className = 'img-container';
+    // creo el div de los slides
+    const divSlideContainer = document.createElement('div');
+    divSlideContainer.className = 'img-container';
 
-// incorporo los botones al slide container
-const buttonNext = document.createElement('button');
-buttonNext.className = 'next';
-buttonNext.id = 'next-'+propiedad.primaryKey;
-const imgNext = document.createElement('img');
-imgNext.src = 'imagenes/arrowNextPrev.png';
-imgNext.alt = 'next';
+    // incorporo los botones al slide container
+    const buttonNext = document.createElement('button');
+    buttonNext.className = 'next';
+    buttonNext.id = 'next-'+propiedad.primaryKey;
+    const imgNext = document.createElement('img');
+    imgNext.src = 'imagenes/arrowNextPrev.png';
+    imgNext.alt = 'next';
 
-imgNext.className = 'nextIMG';
-imgNext.id = 'nextIMG-'+propiedad.primaryKey;
-buttonNext.appendChild(imgNext);
+    imgNext.className = 'nextIMG';
+    imgNext.id = 'nextIMG-'+propiedad.primaryKey;
+    buttonNext.appendChild(imgNext);
 
-const buttonPrev = document.createElement('button');
-buttonPrev.className = 'prev';
-buttonPrev.id = 'prev-'+propiedad.primaryKey;
-const imgPrev = document.createElement('img');
-imgPrev.src = 'imagenes/arrowNextPrev.png';
-imgPrev.alt = 'prev';
+    const buttonPrev = document.createElement('button');
+    buttonPrev.className = 'prev';
+    buttonPrev.id = 'prev-'+propiedad.primaryKey;
+    const imgPrev = document.createElement('img');
+    imgPrev.src = 'imagenes/arrowNextPrev.png';
+    imgPrev.alt = 'prev';
 
-imgPrev.className = 'prevIMG';
-imgPrev.id = 'prevIMG-'+propiedad.primaryKey;
-buttonPrev.appendChild(imgPrev);
+    imgPrev.className = 'prevIMG';
+    imgPrev.id = 'prevIMG-'+propiedad.primaryKey;
+    buttonPrev.appendChild(imgPrev);
 
-var propIMGS = propiedad.imagenes;
+    var propIMGS = propiedad.imagenes;
 
-// si se hace doble click en el contenedor, se creará la plantilla con información de la propiedad
-divPropContainer.addEventListener('dblclick',function(){
+    
+
+    // si se hace doble click en el contenedor, se creará la plantilla con información de la propiedad
+    divPropContainer.addEventListener('dblclick',function(){
+        
+        propiedadElegida(divSlideContainer, propIMGS);
+
+    })
+
+    // si el evento del contenedor de propiedades fuera 'click' en lugar de 'dblclick', 
+    // debería poner 'event.stopPropagation() en los botones, para que la propagación del evento principal
+    // no interfiera en la aplicación del evento de los contenedores hijos.
+    buttonPrev.addEventListener('click', function(){
+        // alert("presiono next");
+    cambioImagen('prev', propIMGS, divSlideContainer);  
+    });
+    buttonNext.addEventListener('click', function(){
+        // alert("presiono prev");
+    cambioImagen('next', propIMGS, divSlideContainer);
+    });
+
+    divSlideContainer.append(buttonPrev, buttonNext);
+
+    // incorporo la primer imagen al slide
+    divSlideContainer.style.backgroundImage = 'url('+propiedad.imagenes[0]+')';
+
+    // creo el div de los textos descriptivos
+    const divTextsContainer = document.createElement('div');
+    divTextsContainer.className = 'text-prop';
+
+    const propValue = document.createElement('p');
+
+    propValue.className= 'propValue';
+    propValue.id = 'propValue-'+propiedad.primaryKey;
+    if(propiedad.opcion === "Alquilar"){
+        propValue.textContent = propiedad.precio + " al mes";
+    }else if(propiedad.opcion === "Comprar"){
+        propValue.textContent = propiedad.precio + " contado";
+    }else if(propiedad.opcion === "Alquiler Temporario"){
+        propValue.textContent = propiedad.precio + " por dia";
+    }
+
+    const tipoCambio = document.createElement('p');
+    tipoCambio.className = 'tipoCambio';
+    tipoCambio.id = 'tipoCambio-'+propiedad.primaryKey;
+    tipoCambio.textContent = propiedad.moneda;
+
+    const ciudadPropiedad = document.createElement('p');
+    ciudadPropiedad.className = 'ciudadPropiedad';
+    ciudadPropiedad.id = 'ciudadPropiedad-'+propiedad.primaryKey;
+    ciudadPropiedad.textContent = propiedad.localidad;
+
+    const propZona = document.createElement('p');
+    propZona.className = 'propZona';
+    propZona.id = 'propZona-'+propiedad.primaryKey;
+    propZona.textContent = propiedad.ubicacion;
+
+    const buttonFavoritos = document.createElement('button');
+    buttonFavoritos.className = 'favoritos';
+    buttonFavoritos.id = 'favoritos-'+propiedad.primaryKey;
+    const imgFavoritos = document.createElement('img');
+    imgFavoritos.src = 'imagenes/orangeHeart.png';
+    imgFavoritos.alt = 'imagen de favorito';
+    buttonFavoritos.appendChild(imgFavoritos);
+
+    // incorporo todos los elementos text al div
+    divTextsContainer.append(propValue,tipoCambio,ciudadPropiedad,propZona,buttonFavoritos);
+
+    // incorporo ambos divs al div principal
+    divPropContainer.append(divSlideContainer,divTextsContainer);
+
+    // var propImagenes = propiedad.imagenes;
+
+    contenedorPropiedades.appendChild(divPropContainer);
+
+
+    return divPropContainer;
+}
+
+/**
+ * función para mostrar las características la propiedad seleccionada
+*/
+function propiedadElegida(slidePropiedad, imagenesProp){
     // oculto la vista de todas las propiedades
     contenedorPropiedades.style.display = 'none';
     // muestro la vista de las características de la propiedad
     propiedadSeleccionada.style.display = 'grid';
     propiedadSeleccionada.id = 'propSeleccionada';
+
     // elementos de la propiedad seleccionada: 
     // slide 
+    slidePropiedad.style.gridArea = 'slideAmpl';
+    slidePropiedad.style.height = '400px';
+    slidePropiedad.style.width = '600px';
+    slidePropiedad.style.justifySelf = 'center';
+    slidePropiedad.style.borderRadius = '20px';
+    slidePropiedad.style.overflow = 'hidden';
+    slidePropiedad.style.border = 'solid 3px lightgray';
+    slidePropiedad.style.boxShadow = '5px 5px 5px 0px rgba(0, 0, 0, 0.3)';
 
-    // realizo modificaciones al div de imagenes 
-    divSlideContainer.style.gridArea = 'slideAmpl';
-    divSlideContainer.style.height = '400px';
-    divSlideContainer.style.width = '600px';
-    divSlideContainer.style.justifySelf = 'center';
-    divSlideContainer.style.borderRadius = '20px';
-    divSlideContainer.style.overflow = 'hidden';
-    divSlideContainer.style.border = 'solid 3px lightgray';
-    divSlideContainer.style.boxShadow = '5px 5px 5px 0px rgba(0, 0, 0, 0.3)';
-
+    /* ------------HACER---------------------- */
     // slide vertical
     const verticalSlide = document.createElement('div');
     verticalSlide.id = 'vertical-slide';
-    
+    imagenesProp.forEach(imagenProp =>
+        verticalSlide.innerHTML += '<img src='+ imagenProp +' alt="" id=" imagenNro'+imagenesProp.indexOf(imagenProp)+'"><br>'
+    );
+
+
     // detalles de la propiedad
     const detallesPropiedad = document.createElement('div');
     detallesPropiedad.id = 'detallesProp';
+
+    /* ------------------------------------------ */
 
     // formulario de contacto con el corredor
     const formularioContacto = document.createElement('div');
@@ -532,80 +619,9 @@ divPropContainer.addEventListener('dblclick',function(){
 
 
     // agrego los elementos al contenedor padre
-    propiedadSeleccionada.append(divSlideContainer, verticalSlide, detallesPropiedad, formularioContacto, propiedadUbicacion);
-})
-
-
-
-// si el evento del contenedor de propiedades fuera 'click' en lugar de 'dblclick', 
-// debería poner 'event.stopPropagation() en los botones, para que la propagación del evento principal
-// no interfiera en la aplicación del evento de los contenedores hijos.
-buttonPrev.addEventListener('click', function(){
-    // alert("presiono next");
-cambioImagen('prev', propIMGS, divSlideContainer);  
-});
-buttonNext.addEventListener('click', function(){
-    // alert("presiono prev");
-cambioImagen('next', propIMGS, divSlideContainer);
-});
-
-divSlideContainer.append(buttonPrev, buttonNext);
-
-// incorporo la primer imagen al slide
-divSlideContainer.style.backgroundImage = 'url('+propiedad.imagenes[0]+')';
-
-// creo el div de los textos descriptivos
-const divTextsContainer = document.createElement('div');
-divTextsContainer.className = 'text-prop';
-
-const propValue = document.createElement('p');
-
-propValue.className= 'propValue';
-propValue.id = 'propValue-'+propiedad.primaryKey;
-if(propiedad.opcion === "Alquilar"){
-    propValue.textContent = propiedad.precio + " al mes";
-}else if(propiedad.opcion === "Comprar"){
-    propValue.textContent = propiedad.precio + " contado";
-}else if(propiedad.opcion === "Alquiler Temporario"){
-    propValue.textContent = propiedad.precio + " por dia";
+    propiedadSeleccionada.append(slidePropiedad, verticalSlide, detallesPropiedad, formularioContacto, propiedadUbicacion);
 }
 
-const tipoCambio = document.createElement('p');
-tipoCambio.className = 'tipoCambio';
-tipoCambio.id = 'tipoCambio-'+propiedad.primaryKey;
-tipoCambio.textContent = propiedad.moneda;
-
-const ciudadPropiedad = document.createElement('p');
-ciudadPropiedad.className = 'ciudadPropiedad';
-ciudadPropiedad.id = 'ciudadPropiedad-'+propiedad.primaryKey;
-ciudadPropiedad.textContent = propiedad.localidad;
-
-const propZona = document.createElement('p');
-propZona.className = 'propZona';
-propZona.id = 'propZona-'+propiedad.primaryKey;
-propZona.textContent = propiedad.ubicacion;
-
-const buttonFavoritos = document.createElement('button');
-buttonFavoritos.className = 'favoritos';
-buttonFavoritos.id = 'favoritos-'+propiedad.primaryKey;
-const imgFavoritos = document.createElement('img');
-imgFavoritos.src = 'imagenes/orangeHeart.png';
-imgFavoritos.alt = 'imagen de favorito';
-buttonFavoritos.appendChild(imgFavoritos);
-
-// incorporo todos los elementos text al div
-divTextsContainer.append(propValue,tipoCambio,ciudadPropiedad,propZona,buttonFavoritos);
-
-// incorporo ambos divs al div principal
-divPropContainer.append(divSlideContainer,divTextsContainer);
-
-// var propImagenes = propiedad.imagenes;
-
-contenedorPropiedades.appendChild(divPropContainer);
-
-
-return divPropContainer;
-}
 
 // recorro y genero todas las propiedades para el filtro por defecto
 Object.values(casasTotales).forEach(casa => {

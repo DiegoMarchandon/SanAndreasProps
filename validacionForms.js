@@ -244,21 +244,3 @@ function validar(){
     return validezForm;
 }
 
-/* funciones de validación de datos de contacto: */
-
-// let botonEnvio = document.getElementById('enviarDatos');
-
-
-
-// const formularioContacto = document.getElementById('formContacto');
-// const nombreYApellido = document.getElementById('NomYape');
-// const telContacto = document.getElementById('telefonoContacto');
-// const emailContacto = document.getElementById('emailContacto');
-
-// divs contenedores de los inputs 
-// let NomYApeContainer = nombreYApellido.parentElement;
-// let telefonoContainer = telContacto.parentElement;
-// let emailContainer = emailContacto.parentElement;
-
-
-
