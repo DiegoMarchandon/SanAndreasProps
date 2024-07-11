@@ -444,6 +444,7 @@ function propiedadElegida(slidePropiedad, imagenesProp){
     /* ------------HACER---------------------- */
     // slide vertical
     const verticalSlide = document.createElement('div');
+    // const verticalInnerSlide = document.createa
     verticalSlide.id = 'vertical-slide';
     imagenesProp.forEach(imagenProp =>
         verticalSlide.innerHTML += '<img src='+ imagenProp +' alt="" id=" imagenNro'+imagenesProp.indexOf(imagenProp)+'"><br>'

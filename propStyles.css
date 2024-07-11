@@ -97,7 +97,7 @@ li{
 
 #form-filtros{
     display: flex;
-    background-color: orange;
+    background-color: rgb(255, 201, 101);
     align-items: center;
     justify-content: space-around;
 }
@@ -209,6 +209,7 @@ li{
     justify-content: center;
     border-radius: 50%;
     border: none;
+    margin: 10px;
     opacity: 0.6;
     width: 40px;
     height: 40px;
@@ -332,12 +333,14 @@ li{
 /* slideAmpliado no está porque se usa el mismo slide con su gridArea */
 
 #vertical-slide{
+    /* padding: 5px; */
     margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
     grid-area: Vslide;
     height: 350px;
     width: 310px;
+    overflow: auto;
 }
 #vertical-slide img{
     cursor: pointer;
