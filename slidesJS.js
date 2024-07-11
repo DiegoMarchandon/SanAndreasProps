@@ -52,6 +52,13 @@ let casasTotales = {
         opcion: "Alquilar",
         precio: 355000,
         moneda: "ARS",
+        ambientes: 4,
+        baños: 1,
+        dormitorio: 2,
+        cochera: "si",
+        antiguedad: 12,
+        superficieCasa: 115,
+        superficieTerreno: 175,
         imagenes: Casa1LSfotos,
         primaryKey: 1
     },
@@ -62,6 +69,13 @@ let casasTotales = {
         opcion: "Comprar",
         precio: 15000,
         moneda: "USD",
+        ambientes: 1,
+        baños: 1,
+        dormitorio: 1,
+        cochera: "no",
+        antiguedad: 10,
+        superficieCasa: 110,
+        superficieTerreno: 120,
         imagenes: Casa2LSfotos,
         primaryKey: 2
     },
@@ -72,6 +86,13 @@ let casasTotales = {
         opcion: "Comprar",
         precio: 45000,
         moneda: "USD",
+        ambientes: 5,
+        baños: 2,
+        dormitorio: 3,
+        cochera: "si",
+        antiguedad: 8,
+        superficieCasa: 124,
+        superficieTerreno: 153,
         imagenes: Casa3LSfotos,
         primaryKey: 3
     },
@@ -82,6 +103,13 @@ let casasTotales = {
         opcion: "Comprar",
         precio: 15255000,
         moneda: "ARS",
+        ambientes: 1,
+        baños: 1,
+        dormitorio: 1,
+        cochera: "no",
+        antiguedad: 5,
+        superficieCasa: 132,
+        superficieTerreno: 161,
         imagenes: Casa4LSfotos,
         primaryKey: 4
     },
@@ -92,6 +120,13 @@ let casasTotales = {
         opcion: "Alquilar",
         precio: 1500,
         moneda: "USD",
+        ambientes: 4,
+        baños: 1,
+        dormitorio: 2,
+        cochera: "no",
+        antiguedad: 1,
+        superficieCasa: 102,
+        superficieTerreno: 102,
         imagenes: Depto1LSfotos,
         primaryKey: 5
     },
@@ -102,6 +137,13 @@ let casasTotales = {
         opcion: "Alquilar",
         precio: 2500,
         moneda: "USD",
+        ambientes: 7,
+        baños: 3,
+        dormitorio: 4,
+        cochera: "si",
+        antiguedad: 2,
+        superficieCasa: 126,
+        superficieTerreno: 130,
         imagenes: Casa5LSfotos,
         primaryKey: 6
     },
@@ -112,6 +154,13 @@ let casasTotales = {
         opcion: "Alquiler Temporario",
         precio: 75000,
         moneda: "ARS",
+        ambientes: 1,
+        baños: 1,
+        dormitorio: 1,
+        cochera: "si",
+        antiguedad: 6,
+        superficieCasa: 100,
+        superficieTerreno: 100,
         imagenes: Depto2LSfotos,
         primaryKey: 7
     },
@@ -122,6 +171,13 @@ let casasTotales = {
         opcion: "Comprar",
         precio: 500000,
         moneda: "USD",
+        ambientes: 12,
+        baños: 5,
+        dormitorio: 6,
+        cochera: "si",
+        antiguedad: 1,
+        superficieCasa: 290,
+        superficieTerreno: 350,
         imagenes: Mansion1LSfotos,
         primaryKey: 8
     },
@@ -132,6 +188,13 @@ let casasTotales = {
         opcion: "Comprar",
         precio: 55451323,
         moneda: "ARS",
+        ambientes: 6,
+        baños: 3,
+        dormitorio: 3,
+        cochera: "si",
+        antiguedad: 2,
+        superficieCasa: 180,
+        superficieTerreno: 217,
         imagenes: Mansion2LSfotos,
         primaryKey: 9
     },
@@ -142,6 +205,13 @@ let casasTotales = {
         opcion: "Comprar",
         precio: 12150200,
         moneda: "ARS",
+        ambientes: 4,
+        baños: 1,
+        dormitorio: 3,
+        cochera: "no",
+        antiguedad: 10,
+        superficieCasa: 150,
+        superficieTerreno: 150,
         imagenes: Casa1SFfotos,
         primaryKey: 10
     },
@@ -152,6 +222,13 @@ let casasTotales = {
         opcion: "Comprar",
         precio: 35000,
         moneda: "USD",
+        ambientes: 1,
+        baños: 1,
+        dormitorio: 1,
+        cochera: "si",
+        antiguedad: 13,
+        superficieCasa: 147,
+        superficieTerreno: 245,
         imagenes: Casa2SFfotos,
         primaryKey: 11
     },
@@ -162,6 +239,13 @@ let casasTotales = {
         opcion: "Alquilar",
         precio: 3500,
         moneda: "USD",
+        ambientes: 3,
+        baños: 1,
+        dormitorio: 1,
+        cochera: "si",
+        antiguedad: 8,
+        superficieCasa: 135,
+        superficieTerreno: 190,
         imagenes: Casa3SFfotos,
         primaryKey: 12
     },
@@ -172,6 +256,13 @@ let casasTotales = {
         opcion: "Alquiler Temporario",
         precio: 85120,
         moneda: "ARS",
+        ambientes: 1,
+        baños: 1,
+        dormitorio: 1,
+        cochera: "si",
+        antiguedad: 0,
+        superficieCasa: 101,
+        superficieTerreno: 101,
         imagenes: Depto1SFfotos,
         primaryKey: 13
     },
@@ -182,6 +273,13 @@ let casasTotales = {
         opcion: "Alquilar",
         precio: 122000,
         moneda: "ARS",
+        ambientes: 2,
+        baños: 1,
+        dormitorio: 1,
+        cochera: "no",
+        antiguedad: 9,
+        superficieCasa: 112,
+        superficieTerreno: 119,
         imagenes: Casa4SFfotos,
         primaryKey: 14
     },
@@ -192,6 +290,13 @@ let casasTotales = {
         opcion: "Comprar",
         precio: 19750100,
         moneda: "ARS",
+        ambientes: 5,
+        baños: 3,
+        dormitorio: 3,
+        cochera: "si",
+        antiguedad: 5,
+        superficieCasa: 140,
+        superficieTerreno: 165,
         imagenes: Casa5SFfotos,
         primaryKey: 15
     },
@@ -202,6 +307,13 @@ let casasTotales = {
         opcion: "Alquilar",
         precio: 1300,
         moneda: "USD",
+        ambientes: 2,
+        baños: 1,
+        dormitorio: 1,
+        cochera: "si",
+        antiguedad: 4,
+        superficieCasa: 110,
+        superficieTerreno: 135,
         imagenes: Casa6SFfotos,
         primaryKey: 16
     },
@@ -212,6 +324,13 @@ let casasTotales = {
         opcion: "Alquilar",
         precio: 1550,
         moneda: "USD",
+        ambientes: 4,
+        baños: 1,
+        dormitorio: 2,
+        cochera: "si",
+        antiguedad: 8,
+        superficieCasa: 137,
+        superficieTerreno: 163,
         imagenes: Casa1LVfotos,
         primaryKey: 17
     },
@@ -222,6 +341,13 @@ let casasTotales = {
         opcion: "Comprar",
         precio: 12500150,
         moneda: "ARS",
+        ambientes: 4,
+        baños: 1,
+        dormitorio: 2,
+        cochera: "si",
+        antiguedad: 10,
+        superficieCasa: 138,
+        superficieTerreno: 172,
         imagenes: Casa2LVfotos,
         primaryKey: 18
     },
@@ -232,6 +358,13 @@ let casasTotales = {
         opcion: "Comprar",
         precio: 2250125,
         moneda: "USD",
+        ambientes: 7,
+        baños: 3,
+        dormitorio: 3,
+        cochera: "si",
+        antiguedad: 1,
+        superficieCasa: 150,
+        superficieTerreno: 170,
         imagenes: Casa3LVfotos,
         primaryKey: 19
     },
@@ -242,6 +375,13 @@ let casasTotales = {
         opcion: "Alquilar",
         precio: 1250,
         moneda: "USD",
+        ambientes: 2,
+        baños: 1,
+        dormitorio: 1,
+        cochera: "no",
+        antiguedad: 11,
+        superficieCasa: 105,
+        superficieTerreno: 105,
         imagenes: Depto1LVfotos,
         primaryKey: 20
     },
@@ -252,36 +392,64 @@ let casasTotales = {
         opcion: "Alquiler Temporario",
         precio: 150,
         moneda: "USD",
+        ambientes: 2,
+        baños: 1,
+        dormitorio: 1,
+        cochera: "si",
+        antiguedad: 8,
+        superficieCasa: 127,
+        superficieTerreno: 127,
         imagenes: Depto2LVfotos,
         primaryKey: 21
     },
     Depto3LV: {
         localidad: "Las Venturas",
-        ubicacion: "The Clown's Pocket",
+        ubicacion: "The Strip",
         tipoProp: "Hotel",
         opcion: "Alquiler Temporario",
         precio: 95000,
         moneda: "ARS",
+        ambientes: 1,
+        baños: 1,
+        dormitorio: 1,
+        cochera: "si",
+        antiguedad: 5,
+        superficieCasa: 90,
+        superficieTerreno: 90,
         imagenes: Depto3LVfotos,
         primaryKey: 22
     },
     Depto4LV: {
         localidad: "Las Venturas",
-        ubicacion: "The Pirates In Men's Pants",
+        ubicacion: "The Strip",
         tipoProp: "Departamento",
         opcion: "Alquilar",
         precio: 750000,
         moneda: "ARS",
+        ambientes: 2,
+        baños: 1,
+        dormitorio: 1,
+        cochera: "no",
+        antiguedad: 3,
+        superficieCasa: 105,
+        superficieTerreno: 105,
         imagenes: Depto4LVfotos,
         primaryKey: 23
     },
     Depto5LV: {
         localidad: "Las Venturas",
-        ubicacion: "The Camel's Toe",
+        ubicacion: "The Strip",
         tipoProp: "Hotel",
         opcion: "Alquilar",
         precio: 525000,
         moneda: "ARS",
+        ambientes: 1,
+        baños: 1,
+        dormitorio: 1,
+        cochera: "no",
+        antiguedad: 9,
+        superficieCasa: 92,
+        superficieTerreno: 92,
         imagenes: Depto5LVfotos,
         primaryKey: 24
     },
@@ -293,6 +461,13 @@ let casasTotales = {
         opcion: "Alquilar",
         precio: 150000,
         moneda: "ARS",
+        ambientes: 4,
+        baños: 2,
+        dormitorio: 2,
+        cochera: "si",
+        antiguedad: 7,
+        superficieCasa: 150,
+        superficieTerreno: 178,
         imagenes: Casa4LVfotos,
         primaryKey: 25
     }
@@ -343,12 +518,7 @@ function divProp(propiedad){
 
     
 
-    // si se hace doble click en el contenedor, se creará la plantilla con información de la propiedad
-    divPropContainer.addEventListener('dblclick',function(){
-        
-        propiedadElegida(divSlideContainer, propIMGS);
-
-    })
+   
 
     // si el evento del contenedor de propiedades fuera 'click' en lugar de 'dblclick', 
     // debería poner 'event.stopPropagation() en los botones, para que la propagación del evento principal
@@ -398,6 +568,96 @@ function divProp(propiedad){
     propZona.id = 'propZona-'+propiedad.primaryKey;
     propZona.textContent = propiedad.ubicacion;
 
+    // contenedor de las caracteristicas de la propiedad:
+    const propCaracteristicas = document.createElement('div');
+    propCaracteristicas.id = 'detallesProp';
+
+    const ambContainer = document.createElement('div');
+    ambContainer.id = 'ambientesContainer';
+    const ambLogo = document.createElement('img');
+    ambLogo.alt = 'logo de ambientes';
+    ambLogo.src = 'imagenes/ambientesLogo.jpg';
+    ambLogo.className = 'logoMinimalista';
+    const ambText = document.createElement('p');
+    ambText.className = 'houseFeature';
+    ambText.textContent = (propiedad.ambientes > 1) ? propiedad.ambientes + " ambientes. " : propiedad.ambientes + " ambiente. "; 
+    ambContainer.append(ambLogo,ambText);
+
+    const bañContainer = document.createElement('div');
+    bañContainer.id = 'bañoContainer';
+    const bañLogo = document.createElement('img');
+    bañLogo.alt = 'logo de baños';
+    bañLogo.src = 'imagenes/bañoLogo.jpg';
+    bañLogo.className = 'logoMinimalista';
+    const bañText = document.createElement('p');
+    bañText.className = 'houseFeature';
+    bañText.textContent = (propiedad.baños > 1) ? propiedad.baños + " baños. " : propiedad.baños + " baño. "; 
+    bañContainer.append(bañLogo,bañText);
+
+    const dormContainer = document.createElement('div');
+    dormContainer.id = 'dormitoriosContainer';
+    const dormLogo = document.createElement('img');
+    dormLogo.alt = 'logo de dormitorios';
+    dormLogo.src = 'imagenes/dormitorioLogo.jpg';
+    dormLogo.className = 'logoMinimalista';
+    const dormText = document.createElement('p');
+    dormText.className = 'houseFeature';
+    dormText.textContent = (propiedad.dormitorio > 1) ? propiedad.dormitorio + " dormitorios. " : propiedad.dormitorio + " dormitorio. ";  
+    dormContainer.append(dormLogo,dormText);
+
+    const cocheContainer = document.createElement('div');
+    cocheContainer.id = 'cocheraContainer';
+    const cocheLogo = document.createElement('img');
+    cocheLogo.alt = 'logo de cochera';
+    cocheLogo.src = 'imagenes/cocheraLogo.jpg';
+    cocheLogo.className = 'logoMinimalista';
+    const cocheText = document.createElement('p');
+    cocheText.className = 'houseFeature';
+    cocheText.textContent = "cochera: " + propiedad.cochera + ". ";
+    cocheContainer.append(cocheLogo,cocheText);
+
+    const antContainer = document.createElement('div');
+    antContainer.id = 'antiguedadContainer';
+    const antLogo = document.createElement('img');
+    antLogo.alt = 'logo de la antiguedad';
+    antLogo.src = 'imagenes/antiguedadLogo.jpg';
+    antLogo.className = 'logoMinimalista';
+    const antText = document.createElement('p');
+    antText.className = 'houseFeature';
+    antText.textContent = (propiedad.antiguedad > 1 ) ? propiedad.antiguedad + " años de antigüedad. " : propiedad.antiguedad + " año de antigüedad. ";
+    antContainer.append(antLogo,antText);
+
+    const supCasaContainer = document.createElement('div');
+    supCasaContainer.id = 'supCasaContainer';
+    const supCasaLogo = document.createElement('img');
+    supCasaLogo.alt = 'logo de la superficie de la casa';
+    supCasaLogo.src = 'imagenes/supCasaLogo.png';
+    supCasaLogo.className = 'logoMinimalista';
+    const supCasaText = document.createElement('p');
+    supCasaText.className = 'houseFeature';
+    supCasaText.innerHTML = propiedad.superficieCasa + "m<sup>2</sup>";
+    supCasaContainer.append(supCasaLogo,supCasaText);
+
+    const supTerrenoContainer = document.createElement('div');
+    supTerrenoContainer.id = 'supTerrenoContainer';
+    const supTerrenoLogo = document.createElement('img');
+    supTerrenoLogo.alt = 'logo de la superficie del terreno';
+    supTerrenoLogo.src = 'imagenes/superficieLogo.png';
+    supTerrenoLogo.className = 'logoMinimalista';
+    const supTerrenoText = document.createElement('p');
+    supTerrenoText.className = 'houseFeature';
+    supTerrenoText.innerHTML = propiedad.superficieTerreno + "m<sup>2</sup> totales.";
+    supTerrenoContainer.append(supTerrenoLogo, supTerrenoText);
+    
+    propCaracteristicas.append(ambContainer, bañContainer, dormContainer, cocheContainer, antContainer, supCasaContainer, supTerrenoContainer);
+
+
+     // si se hace doble click en el contenedor, se creará la plantilla con información de la propiedad
+     divPropContainer.addEventListener('dblclick',function(){
+        
+        propiedadElegida(divSlideContainer, propIMGS, propCaracteristicas);
+
+    })
     const buttonFavoritos = document.createElement('button');
     buttonFavoritos.className = 'favoritos';
     buttonFavoritos.id = 'favoritos-'+propiedad.primaryKey;
@@ -407,7 +667,7 @@ function divProp(propiedad){
     buttonFavoritos.appendChild(imgFavoritos);
 
     // incorporo todos los elementos text al div
-    divTextsContainer.append(propValue,tipoCambio,ciudadPropiedad,propZona,buttonFavoritos);
+    divTextsContainer.append(propValue,tipoCambio,ciudadPropiedad,propZona,buttonFavoritos, propCaracteristicas);
 
     // incorporo ambos divs al div principal
     divPropContainer.append(divSlideContainer,divTextsContainer);
@@ -423,7 +683,7 @@ function divProp(propiedad){
 /**
  * función para mostrar las características la propiedad seleccionada
 */
-function propiedadElegida(slidePropiedad, imagenesProp){
+function propiedadElegida(slidePropiedad, imagenesProp, caracteristicasProp){
     // oculto la vista de todas las propiedades
     contenedorPropiedades.style.display = 'none';
     // muestro la vista de las características de la propiedad
@@ -460,9 +720,10 @@ function propiedadElegida(slidePropiedad, imagenesProp){
     }
 
     // detalles de la propiedad
-    const detallesPropiedad = document.createElement('div');
-    detallesPropiedad.id = 'detallesProp';
-
+    caracteristicasProp.style.gridArea = 'propDet';
+    caracteristicasProp.style.justifySelf = 'center';
+    caracteristicasProp.style.width = '500px';
+    caracteristicasProp.style.height = '300px'; 
     /* ------------------------------------------ */
 
     // formulario de contacto con el corredor
@@ -625,7 +886,7 @@ function propiedadElegida(slidePropiedad, imagenesProp){
 
 
     // agrego los elementos al contenedor padre
-    propiedadSeleccionada.append(slidePropiedad, verticalSlide, detallesPropiedad, formularioContacto, propiedadUbicacion);
+    propiedadSeleccionada.append(slidePropiedad, verticalSlide, caracteristicasProp, formularioContacto, propiedadUbicacion);
 }
 
 
@@ -682,6 +943,7 @@ function filtro(event){
     contenedorPropiedades.innerHTML = '';
 
         Object.values(casasTotales).forEach(casa => {
+            // aplicar un strcasecmp para comparación insensible a minúsculas y mayúsculas
             if((casa.localidad === selectCiudad || selectCiudad === "Todas") &&
              (casa.ubicacion === inputBarrio || inputBarrio === "" ) &&
              (casa.tipoProp === selectProp || selectProp === "Todas") &&

@@ -166,9 +166,9 @@ li{
 }
 .prop-container{
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 45% 55%;
     height: 300px;
-    width: 800px;
+    width: 900px;
     background-color: white;
     margin: 10px;
     border-radius: 20px;
@@ -259,7 +259,8 @@ li{
 
 .text-prop{
     display: grid;
-    grid-template-rows: repeat(2,1fr);
+    grid-template-rows: 130px auto;
+    grid-template-columns: repeat(2,1fr);
 }
 
 #aplicoFiltro{
@@ -297,8 +298,12 @@ li{
 }
 
 .propZona{
+    position: absolute;
     margin: 10px;
-    grid-row: 2;
+    /* grid-column: 1; */
+    /* grid-row: 2; */
+    /* align-self:flex-start; */
+    top: 90px;
 }
 .favoritos{
     grid-row: 1;
@@ -320,7 +325,7 @@ li{
 }
 
  #vertical-slide, #detallesProp, #formContacto, #propUbicacion{
-    background-color: rgb(243, 243, 243);
+    background-color: rgb(229, 229, 229);
     border-radius: 20px;
     overflow: hidden;
     border:solid 1px lightgray;
@@ -374,10 +379,21 @@ li{
 }
 
 #detallesProp{
+    grid-row: 2;
+    grid-column: 1;
+    height: 160px;
+    width: 490px;
+    justify-self: right;
+}
+/* #detallesProp{
     grid-area: propDet;
     height: 150px;
     width: 500px;
     justify-self: center;
+} */
+
+#detallesProp img{
+    padding-right: 5px;
 }
 #formContacto{
     position: relative;
@@ -480,4 +496,17 @@ li{
 }
 #textArea-Container{
     border: 1px solid rgb(254, 217, 150);
+}
+
+.logoMinimalista{
+    width: 30px;
+    height: 30px;
+}
+#detallesProp div{
+    float: left;
+    display:inline;
+    margin: 10px;
+}
+.houseFeature{
+    display: inline;
 }

@@ -150,6 +150,20 @@
         border: 1px solid rgb(254, 217, 150);
     }
     
+    /* estilos de los iconos minimalistas */
+
+    .logoMinimalista{
+        width: 30px;
+        height: 30px;
+    }
+    #detallesProp div{
+        float: left;
+        display:inline;
+        margin: 10px;
+    }
+    .houseFeature{
+        display: inline;
+    }
 </style>
 </head>
 <body>
@@ -162,7 +176,34 @@
             slide vertical
         </div>
         <div id="detallesProp">
-            detalles propiedad
+            <div id="ambientesContainer">
+                <img class="logoMinimalista" id="ambienteLogo" src="imagenes/ambientesLogo.jpg" alt="logo de ambientes">
+                <p class="houseFeature">X ambientes</p>
+            </div>
+            <div id="bañoContainer">
+                <img class="logoMinimalista" id="bañoLogo" src="imagenes/bañoLogo.jpg" alt="logo de baños">
+                <p class="houseFeature">X baños</p>
+            </div>
+            <div id="dormitoriosContainer">
+                <img class="logoMinimalista" id="dormitorioLogo" src="imagenes/dormitorioLogo.jpg" alt="logo de dormitorios">
+                <p class="houseFeature">X dormitorios</p>
+            </div>
+            <div id="cocheraContainer">
+                <img class="logoMinimalista" id="cocheraLogo" src="imagenes/cocheraLogo.jpg" alt="logo de cochera">
+                <p class="houseFeature">Cochera si/no</p>
+            </div>
+            <div id="antiguedadContainer">
+                <img class="logoMinimalista" id="antiguedadLogo" src="imagenes/antiguedadLogo.jpg" alt="logo de la antiguedad">
+                <p class="houseFeature">X años de antiguedad</p>
+            </div>
+            <div id="supCasaContainer">
+                <img class="logoMinimalista" id="supCasaLogo" src="imagenes/supCasaLogo.png" alt="logo de la superficie de la casa">
+                <p class="houseFeature">X m<sub>2</sub></p>
+            </div>
+            <div id="supTerrenoContainer">
+                <img class="logoMinimalista" id="supTerrenoLogo" src="imagenes/superficieLogo.png" alt="logo de la superficie del terreno">
+                <p class="houseFeature">X m<sub>2</sub> totales</p>
+            </div>
         </div>
         <div id="formContacto">
             <h2>Contacto</h2>
