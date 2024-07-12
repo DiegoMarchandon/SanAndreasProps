@@ -166,7 +166,7 @@ li{
 }
 .prop-container{
     display: grid;
-    grid-template-columns: 45% 55%;
+    grid-template-columns: 40% 60%;
     height: 300px;
     width: 900px;
     background-color: white;
@@ -379,10 +379,12 @@ li{
 }
 
 #detallesProp{
+    margin-top: 55px;
+    border: none;
     grid-row: 2;
     grid-column: 1;
     height: 160px;
-    width: 490px;
+    width: 530px;
     justify-self: right;
 }
 /* #detallesProp{

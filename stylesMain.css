@@ -139,8 +139,6 @@ select{
 }
 
 .ciudades{
-    
-    background-size:contain;
     grid-row: 3;
     background-color: rgba(255, 255, 255, 0.5); 
     height: 700px;

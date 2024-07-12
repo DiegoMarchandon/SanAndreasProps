@@ -724,6 +724,10 @@ function propiedadElegida(slidePropiedad, imagenesProp, caracteristicasProp){
     caracteristicasProp.style.justifySelf = 'center';
     caracteristicasProp.style.width = '500px';
     caracteristicasProp.style.height = '300px'; 
+    caracteristicasProp.style.border = 'solid 1px lightgray';
+    caracteristicasProp.style.transition = 'border-color 0.5s ease';
+    caracteristicasProp.style.marginTop = '0px';
+    
     /* ------------------------------------------ */
 
     // formulario de contacto con el corredor
