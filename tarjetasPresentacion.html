@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    .backgroundEmprendimientos{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 700px;
+        width: 100%;
+        background-image: url(imagenes/wang-cars.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .cardEmprendimientos{
+        display: grid;
+        grid-template-columns: auto auto;
+        height: 250px;
+        width: 700px;
+        /* background-color: blue; */
+        border: 2px solid #fafafa10;
+    }
+    #IMGemprendimientos{
+        grid-column: 1;
+    }
+    #IMGemprendimientos img{
+        height: 100%;
+        width: 400px
+    }
+    .glass-effect{
+        background-color: #fafafa10;
+        backdrop-filter: blur(0.4rem);
+        /* agregamos esta propiedad para asegurarnos que funcione en la mayoría de navegadores:  */
+        -webkit-backdrop-filter: blur(0.4rem);
+    }
+</style>
+</head>
+<body>
+    
+    <div class="backgroundEmprendimientos">
+        <!-- <img src="imagenes/wang-cars.jpg" alt="imagen wang cars" id="wangCarsFondo"> -->
+        <div class="cardEmprendimientos glass-effect">
+            <div id="IMGemprendimientos">
+                <img src="imagenes/wangCarsAI.jpg" alt="imagen wang cars">
+            </div>
+            <div id="descripcionEmpr">
+                <p>Lorem ipsumn't</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
