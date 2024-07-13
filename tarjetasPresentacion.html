@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 <style>
+    /* ----------------- EMPRENDIMIENTOS ------------------------- */
     .backgroundEmprendimientos{
         display: flex;
         align-items: center;
@@ -17,24 +18,70 @@
     }
     .cardEmprendimientos{
         display: grid;
-        grid-template-columns: auto auto;
+        grid-template-columns: 50% 50%;
         height: 250px;
         width: 700px;
         /* background-color: blue; */
-        border: 2px solid #fafafa10;
+    }
+    #descripcionEmpr{
+        color: white;
     }
     #IMGemprendimientos{
+        display: flex;
+        align-items: center;
+        justify-content: center;
         grid-column: 1;
+        background-image: linear-gradient(rgb(64, 180, 64),black);
     }
     #IMGemprendimientos img{
-        height: 100%;
-        width: 400px
+        height: 150px;
+        width: 250px
     }
+    #IMGemprendimientos span{
+        position: absolute;
+        bottom: 190px;
+        right: 620px;
+        color: white;
+    }
+    #descripcionEmpr{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+    }
+    #descripcionEmpr p{
+        grid-column: 1 / span 2;
+        font-size: 17px;
+        font-weight: 500;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    #descripcionEmpr span{
+        grid-row: 2;
+        grid-column: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    /* clase adicional para brindar un efecto de borrado */
     .glass-effect{
-        background-color: #fafafa10;
+        border: 2px solid rgb(165, 116, 42);
+        background-color: #ee871210;
         backdrop-filter: blur(0.4rem);
         /* agregamos esta propiedad para asegurarnos que funcione en la mayoría de navegadores:  */
         -webkit-backdrop-filter: blur(0.4rem);
+    }
+    /* ---------------------------------------------------------- */
+
+    /* ----------------------- ALQUILERES --------------------------- */
+    /* mismas propiedades del background anterior */
+    .backgroundPropiedades{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 700px;
+        width: 100%;
+        background-image: url(imagenes/propiedadesBackground.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
     }
 </style>
 </head>
@@ -44,10 +91,27 @@
         <!-- <img src="imagenes/wang-cars.jpg" alt="imagen wang cars" id="wangCarsFondo"> -->
         <div class="cardEmprendimientos glass-effect">
             <div id="IMGemprendimientos">
+                <span style="background-color: red; padding: 5px; border-radius: 15px;">NUEVO</span>
                 <img src="imagenes/wangCarsAI.jpg" alt="imagen wang cars">
             </div>
             <div id="descripcionEmpr">
-                <p>Lorem ipsumn't</p>
+                <p>Ofrecemos inversiones atractivas a través de  
+                    nuestras unidades en preventa con precios competitivos y diversas 
+                    facilidades de pago. Abarcamos una gama exclusiva de proyectos 
+                    innovadores y de alta calidad, diseñados para satisfacer sus necesidades
+                    y transformar sus sueños en realidades. 
+                </p>
+                <span style=" color:black; background-color: lightblue; margin: 5px; border: 1px ridge black; border-radius: 20px">
+                    ir a Emprendimientos
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="backgroundPropiedades">
+        <div>
+            <div id="IMGpropiedades">
+                <span style="background-color: red; padding: 5px; border-radius: 15px">RECOMENDACIÓN DESTACADA</span>
+                <img src="imagenes/prop1Smoke.jpg" alt="propiedad big smoke">
             </div>
         </div>
     </div>
