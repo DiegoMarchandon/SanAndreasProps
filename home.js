@@ -126,9 +126,11 @@ var ciudades = {
     opcionTextContainer.id = 'descripcionOpcion';
     const textOpcion = document.createElement('p');
     textOpcion.innerText = 'la imagen mostrada seleccionada por defecto. Inserte el texto de la opción seleccionada.';
+    textOpcion.style.cssText = 'text-shadow: 1px 1px 0px #000, -1px -1px 0px #000, -1px 1px 0px #000, 1px -1px 0px #000; margin: 5px';
+    textOpcion.style.color = 'white';
     const buttonOpcion = document.createElement('span');
     buttonOpcion.innerText = 'especifique la opción';
-    buttonOpcion.style.cssText = 'color:white; background-color: black; margin: 5px; border: 1px ridge black; border-radius: 20px';    
+    buttonOpcion.style.cssText = 'color:black; background-color: black; padding: 5px; margin: 5px; border: 1px ridge black; border-radius: 20px';    
     opcionTextContainer.append(textOpcion, buttonOpcion);
 
     cardOpcion.append(IMGopcionContainer, opcionTextContainer);
@@ -138,40 +140,45 @@ var ciudades = {
         // antes de mostrar la tarjeta, borro los anteriores hijos:
         if(seccion.childElementCount != 0){
             seccion.innerHTML = '';
-        }else{
-            if(opcion === "emprendimiento"){
-                backgroundOpcion.style.backgroundImage = 'url(imagenes/wang-cars.jpg)';
-                cardOpcion.style.border = '2px solid lightblue';
-                cardOpcion.style.backgroundColor = '#0dd8ce10';
-                IMGopcionContainer.style.backgroundImage = 'linear-gradient(lightblue,black)';
-                IMGopcionEjemplo.src = 'imagenes/wangCarsAI.jpg';
-                // opcionTextContainer.style.color = 'white';
-                textOpcion.innerText = 'Ofrecemos inversiones atractivas a través de nuestras unidades en preventa con precios competitivos y diversas facilidades de pago. Abarcamos una gama exclusiva de proyectos innovadores y de alta calidad, diseñados para satisfacer sus necesidades y transformar sus sueños en realidades.';
-                buttonOpcion.style.backgroundColor = 'lightblue';
-                buttonOpcion.innerText = ' ver Emprendimientos';
-            }else if(opcion === "propiedades"){
-                backgroundOpcion.style.backgroundImage = 'url(imagenes/propiedadesBackground.jpg)';
-                cardOpcion.style.border = '2px solid rgb(64, 180, 64)';
-                cardOpcion.style.backgroundColor = '#3cff0010';
-                IMGopcionContainer.style.backgroundImage = 'linear-gradient(rgb(64, 180, 64),black)';
-                IMGopcionEjemplo.src = 'imagenes/prop1Smoke.jpg';
-                // opcionTextContainer.style.color = 'white';
-                textOpcion.innerHTML = '<b>descubre tu hogar ideal con nosotros. <b> En nuestra sección de Propiedades, encontrarás una amplia variedad de opciones que se adaptan a tus necesidades y estilo de vida. Desde acogedores apartamentos hasta lujosas casas, cada propiedad ha sido seleccionada cuidadosamente para ofrecerte la mejor calidad y ubicación. ¡Tu próxima aventura comienza con un nuevo hogar, y estamos aquí para ayudarte a encontrarlo!';
-                buttonOpcion.style.backgroundColor = 'lightgreen';
-                buttonOpcion.innerText = ' ver Propiedades';
-
-            }else if(opcion === "alquileres"){
-                backgroundOpcion.style.backgroundImage = 'url(imagenes/alquileresBackground.jpg)';
-                cardOpcion.style.border = '2px solid rgb(233, 166, 66)';
-                cardOpcion.style.backgroundColor = '#ee871210';
-                IMGopcionContainer.style.backgroundImage = 'linear-gradient(rgb(233, 166, 66),black)';
-                IMGopcionEjemplo.src = 'imagenes/slider/casasFotos/gallery55.jpg';
-                // opcionTextContainer.style.color = 'white';
-                textOpcion.innerText = 'En nuestra sección de Alquileres, ofrecemos una amplia gama de opciones que se adaptan a cualquier presupuesto y estilo de vida. Ya sea que busques un apartamento moderno en el centro de la ciudad o una casa espaciosa en un barrio tranquilo, tenemos la propiedad ideal para ti. Descubre la comodidad y flexibilidad del alquiler con nosotros, y encuentra tu próximo hogar sin complicaciones.';
-                buttonOpcion.style.backgroundColor = 'rgb(233, 166, 66)';
-                buttonOpcion.innerText = ' ver Alquileres';
-            }
         }
+        // ahora personalizo la tarjeta dependiendo de la opción:
+        if(opcion === "emprendimiento"){
+            backgroundOpcion.style.backgroundImage = 'url(imagenes/wang-cars.jpg)';
+            cardOpcion.style.border = '2px solid lightblue';
+            cardOpcion.style.backgroundColor = '#0dd8ce10';
+            IMGopcionContainer.style.backgroundImage = 'linear-gradient(lightblue,black)';
+            IMGopcionEjemplo.src = 'imagenes/wangCarsAI.jpg';
+            // opcionTextContainer.style.color = 'white';
+            textOpcion.innerText = 'Ofrecemos inversiones atractivas a través de nuestras unidades en preventa con precios competitivos y diversas facilidades de pago. Abarcamos una gama exclusiva de proyectos innovadores y de alta calidad, diseñados para satisfacer sus necesidades y transformar sus sueños en realidades.';
+            buttonOpcion.style.backgroundColor = 'lightblue';
+            buttonOpcion.innerText = ' ver Emprendimientos';
+        }else if(opcion === "propiedades"){
+            backgroundOpcion.style.backgroundImage = 'url(imagenes/propiedadesBackground.jpg)';
+            cardOpcion.style.border = '2px solid rgb(64, 180, 64)';
+            cardOpcion.style.backgroundColor = '#3cff0010';
+            IMGopcionContainer.style.backgroundImage = 'linear-gradient(rgb(64, 180, 64),black)';
+            IMGopcionEjemplo.src = 'imagenes/prop1Smoke.jpg';
+            // opcionTextContainer.style.color = 'white';
+            textOpcion.innerHTML = '<b>descubre tu hogar ideal con nosotros. </b> Escoge entre una amplia variedad de opciones que se adaptan a tus necesidades y estilo de vida. Desde acogedores apartamentos hasta lujosas casas, cada propiedad ha sido seleccionada cuidadosamente para ofrecerte la mejor calidad y ubicación. ¡Tu próxima aventura comienza con un nuevo hogar, y estamos aquí para ayudarte a encontrarlo!';
+            buttonOpcion.style.backgroundColor = 'lightgreen';
+            buttonOpcion.innerText = ' ver Propiedades';
+
+        }else if(opcion === "alquileres"){
+            backgroundOpcion.style.backgroundImage = 'url(imagenes/alquileresBackground.jpg)';
+            cardOpcion.style.border = '2px solid rgb(233, 166, 66)';
+            cardOpcion.style.backgroundColor = '#ee871210';
+            IMGopcionContainer.style.backgroundImage = 'linear-gradient(rgb(233, 166, 66),black)';
+            IMGopcionEjemplo.src = 'imagenes/slider/casasFotos/gallery55.jpg';
+            // opcionTextContainer.style.color = 'black';
+            // opcionTextContainer.style.cssText = 'text-shadow: 1px 1px 0px #fff, -1px -1px 0px #fff, -1px 1px 0px #fff, 1px -1px 0px #fff';
+            
+            
+            // textOpcion.style.color = 'black';
+            textOpcion.innerText = 'Encuentra, en nuestra amplia gama de opciones, la que mejor se adapte a tu presupuesto y estilo de vida. Ya sea que busques un apartamento moderno en el centro de la ciudad o una casa espaciosa en un barrio tranquilo, tenemos la propiedad ideal para ti. Descubre la comodidad y flexibilidad del alquiler con nosotros, y encuentra tu próximo hogar sin complicaciones.';
+            buttonOpcion.style.backgroundColor = 'rgb(233, 166, 66)';
+            buttonOpcion.innerText = ' ver Alquileres';
+        }
+        
         seccion.appendChild(backgroundOpcion);
     }
 
@@ -207,7 +214,7 @@ function verPropuesta(button){
         // alert("presionado boton 2");
         break;
         case 'buton3':
-            propEmpAlq("propiedades");
+            propEmpAlq("alquileres");
             seccion.scrollIntoView({
                 behavior: "smooth",
                 block: "start" 
@@ -215,7 +222,7 @@ function verPropuesta(button){
         // alert("presionado boton 3");
         break;
         case 'buton4':
-            propEmpAlq("alquileres");
+            propEmpAlq("propiedades");
             seccion.scrollIntoView({
             behavior: "smooth",
             block: "start" 
