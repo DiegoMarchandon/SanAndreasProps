@@ -38,103 +38,120 @@ var ciudades = {
      * y mostrar ciudades secuencialmente
      * 
      */
+    // variables globales para mostrarCiudad()
     var index = 0;
     var ciudadContainer;
+    // variable global para almacenar el timeout de mostrarCiudad() y eliminarlo/resetearlo luego en caso de que ya no se necesite
+    var newTimeout; 
     // contenedor general del slide automático de ciudades
-
+    
     function mostrarCiudades() {
         
+        // antes de ir creando y reemplazando el contenedor de ciudades, verifico que no se haya creado el contenedor que muestra las demás ciudades.
+            // (problema con haber utilizado el childElementCount, porque después de 8 segundos me borraba todo el contenedor y no veía las demás ciudades (SF, LV)).
+        if(seccion.querySelector('.backgroundOpcion')){
+            seccion.innerHTML = '';
+        }
+        // si ya está definido un timeout, lo limpio.
+        /* if(newTimeout){
+            clearTimeout(newTimeout);
+            console.log("mostrar ciudades timeout");
+        } */
+
         // para evitar que se creen nuevos contenedores clickeando su botón, verifico que no se haya creado antes 
-        
-            if(ciudadContainer == undefined){
-            ciudadContainer = document.createElement('div');
-            ciudadContainer.className = 'ciudades';
-            ciudadContainer.style.display = 'flex';
-            ciudadContainer.style.justifyContent= 'center';
-            ciudadContainer.style.alignItems = 'center';
-            seccion.appendChild(ciudadContainer); 
-            }else{
-                ciudadContainer.innerHTML = '';
-            }
+        if(ciudadContainer == undefined){
+            console.log("creo el contenedor");
+        ciudadContainer = document.createElement('div');
+        ciudadContainer.className = 'ciudades';
+        ciudadContainer.style.display = 'flex';
+        ciudadContainer.style.justifyContent= 'center';
+        ciudadContainer.style.alignItems = 'center';
+        seccion.appendChild(ciudadContainer); 
+        }else{
+            console.log("limpio el contenedor para crear una nueva ciudad");
+            ciudadContainer.innerHTML = '';
+        }
 
-            // carta de presentación de la ciudad
-            const cityCard = document.createElement('div');
-            // contenedor de la imagen de la ciudad + la descripción
-            const cityContainer = document.createElement('div');
-            // contenedor de la descripción de la ciudad
-            const cityDescripcion = document.createElement('div');
-            // imagen fuente de la ciudad
-            const cityFont = document.createElement('img');
-            // texto descriptivo de la ciudad
-            const cityText = document.createElement('p');
-                
-            // realizo las inserciones de nodos
-            cityDescripcion.append(cityFont, cityText);
-            cityContainer.appendChild(cityDescripcion);
-            cityCard.appendChild(cityContainer);
-            ciudadContainer.appendChild(cityCard);
+        // carta de presentación de la ciudad
+        const cityCard = document.createElement('div');
+        // contenedor de la imagen de la ciudad + la descripción
+        const cityContainer = document.createElement('div');
+        // contenedor de la descripción de la ciudad
+        const cityDescripcion = document.createElement('div');
+        // imagen fuente de la ciudad
+        const cityFont = document.createElement('img');
+        // texto descriptivo de la ciudad
+        const cityText = document.createElement('p');
+            
+        // realizo las inserciones de nodos
+        cityDescripcion.append(cityFont, cityText);
+        cityContainer.appendChild(cityDescripcion);
+        cityCard.appendChild(cityContainer);
+        ciudadContainer.appendChild(cityCard);
 
-            // selecciono la ciudad actual según el índice:
+        // selecciono la ciudad actual según el índice:
         let ciudadActual = Object.values(ciudades)[index];
 
-            cityCard.className = ciudadActual.Cardclases;
-            cityContainer.className = ciudadActual.cityContainerClass;
-            cityDescripcion.id = ciudadActual.descripcionClass;
-            cityFont.id = ciudadActual.cityFontID;
-            cityFont.src = ciudadActual.cityFontSRC;
-            cityFont.alt = ciudadActual.cityFontALT;
-            cityText.innerHTML = ciudadActual.cityDescripcionText;
-            
-            ciudadContainer.style.backgroundImage = ciudadActual.cityBLUR;
-            // ciudadContainer.style.backdropFilter = 'blur(20px)';
-
-
-            // Incrementar el índice y resetear si es necesario
-            // index = (index + 1) % (Object.keys(ciudades).length);
-            index++;
-            if(index == Object.keys(ciudades).length){
-                index = 0;
-            }
+        cityCard.className = ciudadActual.Cardclases;
+        cityContainer.className = ciudadActual.cityContainerClass;
+        cityDescripcion.id = ciudadActual.descripcionClass;
+        cityFont.id = ciudadActual.cityFontID;
+        cityFont.src = ciudadActual.cityFontSRC;
+        cityFont.alt = ciudadActual.cityFontALT;
+        cityText.innerHTML = ciudadActual.cityDescripcionText;
+        
+        ciudadContainer.style.backgroundImage = ciudadActual.cityBLUR;
+        // Incrementar el índice y resetear si es necesario
+        // index = (index + 1) % (Object.keys(ciudades).length);
+        index++;
+        if(index == Object.keys(ciudades).length){
+            index = 0;
+        }
         // Configurar para mostrar la siguiente ciudad después de 8 segundos
-    setTimeout(mostrarCiudades, 8000);
-
+        newTimeout = setTimeout(mostrarCiudades, 8000);
+        console.log("timeuotización");
 
     }
     
 
-
     function propEmpAlq(opcion){
-        console.log("opcion recibida:", opcion); 
+        
+        // si ya está definido un timeout, lo limpio.
+        if(newTimeout){
+            console.log("promEmpAlq timeout");
+            // clearTimeout(newTimeout);
+            newTimeout = undefined;
+        }
         /* creo elementos por defecto que serán modificados dependiendo de la elección de la opción:
-    emprendimientos, propiedades o alquileres. */
-    const backgroundOpcion = document.createElement('div');
-    backgroundOpcion.className = 'backgroundOpcion';
-    const cardOpcion = document.createElement('div');
-    cardOpcion.className = 'cardOpcion glass-effect';
-    
-    const IMGopcionContainer = document.createElement('div');
-    IMGopcionContainer.id = 'IMGopcionContainer';
-    const anuncio = document.createElement('span');
-    anuncio.innerText = 'NUEVO';
-    anuncio.style.cssText = 'background-color: red; padding: 5px; border-radius: 15px;';
-    const IMGopcionEjemplo = document.createElement('img');
-    IMGopcionEjemplo.alt = 'imagen de ejemplo';
-    IMGopcionEjemplo.src = 'C:\Users\diego\OneDrive\Imágenes\in_search_of_sunrise_by_zerve.jpg';
-    IMGopcionContainer.append(anuncio, IMGopcionEjemplo);
+        emprendimientos, propiedades o alquileres. */
+        const backgroundOpcion = document.createElement('div');
+        backgroundOpcion.className = 'backgroundOpcion';
+        const cardOpcion = document.createElement('div');
+        cardOpcion.className = 'cardOpcion glass-effect';
+        
+        const IMGopcionContainer = document.createElement('div');
+        IMGopcionContainer.id = 'IMGopcionContainer';
+        const anuncio = document.createElement('span');
+        anuncio.innerText = 'DESTACADO';
+        anuncio.style.cssText = 'background-color: red; padding: 5px; border-radius: 15px;';
+        const IMGopcionEjemplo = document.createElement('img');
+        IMGopcionEjemplo.alt = 'imagen de ejemplo';
+        IMGopcionEjemplo.src = 'C:\Users\diego\OneDrive\Imágenes\in_search_of_sunrise_by_zerve.jpg';
+        IMGopcionContainer.append(anuncio, IMGopcionEjemplo);
 
-    const opcionTextContainer = document.createElement('div');
-    opcionTextContainer.id = 'descripcionOpcion';
-    const textOpcion = document.createElement('p');
-    textOpcion.innerText = 'la imagen mostrada seleccionada por defecto. Inserte el texto de la opción seleccionada.';
-    textOpcion.style.cssText = 'text-shadow: 1px 1px 0px #000, -1px -1px 0px #000, -1px 1px 0px #000, 1px -1px 0px #000; margin: 5px';
-    textOpcion.style.color = 'white';
-    const buttonOpcion = document.createElement('span');
-    buttonOpcion.innerText = 'especifique la opción';
-    buttonOpcion.style.cssText = 'color:black; background-color: black; padding: 5px; margin: 5px; border: 1px ridge black; border-radius: 20px';    
-    opcionTextContainer.append(textOpcion, buttonOpcion);
+        const opcionTextContainer = document.createElement('div');
+        opcionTextContainer.id = 'descripcionOpcion';
+        const textOpcion = document.createElement('p');
+        textOpcion.innerText = 'la imagen mostrada seleccionada por defecto. Inserte el texto de la opción seleccionada.';
+        textOpcion.style.cssText = 'text-shadow: 1px 1px 0px #000, -1px -1px 0px #000, -1px 1px 0px #000, 1px -1px 0px #000; margin: 5px';
+        textOpcion.style.color = 'white';
+        const buttonOpcion = document.createElement('span');
+        buttonOpcion.innerText = 'especifique la opción';
+        buttonOpcion.style.cssText = 'color:black; background-color: black; padding: 5px; margin: 5px; border: 1px ridge black; border-radius: 20px';    
+        opcionTextContainer.append(textOpcion, buttonOpcion);
 
-    cardOpcion.append(IMGopcionContainer, opcionTextContainer);
-    backgroundOpcion.appendChild(cardOpcion);
+        cardOpcion.append(IMGopcionContainer, opcionTextContainer);
+        backgroundOpcion.appendChild(cardOpcion);
 
 
         // antes de mostrar la tarjeta, borro los anteriores hijos:
@@ -148,7 +165,6 @@ var ciudades = {
             cardOpcion.style.backgroundColor = '#0dd8ce10';
             IMGopcionContainer.style.backgroundImage = 'linear-gradient(lightblue,black)';
             IMGopcionEjemplo.src = 'imagenes/wangCarsAI.jpg';
-            // opcionTextContainer.style.color = 'white';
             textOpcion.innerText = 'Ofrecemos inversiones atractivas a través de nuestras unidades en preventa con precios competitivos y diversas facilidades de pago. Abarcamos una gama exclusiva de proyectos innovadores y de alta calidad, diseñados para satisfacer sus necesidades y transformar sus sueños en realidades.';
             buttonOpcion.style.backgroundColor = 'lightblue';
             buttonOpcion.innerText = ' ver Emprendimientos';
@@ -158,7 +174,6 @@ var ciudades = {
             cardOpcion.style.backgroundColor = '#3cff0010';
             IMGopcionContainer.style.backgroundImage = 'linear-gradient(rgb(64, 180, 64),black)';
             IMGopcionEjemplo.src = 'imagenes/prop1Smoke.jpg';
-            // opcionTextContainer.style.color = 'white';
             textOpcion.innerHTML = '<b>descubre tu hogar ideal con nosotros. </b> Escoge entre una amplia variedad de opciones que se adaptan a tus necesidades y estilo de vida. Desde acogedores apartamentos hasta lujosas casas, cada propiedad ha sido seleccionada cuidadosamente para ofrecerte la mejor calidad y ubicación. ¡Tu próxima aventura comienza con un nuevo hogar, y estamos aquí para ayudarte a encontrarlo!';
             buttonOpcion.style.backgroundColor = 'lightgreen';
             buttonOpcion.innerText = ' ver Propiedades';
@@ -169,16 +184,10 @@ var ciudades = {
             cardOpcion.style.backgroundColor = '#ee871210';
             IMGopcionContainer.style.backgroundImage = 'linear-gradient(rgb(233, 166, 66),black)';
             IMGopcionEjemplo.src = 'imagenes/slider/casasFotos/gallery55.jpg';
-            // opcionTextContainer.style.color = 'black';
-            // opcionTextContainer.style.cssText = 'text-shadow: 1px 1px 0px #fff, -1px -1px 0px #fff, -1px 1px 0px #fff, 1px -1px 0px #fff';
-            
-            
-            // textOpcion.style.color = 'black';
             textOpcion.innerText = 'Encuentra, en nuestra amplia gama de opciones, la que mejor se adapte a tu presupuesto y estilo de vida. Ya sea que busques un apartamento moderno en el centro de la ciudad o una casa espaciosa en un barrio tranquilo, tenemos la propiedad ideal para ti. Descubre la comodidad y flexibilidad del alquiler con nosotros, y encuentra tu próximo hogar sin complicaciones.';
             buttonOpcion.style.backgroundColor = 'rgb(233, 166, 66)';
             buttonOpcion.innerText = ' ver Alquileres';
         }
-        
         seccion.appendChild(backgroundOpcion);
     }
 

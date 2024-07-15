@@ -516,19 +516,17 @@ function divProp(propiedad){
 
     var propIMGS = propiedad.imagenes;
 
-    
-
-   
-
-    // si el evento del contenedor de propiedades fuera 'click' en lugar de 'dblclick', 
-    // debería poner 'event.stopPropagation() en los botones, para que la propagación del evento principal
-    // no interfiera en la aplicación del evento de los contenedores hijos.
-    buttonPrev.addEventListener('click', function(){
+    // pongo 'event.stopPropagation() en los botones, para que la propagación 
+    // del evento principal de la función propiedadElegida() (hacer zoom en la imagen del slide al hacer click)
+    // no interfiera en la aplicación del evento de los contenedores hijos (cambiar de imagen al clickear los botones).
+    buttonPrev.addEventListener('click', function(event){
         // alert("presiono next");
+        event.stopPropagation();
     cambioImagen('prev', propIMGS, divSlideContainer);  
     });
-    buttonNext.addEventListener('click', function(){
+    buttonNext.addEventListener('click', function(event){
         // alert("presiono prev");
+        event.stopPropagation();
     cambioImagen('next', propIMGS, divSlideContainer);
     });
 
@@ -690,6 +688,17 @@ function propiedadElegida(slidePropiedad, imagenesProp, caracteristicasProp){
     propiedadSeleccionada.style.display = 'grid';
     propiedadSeleccionada.id = 'propSeleccionada';
 
+  /*   buttonPrev.addEventListener('click', function(event){
+        // alert("presiono next");
+        event.stopPropagation();
+    cambioImagen('prev', propIMGS, divSlideContainer);  
+    });
+    buttonNext.addEventListener('click', function(event){
+        // alert("presiono prev");
+        event.stopPropagation();
+    cambioImagen('next', propIMGS, divSlideContainer);
+    }); */
+    
     // elementos de la propiedad seleccionada: 
     // slide 
     slidePropiedad.style.gridArea = 'slideAmpl';
@@ -700,6 +709,56 @@ function propiedadElegida(slidePropiedad, imagenesProp, caracteristicasProp){
     slidePropiedad.style.overflow = 'hidden';
     slidePropiedad.style.border = 'solid 3px lightgray';
     slidePropiedad.style.boxShadow = '5px 5px 5px 0px rgba(0, 0, 0, 0.3)';
+    slidePropiedad.style.cursor = 'zoom-in';
+    
+    // agrego evento de click para hacer zoom a la imagen del slide ampliado
+    slidePropiedad.addEventListener('click',function(event){
+        // creo el contenedor de la imagen ampliada que será encargado de darle un efecto BLUR a todo el contenido detrás de la imagen
+        const BLURcontainer = document.createElement('div');
+        BLURcontainer.id = 'fondoBorroso';
+        // lo estilizo para que esté por encima de todo el contenido existente y lo tape con el efecto BLUR
+        BLURcontainer.style.display = 'flex';
+        BLURcontainer.style.alignItems = 'center';
+        BLURcontainer.style.justifyContent = 'center';
+        BLURcontainer.style.position = 'fixed';
+        // top = 0 y left = 0 para posicionarlo en la esquina superior izquierda (de lo contrario no cubriría apropiadamente)
+        BLURcontainer.style.top = '0';
+        BLURcontainer.style.left = '0';
+        BLURcontainer.style.width = '100%';
+        BLURcontainer.style.height = '100%';
+        BLURcontainer.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+        BLURcontainer.style.backdropFilter = 'blur(0.4rem)';
+        BLURcontainer.style.zIndex = '9999';
+        // obtengo la imagen que será ampliada
+        let backgroundSlide = slidePropiedad.style.backgroundImage;
+        // let backgroundSlide = window.getComputedStyle(slidePropiedad).backgroundImage;
+        // creo la <img> que almacenará el backgroundImage 
+        let IMGslide = document.createElement('img');
+        // elimino 'url(' y ')' para quedarme solamente con el enlace
+        IMGslide.src = backgroundSlide.slice(5,-2);
+        IMGslide.alt = 'imagen ampliada';
+        console.log(IMGslide);
+        IMGslide.style.width = '900px';
+        IMGslide.style.height = '600px';
+        BLURcontainer.appendChild(IMGslide);
+        document.body.appendChild(BLURcontainer);
+        
+        // ahora a la imagen le agrego el evento en donde el mouse esté fuera del contenedor y haga click
+        IMGslide.addEventListener('mouseleave',function(){
+            document.body.style.cursor = 'zoom-out';
+            // verifico que si el mouse sigue adentro de la imagen, el cursor se mantenga normal
+            IMGslide.addEventListener('mouseenter',function(){
+                document.body.style.cursor = 'default';                
+            });
+            // verifico que si se hace click fuera de la imagen, el contenedor borroso y su contenido desaparecen (y el cursor vuelve a estar por defecto)
+        });
+        BLURcontainer.addEventListener('click', function(event){
+            if(event.target === BLURcontainer){
+                document.body.removeChild(BLURcontainer);
+                document.body.style.cursor = 'default';
+            }
+        });
+    });
 
     /* ------------HACER---------------------- */
     // slide vertical
@@ -728,6 +787,30 @@ function propiedadElegida(slidePropiedad, imagenesProp, caracteristicasProp){
     caracteristicasProp.style.transition = 'border-color 0.5s ease';
     caracteristicasProp.style.marginTop = '0px';
     
+    // evento click para cambiar la imagen del slide ampliado por la seleccionada en el slide
+    VIMGContainer.addEventListener('click',function(event){
+        
+        if(event.target.tagName === 'IMG'){
+            // console.log(event.target.src);
+            let enlaceCompleto = event.target.src;
+            let inicioEnlace = "imagenes/";
+            let encontrado = enlaceCompleto.indexOf(inicioEnlace);
+            if(encontrado !== -1){ 
+                var IMGseleccionada = enlaceCompleto.substring(encontrado);
+                // console.log("imagen seleccionada: "+IMGseleccionada);
+                imagenesProp.forEach(imagen => {
+                    // console.log(imagen)
+                    if(imagen === IMGseleccionada){
+                        // console.log("se encontró la imagen: " +IMGseleccionada);
+                        // actualizo el índice (para poder avanzar/retroceder la imagen desde acá)
+                        actualIndex = imagenesProp.indexOf(IMGseleccionada);
+                        // actualizo el fondo
+                        slidePropiedad.style.backgroundImage = 'url('+IMGseleccionada+')';
+                    }
+                });
+            }   
+        }
+    })
     /* ------------------------------------------ */
 
     // formulario de contacto con el corredor
