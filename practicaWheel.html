@@ -5,47 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        #IMGcontainer{
-            width: 500px;
-            height: 500px;
-            background-color: lightgray;
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-        .orangeHouse{
-            position: absolute;
-            /* left: 1000px; */
-            
-            /* background-color: black; */
+        #IMGcontainer{
+            position: relative;
             width: 200px;
             height: 300px;
-            /* z-index: 999; */
+            background-image: url('imagenes/orangeUbicationLogo.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
         }
-        .orangeHouse::before {
-    content: '';
+    .colourBall{
     position: absolute;
-    top: 50%; /* Centra verticalmente */
-    left: 50%; /* Centra horizontalmente */
-    transform: translate(-50%, -50%); /* Ajusta para centrar completamente */
-    width: 100px; /* Ajusta el tamaño según sea necesario */
-    height: 100px; /* Ajusta el tamaño según sea necesario */
+    top: 20%;
+    left: 30%;
+    width: 90px; /* Ajusta el tamaño según sea necesario */
+    height: 90px; /* Ajusta el tamaño según sea necesario */
     border-radius: 50%;
     background-color: red;
-    z-index: 1; /* Asegura que esté encima de la imagen */
-}
+    }
     </style>
 </head>
 <body>
     
 
     <div id="IMGcontainer">
-        <img src="imagenes/orangeUbicationLogo.png" class="orangeHouse" alt="naranja">
+        <div class=colourBall></div>
     </div>
 <script>
 let IMGselected = document.getElementById('imagenElegida');
 
-IMGselected.addEventListener('wheel',function(){
+// IMGselected.addEventListener('wheel',function(){
     // console.log("ruedita girada");
     
-});
+// });
 </script>
 </body>
 </html>

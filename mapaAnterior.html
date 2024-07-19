@@ -13,7 +13,6 @@
             /* esta propiedad evita que cualquier parte de la imagen que exceda el ancho y alto se muestre */
             /* overflow: hidden; */ 
         }
-
         html,body{
             background-color: black;
             width: 100%;
@@ -26,10 +25,9 @@
             overflow: hidden;
             position: relative;
         }
-        /* contenedor del mapa NO TOCAR */
         .zoom{
             display: flex;
-            align-items: center;  
+            align-items: center;
             justify-content: center;
             position: relative;
             width: 100%;
@@ -38,153 +36,135 @@
             transform: scale(1) translate(0px, 0px);
             cursor: grab; 
         }
-        /* mapa de referencia NO TOCAR */
         #GTAmap{
-            width: 60%;
-            height: 80%;
+            width: 750px;
+            height: 700px;
         }
-        /* dimensiones y tipo de posicionamiento de los iconos NO TOCAR */
         .orangeHouse{
             position: absolute;
-            width: 30px;
-            height: 45px;
-            /* la siguiente propiedad aumenta el tamaño de el icono de ubicacion sin trasladarlo en 50%*/
-            /* transform: scale(1.5) translate(0px 0px); */
+            /* left: 1000px; */
+
+            /* background-color: black; */
+            width: 20px;
+            height: 30px;
             z-index: 999;
-            cursor: pointer;
-            transform-origin: bottom center;
         }
-        /* Verdant Bluffs. CV */
+        .orangeHouse::before{
+            /* content: ''; */
+            position: absolute;
+            /* top: -10px; Ajusta según sea necesario */
+            /* left: 50%; */
+            transform: translateX(5px, 0);
+            width: 10px; /* Ajusta el tamaño según sea necesario */
+            height: 10px; /* Ajusta el tamaño según sea necesario */
+            background-color: red; /* Ajusta el color según sea necesario */
+        }
         .house1{
-            bottom: 21.8%;
-            right: 32%;
+            bottom: 137px;
+            right: 355px;
         }
-        /* Willowfield */
         .house2{
-            bottom: 23.3%;
-            right: 24.2%;
+            bottom: 89px;
+            right: 455px;
         }
-        /* Ganton */
         .house3{
-            bottom: 27.2%;
-            right: 24.1%;
+            bottom: 102px;
+            right: 356px;
         }
-        /* Jefferson */
         .house4{
-            bottom: 32.8%;
-            right: 27.95%;
+            bottom: 128px;
+            right: 626px;
         }
-        /* Verona Beach */
         .house5{
-            bottom: 28%;
-            right: 40.4%;
+            bottom: 144px;
+            right: 558px;
         }
-        /* Santa Maria Beach */
         .house6{
-            bottom: 26.4%;
-            right: 46%;
+            bottom: 184px;
+            right: 403px;
         }
-        /* Rodeo */
         .house7{
-            bottom: 27.9%;
-            right: 45.3%;
+            bottom: 240px;
+            right: 510px;
         }
-        /* Mullholland MD */
         .house8{
-            bottom: 39%;
-            right: 36.7%;
+            bottom: 260px;
+            right: 497px;
         }
-        /* Mullholland 2 */
         .house9{
-            bottom: 41.2%;
-            right: 36%;
+            top: 315px;
+            left: 414px;
         }
-        /* Doherty (drive-school)*/
         .house10{
-            bottom: 49.2%;
-            right: 69.25%;
+            top: 290px;
+            left: 411px;
         }
-        /* Doherty (garaje) */
         .house11{
-            bottom: 52.1%;
-            right: 69.5%;
+            top: 325px;
+            left: 360px;
         }
-        /* Hashbury */
         .house12{
-            bottom: 48%;
-            right: 73.5%;
+            top: 271px;
+            left: 365px;
         }
-        /* Queens */
         .house13{
-            bottom: 54.2%;
-            right: 73.2%;
+            top: 203px;
+            left: 403px;
         }
-        /* Chinatown */
         .house14{
-            bottom: 60.2%;
-            right: 71.1%;
+            top: 227px;
+            left: 390px;
         }
-        /* Calton Heights */
         .house15{
-            bottom: 62.3%;
-            right: 70.2%;
+            top: 215px;
+            left: 330px;
         }
-        /* Paradiso */
         .house16{
-            bottom: 60.8%;
-            right: 76%;
+            top: 228px;
+            right: 360px;
         }
-        /* Whitewood Estates */
         .house17{
-            bottom: 76.5%;
-            right: 39.8%;
+            top: 16px;
+            right: 507px;
         }
-        /* Aeropuesto LV */
         .house18{
-            bottom: 75.4%;
-            right: 34.9%;
+            top: 77px;
+            right: 550px;
         }
-        /* Prickle Pine */
         .house19{
-            bottom: 83.4%;
-            right: 36.3%;
+            top: 87px;
+            right: 490px;
         }
-        /* Old Venturas Strip */
         .house20{
-            bottom: 78.6%;
-            right: 25.3%;
+            top: 122px;
+            right: 422px;
         }
-        /* Creek */
         .house21{
-            bottom: 78.3%;
-            right: 20.8%;
+            top: 98px;
+            right: 392px;
         }
-        /* Clown's pocket (the strip) */
         .house22{
-            bottom: 74.2%;
-            right: 27%;
+            top: 60px;
+            right: 370px;
         }
-        /* Pirates in men's pants (the strip)  */
         .house23{
-            bottom: 71.6%;
-            right: 29.3%;
+            top: 60px;
+            right: 314px;
         }
-        /* The camel's Toe (the strip) */
         .house24{
-            bottom: 67%;
-            right: 26.5%;
+            top: 160px;
+            right: 384px;
         }
-        /* Rockshore West */
+        /* rodeo LS */
         .house25{
-            bottom: 59.55%;
-            right: 24.5%;
+            bottom: 144px;
+            right: 613px;
+            z-index: 1000;
         }
     </style>
-    <!-- referencia al script externo -->
-    <script src="./props.js" defer type="module"></script>
 </head>
 <body>
-    
+
 <div class = "zoom_outer">
     <div class = "zoom" id="zoom">
         <img src="imagenes/SanAndreasMap.png" alt="GTA MAP" id="GTAmap">
@@ -215,71 +195,5 @@
         <img src="imagenes/orangeUbicationLogo.png" class="orangeHouse house25" alt="casa no seleccionada">
     </div>
 </div>
-
-<script>
-
-/* creo y posiciono los iconos de las propiedades */
-    console.log(casasTotales[casa1LS][localidad]);
-
-    var scale = 1,
-    panning = false,
-    pointX = 0,
-    pointY = 0,
-    start = {x: 0, y: 0},
-    zoom = document.getElementById("zoom");
-
-    let orangeIcon = document.querySelectorAll('.orangeHouse');
-
-    function setTransform(){
-        zoom.style.transform = "translate("+ pointX + "px," + pointY + "px) scale("+scale+")";
-    }
-
-    zoom.onmousedown = function(e){
-        e.preventDefault();
-        start = {x : e.clientX - pointX, y : e.clientY - pointY};
-        panning = true;
-    }
-    zoom.onmouseup = function(e){
-        panning = false;
-    }
-
-    zoom.onmousemove = function(e){
-        e.preventDefault();
-
-        if(!panning){
-            return;
-        }
-
-        pointX = (e.clientX - start.x);
-        pointY = (e.clientY - start.y);
-        setTransform();
-    }
-
-    zoom.onwheel = function(e){
-        // si detecto que la escala cambió para aumentar o disminuir el tamaño de los iconos de ubicación
-        if(scale != 1){
-            orangeIcon.forEach(icon => {
-                var newScale = (1 - scale) + 1.4;
-                // si la escala es negativa, la multiplico por 0 para que el icono no se ponga la revés.
-                newScale < 0 ? (newScale * (-1)) : newScale;
-                // la escala no puede ser menor a 0.3 (para que el ícono no se haga muy diminuto)
-                scale >= 2 ? (newScale = 0.3) : newScale; 
-                // console.log("nueva escala: "+ newScale);
-                icon.style.transform = "translate( 0px, 0px) scale("+ newScale +")";
-            });
-        }
-        e.preventDefault();
-        var xs = (e.clientX - pointX) / scale,
-            ys = (e.clientY - pointY) / scale,
-            delta = (e.wheelDelta ? e.wheelDelta : -e.deltaY);
-            // console.log("xs es: "+xs+ "y el ys es: "+ys+", la escala es: "+scale);
-        (delta > 0 ) ? (scale *= 1.2) : (scale /= 1.2);
-
-        pointX = e.clientX - xs * scale;
-        pointY = e.clientY - ys * scale;
-
-        setTransform();
-    }
-</script>
 </body>
 </html>

@@ -60,6 +60,8 @@ let casasTotales = {
         superficieCasa: 115,
         superficieTerreno: 175,
         imagenes: Casa1LSfotos,
+        Bottom: "21.8%",
+        Right: "32%",
         primaryKey: 1
     },
     Casa2LS: {
@@ -77,6 +79,8 @@ let casasTotales = {
         superficieCasa: 110,
         superficieTerreno: 120,
         imagenes: Casa2LSfotos,
+        Bottom: "23.3%",
+        Right: "24.2%",
         primaryKey: 2
     },
     Casa3LS: {
@@ -94,6 +98,8 @@ let casasTotales = {
         superficieCasa: 124,
         superficieTerreno: 153,
         imagenes: Casa3LSfotos,
+        Bottom: "27.2%",
+        Right: "24.1%",
         primaryKey: 3
     },
     Casa4LS: {
@@ -111,6 +117,8 @@ let casasTotales = {
         superficieCasa: 132,
         superficieTerreno: 161,
         imagenes: Casa4LSfotos,
+        Bottom: "32.8%",
+        Right: "27.95%",
         primaryKey: 4
     },
     Depto1LS: {
@@ -128,6 +136,8 @@ let casasTotales = {
         superficieCasa: 102,
         superficieTerreno: 102,
         imagenes: Depto1LSfotos,
+        Bottom: "28%",
+        Right: "40.4%",
         primaryKey: 5
     },
     Casa5LS: {
@@ -145,6 +155,8 @@ let casasTotales = {
         superficieCasa: 126,
         superficieTerreno: 130,
         imagenes: Casa5LSfotos,
+        Bottom: "26.4%",
+        Right: "46%",
         primaryKey: 6
     },
     Depto2LS: {
@@ -162,6 +174,8 @@ let casasTotales = {
         superficieCasa: 100,
         superficieTerreno: 100,
         imagenes: Depto2LSfotos,
+        Bottom: "27.9%",
+        Right: "45.3%",
         primaryKey: 7
     },
     Mansion1LS: {
@@ -179,6 +193,8 @@ let casasTotales = {
         superficieCasa: 290,
         superficieTerreno: 350,
         imagenes: Mansion1LSfotos,
+        Bottom: "39%",
+        Right: "36.7%",
         primaryKey: 8
     },
     Mansion2LS: {
@@ -196,6 +212,8 @@ let casasTotales = {
         superficieCasa: 180,
         superficieTerreno: 217,
         imagenes: Mansion2LSfotos,
+        Bottom: "41.2%",
+        Right: "36%",
         primaryKey: 9
     },
     Casa1SF: {
@@ -213,6 +231,8 @@ let casasTotales = {
         superficieCasa: 150,
         superficieTerreno: 150,
         imagenes: Casa1SFfotos,
+        Bottom: "49.2%",
+        Right: "69.25%",
         primaryKey: 10
     },
     Casa2SF: {
@@ -230,6 +250,8 @@ let casasTotales = {
         superficieCasa: 147,
         superficieTerreno: 245,
         imagenes: Casa2SFfotos,
+        Bottom: "52.1%",
+        Right: "69.5%",
         primaryKey: 11
     },
     Casa3SF: {
@@ -247,6 +269,8 @@ let casasTotales = {
         superficieCasa: 135,
         superficieTerreno: 190,
         imagenes: Casa3SFfotos,
+        Bottom: "48%",
+        Right: "73.5%",
         primaryKey: 12
     },
     Depto1SF: {
@@ -264,6 +288,8 @@ let casasTotales = {
         superficieCasa: 101,
         superficieTerreno: 101,
         imagenes: Depto1SFfotos,
+        Bottom: "54.2%",
+        Right: "73.2%",
         primaryKey: 13
     },
     Casa4SF: {
@@ -281,6 +307,8 @@ let casasTotales = {
         superficieCasa: 112,
         superficieTerreno: 119,
         imagenes: Casa4SFfotos,
+        Bottom: "60.2%",
+        Right: "71.1%",
         primaryKey: 14
     },
     Casa5SF: {
@@ -298,6 +326,8 @@ let casasTotales = {
         superficieCasa: 140,
         superficieTerreno: 165,
         imagenes: Casa5SFfotos,
+        Bottom: "62.3%",
+        Right: "70.2%",
         primaryKey: 15
     },
     Casa6SF: {
@@ -315,6 +345,8 @@ let casasTotales = {
         superficieCasa: 110,
         superficieTerreno: 135,
         imagenes: Casa6SFfotos,
+        Bottom: "60.8%",
+        Right: "76%",
         primaryKey: 16
     },
     Casa1LV: {
@@ -332,6 +364,8 @@ let casasTotales = {
         superficieCasa: 137,
         superficieTerreno: 163,
         imagenes: Casa1LVfotos,
+        Bottom: "76.5%",
+        Right: "39.8%",
         primaryKey: 17
     },
     Casa2LV: {
@@ -349,6 +383,8 @@ let casasTotales = {
         superficieCasa: 138,
         superficieTerreno: 172,
         imagenes: Casa2LVfotos,
+        Bottom: "75.4%",
+        Right: "34.9%",
         primaryKey: 18
     },
     Casa3LV: {
@@ -366,6 +402,8 @@ let casasTotales = {
         superficieCasa: 150,
         superficieTerreno: 170,
         imagenes: Casa3LVfotos,
+        Bottom: "83.4%",
+        Right: "36.3%",
         primaryKey: 19
     },
     Depto1LV: {
@@ -383,6 +421,8 @@ let casasTotales = {
         superficieCasa: 105,
         superficieTerreno: 105,
         imagenes: Depto1LVfotos,
+        Bottom: "78.6%",
+        Right: "25.3%",
         primaryKey: 20
     },
     Depto2LV: {
@@ -400,6 +440,8 @@ let casasTotales = {
         superficieCasa: 127,
         superficieTerreno: 127,
         imagenes: Depto2LVfotos,
+        Bottom: "78.3%",
+        Right: "20.8%",
         primaryKey: 21
     },
     Depto3LV: {
@@ -417,6 +459,8 @@ let casasTotales = {
         superficieCasa: 90,
         superficieTerreno: 90,
         imagenes: Depto3LVfotos,
+        Bottom: "74.2%",
+        Right: "27%",
         primaryKey: 22
     },
     Depto4LV: {
@@ -434,6 +478,8 @@ let casasTotales = {
         superficieCasa: 105,
         superficieTerreno: 105,
         imagenes: Depto4LVfotos,
+        Bottom: "71.6%",
+        Right: "29.3%",
         primaryKey: 23
     },
     Depto5LV: {
@@ -451,6 +497,8 @@ let casasTotales = {
         superficieCasa: 92,
         superficieTerreno: 92,
         imagenes: Depto5LVfotos,
+        Bottom: "67%",
+        Right: "26.5%",
         primaryKey: 24
     },
 
@@ -469,6 +517,8 @@ let casasTotales = {
         superficieCasa: 150,
         superficieTerreno: 178,
         imagenes: Casa4LVfotos,
+        Bottom: "59.55%",
+        Right: "24.5%",
         primaryKey: 25
     }
 };
