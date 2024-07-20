@@ -44,182 +44,50 @@
             height: 80%;
         }
         /* dimensiones y tipo de posicionamiento de los iconos NO TOCAR */
-        .orangeHouse{
+        .IMGcontainer{
             position: absolute;
             width: 30px;
             height: 45px;
-            /* la siguiente propiedad aumenta el tamaño de el icono de ubicacion sin trasladarlo en 50%*/
-            /* transform: scale(1.5) translate(0px 0px); */
-            z-index: 999;
+            background-image: url('imagenes/orangeUbicationLogo.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
             cursor: pointer;
             transform-origin: bottom center;
         }
-        /* Verdant Bluffs. CV */
-        .house1{
-            bottom: 21.8%;
-            right: 32%;
+        .colourBall{
+        position: absolute;
+        top: 11%;
+        /* left: 24.5%; */
+        width: 20px; /* Ajusta el tamaño según sea necesario */
+        height: 20px; /* Ajusta el tamaño según sea necesario */
+        border-radius: 50%;
+        animation: changeColor 3s infinite;
         }
-        /* Willowfield */
-        .house2{
-            bottom: 23.3%;
-            right: 24.2%;
-        }
-        /* Ganton */
-        .house3{
-            bottom: 27.2%;
-            right: 24.1%;
-        }
-        /* Jefferson */
-        .house4{
-            bottom: 32.8%;
-            right: 27.95%;
-        }
-        /* Verona Beach */
-        .house5{
-            bottom: 28%;
-            right: 40.4%;
-        }
-        /* Santa Maria Beach */
-        .house6{
-            bottom: 26.4%;
-            right: 46%;
-        }
-        /* Rodeo */
-        .house7{
-            bottom: 27.9%;
-            right: 45.3%;
-        }
-        /* Mullholland MD */
-        .house8{
-            bottom: 39%;
-            right: 36.7%;
-        }
-        /* Mullholland 2 */
-        .house9{
-            bottom: 41.2%;
-            right: 36%;
-        }
-        /* Doherty (drive-school)*/
-        .house10{
-            bottom: 49.2%;
-            right: 69.25%;
-        }
-        /* Doherty (garaje) */
-        .house11{
-            bottom: 52.1%;
-            right: 69.5%;
-        }
-        /* Hashbury */
-        .house12{
-            bottom: 48%;
-            right: 73.5%;
-        }
-        /* Queens */
-        .house13{
-            bottom: 54.2%;
-            right: 73.2%;
-        }
-        /* Chinatown */
-        .house14{
-            bottom: 60.2%;
-            right: 71.1%;
-        }
-        /* Calton Heights */
-        .house15{
-            bottom: 62.3%;
-            right: 70.2%;
-        }
-        /* Paradiso */
-        .house16{
-            bottom: 60.8%;
-            right: 76%;
-        }
-        /* Whitewood Estates */
-        .house17{
-            bottom: 76.5%;
-            right: 39.8%;
-        }
-        /* Aeropuesto LV */
-        .house18{
-            bottom: 75.4%;
-            right: 34.9%;
-        }
-        /* Prickle Pine */
-        .house19{
-            bottom: 83.4%;
-            right: 36.3%;
-        }
-        /* Old Venturas Strip */
-        .house20{
-            bottom: 78.6%;
-            right: 25.3%;
-        }
-        /* Creek */
-        .house21{
-            bottom: 78.3%;
-            right: 20.8%;
-        }
-        /* Clown's pocket (the strip) */
-        .house22{
-            bottom: 74.2%;
-            right: 27%;
-        }
-        /* Pirates in men's pants (the strip)  */
-        .house23{
-            bottom: 71.6%;
-            right: 29.3%;
-        }
-        /* The camel's Toe (the strip) */
-        .house24{
-            bottom: 67%;
-            right: 26.5%;
-        }
-        /* Rockshore West */
-        .house25{
-            bottom: 59.55%;
-            right: 24.5%;
-        }
+        @keyframes changeColor{
+            0% {background-color: orangered}
+            33% {background-color: rgb(17, 255, 0)}
+            100% {background-color: orangered}
+        } 
     </style>
     <!-- referencia al script externo -->
-    <script src="./props.js" defer type="module"></script>
+    <!-- <script type="module" src="infoProps.js" defer></script> -->
 </head>
 <body>
     
 <div class = "zoom_outer">
     <div class = "zoom" id="zoom">
         <img src="imagenes/SanAndreasMap.png" alt="GTA MAP" id="GTAmap">
-        <img src="imagenes/orangeUbicationLogo.png" class="orangeHouse house1" alt="casa no seleccionada">
-        <img src="imagenes/orangeUbicationLogo.png" class="orangeHouse house2" alt="casa no seleccionada">
-        <img src="imagenes/orangeUbicationLogo.png" class="orangeHouse house3" alt="casa no seleccionada">
-        <img src="imagenes/orangeUbicationLogo.png" class="orangeHouse house4" alt="casa no seleccionada">
-        <img src="imagenes/orangeUbicationLogo.png" class="orangeHouse house5" alt="casa no seleccionada">
-        <img src="imagenes/orangeUbicationLogo.png" class="orangeHouse house6" alt="casa no seleccionada">
-        <img src="imagenes/orangeUbicationLogo.png" class="orangeHouse house7" alt="casa no seleccionada">
-        <img src="imagenes/orangeUbicationLogo.png" class="orangeHouse house8" alt="casa no seleccionada">
-        <img src="imagenes/orangeUbicationLogo.png" class="orangeHouse house9" alt="casa no seleccionada">
-        <img src="imagenes/orangeUbicationLogo.png" class="orangeHouse house10" alt="casa no seleccionada">
-        <img src="imagenes/orangeUbicationLogo.png" class="orangeHouse house11" alt="casa no seleccionada">
-        <img src="imagenes/orangeUbicationLogo.png" class="orangeHouse house12" alt="casa no seleccionada">
-        <img src="imagenes/orangeUbicationLogo.png" class="orangeHouse house13" alt="casa no seleccionada">
-        <img src="imagenes/orangeUbicationLogo.png" class="orangeHouse house14" alt="casa no seleccionada">
-        <img src="imagenes/orangeUbicationLogo.png" class="orangeHouse house15" alt="casa no seleccionada">
-        <img src="imagenes/orangeUbicationLogo.png" class="orangeHouse house16" alt="casa no seleccionada">
-        <img src="imagenes/orangeUbicationLogo.png" class="orangeHouse house17" alt="casa no seleccionada">
-        <img src="imagenes/orangeUbicationLogo.png" class="orangeHouse house18" alt="casa no seleccionada">
-        <img src="imagenes/orangeUbicationLogo.png" class="orangeHouse house19" alt="casa no seleccionada">
-        <img src="imagenes/orangeUbicationLogo.png" class="orangeHouse house20" alt="casa no seleccionada">
-        <img src="imagenes/orangeUbicationLogo.png" class="orangeHouse house21" alt="casa no seleccionada">
-        <img src="imagenes/orangeUbicationLogo.png" class="orangeHouse house22" alt="casa no seleccionada">
-        <img src="imagenes/orangeUbicationLogo.png" class="orangeHouse house23" alt="casa no seleccionada">
-        <img src="imagenes/orangeUbicationLogo.png" class="orangeHouse house24" alt="casa no seleccionada">
-        <img src="imagenes/orangeUbicationLogo.png" class="orangeHouse house25" alt="casa no seleccionada">
+        
     </div>
 </div>
 
-<script>
-
+<script type="module">
+    import { casasTotales } from "./infoProps.js";
 /* creo y posiciono los iconos de las propiedades */
-    console.log(casasTotales[casa1LS][localidad]);
+    // console.log(casasTotales[casa1LS][localidad]);
 
     var scale = 1,
     panning = false,
@@ -228,7 +96,22 @@
     start = {x: 0, y: 0},
     zoom = document.getElementById("zoom");
 
-    let orangeIcon = document.querySelectorAll('.orangeHouse');
+
+    Object.values(casasTotales).forEach(casa => {
+        var ubicacion = document.createElement('div');
+        ubicacion.id = "casaNro"+casa["primaryKey"];
+        ubicacion.className = "IMGcontainer";
+        var colourBall = document.createElement('div');
+        colourBall.className = "colourBall";
+        ubicacion.appendChild(colourBall);
+        // ubicacion.alt = "casa no seleccionada";
+        // ubicacion.src = "imagenes/orangeUbicationLogo.png";
+        ubicacion.style.bottom = casa["Bottom"];
+        ubicacion.style.right = casa["Right"];
+        zoom.appendChild(ubicacion); 
+    });
+
+    let orangeIcon = document.querySelectorAll('.IMGcontainer');
 
     function setTransform(){
         zoom.style.transform = "translate("+ pointX + "px," + pointY + "px) scale("+scale+")";
@@ -259,11 +142,11 @@
         // si detecto que la escala cambió para aumentar o disminuir el tamaño de los iconos de ubicación
         if(scale != 1){
             orangeIcon.forEach(icon => {
-                var newScale = (1 - scale) + 1.4;
+                var newScale = 1 / scale;
                 // si la escala es negativa, la multiplico por 0 para que el icono no se ponga la revés.
                 newScale < 0 ? (newScale * (-1)) : newScale;
                 // la escala no puede ser menor a 0.3 (para que el ícono no se haga muy diminuto)
-                scale >= 2 ? (newScale = 0.3) : newScale; 
+                // scale >= 2 ? (newScale = 0.3) : newScale; 
                 // console.log("nueva escala: "+ newScale);
                 icon.style.transform = "translate( 0px, 0px) scale("+ newScale +")";
             });
