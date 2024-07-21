@@ -15,6 +15,10 @@ import {
     nombreValido, telefonoValido, mailValido
 } from './validacionForms.js';
 
+import { 
+    mapaDinamico, insertProp 
+} from "./mapSettings.js";
+// mapaDinamico();
 
 // contenedor principal para visualización de las propiedades
 const contenedorPropiedades = document.getElementById('vistaPropiedades');
@@ -195,7 +199,9 @@ function divProp(propiedad){
      // si se hace doble click en el contenedor, se creará la plantilla con información de la propiedad
      divPropContainer.addEventListener('dblclick',function(){
         
-        propiedadElegida(divSlideContainer, propIMGS, propCaracteristicas);
+        var propBottom = propiedad.Bottom;
+        var propRight = propiedad.Right;
+        propiedadElegida(divSlideContainer, propIMGS, propCaracteristicas, propBottom, propRight);
 
     })
     const buttonFavoritos = document.createElement('button');
@@ -223,7 +229,7 @@ function divProp(propiedad){
 /**
  * función para mostrar las características la propiedad seleccionada
 */
-function propiedadElegida(slidePropiedad, imagenesProp, caracteristicasProp){
+function propiedadElegida(slidePropiedad, imagenesProp, caracteristicasProp, bottomPorc, rightPorc){
     // oculto la vista de todas las propiedades
     contenedorPropiedades.style.display = 'none';
     // muestro la vista de las características de la propiedad
@@ -279,7 +285,7 @@ function propiedadElegida(slidePropiedad, imagenesProp, caracteristicasProp){
         // elimino 'url(' y ')' para quedarme solamente con el enlace
         IMGslide.src = backgroundSlide.slice(5,-2);
         IMGslide.alt = 'imagen ampliada';
-        console.log(IMGslide);
+        // console.log(IMGslide);
         IMGslide.style.width = '900px';
         IMGslide.style.height = '600px';
         BLURcontainer.appendChild(IMGslide);
@@ -506,16 +512,47 @@ function propiedadElegida(slidePropiedad, imagenesProp, caracteristicasProp){
         }
         validacionDatos();
     })
-    // ubicacion de la propiedad en el mapa
-    const propiedadUbicacion = document.createElement('div');
-    propiedadUbicacion.id = 'propUbicacion';
+    // ubicacion de la propiedad en el mapa (zoom_outer)
+    const contenedorExterno = document.createElement('div');
+    contenedorExterno.id = 'propUbicacion';
+    // contenedor interno (zoom)
+    const contenedorInterno = document.createElement('div');
+    contenedorInterno.id = 'zoom';
+    contenedorInterno.className = 'zoom';
+    // imagen 
+    const IMGmap = document.createElement('img');
+    IMGmap.alt = "GTA MAP";
+    IMGmap.id = "GTAmap";
+    IMGmap.src = "imagenes/SanAndreasMap.png";
+    
+    contenedorInterno.appendChild(IMGmap);
+    insertProp(contenedorInterno);
+    contenedorExterno.appendChild(contenedorInterno);
+    /* window.addEventListener('load', function(){
+        // especifico el zoom y posición en el que se verá la propiedad localizada
+        const escala = 9;
+        // calculamos las dimensiones del contenedor del mapa:
+        const zoomWidth = IMGmap.offsetWidth;
+        const zoomHeight = IMGmap.offsetHeight;
+    
+        console.log("dimensiones: "+ zoomWidth + " y "+zoomHeight);
+    
+        const ejeX = zoomWidth * (rightPorc / 100);
+        const ejeY = zoomHeight * (bottomPorc / 100);
+    
+        console.log("ejes: "+ejeX +" y "+ejeY);
+    
+        // calculo los valores de traslación
+        const traslacionX = -(ejeX * (escala -1));
+        const traslacionY = -(ejeY * (escala -1));
+    
+        console.log("traslacion: "+ traslacionX +" y "+traslacionY);
+        contenedorInterno.style.transform = `scale(${escala}) translate(${traslacionX}px, ${traslacionY}px);`;
+    }); */
 
-
-
-
-
+    // contenedorInterno.style.transform = 'translate(-10299.3px, -6092.13px) scale(10.6993);'; 
     // agrego los elementos al contenedor padre
-    propiedadSeleccionada.append(slidePropiedad, verticalSlide, caracteristicasProp, formularioContacto, propiedadUbicacion);
+    propiedadSeleccionada.append(slidePropiedad, verticalSlide, caracteristicasProp, formularioContacto, contenedorExterno);
 }
 
 
