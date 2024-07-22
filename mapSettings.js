@@ -6,20 +6,28 @@ import { casasTotales } from "./infoProps.js";
  * Accede a las propiedades de los objetos casa referentes a sus coordenadas
  * y las inserta en el contenedor (con el mapa) recibido por parámetro
  */
-export function insertProp(contenedor){
+export function insertProp(contenedor, correccion){
+    
     Object.values(casasTotales).forEach(casa => {
+    
+        // si correccion es distinto de null, resto 1.3 a las propiedades
+        if(correccion != null){
+            casa["Right"]-= 1.3;
+        }
+    
         var casaUbicacion = document.createElement('div');
-        casaUbicacion.id = "casaNro"+casa["primaryKey"];
-        casaUbicacion.className = "IMGcontainer";
-        var colourBall = document.createElement('div');
-        colourBall.className = "colourBall";
-        casaUbicacion.appendChild(colourBall);
-        // casaUbicacion.alt = "casa no seleccionada";
-        // casaUbicacion.src = "imagenes/orangeUbicationLogo.png";
-        casaUbicacion.style.bottom = casa["Bottom"]+"%";
-        casaUbicacion.style.right = casa["Right"]+"%";
-        contenedor.appendChild(casaUbicacion); 
-    });
+            casaUbicacion.id = "casaNro"+casa["primaryKey"];
+            casaUbicacion.className = "IMGcontainer";
+            var colourBall = document.createElement('div');
+            colourBall.className = "colourBall";
+            casaUbicacion.appendChild(colourBall);
+            // casaUbicacion.alt = "casa no seleccionada";
+            // casaUbicacion.src = "imagenes/orangeUbicationLogo.png";
+            casaUbicacion.style.bottom = casa["Bottom"]+"%";
+            casaUbicacion.style.right = casa["Right"]+"%";
+            contenedor.appendChild(casaUbicacion); 
+        });
+    
 }
 
 /**
@@ -37,7 +45,7 @@ export function mapaDinamico(){
     start = {x: 0, y: 0},
     zoom = document.getElementById("zoom");
 
-    insertProp(zoom);
+    insertProp(zoom, null);
 
     let orangeIcon = document.querySelectorAll('.IMGcontainer');
 

@@ -512,47 +512,65 @@ function propiedadElegida(slidePropiedad, imagenesProp, caracteristicasProp, bot
         }
         validacionDatos();
     })
-    // ubicacion de la propiedad en el mapa (zoom_outer)
+    // contenedor de la escala ('#zoom_outer')
     const contenedorExterno = document.createElement('div');
     contenedorExterno.id = 'propUbicacion';
-    // contenedor interno (zoom)
+    // contenedor interno al que se le hará zoom ('#zoom')
     const contenedorInterno = document.createElement('div');
-    contenedorInterno.id = 'zoom';
-    contenedorInterno.className = 'zoom';
+    contenedorInterno.id = 'contenedorInterno';
+    contenedorInterno.className = 'contInt';
     // imagen 
     const IMGmap = document.createElement('img');
     IMGmap.alt = "GTA MAP";
-    IMGmap.id = "GTAmap";
+    IMGmap.id = "propiedadElegida";
     IMGmap.src = "imagenes/SanAndreasMap.png";
     
     contenedorInterno.appendChild(IMGmap);
-    insertProp(contenedorInterno);
+    // inserto las propiedades en el minimapa y utilizo el segundo parametro para aplicar la correccion
+    insertProp(contenedorInterno, "correccion");
     contenedorExterno.appendChild(contenedorInterno);
-    /* window.addEventListener('load', function(){
+    propiedadSeleccionada.append(slidePropiedad, verticalSlide, caracteristicasProp, formularioContacto, contenedorExterno);
+    // cálculos para posicionar el mapa acorde a la propiedad seleccionada
+    // requestAnimationFrame(() => {
         // especifico el zoom y posición en el que se verá la propiedad localizada
         const escala = 9;
         // calculamos las dimensiones del contenedor del mapa:
-        const zoomWidth = IMGmap.offsetWidth;
-        const zoomHeight = IMGmap.offsetHeight;
+        const zoomWidth = contenedorInterno.offsetWidth;
+        const zoomHeight = contenedorInterno.offsetHeight;
     
+        console.log("dimensiones(contenedor externo): "+ contenedorExterno.offsetWidth + " y "+contenedorExterno.offsetHeight);
         console.log("dimensiones: "+ zoomWidth + " y "+zoomHeight);
-    
+        
+
         const ejeX = zoomWidth * (rightPorc / 100);
         const ejeY = zoomHeight * (bottomPorc / 100);
     
         console.log("ejes: "+ejeX +" y "+ejeY);
     
         // calculo los valores de traslación
-        const traslacionX = -(ejeX * (escala -1));
-        const traslacionY = -(ejeY * (escala -1));
+        // const traslacionX = -(ejeX * (escala-1));
+        // const traslacionY = -(ejeY * (escala-1));
     
-        console.log("traslacion: "+ traslacionX +" y "+traslacionY);
-        contenedorInterno.style.transform = `scale(${escala}) translate(${traslacionX}px, ${traslacionY}px);`;
-    }); */
+        const factorCorreccionX = -1.1;
+        const factorCorreccionY = -1.1;
+        const traslacionX = -((ejeX - (zoomWidth / 2)) * (escala - 1)) * factorCorreccionX;
+        const traslacionY = -((ejeY - (zoomHeight / 2)) * (escala - 1)) * factorCorreccionY;    
+
+        // reduzco el tamaño de los iconos proporcionalmente al aumento de la escala: 
+        // también resto un 1.3 de right para corregir la posición de las propiedades relativas 
+        const casasIconos = document.querySelectorAll('.IMGcontainer');
+        casasIconos.forEach(icono => {
+            icono.style.transform = 'scale('+1/escala+')';
+        });
+
+        console.log("traslacion: "+ traslacionX +" y "+traslacionY+"; escala:"+escala);
+        // contenedorInterno.style.transform = `scale(${escala}) translate(${traslacionX}px, ${traslacionY}px)`;
+        contenedorInterno.style.transform = 'translate('+traslacionX+'px, '+traslacionY+'px) scale('+escala+')';  
+    // });
 
     // contenedorInterno.style.transform = 'translate(-10299.3px, -6092.13px) scale(10.6993);'; 
     // agrego los elementos al contenedor padre
-    propiedadSeleccionada.append(slidePropiedad, verticalSlide, caracteristicasProp, formularioContacto, contenedorExterno);
+
 }
 
 

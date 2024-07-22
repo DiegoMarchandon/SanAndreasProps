@@ -409,6 +409,8 @@ li{
     width: 650px;
     height: 400px;
     justify-self: center;
+    overflow: hidden;
+    position: relative;
 }
 #CJ, .logosContacto{
     position: absolute;
