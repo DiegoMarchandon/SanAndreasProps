@@ -201,7 +201,8 @@ function divProp(propiedad){
         
         var propBottom = propiedad.Bottom;
         var propRight = propiedad.Right;
-        propiedadElegida(divSlideContainer, propIMGS, propCaracteristicas, propBottom, propRight);
+        var propPKey = propiedad.primaryKey;
+        propiedadElegida(divSlideContainer, propIMGS, propCaracteristicas, propBottom, propRight, propPKey);
 
     })
     const buttonFavoritos = document.createElement('button');
@@ -229,7 +230,7 @@ function divProp(propiedad){
 /**
  * función para mostrar las características la propiedad seleccionada
 */
-function propiedadElegida(slidePropiedad, imagenesProp, caracteristicasProp, bottomPorc, rightPorc){
+function propiedadElegida(slidePropiedad, imagenesProp, caracteristicasProp, bottomPorc, rightPorc, idProp){
     // oculto la vista de todas las propiedades
     contenedorPropiedades.style.display = 'none';
     // muestro la vista de las características de la propiedad
@@ -459,15 +460,15 @@ function propiedadElegida(slidePropiedad, imagenesProp, caracteristicasProp, bot
 
     // si se comprueba que todos los datos son válidos, se activa el botón submit
     function validacionDatos(){
-    if(nombreValido(NyAInput) && telefonoValido(telefonoContacto) && mailValido(mailInput)){
-        envioDatos.removeAttribute("disabled");
-        envioDatos.style.backgroundColor = 'orange';
-        envioDatos.style.cursor = 'pointer';
-    }else{
-        envioDatos.setAttribute("disabled", true);
-        envioDatos.style.backgroundColor = 'rgb(255, 209, 124)';
-        envioDatos.style.cursor = '';
-    }
+        if(nombreValido(NyAInput) && telefonoValido(telefonoContacto) && mailValido(mailInput)){
+            envioDatos.removeAttribute("disabled");
+            envioDatos.style.backgroundColor = 'orange';
+            envioDatos.style.cursor = 'pointer';
+        }else{
+            envioDatos.setAttribute("disabled", true);
+            envioDatos.style.backgroundColor = 'rgb(255, 209, 124)';
+            envioDatos.style.cursor = '';
+        }
     }
 
     NyAInput.addEventListener('input',function(){
@@ -515,11 +516,37 @@ function propiedadElegida(slidePropiedad, imagenesProp, caracteristicasProp, bot
     // contenedor de la escala ('#zoom_outer')
     const contenedorExterno = document.createElement('div');
     contenedorExterno.id = 'propUbicacion';
+   
     // contenedor interno al que se le hará zoom ('#zoom')
     const contenedorInterno = document.createElement('div');
     contenedorInterno.id = 'contenedorInterno';
     contenedorInterno.className = 'contInt';
-    // imagen 
+     // div descriptivo
+     const referenciasContainer = document.createElement('div');
+     referenciasContainer.id = 'refContainer';
+     referenciasContainer.innerHTML = '<span style="background-color: orangered; color: white; font-weight: 1000px; font-family: Georgia; border: thick double whitesmoke;">Doble click para ver el mapa completo</span><br>';
+     
+     const blueBall = document.createElement('span');
+     blueBall.className = 'spanBalls';
+     blueBall.style.backgroundColor = 'blue';
+     blueBall.innerHTML = ' &nbsp; &nbsp; &nbsp;';
+
+     const blueRef = document.createElement('p');
+     blueRef.className = 'refTexts';
+     blueRef.innerHTML = 'Propiedad seleccionada<br>';
+
+     const greenBall = document.createElement('span');
+     greenBall.className = 'spanBalls';
+     greenBall.style.backgroundColor = 'rgb(17, 255, 0)';
+     greenBall.innerHTML = ' &nbsp; &nbsp; &nbsp;';
+
+     const greenRef = document.createElement('p');
+     greenRef.className = 'refTexts';
+     greenRef.innerHTML = 'Propiedades disponibles<br>';
+     
+     referenciasContainer.append(blueBall,blueRef,greenBall,greenRef);
+    //  contenedorInterno.appendChild(referenciasContainer);
+     // imagen 
     const IMGmap = document.createElement('img');
     IMGmap.alt = "GTA MAP";
     IMGmap.id = "propiedadElegida";
@@ -528,7 +555,7 @@ function propiedadElegida(slidePropiedad, imagenesProp, caracteristicasProp, bot
     contenedorInterno.appendChild(IMGmap);
     // inserto las propiedades en el minimapa y utilizo el segundo parametro para aplicar la correccion
     insertProp(contenedorInterno, "correccion");
-    contenedorExterno.appendChild(contenedorInterno);
+    contenedorExterno.append(contenedorInterno, referenciasContainer);
     propiedadSeleccionada.append(slidePropiedad, verticalSlide, caracteristicasProp, formularioContacto, contenedorExterno);
     // cálculos para posicionar el mapa acorde a la propiedad seleccionada
     // requestAnimationFrame(() => {
@@ -556,18 +583,30 @@ function propiedadElegida(slidePropiedad, imagenesProp, caracteristicasProp, bot
         const traslacionX = -((ejeX - (zoomWidth / 2)) * (escala - 1)) * factorCorreccionX;
         const traslacionY = -((ejeY - (zoomHeight / 2)) * (escala - 1)) * factorCorreccionY;    
 
+        console.log("traslacion: "+ traslacionX +" y "+traslacionY+"; escala:"+escala);
         // reduzco el tamaño de los iconos proporcionalmente al aumento de la escala: 
         // también resto un 1.3 de right para corregir la posición de las propiedades relativas 
         const casasIconos = document.querySelectorAll('.IMGcontainer');
         casasIconos.forEach(icono => {
             icono.style.transform = 'scale('+1/escala+')';
+            // cambio de color el icono de la propiedad seleccionada
+            var iconoID = (icono.id).slice(-1); 
+            if(idProp >= 10){
+            var iconoID = (icono.id).slice(-2);
+            }
+            // console.log(parseInt(iconoID.slice(-2)));
+            // console.log(idProp);
+            if(parseInt(iconoID.slice(-2)) === idProp){
+                console.log("ID encontrado");
+                icono.style.setProperty('--color-medio','blue');
+            }
         });
-
-        console.log("traslacion: "+ traslacionX +" y "+traslacionY+"; escala:"+escala);
         // contenedorInterno.style.transform = `scale(${escala}) translate(${traslacionX}px, ${traslacionY}px)`;
         contenedorInterno.style.transform = 'translate('+traslacionX+'px, '+traslacionY+'px) scale('+escala+')';  
     // });
-
+        contenedorExterno.addEventListener('dblclick',function(){
+            window.location.href = 'Mapa.html';
+        });
     // contenedorInterno.style.transform = 'translate(-10299.3px, -6092.13px) scale(10.6993);'; 
     // agrego los elementos al contenedor padre
 
@@ -702,3 +741,15 @@ function cambioImagen(action, coleccionIMG, containerIMG){
 
 /* llamo al formulario */
 document.getElementById("form-filtros").addEventListener('submit',filtro);
+/* funciones a exportar a home.js */
+/* export function muestraAlquileres(){
+    var accionSeleccionada = document.getElementById('selectAccion');
+    var accionAlquilar = accionSeleccionada.selectedIndex = 2;
+    Object.values(casasTotales).forEach(casa => {
+        // aplicar un strcasecmp para comparación insensible a minúsculas y mayúsculas
+        if(casa.opcion === accionAlquilar){
+            divProp(casa);
+        }
+
+    });
+} */

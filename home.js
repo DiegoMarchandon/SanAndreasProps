@@ -53,24 +53,24 @@ var ciudades = {
             seccion.innerHTML = '';
         }
         // si ya está definido un timeout, lo limpio.
-        /* if(newTimeout){
+        if(newTimeout != undefined){
             clearTimeout(newTimeout);
-            console.log("mostrar ciudades timeout");
-        } */
+            // console.log("!= undefined. clearTimeout desde mostrarCiudades");
+        }
 
         // para evitar que se creen nuevos contenedores clickeando su botón, verifico que no se haya creado antes 
         if(ciudadContainer == undefined){
-            console.log("creo el contenedor");
+        // console.log("creo el contenedor");
         ciudadContainer = document.createElement('div');
         ciudadContainer.className = 'ciudades';
         ciudadContainer.style.display = 'flex';
         ciudadContainer.style.justifyContent= 'center';
         ciudadContainer.style.alignItems = 'center';
-        seccion.appendChild(ciudadContainer); 
         }else{
-            console.log("limpio el contenedor para crear una nueva ciudad");
+            // console.log("limpio el contenedor para crear una nueva ciudad");
             ciudadContainer.innerHTML = '';
         }
+        seccion.appendChild(ciudadContainer); 
 
         // carta de presentación de la ciudad
         const cityCard = document.createElement('div');
@@ -109,7 +109,7 @@ var ciudades = {
         }
         // Configurar para mostrar la siguiente ciudad después de 8 segundos
         newTimeout = setTimeout(mostrarCiudades, 8000);
-        console.log("timeuotización");
+        // console.log("timeuotización");
 
     }
     
@@ -117,10 +117,11 @@ var ciudades = {
     function propEmpAlq(opcion){
         
         // si ya está definido un timeout, lo limpio.
-        if(newTimeout){
-            console.log("promEmpAlq timeout");
-            // clearTimeout(newTimeout);
-            newTimeout = undefined;
+        if(newTimeout != undefined){
+            // console.log("!= undefined. clearTimeout desde propEmpAlq y limpio el contenedor de ciudades en caso de volver a seleccionarse");
+            ciudadContainer.remove();
+            clearTimeout(newTimeout);
+            // newTimeout = undefined;
         }
         /* creo elementos por defecto que serán modificados dependiendo de la elección de la opción:
         emprendimientos, propiedades o alquileres. */
@@ -163,15 +164,24 @@ var ciudades = {
             backgroundOpcion.style.backgroundImage = 'url(imagenes/wang-cars.jpg)';
             cardOpcion.style.border = '2px solid lightblue';
             cardOpcion.style.backgroundColor = '#0dd8ce10';
+            cardOpcion.style.cursor = 'pointer';
+            /* cardOpcion.addEventListener('click',function(){
+
+            }) */
             IMGopcionContainer.style.backgroundImage = 'linear-gradient(lightblue,black)';
             IMGopcionEjemplo.src = 'imagenes/wangCarsAI.jpg';
             textOpcion.innerText = 'Ofrecemos inversiones atractivas a través de nuestras unidades en preventa con precios competitivos y diversas facilidades de pago. Abarcamos una gama exclusiva de proyectos innovadores y de alta calidad, diseñados para satisfacer sus necesidades y transformar sus sueños en realidades.';
             buttonOpcion.style.backgroundColor = 'lightblue';
             buttonOpcion.innerText = ' ver Emprendimientos';
+
         }else if(opcion === "propiedades"){
             backgroundOpcion.style.backgroundImage = 'url(imagenes/propiedadesBackground.jpg)';
             cardOpcion.style.border = '2px solid rgb(64, 180, 64)';
             cardOpcion.style.backgroundColor = '#3cff0010';
+            cardOpcion.style.cursor = 'pointer';
+            cardOpcion.addEventListener('click',function(){
+                window.location.href = 'propiedades.html';
+            })
             IMGopcionContainer.style.backgroundImage = 'linear-gradient(rgb(64, 180, 64),black)';
             IMGopcionEjemplo.src = 'imagenes/prop1Smoke.jpg';
             textOpcion.innerHTML = '<b>descubre tu hogar ideal con nosotros. </b> Escoge entre una amplia variedad de opciones que se adaptan a tus necesidades y estilo de vida. Desde acogedores apartamentos hasta lujosas casas, cada propiedad ha sido seleccionada cuidadosamente para ofrecerte la mejor calidad y ubicación. ¡Tu próxima aventura comienza con un nuevo hogar, y estamos aquí para ayudarte a encontrarlo!';
@@ -182,6 +192,11 @@ var ciudades = {
             backgroundOpcion.style.backgroundImage = 'url(imagenes/alquileresBackground.jpg)';
             cardOpcion.style.border = '2px solid rgb(233, 166, 66)';
             cardOpcion.style.backgroundColor = '#ee871210';
+            cardOpcion.style.cursor = 'pointer';
+            cardOpcion.addEventListener('click',function(){
+                window.location.href = 'propiedades.html';
+                // muestraAlquileres();
+            })
             IMGopcionContainer.style.backgroundImage = 'linear-gradient(rgb(233, 166, 66),black)';
             IMGopcionEjemplo.src = 'imagenes/slider/casasFotos/gallery55.jpg';
             textOpcion.innerText = 'Encuentra, en nuestra amplia gama de opciones, la que mejor se adapte a tu presupuesto y estilo de vida. Ya sea que busques un apartamento moderno en el centro de la ciudad o una casa espaciosa en un barrio tranquilo, tenemos la propiedad ideal para ti. Descubre la comodidad y flexibilidad del alquiler con nosotros, y encuentra tu próximo hogar sin complicaciones.';
@@ -241,3 +256,4 @@ function verPropuesta(button){
     }
     
 }
+verPropuesta();

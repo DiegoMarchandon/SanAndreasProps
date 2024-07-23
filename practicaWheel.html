@@ -36,16 +36,31 @@
         33% {background-color: rgb(17, 255, 0)}
         100% {background-color: orangered}
     } 
+    .mapaContainer{
+        width: 350px;
+        height: 150px;
+        border: 1px solid black;
+        border-radius: 50px;
+        overflow: hidden;
+        background-color: rgba(255, 166, 0, 0.541);
+    }
     </style>
 </head>
 <body>
     
-
+<!-- 
     <div id="IMGcontainer">
         <div class=colourBall></div>
+    </div> -->
+
+    <div class="mapaContainer">
+        <span style="background-color: orangered; color: white; font-weight: 1000px; font-family: Georgia; border: thick double whitesmoke;">Doble click para ver el mapa completo</span><br>
+        <span style="border-radius: 50%; background-color: blue; font-size: 10px;"> &nbsp; &nbsp; &nbsp;</span>
+        <p style="display: inline;">Propiedad seleccionada<br></p> 
+        <span style="border-radius: 50%; background-color: rgb(17, 255, 0); font-size: 10px;"> &nbsp; &nbsp; &nbsp;</span>
+        <p style="display: inline;">Propiedades disponibles<br></p>
     </div>
 <script>
-let IMGselected = document.getElementById('imagenElegida');
 
 // IMGselected.addEventListener('wheel',function(){
     // console.log("ruedita girada");
