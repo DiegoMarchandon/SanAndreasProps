@@ -70,8 +70,22 @@ import {
         cityFont.src = ciudadActual.cityFontSRC;
         cityFont.alt = ciudadActual.cityFontALT;
         cityText.innerHTML = ciudadActual.cityDescripcionText;
+        var ciudadValor = ciudadActual.valor;
         
+        // console.log("el valor almacenado en la variable es: " + ciudadValor);
         ciudadContainer.style.backgroundImage = ciudadActual.cityBLUR;
+        ciudadContainer.addEventListener('click', function(){ 
+            window.location.href = 'propiedades.html';
+            if(localStorage.getItem('selectLocalidad') !== null){
+                // console.log("selectLocalidad distinto de null");
+                localStorage.removeItem('selectLocalidad');
+                // console.log("!==null. El valor de la clave 'selectLocalidad' es: "+localStorage.getItem('selectLocalidad'));
+            }
+                localStorage.setItem('selectLocalidad', ciudadValor);
+                // var localidadSelec = localStorage.getItem('selectLocalidad');
+                // console.log("===null. El valor almacenado en el local storage es: " + localidadSelec);
+            
+        }); 
         // Incrementar el índice y resetear si es necesario
         // index = (index + 1) % (Object.keys(ciudades).length);
         index++;
@@ -150,9 +164,9 @@ import {
             cardOpcion.style.border = '2px solid rgb(64, 180, 64)';
             cardOpcion.style.backgroundColor = '#3cff0010';
             cardOpcion.style.cursor = 'pointer';
-            /* cardOpcion.addEventListener('click',function(){
+            cardOpcion.addEventListener('click',function(){
                 window.location.href = 'propiedades.html';
-            }) */
+            })
             IMGopcionContainer.style.backgroundImage = 'linear-gradient(rgb(64, 180, 64),black)';
             IMGopcionEjemplo.src = 'imagenes/prop1Smoke.jpg';
             textOpcion.innerHTML = '<b>descubre tu hogar ideal con nosotros. </b> Escoge entre una amplia variedad de opciones que se adaptan a tus necesidades y estilo de vida. Desde acogedores apartamentos hasta lujosas casas, cada propiedad ha sido seleccionada cuidadosamente para ofrecerte la mejor calidad y ubicación. ¡Tu próxima aventura comienza con un nuevo hogar, y estamos aquí para ayudarte a encontrarlo!';
@@ -164,10 +178,11 @@ import {
             cardOpcion.style.border = '2px solid rgb(233, 166, 66)';
             cardOpcion.style.backgroundColor = '#ee871210';
             cardOpcion.style.cursor = 'pointer';
-            /* cardOpcion.addEventListener('click',function(){
+            cardOpcion.addEventListener('click',function(){
                 window.location.href = 'propiedades.html';
-                // muestraAlquileres();
-            }) */
+                // Guardar la acción en localStorage
+                localStorage.setItem('selectAccion', 'Alquilar');    
+            });
             IMGopcionContainer.style.backgroundImage = 'linear-gradient(rgb(233, 166, 66),black)';
             IMGopcionEjemplo.src = 'imagenes/slider/casasFotos/gallery55.jpg';
             textOpcion.innerText = 'Encuentra, en nuestra amplia gama de opciones, la que mejor se adapte a tu presupuesto y estilo de vida. Ya sea que busques un apartamento moderno en el centro de la ciudad o una casa espaciosa en un barrio tranquilo, tenemos la propiedad ideal para ti. Descubre la comodidad y flexibilidad del alquiler con nosotros, y encuentra tu próximo hogar sin complicaciones.';

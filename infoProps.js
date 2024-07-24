@@ -722,7 +722,8 @@ export var ciudades = {
         cityFontSRC: 'imagenes/losSantos.png',
         cityFontALT: 'letra los santos',
         cityDescripcionText: 'Ciudad con precios más accesibles y la más fácil para adaptarse. Propiedades sospechosamente baratas <br><br><u><b>ver propiedades en Los Santos</b></u>',
-        cityBLUR: 'url(imagenes/LosSantosBLUR.png)'
+        cityBLUR: 'url(imagenes/LosSantosBLUR.png)',
+        valor: 'Los Santos'
     },
     SanFierro: {
         Cardclases: 'ciudad fontSF',
@@ -732,7 +733,8 @@ export var ciudades = {
         cityFontSRC: 'imagenes/sanFierro.png',
         cityFontALT: 'letra san fierro',
         cityDescripcionText: 'Ciudad con mayor variedad de precios, propiedades y actividades. Viviendas desde lo bohemio hasta lo elegante. Espacio para todos los estilos de vida. <br><br><u><b>ver propiedades en San Fierro</b></u>',
-        cityBLUR: 'url(imagenes/SanFierroBLUR.jpg)'
+        cityBLUR: 'url(imagenes/SanFierroBLUR.jpg)',
+        valor: 'San Fierro'
     },
     LasVenturas: {
         Cardclases: 'ciudad fontLV',
@@ -742,7 +744,8 @@ export var ciudades = {
         cityFontSRC: 'imagenes/lasVenturas.png',
         cityFontALT: 'letra las venturas',
         cityDescripcionText: 'Ciudad con mayor vida nocturna y viviendas lujosas. Predominancia de hoteles y alquileres temporales para las personas poder que buscan disfrutar de las variadas actividades <br><br><u><b>ver propiedades en Las Venturas</b></u>',
-        cityBLUR: 'url(imagenes/LasVenturasBLUR.png)'
+        cityBLUR: 'url(imagenes/LasVenturasBLUR.png)',
+        valor: 'Las Venturas'
     }
 };
 // exporto el arreglo para que esté disponible en el otro script
