@@ -713,5 +713,37 @@ export var casasTotales = {
     }
 };
 
+export var ciudades = {
+    LosSantos: {
+        Cardclases: 'ciudad fontLS',
+        cityContainerClass: 'losSantos',
+        descripcionClass: 'descripcionLS',
+        cityFontID: 'LSfuente',
+        cityFontSRC: 'imagenes/losSantos.png',
+        cityFontALT: 'letra los santos',
+        cityDescripcionText: 'Ciudad con precios más accesibles y la más fácil para adaptarse. Propiedades sospechosamente baratas <br><br><u><b>ver propiedades en Los Santos</b></u>',
+        cityBLUR: 'url(imagenes/LosSantosBLUR.png)'
+    },
+    SanFierro: {
+        Cardclases: 'ciudad fontSF',
+        cityContainerClass: 'sanFierro',
+        descripcionClass: 'descripcionSF',
+        cityFontID: 'SFfuente',
+        cityFontSRC: 'imagenes/sanFierro.png',
+        cityFontALT: 'letra san fierro',
+        cityDescripcionText: 'Ciudad con mayor variedad de precios, propiedades y actividades. Viviendas desde lo bohemio hasta lo elegante. Espacio para todos los estilos de vida. <br><br><u><b>ver propiedades en San Fierro</b></u>',
+        cityBLUR: 'url(imagenes/SanFierroBLUR.jpg)'
+    },
+    LasVenturas: {
+        Cardclases: 'ciudad fontLV',
+        cityContainerClass: 'lasVenturas',
+        descripcionClass: 'descripcionLV',
+        cityFontID: 'LVfuente',
+        cityFontSRC: 'imagenes/lasVenturas.png',
+        cityFontALT: 'letra las venturas',
+        cityDescripcionText: 'Ciudad con mayor vida nocturna y viviendas lujosas. Predominancia de hoteles y alquileres temporales para las personas poder que buscan disfrutar de las variadas actividades <br><br><u><b>ver propiedades en Las Venturas</b></u>',
+        cityBLUR: 'url(imagenes/LasVenturasBLUR.png)'
+    }
+};
 // exporto el arreglo para que esté disponible en el otro script
 // module.export = imagenes;

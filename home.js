@@ -1,38 +1,9 @@
 
 const seccion = document.getElementById('seccionElegida');
 
-var ciudades = {
-            LosSantos: {
-                Cardclases: 'ciudad fontLS',
-                cityContainerClass: 'losSantos',
-                descripcionClass: 'descripcionLS',
-                cityFontID: 'LSfuente',
-                cityFontSRC: 'imagenes/losSantos.png',
-                cityFontALT: 'letra los santos',
-                cityDescripcionText: 'Ciudad con precios más accesibles y la más fácil para adaptarse. Propiedades sospechosamente baratas <br><br><u><b>ver propiedades en Los Santos</b></u>',
-                cityBLUR: 'url(imagenes/LosSantosBLUR.png)'
-            },
-            SanFierro: {
-                Cardclases: 'ciudad fontSF',
-                cityContainerClass: 'sanFierro',
-                descripcionClass: 'descripcionSF',
-                cityFontID: 'SFfuente',
-                cityFontSRC: 'imagenes/sanFierro.png',
-                cityFontALT: 'letra san fierro',
-                cityDescripcionText: 'Ciudad con mayor variedad de precios, propiedades y actividades. Viviendas desde lo bohemio hasta lo elegante. Espacio para todos los estilos de vida. <br><br><u><b>ver propiedades en San Fierro</b></u>',
-                cityBLUR: 'url(imagenes/SanFierroBLUR.jpg)'
-            },
-            LasVenturas: {
-                Cardclases: 'ciudad fontLV',
-                cityContainerClass: 'lasVenturas',
-                descripcionClass: 'descripcionLV',
-                cityFontID: 'LVfuente',
-                cityFontSRC: 'imagenes/lasVenturas.png',
-                cityFontALT: 'letra las venturas',
-                cityDescripcionText: 'Ciudad con mayor vida nocturna y viviendas lujosas. Predominancia de hoteles y alquileres temporales para las personas poder que buscan disfrutar de las variadas actividades <br><br><u><b>ver propiedades en Las Venturas</b></u>',
-                cityBLUR: 'url(imagenes/LasVenturasBLUR.png)'
-            }
-        };
+import {
+    ciudades
+} from './infoProps.js';
     /**
      * Función para crear el div contenedor de ciudades 
      * y mostrar ciudades secuencialmente
@@ -45,7 +16,7 @@ var ciudades = {
     var newTimeout; 
     // contenedor general del slide automático de ciudades
     
-    function mostrarCiudades() {
+    export function mostrarCiudades() {
         
         // antes de ir creando y reemplazando el contenedor de ciudades, verifico que no se haya creado el contenedor que muestra las demás ciudades.
             // (problema con haber utilizado el childElementCount, porque después de 8 segundos me borraba todo el contenedor y no veía las demás ciudades (SF, LV)).
@@ -114,7 +85,7 @@ var ciudades = {
     }
     
 
-    function propEmpAlq(opcion){
+    export function propEmpAlq(opcion){
         
         // si ya está definido un timeout, lo limpio.
         if(newTimeout != undefined){
@@ -179,9 +150,9 @@ var ciudades = {
             cardOpcion.style.border = '2px solid rgb(64, 180, 64)';
             cardOpcion.style.backgroundColor = '#3cff0010';
             cardOpcion.style.cursor = 'pointer';
-            cardOpcion.addEventListener('click',function(){
+            /* cardOpcion.addEventListener('click',function(){
                 window.location.href = 'propiedades.html';
-            })
+            }) */
             IMGopcionContainer.style.backgroundImage = 'linear-gradient(rgb(64, 180, 64),black)';
             IMGopcionEjemplo.src = 'imagenes/prop1Smoke.jpg';
             textOpcion.innerHTML = '<b>descubre tu hogar ideal con nosotros. </b> Escoge entre una amplia variedad de opciones que se adaptan a tus necesidades y estilo de vida. Desde acogedores apartamentos hasta lujosas casas, cada propiedad ha sido seleccionada cuidadosamente para ofrecerte la mejor calidad y ubicación. ¡Tu próxima aventura comienza con un nuevo hogar, y estamos aquí para ayudarte a encontrarlo!';
@@ -193,10 +164,10 @@ var ciudades = {
             cardOpcion.style.border = '2px solid rgb(233, 166, 66)';
             cardOpcion.style.backgroundColor = '#ee871210';
             cardOpcion.style.cursor = 'pointer';
-            cardOpcion.addEventListener('click',function(){
+            /* cardOpcion.addEventListener('click',function(){
                 window.location.href = 'propiedades.html';
                 // muestraAlquileres();
-            })
+            }) */
             IMGopcionContainer.style.backgroundImage = 'linear-gradient(rgb(233, 166, 66),black)';
             IMGopcionEjemplo.src = 'imagenes/slider/casasFotos/gallery55.jpg';
             textOpcion.innerText = 'Encuentra, en nuestra amplia gama de opciones, la que mejor se adapte a tu presupuesto y estilo de vida. Ya sea que busques un apartamento moderno en el centro de la ciudad o una casa espaciosa en un barrio tranquilo, tenemos la propiedad ideal para ti. Descubre la comodidad y flexibilidad del alquiler con nosotros, y encuentra tu próximo hogar sin complicaciones.';
@@ -206,7 +177,7 @@ var ciudades = {
         seccion.appendChild(backgroundOpcion);
     }
 
-function verPropuesta(button){
+export function verPropuesta(button){
     // location.href='#seccionElegida';
     let buttonContainer = document.getElementById('button-container');
     let botones = buttonContainer.querySelectorAll('button');
