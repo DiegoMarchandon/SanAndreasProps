@@ -155,7 +155,7 @@ import {
             }) */
             IMGopcionContainer.style.backgroundImage = 'linear-gradient(lightblue,black)';
             IMGopcionEjemplo.src = 'imagenes/wangCarsAI.jpg';
-            textOpcion.innerText = 'Ofrecemos inversiones atractivas a través de nuestras unidades en preventa con precios competitivos y diversas facilidades de pago. Abarcamos una gama exclusiva de proyectos innovadores y de alta calidad, diseñados para satisfacer sus necesidades y transformar sus sueños en realidades.';
+            textOpcion.innerText = 'Ofrecemos inversiones atractivas a través de fondos de comercio y demás unidades comerciales con precios competitivos y diversas facilidades de pago. Abarcamos una gama exclusiva de proyectos innovadores y de alta calidad, diseñados para satisfacer sus necesidades y transformar sus sueños en realidades.';
             buttonOpcion.style.backgroundColor = 'lightblue';
             buttonOpcion.innerText = ' ver Emprendimientos';
 

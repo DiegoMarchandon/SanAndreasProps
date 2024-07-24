@@ -135,22 +135,6 @@
         </div>-->
     </div> 
     <script type="module" src="props.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Obtener los valores desde localStorage
-            const accionSeleccionada = localStorage.getItem('selectAccion');
-            const localidadSeleccionada = localStorage.getItem('selectLocalidad');
-            if (accionSeleccionada) {
-                document.getElementById('selectAccion').value = accionSeleccionada;
-                // Limpiar localStorage para evitar selección en recargas futuras
-                localStorage.removeItem('selectAccion');
-            }
-            if(localidadSeleccionada){
-                document.getElementById('selectLocalidad').value = localidadSeleccionada;
-                localStorage.removeItem('selectLocalidad');
-            }
-        });
-    </script>
     
 </body>
 </html>

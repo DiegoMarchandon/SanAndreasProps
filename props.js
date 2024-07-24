@@ -713,9 +713,6 @@ function filtro(event){
             contenedorPropiedades.appendChild(sinResultadosDiv);
         }
     } 
-
-    
-    
 }
 
 var actualIndex = 0;
@@ -739,7 +736,7 @@ function cambioImagen(action, coleccionIMG, containerIMG){
     containerIMG.style.backgroundImage = 'url('+coleccionIMG[actualIndex]+')';
 }
 
-/* llamo al formulario */
+/* registro el evento submit del formulario */
 document.getElementById("form-filtros").addEventListener('submit',filtro);
 /* funciones a exportar a home.js */
 /* export function muestraAlquileres(){
@@ -753,3 +750,25 @@ document.getElementById("form-filtros").addEventListener('submit',filtro);
 
     });
 } */
+
+/* registro que, si existen las variables, aplico el filtro con los valores modificados */
+
+    // Obtener los valores desde localStorage
+    const accionSeleccionada = localStorage.getItem('selectAccion');
+    const localidadSeleccionada = localStorage.getItem('selectLocalidad');
+    if (accionSeleccionada) {
+        // cambio el input por defecto de accion por el almacenado 
+        document.getElementById('selectAccion').value = accionSeleccionada;
+        // aplico el filtro
+        filtro(new Event('submit')); // Simula un evento de submit
+        // Limpiar localStorage para evitar selección en recargas futuras
+        localStorage.removeItem('selectAccion');
+    }
+    if(localidadSeleccionada){
+        // cambio el input por defecto de la localidad por el almacenado
+        document.getElementById('selectLocalidad').value = localidadSeleccionada;
+        // aplico el filtro
+        filtro(new Event('submit')); // Simula un evento de submit
+        // Limpiar localStorage para evitar selección en recargas futuras
+        localStorage.removeItem('selectLocalidad');
+    }
