@@ -51,19 +51,26 @@
     border-radius: 50%;
     animation: changeColor 3s infinite;
 }
+
+.lblueBall {
+    --color-inicial-final: blue;
+    --color-medio: rgb(44, 202, 255);
+}
+
 /* elemento raíz del documento */
 :root{
     --porc-inicial: 0%;
-    --porc-medio: 33%;
+    --porc-medio: 50%;
     --porc-final: 100%;
-    --color-inicial-final: rgb(255,128,0);
-    --color-medio: rgb(17, 255, 0);
+    --color-inicial-final: rgb(0, 130, 0);
+    --color-medio: rgb(24, 252, 24);
 }
+
 @keyframes changeColor{
     0% {
         background-color: var(--color-inicial-final);
     }
-    33% {
+    50% {
         background-color: var(--color-medio);
     }
     100% {

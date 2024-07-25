@@ -18,8 +18,12 @@ export function insertProp(contenedor, correccion){
         var casaUbicacion = document.createElement('div');
             casaUbicacion.id = "casaNro"+casa["primaryKey"];
             casaUbicacion.className = "IMGcontainer";
+            
             var colourBall = document.createElement('div');
             colourBall.className = "colourBall";
+            if(casa.tipoProp === "Comercio"){
+                colourBall.classList.add("lblueBall");
+            }
             casaUbicacion.appendChild(colourBall);
             // casaUbicacion.alt = "casa no seleccionada";
             // casaUbicacion.src = "imagenes/orangeUbicationLogo.png";

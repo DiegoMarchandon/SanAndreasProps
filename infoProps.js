@@ -197,7 +197,13 @@ export var Casa4LVfotos = [
     'imagenes/slider/casasFotos/gallery33.jpg',
     'imagenes/slider/casasFotos/gallery34.jpg'
 ];
-
+/* fotos de los emprendimientos */
+export var emprend1LSfotos = [
+    'imagenes/slider/casasFotos/gallery152.jpg',
+    'imagenes/slider/casasFotos/gallery153.jpg',
+    'imagenes/slider/casasFotos/gallery154.jpg',
+    'imagenes/slider/casasFotos/gallery155.jpg'
+];
 
 /* 
 ciudades/pueblos de San Andreas: 
@@ -710,6 +716,28 @@ export var casasTotales = {
         Bottom: 59.4,
         Right: 24.5,
         primaryKey: 25
+    },
+    /* agrego los emprendimientos. 
+    Comenzando por los de Los Santos: */
+    emprend1LS: { //cluckin bell
+        localidad: "Los Santos",
+        ubicacion: "Market",
+        tipoProp: "Comercio",
+        opcion: "Alquilar",
+        precio: 175500,
+        moneda: "ARS",
+        /* propio/compartido/en la calle */
+        estacionamiento: "en la calle",
+        /* baños diferenciados/unisex */
+        baños: "unisex",
+        /* calefaccion y/o aire acondicionado */
+        sistemasClimatización: "aire acondicionado + calefacción", 
+        antiguedad: 5,
+        superficieTerreno: 230,
+        imagenes: emprend1LSfotos,
+        Bottom: 31.9,
+        Right: 39.6,
+        primaryKey: 26
     }
 };
 

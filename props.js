@@ -112,53 +112,11 @@ function divProp(propiedad){
     propZona.id = 'propZona-'+propiedad.primaryKey;
     propZona.textContent = propiedad.ubicacion;
 
+    /* si se trata de una propiedad diferente a un comercio, creo los ambientes */
+    
     // contenedor de las caracteristicas de la propiedad:
     const propCaracteristicas = document.createElement('div');
     propCaracteristicas.id = 'detallesProp';
-
-    const ambContainer = document.createElement('div');
-    ambContainer.id = 'ambientesContainer';
-    const ambLogo = document.createElement('img');
-    ambLogo.alt = 'logo de ambientes';
-    ambLogo.src = 'imagenes/ambientesLogo.jpg';
-    ambLogo.className = 'logoMinimalista';
-    const ambText = document.createElement('p');
-    ambText.className = 'houseFeature';
-    ambText.textContent = (propiedad.ambientes > 1) ? propiedad.ambientes + " ambientes. " : propiedad.ambientes + " ambiente. "; 
-    ambContainer.append(ambLogo,ambText);
-
-    const bañContainer = document.createElement('div');
-    bañContainer.id = 'bañoContainer';
-    const bañLogo = document.createElement('img');
-    bañLogo.alt = 'logo de baños';
-    bañLogo.src = 'imagenes/bañoLogo.jpg';
-    bañLogo.className = 'logoMinimalista';
-    const bañText = document.createElement('p');
-    bañText.className = 'houseFeature';
-    bañText.textContent = (propiedad.baños > 1) ? propiedad.baños + " baños. " : propiedad.baños + " baño. "; 
-    bañContainer.append(bañLogo,bañText);
-
-    const dormContainer = document.createElement('div');
-    dormContainer.id = 'dormitoriosContainer';
-    const dormLogo = document.createElement('img');
-    dormLogo.alt = 'logo de dormitorios';
-    dormLogo.src = 'imagenes/dormitorioLogo.jpg';
-    dormLogo.className = 'logoMinimalista';
-    const dormText = document.createElement('p');
-    dormText.className = 'houseFeature';
-    dormText.textContent = (propiedad.dormitorio > 1) ? propiedad.dormitorio + " dormitorios. " : propiedad.dormitorio + " dormitorio. ";  
-    dormContainer.append(dormLogo,dormText);
-
-    const cocheContainer = document.createElement('div');
-    cocheContainer.id = 'cocheraContainer';
-    const cocheLogo = document.createElement('img');
-    cocheLogo.alt = 'logo de cochera';
-    cocheLogo.src = 'imagenes/cocheraLogo.jpg';
-    cocheLogo.className = 'logoMinimalista';
-    const cocheText = document.createElement('p');
-    cocheText.className = 'houseFeature';
-    cocheText.textContent = "cochera: " + propiedad.cochera + ". ";
-    cocheContainer.append(cocheLogo,cocheText);
 
     const antContainer = document.createElement('div');
     antContainer.id = 'antiguedadContainer';
@@ -167,20 +125,9 @@ function divProp(propiedad){
     antLogo.src = 'imagenes/antiguedadLogo.jpg';
     antLogo.className = 'logoMinimalista';
     const antText = document.createElement('p');
-    antText.className = 'houseFeature';
+    antText.className = 'propFeature';
     antText.textContent = (propiedad.antiguedad > 1 ) ? propiedad.antiguedad + " años de antigüedad. " : propiedad.antiguedad + " año de antigüedad. ";
     antContainer.append(antLogo,antText);
-
-    const supCasaContainer = document.createElement('div');
-    supCasaContainer.id = 'supCasaContainer';
-    const supCasaLogo = document.createElement('img');
-    supCasaLogo.alt = 'logo de la superficie de la casa';
-    supCasaLogo.src = 'imagenes/supCasaLogo.png';
-    supCasaLogo.className = 'logoMinimalista';
-    const supCasaText = document.createElement('p');
-    supCasaText.className = 'houseFeature';
-    supCasaText.innerHTML = propiedad.superficieCasa + "m<sup>2</sup>";
-    supCasaContainer.append(supCasaLogo,supCasaText);
 
     const supTerrenoContainer = document.createElement('div');
     supTerrenoContainer.id = 'supTerrenoContainer';
@@ -189,11 +136,103 @@ function divProp(propiedad){
     supTerrenoLogo.src = 'imagenes/superficieLogo.png';
     supTerrenoLogo.className = 'logoMinimalista';
     const supTerrenoText = document.createElement('p');
-    supTerrenoText.className = 'houseFeature';
+    supTerrenoText.className = 'propFeature';
     supTerrenoText.innerHTML = propiedad.superficieTerreno + "m<sup>2</sup> totales.";
     supTerrenoContainer.append(supTerrenoLogo, supTerrenoText);
-    
-    propCaracteristicas.append(ambContainer, bañContainer, dormContainer, cocheContainer, antContainer, supCasaContainer, supTerrenoContainer);
+
+    if(propiedad.tipoProp != "Comercio"){
+        const ambContainer = document.createElement('div');
+        ambContainer.id = 'ambientesContainer';
+        const ambLogo = document.createElement('img');
+        ambLogo.alt = 'logo de ambientes';
+        ambLogo.src = 'imagenes/ambientesLogo.jpg';
+        ambLogo.className = 'logoMinimalista';
+        const ambText = document.createElement('p');
+        ambText.className = 'propFeature';
+        ambText.textContent = (propiedad.ambientes > 1) ? propiedad.ambientes + " ambientes. " : propiedad.ambientes + " ambiente. "; 
+        ambContainer.append(ambLogo,ambText);
+
+        const bañContainer = document.createElement('div');
+        bañContainer.id = 'bañoContainer';
+        const bañLogo = document.createElement('img');
+        bañLogo.alt = 'logo de baños';
+        bañLogo.src = 'imagenes/bañoLogo.jpg';
+        bañLogo.className = 'logoMinimalista';
+        const bañText = document.createElement('p');
+        bañText.className = 'propFeature';
+        bañText.textContent = (propiedad.baños > 1) ? propiedad.baños + " baños. " : propiedad.baños + " baño. "; 
+        bañContainer.append(bañLogo,bañText);
+
+        const dormContainer = document.createElement('div');
+        dormContainer.id = 'dormitoriosContainer';
+        const dormLogo = document.createElement('img');
+        dormLogo.alt = 'logo de dormitorios';
+        dormLogo.src = 'imagenes/dormitorioLogo.jpg';
+        dormLogo.className = 'logoMinimalista';
+        const dormText = document.createElement('p');
+        dormText.className = 'propFeature';
+        dormText.textContent = (propiedad.dormitorio > 1) ? propiedad.dormitorio + " dormitorios. " : propiedad.dormitorio + " dormitorio. ";  
+        dormContainer.append(dormLogo,dormText);
+
+        const cocheContainer = document.createElement('div');
+        cocheContainer.id = 'cocheraContainer';
+        const cocheLogo = document.createElement('img');
+        cocheLogo.alt = 'logo de cochera';
+        cocheLogo.src = 'imagenes/cocheraLogo.jpg';
+        cocheLogo.className = 'logoMinimalista';
+        const cocheText = document.createElement('p');
+        cocheText.className = 'propFeature';
+        cocheText.textContent = "cochera: " + propiedad.cochera + ". ";
+        cocheContainer.append(cocheLogo,cocheText);
+
+        const supCasaContainer = document.createElement('div');
+        supCasaContainer.id = 'supCasaContainer';
+        const supCasaLogo = document.createElement('img');
+        supCasaLogo.alt = 'logo de la superficie de la casa';
+        supCasaLogo.src = 'imagenes/supCasaLogo.png';
+        supCasaLogo.className = 'logoMinimalista';
+        const supCasaText = document.createElement('p');
+        supCasaText.className = 'propFeature';
+        supCasaText.innerHTML = propiedad.superficieCasa + "m<sup>2</sup>";
+        supCasaContainer.append(supCasaLogo,supCasaText);
+
+        propCaracteristicas.append(ambContainer, bañContainer, dormContainer, cocheContainer, antContainer, supCasaContainer, supTerrenoContainer);
+    }else{ //si se trata de un comercio:
+        const estContainer = document.createElement('div');
+        estContainer.id = 'estacionamientoContainer';
+        const estLogo = document.createElement('img');
+        estLogo.alt = 'logo de estacionamiento';
+        estLogo.src = 'imagenes/estacionamientoLogo.jpg';
+        estLogo.className = 'logoMinimalista';
+        const estText = document.createElement('p');
+        estText.className = 'propFeature';
+        estText.textContent = propiedad.estacionamiento;
+        estContainer.append(estLogo,estText);
+
+        const bañosContainer = document.createElement('div');
+        bañosContainer.id = 'bañosContainer';
+        const bañosLogo = document.createElement('img');
+        bañosLogo.alt = 'logo de baños';
+        bañosLogo.src = 'imagenes/bañoLogo.jpg';
+        bañosLogo.className = 'logoMinimalista';
+        const bañosText = document.createElement('p');
+        bañosText.className = 'propFeature';
+        bañosText.textContent = propiedad.baños;
+        bañosContainer.append(bañosLogo,bañosText);
+
+        const sistClimaContainer = document.createElement('div');
+        sistClimaContainer.id = 'sistClimaContainer';
+        const sistClimaLogo = document.createElement('img');
+        sistClimaLogo.alt = 'logo de climatización';
+        sistClimaLogo.src = 'imagenes/climatizacionLogo.png';
+        sistClimaLogo.className = 'logoMinimalista';
+        const sistClimaText = document.createElement('p');
+        sistClimaText.className = 'propFeature';
+        sistClimaText.textContent = propiedad.sistemasClimatización;
+        sistClimaContainer.append(sistClimaLogo,sistClimaText);
+
+        propCaracteristicas.append(supTerrenoContainer, antContainer, estContainer, bañosContainer, sistClimaContainer);
+    }   
 
 
      // si se hace doble click en el contenedor, se creará la plantilla con información de la propiedad
@@ -202,7 +241,8 @@ function divProp(propiedad){
         var propBottom = propiedad.Bottom;
         var propRight = propiedad.Right;
         var propPKey = propiedad.primaryKey;
-        propiedadElegida(divSlideContainer, propIMGS, propCaracteristicas, propBottom, propRight, propPKey);
+        var propTipo = propiedad.tipoProp;
+        propiedadElegida(divSlideContainer, propIMGS, propCaracteristicas, propBottom, propRight, propPKey, propTipo);
 
     })
     const buttonFavoritos = document.createElement('button');
@@ -230,7 +270,7 @@ function divProp(propiedad){
 /**
  * función para mostrar las características la propiedad seleccionada
 */
-function propiedadElegida(slidePropiedad, imagenesProp, caracteristicasProp, bottomPorc, rightPorc, idProp){
+function propiedadElegida(slidePropiedad, imagenesProp, caracteristicasProp, bottomPorc, rightPorc, idProp, tipoProp){
     // oculto la vista de todas las propiedades
     contenedorPropiedades.style.display = 'none';
     // muestro la vista de las características de la propiedad
@@ -309,7 +349,6 @@ function propiedadElegida(slidePropiedad, imagenesProp, caracteristicasProp, bot
         });
     });
 
-    /* ------------HACER---------------------- */
     // slide vertical
     const verticalSlide = document.createElement('div');
     verticalSlide.id = 'vertical-slide';
@@ -360,7 +399,6 @@ function propiedadElegida(slidePropiedad, imagenesProp, caracteristicasProp, bot
             }   
         }
     })
-    /* ------------------------------------------ */
 
     // formulario de contacto con el corredor
     const formularioContacto = document.createElement('div');
@@ -526,14 +564,15 @@ function propiedadElegida(slidePropiedad, imagenesProp, caracteristicasProp, bot
      referenciasContainer.id = 'refContainer';
      referenciasContainer.innerHTML = '<span style="background-color: orangered; color: white; font-weight: 1000px; font-family: Georgia; border: thick double whitesmoke;">Doble click para ver el mapa completo</span><br>';
      
-     const blueBall = document.createElement('span');
-     blueBall.className = 'spanBalls';
-     blueBall.style.backgroundColor = 'blue';
-     blueBall.innerHTML = ' &nbsp; &nbsp; &nbsp;';
+     const greyBall = document.createElement('span');
+     greyBall.className = 'spanBalls';
+     greyBall.style.backgroundColor = 'darkgrey';
+     greyBall.style.border = '1px solid black';
+     greyBall.innerHTML = ' &nbsp; &nbsp; &nbsp;';
 
-     const blueRef = document.createElement('p');
-     blueRef.className = 'refTexts';
-     blueRef.innerHTML = 'Propiedad seleccionada<br>';
+     const greyRef = document.createElement('p');
+     greyRef.className = 'refTexts';
+     greyRef.innerHTML = 'Inmueble seleccionado<br>';
 
      const greenBall = document.createElement('span');
      greenBall.className = 'spanBalls';
@@ -543,8 +582,18 @@ function propiedadElegida(slidePropiedad, imagenesProp, caracteristicasProp, bot
      const greenRef = document.createElement('p');
      greenRef.className = 'refTexts';
      greenRef.innerHTML = 'Propiedades disponibles<br>';
+
+     const blueBall =  document.createElement('span');
+     blueBall.className = 'spanBalls';
+     blueBall.style.backgroundColor = 'blue';
+     blueBall.innerHTML = ' &nbsp; &nbsp; &nbsp;';
      
-     referenciasContainer.append(blueBall,blueRef,greenBall,greenRef);
+     const blueRef = document.createElement('p');
+     blueRef.className = 'refTexts';
+     blueRef.innerHTML = 'Comercios disponibles<br>';
+
+     
+     referenciasContainer.append(greyBall,greyRef,greenBall,greenRef, blueBall, blueRef);
     //  contenedorInterno.appendChild(referenciasContainer);
      // imagen 
     const IMGmap = document.createElement('img');
@@ -598,7 +647,13 @@ function propiedadElegida(slidePropiedad, imagenesProp, caracteristicasProp, bot
             // console.log(idProp);
             if(parseInt(iconoID.slice(-2)) === idProp){
                 console.log("ID encontrado");
-                icono.style.setProperty('--color-medio','blue');
+                if(tipoProp === "Comercio"){
+                    document.querySelector('.lblueBall').style.setProperty('--color-medio','darkgrey');
+                }else{
+                    icono.style.setProperty('--color-medio','darkgrey');
+                }
+            }else{
+                console.log("ID NO encontrado");
             }
         });
         // contenedorInterno.style.transform = `scale(${escala}) translate(${traslacionX}px, ${traslacionY}px)`;
