@@ -150,9 +150,10 @@ import {
             cardOpcion.style.border = '2px solid lightblue';
             cardOpcion.style.backgroundColor = '#0dd8ce10';
             cardOpcion.style.cursor = 'pointer';
-            /* cardOpcion.addEventListener('click',function(){
-
-            }) */
+            cardOpcion.addEventListener('click',function(){
+                window.location.href = 'propiedades.html';
+                localStorage.setItem('selectPropiedad', 'Comercio');
+            })
             IMGopcionContainer.style.backgroundImage = 'linear-gradient(lightblue,black)';
             IMGopcionEjemplo.src = 'imagenes/wangCarsAI.jpg';
             textOpcion.innerText = 'Ofrecemos inversiones atractivas a través de fondos de comercio y demás unidades comerciales con precios competitivos y diversas facilidades de pago. Abarcamos una gama exclusiva de proyectos innovadores y de alta calidad, diseñados para satisfacer sus necesidades y transformar sus sueños en realidades.';

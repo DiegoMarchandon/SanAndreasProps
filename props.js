@@ -241,8 +241,8 @@ function divProp(propiedad){
         var propBottom = propiedad.Bottom;
         var propRight = propiedad.Right;
         var propPKey = propiedad.primaryKey;
-        var propTipo = propiedad.tipoProp;
-        propiedadElegida(divSlideContainer, propIMGS, propCaracteristicas, propBottom, propRight, propPKey, propTipo);
+        var comercioID = propiedad.IDcomercio;
+        propiedadElegida(divSlideContainer, propIMGS, propCaracteristicas, propBottom, propRight, propPKey, comercioID);
 
     })
     const buttonFavoritos = document.createElement('button');
@@ -270,7 +270,7 @@ function divProp(propiedad){
 /**
  * función para mostrar las características la propiedad seleccionada
 */
-function propiedadElegida(slidePropiedad, imagenesProp, caracteristicasProp, bottomPorc, rightPorc, idProp, tipoProp){
+function propiedadElegida(slidePropiedad, imagenesProp, caracteristicasProp, bottomPorc, rightPorc, idProp, idComercio){
     // oculto la vista de todas las propiedades
     contenedorPropiedades.style.display = 'none';
     // muestro la vista de las características de la propiedad
@@ -646,9 +646,10 @@ function propiedadElegida(slidePropiedad, imagenesProp, caracteristicasProp, bot
             // console.log(parseInt(iconoID.slice(-2)));
             // console.log(idProp);
             if(parseInt(iconoID.slice(-2)) === idProp){
-                console.log("ID encontrado");
-                if(tipoProp === "Comercio"){
-                    document.querySelector('.lblueBall').style.setProperty('--color-medio','darkgrey');
+                console.log("ID encontrado. idComercio = "+idComercio);
+                if(idComercio !== undefined){
+                    
+                    document.getElementsByClassName('lblueBall')[idComercio].style.setProperty('--color-medio','darkgrey');
                 }else{
                     icono.style.setProperty('--color-medio','darkgrey');
                 }
@@ -811,6 +812,7 @@ document.getElementById("form-filtros").addEventListener('submit',filtro);
     // Obtener los valores desde localStorage
     const accionSeleccionada = localStorage.getItem('selectAccion');
     const localidadSeleccionada = localStorage.getItem('selectLocalidad');
+    const inmuebleSeleccionado = localStorage.getItem('selectPropiedad');
     if (accionSeleccionada) {
         // cambio el input por defecto de accion por el almacenado 
         document.getElementById('selectAccion').value = accionSeleccionada;
@@ -826,4 +828,10 @@ document.getElementById("form-filtros").addEventListener('submit',filtro);
         filtro(new Event('submit')); // Simula un evento de submit
         // Limpiar localStorage para evitar selección en recargas futuras
         localStorage.removeItem('selectLocalidad');
+    }
+    if(inmuebleSeleccionado){
+        document.getElementById('selectPropiedad').value = inmuebleSeleccionado;
+        filtro(new Event('submit')); // Simula un evento de submit
+        // Limpiar localStorage para evitar selección en recargas futuras
+        localStorage.removeItem('selectPropiedad');
     }

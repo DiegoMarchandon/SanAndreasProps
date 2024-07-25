@@ -172,17 +172,20 @@ export var Depto2LVfotos = [
 ];
 
 export var Depto3LVfotos = [
+    'imagenes/slider/casasFotos/gallery194.jpg',
     'imagenes/slider/casasFotos/gallery135.jpg',
     'imagenes/slider/casasFotos/gallery136.jpg',
     'imagenes/slider/casasFotos/gallery137.jpg',
-    'imagenes/slider/casasFotos/gallery138.jpg',
+    'imagenes/slider/casasFotos/gallery138.jpg'
 ];
 
 export var Depto4LVfotos = [
+    'imagenes/slider/casasFotos/gallery201.jpg',
+    'imagenes/slider/casasFotos/gallery202.jpg',
     'imagenes/slider/casasFotos/gallery139.jpg',
     'imagenes/slider/casasFotos/gallery140.jpg',
     'imagenes/slider/casasFotos/gallery141.jpg',
-    'imagenes/slider/casasFotos/gallery142.jpg',
+    'imagenes/slider/casasFotos/gallery142.jpg'
 ];
 
 export var Depto5LVfotos = [
@@ -205,6 +208,78 @@ export var emprend1LSfotos = [
     'imagenes/slider/casasFotos/gallery155.jpg'
 ];
 
+export var emprend2LSfotos = [
+    'imagenes/slider/casasFotos/gallery156.jpg',
+    'imagenes/slider/casasFotos/gallery157.jpg',
+    'imagenes/slider/casasFotos/gallery158.jpg'
+];
+
+export var emprend3LSfotos = [
+    'imagenes/slider/casasFotos/gallery159.jpg',
+    'imagenes/slider/casasFotos/gallery160.jpg',
+    'imagenes/slider/casasFotos/gallery161.jpg',
+    'imagenes/slider/casasFotos/gallery162.jpg',
+    'imagenes/slider/casasFotos/gallery163.jpg',
+    'imagenes/slider/casasFotos/gallery164.jpg',
+    'imagenes/slider/casasFotos/gallery165.jpg'
+];
+/* wang cars */
+export var emprend1SFfotos = [
+    'imagenes/slider/casasFotos/gallery171.jpg',
+    'imagenes/slider/casasFotos/gallery166.jpg',
+    'imagenes/slider/casasFotos/gallery167.jpg',
+    'imagenes/slider/casasFotos/gallery168.jpg',
+    'imagenes/slider/casasFotos/gallery169.jpg',
+    'imagenes/slider/casasFotos/gallery170.jpg'
+];
+
+/* zero */
+export var emprend2SFfotos = [
+    'imagenes/slider/casasFotos/gallery173.jpg',
+    'imagenes/slider/casasFotos/gallery174.jpg',
+    'imagenes/slider/casasFotos/gallery175.jpg',
+    'imagenes/slider/casasFotos/gallery176.jpg',
+    'imagenes/slider/casasFotos/gallery177.jpg',
+    'imagenes/slider/casasFotos/gallery178.jpg',
+    'imagenes/slider/casasFotos/gallery179.jpg'
+];
+/* zombotech labs */
+export var emprend3SFfotos = [
+    'imagenes/slider/casasFotos/zomblabs.jpg',
+    'imagenes/slider/casasFotos/gallery186.jpg',
+    'imagenes/slider/casasFotos/gallery180.jpg',
+    'imagenes/slider/casasFotos/gallery181.jpg',
+    'imagenes/slider/casasFotos/gallery182.jpg',
+    'imagenes/slider/casasFotos/gallery183.jpg',
+    'imagenes/slider/casasFotos/gallery184.jpg',
+    'imagenes/slider/casasFotos/gallery185.jpg'
+];
+/* muelles de red county */
+export var emprend1LVfotos = [
+    'imagenes/slider/casasFotos/gallery188.jpg',
+    'imagenes/slider/casasFotos/gallery187.jpg',
+    'imagenes/slider/casasFotos/gallery189.jpg',
+    'imagenes/slider/casasFotos/gallery190.jpg'
+];
+/* casino Caligula en The Strip */
+export var emprend2LVfotos = [
+    'imagenes/slider/casasFotos/gallery191.jpg',
+    'imagenes/slider/casasFotos/gallery192.jpg',
+    'imagenes/slider/casasFotos/gallery193.jpg',
+    'imagenes/slider/casasFotos/gallery195.jpg',
+    'imagenes/slider/casasFotos/gallery196.jpg',
+    'imagenes/slider/casasFotos/gallery197.jpg',
+    'imagenes/slider/casasFotos/gallery198.jpg',
+    'imagenes/slider/casasFotos/gallery199.jpg',
+    'imagenes/slider/casasFotos/gallery200.jpg'
+];
+/* Binco tienda de ropa */
+export var emprend3LVfotos = [
+    'imagenes/slider/casasFotos/gallery203.jpg',
+    'imagenes/slider/casasFotos/gallery204.jpg',
+    'imagenes/slider/casasFotos/gallery205.jpg',
+    'imagenes/slider/casasFotos/gallery206.jpg'
+];
 /* 
 ciudades/pueblos de San Andreas: 
 Red County: Dillimore, Blueberry, Montgomery, Palomino Creek.
@@ -728,8 +803,8 @@ export var casasTotales = {
         moneda: "ARS",
         /* propio/compartido/en la calle */
         estacionamiento: "en la calle",
-        /* baños diferenciados/unisex */
-        baños: "unisex",
+        /* baños diferenciados/ baños unisex */
+        baños: "diferenciados",
         /* calefaccion y/o aire acondicionado */
         sistemasClimatización: "aire acondicionado + calefacción", 
         antiguedad: 5,
@@ -737,8 +812,177 @@ export var casasTotales = {
         imagenes: emprend1LSfotos,
         Bottom: 31.9,
         Right: 39.6,
-        primaryKey: 26
-    }
+        primaryKey: 26,
+        IDcomercio: 0
+    },
+    emprend2LS: { //salón de tatuajes
+        localidad: "Los Santos",
+        ubicacion: "Idlewood",
+        tipoProp: "Comercio",
+        opcion: "Comprar",
+        precio: 95000,
+        moneda: "USD",
+        /* propio/compartido/en la calle */
+        estacionamiento: "compartido",
+        /* baños diferenciados/ baños unisex */
+        baños: " baños unisex",
+        /* calefaccion y/o aire acondicionado */
+        sistemasClimatización: "aire acondicionado", 
+        antiguedad: 15,
+        superficieTerreno: 104,
+        imagenes: emprend2LSfotos,
+        Bottom: 26.3,
+        Right: 28.5,
+        primaryKey: 27,
+        IDcomercio: 1
+    },
+    emprend3LS: { //exposición lowrider
+        localidad: "Los Santos",
+        ubicacion: "El Corona",
+        tipoProp: "Comercio",
+        opcion: "Alquiler Temporario",
+        precio: 35000,
+        moneda: "USD",
+        /* propio/compartido/en la calle */
+        estacionamiento: "compartido",
+        /* baños diferenciados/ baños unisex */
+        baños: " baños unisex",
+        /* calefaccion y/o aire acondicionado */
+        sistemasClimatización: "aire libre", 
+        antiguedad: 25,
+        superficieTerreno: 325,
+        imagenes: emprend3LSfotos,
+        Bottom: 24.3,
+        Right: 31.3,
+        primaryKey: 28,
+        IDcomercio: 2
+    },
+    emprend1SF: { //wang cars
+        localidad: "San Fierro",
+        ubicacion: "Downtown",
+        tipoProp: "Comercio",
+        opcion: "Comprar",
+        precio: 450000,
+        moneda: "USD",
+        /* propio/compartido/en la calle */
+        estacionamiento: "propio",
+        /* baños diferenciados/ baños unisex */
+        baños: "baños diferenciados",
+        /* calefaccion y/o aire acondicionado */
+        sistemasClimatización: "calefacción + aire acondicionado", 
+        antiguedad: 6,
+        superficieTerreno: 475,
+        imagenes: emprend1SFfotos,
+        Bottom: 53.6,
+        Right: 68.6,
+        primaryKey: 29,
+        IDcomercio: 3
+    },
+    emprend2SF: { //zero
+        localidad: "San Fierro",
+        ubicacion: "García",
+        tipoProp: "Comercio",
+        opcion: "Alquilar",
+        precio: 429000,
+        moneda: "ARS",
+        /* propio/compartido/en la calle */
+        estacionamiento: "en la calle",
+        /* baños diferenciados/ baños unisex */
+        baños: "baños diferenciados",
+        /* calefaccion y/o aire acondicionado */
+        sistemasClimatización: "calefacción + aire acondicionado", 
+        antiguedad: 9,
+        superficieTerreno: 132,
+        imagenes: emprend2SFfotos,
+        Bottom: 51.8,
+        Right: 71.4,
+        primaryKey: 30,
+        IDcomercio: 4
+    },
+    emprend3SF: { //zombotech labs
+        localidad: "San Fierro",
+        ubicacion: "Downtown",
+        tipoProp: "Comercio",
+        opcion: "Alquiler Temporario",
+        precio: 12500,
+        moneda: "USD",
+        /* propio/compartido/en la calle */
+        estacionamiento: "propio",
+        /* baños diferenciados/ baños unisex */
+        baños: "baños diferenciados",
+        /* calefaccion y/o aire acondicionado */
+        sistemasClimatización: "calefacción + aire acondicionado", 
+        antiguedad: 4,
+        superficieTerreno: 337,
+        imagenes: emprend3SFfotos,
+        Bottom: 59.5,
+        Right: 68.8,
+        primaryKey: 31,
+        IDcomercio: 5
+    },
+    emprend1LV: { //muelles red county
+        localidad: "Las Venturas",
+        ubicacion: "Rockshore West",
+        tipoProp: "Comercio",
+        opcion: "Alquiler Temporario",
+        precio: 211000,
+        moneda: "ARS",
+        /* propio/compartido/en la calle */
+        estacionamiento: "propio",
+        /* baños diferenciados/ baños unisex */
+        baños: " baños unisex",
+        /* calefaccion y/o aire acondicionado */
+        sistemasClimatización: "aire libre", 
+        antiguedad: 24,
+        superficieTerreno: 229,
+        imagenes: emprend1LVfotos,
+        Bottom: 57.5,
+        Right: 26.2,
+        primaryKey: 32,
+        IDcomercio: 6
+    },
+    emprend2LV: { //casino caligula
+        localidad: "Las Venturas",
+        ubicacion: "The Strip",
+        tipoProp: "Comercio",
+        opcion: "Comprar",
+        precio: 2555745,
+        moneda: "USD",
+        /* propio/compartido/en la calle */
+        estacionamiento: "propio",
+        /* baños diferenciados/ baños unisex */
+        baños: " baños diferenciados",
+        /* calefaccion y/o aire acondicionado */
+        sistemasClimatización: "calefaccion + aire acondicionado", 
+        antiguedad: 5,
+        superficieTerreno: 575,
+        imagenes: emprend2LVfotos,
+        Bottom: 71.8,
+        Right: 27,
+        primaryKey: 33,
+        IDcomercio: 7
+    },
+    emprend3LV: { //tienda de ropa Binco
+        localidad: "Las Venturas",
+        ubicacion: "Redsands East",
+        tipoProp: "Comercio",
+        opcion: "Alquilar",
+        precio: 325000,
+        moneda: "ARS",
+        /* propio/compartido/en la calle */
+        estacionamiento: "compartido",
+        /* baños diferenciados/ baños unisex */
+        baños: " baños unisex",
+        /* calefaccion y/o aire acondicionado */
+        sistemasClimatización: "calefaccion", 
+        antiguedad: 5,
+        superficieTerreno: 113,
+        imagenes: emprend3LVfotos,
+        Bottom: 79.9,
+        Right: 28,
+        primaryKey: 34,
+        IDcomercio: 8
+    },
 };
 
 export var ciudades = {
