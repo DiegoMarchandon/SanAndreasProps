@@ -1,52 +1,78 @@
 // página para realizar la validacion de formulario de ingreso a la pagina web
 
+const boxForm = document.getElementById('box-form');
+
 // usuarios y contraseñas precargados:
-/* let users = {
+let users = {
     "user1":{
         Email: "jSanchez777@gmail.com",
-        Contraseña: "30agosto1998"
+        Contraseña: "30agosto1998",
+        Tipo: "Cliente",
+        Favoritas: [],
+        Conectado: false
     },
     "user2":{
         Email: "LuisGuti45@hotmail.com",
-        Contraseña: "qwerty123"
+        Contraseña: "qwerty123",
+        Tipo: "Cliente",
+        Favoritas: [],
+        Conectado: false
     },
     "user3":{
         Email: "MigueH2000@yahoo.com",
-        Contraseña: "contraseña"
+        Contraseña: "contraseña",
+        Tipo: "Cliente",
+        Favoritas: [],
+        Conectado: false
+    },
+    "user4":{
+        Email: "CarlJohnsonCJ@hotmail.com",
+        Contraseña: "",
+        Tipo: "Corredor",
+        MasGuardadas: [],
+        Conectado: false
     }
 };
 // local storage guarda string. Y lo que tengo es un objeto. Por los que necesito convertirlo a un formato que pueda ser guardado
 // Para ello, utilizo JSON.stringify, este último se encarga de recibir el objeto y convertirlo a string
 
-*/
-// localStorage.setItem("usuarios", JSON.stringify(users));
+// utilizo stringify para "stringificar" el objeto (convertirlo a string) y de esa forma poder guardarlo en localStorage 
+localStorage.setItem("usuarios", JSON.stringify(users));
 // console.log(localStorage.getItem("usuarios", JSON.stringify(users)));
 
+
+// obtengo los nombres de usuario almacenados en el localStorage
+// parseo el JSON para volver a obtener el objeto javascript. 
+let usersGuardados = JSON.parse(localStorage.getItem('usuarios'));
 function compareUserData(){
     let usuarioExistente = false;
     let mailIngresado = document.getElementById("email").value;
     let contraIngresada = document.getElementById("contraseña").value;
-    // obtengo los nombres de usuario almacenados en el localStorage
-        // parseo el JSON y obtengo el objeto javascript. 
-    let usersGuardados = JSON.parse(localStorage.getItem('usuarios'));
     // recorro los usuarios almacenados para verificar 
     // si el mail ingresado coincide coincide con alguno de los emails de los usuarios 
     let userNum = 0;
     do{
         let clave = Object.keys(usersGuardados)[userNum];
+        console.log("clave: "+clave);
         let valorMail = usersGuardados[clave].Email;
+        console.log("Mail: "+valorMail);
         let valorContraseña = usersGuardados[clave].Contraseña;
+        console.log("Contraseña: "+valorContraseña);
         if(valorMail == mailIngresado && valorContraseña == contraIngresada){
             usuarioExistente = true;
+            // cambio el booleano a true para indicar que está conectado
+            usersGuardados[clave].Conectado = true;
+        }else{ //sino, lo pongo en false (en caso de haber dejado alguno true)
+            usersGuardados[clave].Conectado = false;
         }
         userNum++;
-    }while(userNum <= Object.keys(usersGuardados).length && !usuarioExistente);
+    }while(userNum < Object.keys(usersGuardados).length && !usuarioExistente);
 
     return !usuarioExistente;
 }
 
 
-function cambiarVisibilidad(){
+export function cambiarVisibilidad(){
     let ojoClick = document.getElementById("eyeButton");
     let mostrar = document.getElementById("showPass");
     let ocultar = document.getElementById("hidePass");
@@ -65,7 +91,7 @@ function cambiarVisibilidad(){
         }
     })
 }
-function mostrarForm(){
+export function mostrarForm(){
     // alert("fui clickeado");
     var registro = document.getElementById("registro");
     var registrarse = document.getElementById("ingreso");
@@ -73,7 +99,7 @@ function mostrarForm(){
     registro.style.display = 'block';
     registrarse.style.display = 'none';
     parrafoSoyNuevo.style.display = 'none';
-    document.getElementById('box-form').style.height = '500px';
+    boxForm.style.height = '500px';
     /* manualmente, me aseguro de que todos los estilos se apliquen .*/
     // var formulario = document.getElementsByTagName("form")[1];
     /* la coleccion devuelta no es un array real sino un objeto de tipo
@@ -151,7 +177,7 @@ function contraseñaValida(contra){
 }
 
 // validar datos de un usuario nuevo. Si son todos válidos, se almacenan en el local storage
-function validar(){
+export function validar(){
     var validezForm = true;
 
     var registro = document.getElementById("registro");
@@ -224,21 +250,34 @@ function validar(){
         var emailExists = document.getElementById("email");
         var contraExists = document.getElementById("contraseña");
 
-        if(!mailValido(emailExists)){
+        /* if(!mailValido(emailExists)){
             validezForm = false;
         }
         if(!contraseñaValida(contraExists)){
             validezForm = false;
-        }else{
+        } else{
             contraExists.style.borderColor = 'green';
-        }
+        } */
         if(compareUserData()){
             validezForm = false;
+            emailExists.style.borderColor = 'red';
+            contraExists.style.borderColor = 'red';
+            
+            const noEncontrado = document.createElement('p');
+            noEncontrado.innerText = 'email y contraseña no encontrados.';
+            noEncontrado.style.color = 'red';
+            noEncontrado.style.marginTop = '50px';
+            noEncontrado.style.marginLeft = '20px';
+
+            const ultimoHijo = boxForm.lastElementChild;
+            boxForm.insertBefore(noEncontrado,ultimoHijo);
         }
 
         if(validezForm){
             alert("el usuario existe");
             window.location.replace('index.html');
+            // guardo en localStorage una clave-valor para cambiar el iniciar sesión a cerrar sesión
+            localStorage.setItem('usuarioRegistrado','true');
         }
     }   
     return validezForm;

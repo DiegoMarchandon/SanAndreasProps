@@ -251,10 +251,17 @@ li{
     transform: scale(1.1);
 }
 
-.favoritos img{
+#corazonExterno{
     width: 35px;
     height: 35px;
     margin: 5px;
+}
+
+#corazonInterno{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    /* z-index: 999; */
 }
 
 .text-prop{
@@ -282,11 +289,16 @@ li{
     cursor: pointer;
 }
 
-.propValue, .tipoCambio, .ciudadPropiedad{
+.propValue, .tipoCambio, .ciudadPropiedad .emprNombre{
     margin: 10px;
     font-size: 25px;
     grid-row: 1;
     grid-column: 1;
+}
+.emprNombre{
+    font-size: 20px;
+    position: absolute;
+    right: 70px;
 }
 .propValue{
     position: absolute;
@@ -295,6 +307,7 @@ li{
 .ciudadPropiedad{
     position: absolute;
     top: 50px;
+    margin: 10px;
 }
 
 .propZona{
@@ -341,7 +354,7 @@ li{
     margin-top: 20px;
     grid-area: Vslide;
     height: 325px;
-    width: 306px;
+    width: 307px;
 }
 #vertical-slide img{
     cursor: pointer;

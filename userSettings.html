@@ -8,6 +8,7 @@
 
 <style>
     .panel-lateral{
+        display: none;
         width: 200px;
         height: 570px;
         background-color: orange;
@@ -41,13 +42,34 @@
     .color{
         height: 300px;
     }
+    #propsFavoritas{
+        z-index: 9999;
+    }
 </style>
 <body>
     
 <div class="panel-lateral">
-    <button id="desplegable" onclick="despliega()">
-        <img src="imagenes/double_arrow_icon.png" alt="" id="arrow">
+    <button id="desplegable" onclick="despliega()" type="button">
+        <img src="imagenes/double_arrow_icon.png" alt="flecha doble" id="arrow">
     </button>
+    <!-- contenido del panel: -->
+    <div class="propsFavsContainer">
+        <!-- barra de propiedades en favoritos -->
+        <span id="propsFavoritas">ver propiedades favoritas (actualmente <b id="cantPropsFavs">0</b>)</span> 
+    </div>
+        <!-- conversor de moneda -->
+    <div class="conversorContainer">
+        <p>Conversor</p>
+    </div>
+    <!-- mensajes -->
+    <div class="mensajesContainer">
+        <p>Mensajes</p>
+    </div>
+    <!-- novedades -->
+    <div class="novedadesContainer">
+        <p>Novedades</p>
+    </div>
+    <p>texto</p>
 </div>
 
 <div class="color" style="background-color: blue;"></div>
@@ -56,8 +78,15 @@
 <div class="color" style="background-color: aqua;"></div>
 
 <script>
+    /**
+     * se encarga de desplegar y cambiar de posición el botón
+     */
     function despliega(){
         var panel = document.getElementsByClassName("panel-lateral")[0];
+        const propsFavsContainer = document.getElementsByClassName("propsFavsContainer")[0];
+        const conversorContaienr = document.getElementsByClassName("conversorContainer")[0];
+        const mensajesContainer = document.getElementsByClassName("mensajesContainer")[0];
+        const novedadesContaienr = document.getElementsByClassName("novedadesContainer")[0];
         // utilizamos window. porque queremos acceder las propiedades de estilo computadas en el contexto de la ventana actual.
         // Esto debido a que la propiedad está relacionada a la renderizacion del estilo en la ventana actual y su visualización en el navegador.
         var panelComputado = window.getComputedStyle(panel).getPropertyValue("left");

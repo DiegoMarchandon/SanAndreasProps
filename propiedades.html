@@ -6,6 +6,7 @@
     <title>propiedades</title>
 <link rel="stylesheet" href="propStyles.css">
 <link rel="stylesheet" href="mapaStyles.css">
+<link rel="stylesheet" href="viewStyles.css">
 </head>
 <body>
     <div id="navbar">
@@ -14,7 +15,7 @@
             <li><a href="propiedades.html">Propiedades</a></li>
             <!-- <li><a href="Nosotros.html">Nosotros</a></li> -->
             <li><a href="Mapa.html">Mapa</a></li>
-            <li><a href="formulario.html">Iniciar Sesión</a></li>
+            <li><a href="formulario.html" id="admSesion">Iniciar Sesión</a></li>
         </ul>
     </div>
 
@@ -93,6 +94,81 @@
         </nav>
     </div>
 
+    <div class="panel-lateral">
+        <button id="desplegable" onclick="despliega()" type="button">
+            <img src="imagenes/double_arrow_icon.png" alt="flecha doble" id="arrow">
+        </button>
+        <!-- contenido del panel: -->
+        
+        <!-- barra de propiedades en favoritos -->
+        <div class="propsFavsContainer">
+            <div class="panelTexts">
+                <p id="propsFavoritas">propiedades favoritas (actualmente <b id="cantPropsFavs">0</b>) </p> 
+                <p class="trianguloDesplegable" onclick="showContent(this)">▲</p>
+            </div>
+            <div class="contenidoDesplegado">
+                <p class="contenidoVacio">No hay propiedades favoritas.</p>
+            </div>
+
+        </div>
+        <!-- conversor de moneda -->
+        <div class="conversorContainer">
+            <div class="panelTexts">
+                <p class="opcionPanel">Conversor</p>
+                <p class="trianguloDesplegable" onclick="showContent(this)">▲</p>
+            </div>
+            <div class="contenidoDesplegado">
+                
+                <div id="conversorMoneda">
+                    <div id="moneda1Container">
+                        <input type="text" name="monedaValue1" id="monedaValue1" size="12" placeholder="1 ARS = 0.59 USD" onkeyup="conversor(this)">
+                    </div>
+                    
+                    <div id="reversoMonedas">
+                        <span>
+                            ↕                       
+                        </span>
+                    </div>
+
+                    <div id="moneda2Container">
+                        <!-- <label for="">moneda2</label> -->
+                        <form id="moneda2Form">
+                            <select name="moneda2" id="moneda2" onchange="conversor(this)">
+                                <option value="Dolar">Dolar</option>
+                                <option value="Peso">Peso</option>
+                            </select>
+                            <input type="text" name="monedaValue2" id="monedaValue2" size="12" placeholder="1 USD = 1.7 ARS" onkeyup="conversor(this)">
+                        </form>
+                    </div>
+
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- mensajes -->
+        <div class="mensajesContainer">
+            <div class="panelTexts">
+                <p class="opcionPanel">Mensajes <sup><span id="avisoMSJ"> &nbsp; &nbsp; &nbsp;</span></sup></p>
+                <p class="trianguloDesplegable" onclick="showContent(this)">▲</p>
+            </div>
+            <div class="contenidoDesplegado">
+                <p class="contenidoVacio">No hay mensajes.</p>
+            </div>
+        </div>
+        
+        <!-- novedades -->
+        <div class="novedadesContainer">
+            <div class="panelTexts">
+                <p class="opcionPanel" id="novedadesText">Novedades</p>
+                <p class="trianguloDesplegable" onclick="showContent(this)">▲</p>
+            </div>
+            <div class="contenidoDesplegado">
+                <p class="contenidoVacio">No hay novedades.</p>
+            </div>
+        </div>
+    </div>
+
     <div id="vistaPropiedades">
 
         <!-- contenedor de plantilla -->
@@ -134,7 +210,23 @@
             </button>
         </div>-->
     </div> 
-    <script type="module" src="props.js"></script>
-    
+<script type="module" src="props.js"></script>
+<script type="module">
+    import { verPropuesta } from './home.js';
+    import { despliega, showContent, conversor } from './viewScripts.js';
+    window.verPropuesta = verPropuesta;
+    window.despliega = despliega;
+    window.showContent = showContent;
+    window.conversor = conversor;
+    var sesion = document.getElementById('admSesion');
+    // si la clave usuarioRegistrado guarda el valor true:
+    if(localStorage.getItem('usuarioRegistrado') === 'true'){
+        sesion.innerText = 'Cerrar Sesión';
+        document.querySelector('.panel-lateral').style.display = 'block';
+    }else{
+        document.querySelector('.panel-lateral').style.display = 'none';
+        sesion.innerText = 'Iniciar Sesión';
+    }
+</script>
 </body>
 </html>

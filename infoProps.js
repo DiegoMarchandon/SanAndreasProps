@@ -795,6 +795,7 @@ export var casasTotales = {
     /* agrego los emprendimientos. 
     Comenzando por los de Los Santos: */
     emprend1LS: { //cluckin bell
+        nombre: "Cluckin Bell",
         localidad: "Los Santos",
         ubicacion: "Market",
         tipoProp: "Comercio",
@@ -816,6 +817,7 @@ export var casasTotales = {
         IDcomercio: 0
     },
     emprend2LS: { //salón de tatuajes
+        nombre: "LS Tattoos",
         localidad: "Los Santos",
         ubicacion: "Idlewood",
         tipoProp: "Comercio",
@@ -837,6 +839,7 @@ export var casasTotales = {
         IDcomercio: 1
     },
     emprend3LS: { //exposición lowrider
+        nombre: "Lowrider Expo",
         localidad: "Los Santos",
         ubicacion: "El Corona",
         tipoProp: "Comercio",
@@ -858,6 +861,7 @@ export var casasTotales = {
         IDcomercio: 2
     },
     emprend1SF: { //wang cars
+        nombre: "Wang Cars",
         localidad: "San Fierro",
         ubicacion: "Downtown",
         tipoProp: "Comercio",
@@ -879,6 +883,7 @@ export var casasTotales = {
         IDcomercio: 3
     },
     emprend2SF: { //zero
+        nombre: "Zero RC",
         localidad: "San Fierro",
         ubicacion: "García",
         tipoProp: "Comercio",
@@ -900,6 +905,7 @@ export var casasTotales = {
         IDcomercio: 4
     },
     emprend3SF: { //zombotech labs
+        nombre: "Zombotech Labs",
         localidad: "San Fierro",
         ubicacion: "Downtown",
         tipoProp: "Comercio",
@@ -921,6 +927,7 @@ export var casasTotales = {
         IDcomercio: 5
     },
     emprend1LV: { //muelles red county
+        nombre: "Red County Docks",
         localidad: "Las Venturas",
         ubicacion: "Rockshore West",
         tipoProp: "Comercio",
@@ -942,6 +949,7 @@ export var casasTotales = {
         IDcomercio: 6
     },
     emprend2LV: { //casino caligula
+        nombre: "Casino Caligula",
         localidad: "Las Venturas",
         ubicacion: "The Strip",
         tipoProp: "Comercio",
@@ -963,6 +971,7 @@ export var casasTotales = {
         IDcomercio: 7
     },
     emprend3LV: { //tienda de ropa Binco
+        nombre: "Binco Clothing Store",
         localidad: "Las Venturas",
         ubicacion: "Redsands East",
         tipoProp: "Comercio",

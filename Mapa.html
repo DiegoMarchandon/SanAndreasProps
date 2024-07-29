@@ -7,50 +7,107 @@
     <!-- poner una imagen de fondo y asignarle un efecto de borrado que se active cuando se hace zoom en la misma -->
     <link rel="stylesheet" href="mapaStyles.css">
     <style>
-        *{
-            padding: 0;
-            margin: 0;
-            outline: 0;
-            /* esta propiedad evita que cualquier parte de la imagen que exceda el ancho y alto se muestre */
-            /* overflow: hidden; */ 
-        }
+    *{
+        padding: 0;
+        margin: 0;
+        outline: 0;
+        /* esta propiedad evita que cualquier parte de la imagen que exceda el ancho y alto se muestre */
+        /* overflow: hidden; */ 
+    }
 
-        html,body{
-            background-color: black;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-        .zoom_outer {
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            position: relative;
-        }
-        .zoom{
-            display: flex;
-            align-items: center;  
-            justify-content: center;
-            position: relative;
-            width: 100%;
-            /* width: 650px; */
-            height: 100%;
-            /* height: 400px; */
-            transform-origin: 0px 0px;
-            transform: scale(1) translate(0px, 0px);
-            cursor: grab; 
-        }
-        #GTAmap{
-            width: 60%;
-            height: 80%;
-        }
+    html,body{
+        background-color: black;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+    .zoom_outer {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+    }
+    .zoom{
+        display: flex;
+        align-items: center;  
+        justify-content: center;
+        position: relative;
+        width: 100%;
+        /* width: 650px; */
+        height: 100%;
+        /* height: 400px; */
+        transform-origin: 0px 0px;
+        transform: scale(1) translate(0px, 0px);
+        cursor: grab; 
+    }
+    #GTAmap{
+        width: 60%;
+        height: 80%;
+    }
 
+    ul{
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    margin: 10px;
+    padding: 0px;
+    }
+    li{
+        display: inline;
+    } 
+
+    #navbar {
+        position: fixed;
+        background-color: #333;
+        z-index: 9999;
+    }
+
+    #navbar ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    #navbar ul li {
+        float: left;
+    }
+
+    #navbar ul li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 25px;
+        font-family: 'Garamond';
+        transition: background 0.3s ease;
+    }
+
+    #navbar ul li a:hover,
+    #navbar ul li a:focus {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+        background-size: 10px 10px;
+        color: #ffeb3b;
+    }
     </style>
     <!-- referencia al script externo -->
     <!-- <script type="module" src="infoProps.js" defer></script> -->
 </head>
 <body>
     
+    <div id="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="propiedades.html">Propiedades</a></li>
+            <!-- <li><a href="Nosotros.html">Nosotros</a></li> -->
+            <li><a href="Mapa.html">Mapa</a></li>
+            <li><a href="formulario.html" id="admSesion">Iniciar Sesión</a></li>
+        </ul>
+        
+    </div>
+
+
 <div class = "zoom_outer">
     <div class = "zoom" id="zoom">
         <img src="imagenes/SanAndreasMap.png" alt="GTA MAP" id="GTAmap">

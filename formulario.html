@@ -198,13 +198,13 @@
 
     </div>
     
-<script src="validacionForms.js">
-    function cargarPerfil(){
-        if(validar()){
-            
-            alert("perfil validado");
-        }
-    }
+<script type="module">
+    import{
+        cambiarVisibilidad, validar, mostrarForm
+    } from './validacionForms.js';
+    document.getElementById('eyeButton').addEventListener('click', cambiarVisibilidad);
+    document.getElementById('imNew').addEventListener('click', mostrarForm);
+    document.getElementById('botonIngreso').addEventListener('click', validar);
 </script>
 </body>
 </html>

@@ -232,6 +232,11 @@ function divProp(propiedad){
         sistClimaContainer.append(sistClimaLogo,sistClimaText);
 
         propCaracteristicas.append(supTerrenoContainer, antContainer, estContainer, bañosContainer, sistClimaContainer);
+
+        const nombreEmprendimiento = document.createElement('p');
+        nombreEmprendimiento.className = 'emprNombre';
+        nombreEmprendimiento.textContent = propiedad.nombre;
+        divTextsContainer.appendChild(nombreEmprendimiento);
     }   
 
 
@@ -251,8 +256,24 @@ function divProp(propiedad){
     const imgFavoritos = document.createElement('img');
     imgFavoritos.src = 'imagenes/orangeHeart.png';
     imgFavoritos.alt = 'imagen de favorito';
-    buttonFavoritos.appendChild(imgFavoritos);
+    imgFavoritos.id = 'corazonExterno';
+    const imgFavoritos2 = document.createElement('img');
+    imgFavoritos2.src = 'imagenes/cremaHeart.png';
+    imgFavoritos2.alt = 'imagen de favorito2';
+    imgFavoritos2.id = 'corazonInterno';
+    
+    buttonFavoritos.append(imgFavoritos, imgFavoritos2);
 
+    buttonFavoritos.addEventListener('click',function(event){
+        event.stopPropagation();
+        if(imgFavoritos2.style.display === 'inline'){
+            /* escondo el corazon gris y agrego la propiedad a favoritos */
+            imgFavoritos2.style.display = 'none';
+        }else{ // === 'none'
+            /* vuelvo a mostrar el corazon gris y elimino la propiedad de favoritos */
+            imgFavoritos2.style.display = 'inline';
+        }
+    })
     // incorporo todos los elementos text al div
     divTextsContainer.append(propValue,tipoCambio,ciudadPropiedad,propZona,buttonFavoritos, propCaracteristicas);
 
@@ -364,6 +385,9 @@ function propiedadElegida(slidePropiedad, imagenesProp, caracteristicasProp, bot
         verticalSlide.style.height = '150px'; 
     }else if(imagenesProp.length <= 6){
         verticalSlide.style.height = '250px';
+    }else if(imagenesProp.length > 9){ //más de 9 imagenes
+        verticalSlide.style.width = '315px';
+
     }
 
     // detalles de la propiedad
@@ -724,7 +748,7 @@ function filtro(event){
         Object.values(casasTotales).forEach(casa => {
             // aplicar un strcasecmp para comparación insensible a minúsculas y mayúsculas
             if((casa.localidad === selectCiudad || selectCiudad === "Todas") &&
-             (casa.ubicacion === inputBarrio || inputBarrio === "" ) &&
+             ((casa.ubicacion).toLowerCase() === inputBarrio.toLowerCase() || inputBarrio === "" ) &&
              (casa.tipoProp === selectProp || selectProp === "Todas") &&
              (casa.opcion === selectAccion || selectAccion === "") && 
              (casa.moneda === selectMoneda || selectMoneda === "Todas") && 
