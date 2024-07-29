@@ -15,7 +15,7 @@
             <li><a href="propiedades.html">Propiedades</a></li>
             <!-- <li><a href="Nosotros.html">Nosotros</a></li> -->
             <li><a href="Mapa.html">Mapa</a></li>
-            <li><a href="formulario.html" id="admSesion">Iniciar Sesión</a></li>
+            <li><a href="formulario.html" class="admSesion">Iniciar Sesión</a></li>
         </ul>
     </div>
 
@@ -218,10 +218,10 @@
     window.despliega = despliega;
     window.showContent = showContent;
     window.conversor = conversor;
-    var sesion = document.getElementById('admSesion');
+    var sesion = document.getElementsByClassName('admSesion')[0];
     // si la clave usuarioRegistrado guarda el valor true:
     if(localStorage.getItem('usuarioRegistrado') === 'true'){
-        sesion.innerText = 'Cerrar Sesión';
+        sesion.innerText = 'Mi perfil';
         document.querySelector('.panel-lateral').style.display = 'block';
     }else{
         document.querySelector('.panel-lateral').style.display = 'none';

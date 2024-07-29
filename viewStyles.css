@@ -3,10 +3,10 @@
     width: 200px;
     height: 570px;
     background-color: rgb(250, 181, 54);
-    background-image: linear-gradient(to right, rgba(255, 145, 0, 0.729), rgb(250, 181, 54));
+    background-image: linear-gradient(to right, rgba(188, 107, 1, 0.729), rgb(255, 196, 86));
     position: fixed;
     left: -190px;
-    top: 50px;
+    top: 70px;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
     z-index: 100;
@@ -14,7 +14,7 @@
 #desplegable{
     /* background-image: url(imagenes/double_arrow_icon.png); */
     background-repeat: no-repeat;
-    background-color: rgb(250, 181, 54);
+    background-color: rgb(255, 196, 86);
     background-size: cover;
     position: absolute;
     left: 90%;
@@ -30,7 +30,7 @@
     background-size: cover;
     width: 30px;
     height: 30px;
-    background-color: rgb(250, 181, 54);
+    background-color: rgb(255, 196, 86);
 }
 .propsFavsContainer, .conversorContainer, .novedadesContainer, .mensajesContainer{
     /* width: 100%; */
@@ -126,6 +126,7 @@
 }
 
 #moneda2{
+    background-color: orange;
     margin-left: 2px;
     width: 105px;
     height: 20px;

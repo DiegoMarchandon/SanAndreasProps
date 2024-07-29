@@ -27,9 +27,9 @@ let users = {
     },
     "user4":{
         Email: "CarlJohnsonCJ@hotmail.com",
-        Contraseña: "",
+        Contraseña: "GrooveStreet",
         Tipo: "Corredor",
-        MasGuardadas: [],
+        PropsGuardadas: [],
         Conectado: false
     }
 };
@@ -62,8 +62,12 @@ function compareUserData(){
             usuarioExistente = true;
             // cambio el booleano a true para indicar que está conectado
             usersGuardados[clave].Conectado = true;
+            // guardo el cambio nuevamente en localStorage
+            localStorage.setItem("usuarios",JSON.stringify(usersGuardados));
         }else{ //sino, lo pongo en false (en caso de haber dejado alguno true)
             usersGuardados[clave].Conectado = false;
+            // guardo el cambio nuevamente en localStorage
+            localStorage.setItem("usuarios",JSON.stringify(usersGuardados));
         }
         userNum++;
     }while(userNum < Object.keys(usersGuardados).length && !usuarioExistente);
