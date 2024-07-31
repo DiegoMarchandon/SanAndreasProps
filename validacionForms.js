@@ -3,8 +3,11 @@
 const boxForm = document.getElementById('box-form');
 
 // usuarios y contraseñas precargados:
-let users = {
+/* let users = {
     "user1":{
+        Username: "jSanchez", 
+        Nombre: "Jose",
+        Apellido: "Sanchez",
         Email: "jSanchez777@gmail.com",
         Contraseña: "30agosto1998",
         Tipo: "Cliente",
@@ -12,6 +15,9 @@ let users = {
         Conectado: false
     },
     "user2":{
+    Username: "LuisGuti45",
+        Nombre: "Luis",
+        Apellido: "Gutierrez",
         Email: "LuisGuti45@hotmail.com",
         Contraseña: "qwerty123",
         Tipo: "Cliente",
@@ -19,6 +25,9 @@ let users = {
         Conectado: false
     },
     "user3":{
+        Username: "MigueH2000",
+        Nombre: "Miguel",
+        Apellido: "Hernandez",
         Email: "MigueH2000@yahoo.com",
         Contraseña: "contraseña",
         Tipo: "Cliente",
@@ -26,55 +35,146 @@ let users = {
         Conectado: false
     },
     "user4":{
+        Username: "CarlJohnson",
+        Nombre: "Carl",
+        Apellido: "Johnson",
         Email: "CarlJohnsonCJ@hotmail.com",
         Contraseña: "GrooveStreet",
         Tipo: "Corredor",
         PropsGuardadas: [],
         Conectado: false
     }
-};
+}; */
 // local storage guarda string. Y lo que tengo es un objeto. Por los que necesito convertirlo a un formato que pueda ser guardado
 // Para ello, utilizo JSON.stringify, este último se encarga de recibir el objeto y convertirlo a string
 
 // utilizo stringify para "stringificar" el objeto (convertirlo a string) y de esa forma poder guardarlo en localStorage 
-localStorage.setItem("usuarios", JSON.stringify(users));
+// localStorage.setItem("usuarios", JSON.stringify(users));
 // console.log(localStorage.getItem("usuarios", JSON.stringify(users)));
 
+
+/**
+ * Guardo los cambios hechos en la información del usuario
+ * Recibe por parametro la variable de objetos, la stringifica y la guarda.
+ */
+/* export function guardoCambios(objUsers){
+    localStorage.setItem("usuarios",JSON.stringify(objUsers));
+} */
 
 // obtengo los nombres de usuario almacenados en el localStorage
 // parseo el JSON para volver a obtener el objeto javascript. 
 let usersGuardados = JSON.parse(localStorage.getItem('usuarios'));
-function compareUserData(){
+
+/**
+ * compara los datos ingresados en los inputs de email y contraseña de Iniciar Sesion 
+ * con los datos almacenados en localStorage para comprobar que existe un usuario con esos datos.
+ */
+export function compareUserData(){
     let usuarioExistente = false;
-    let mailIngresado = document.getElementById("email").value;
+
+    let mailIngresado = document.getElementById("emailUser").value;
+    console.log("mail ingresado: " + mailIngresado);
     let contraIngresada = document.getElementById("contraseña").value;
     // recorro los usuarios almacenados para verificar 
     // si el mail ingresado coincide coincide con alguno de los emails de los usuarios 
     let userNum = 0;
     do{
         let clave = Object.keys(usersGuardados)[userNum];
-        console.log("clave: "+clave);
+        // console.log("clave: "+clave);
         let valorMail = usersGuardados[clave].Email;
-        console.log("Mail: "+valorMail);
+        // console.log("Mail: "+valorMail);
         let valorContraseña = usersGuardados[clave].Contraseña;
-        console.log("Contraseña: "+valorContraseña);
+        // console.log("Contraseña: "+valorContraseña);
         if(valorMail == mailIngresado && valorContraseña == contraIngresada){
             usuarioExistente = true;
+            console.log("usuario encontrado. Su estado de Conectado actual es: " + usersGuardados[clave].Conectado);
             // cambio el booleano a true para indicar que está conectado
             usersGuardados[clave].Conectado = true;
+            console.log("Ahora es: " + usersGuardados[clave].Conectado);
             // guardo el cambio nuevamente en localStorage
-            localStorage.setItem("usuarios",JSON.stringify(usersGuardados));
+            // localStorage.setItem("usuarios",JSON.stringify(usersGuardados));
+            console.log("comprobando que después del nuevo seteo, su valor es: "+usersGuardados[clave].Conectado);
         }else{ //sino, lo pongo en false (en caso de haber dejado alguno true)
+            console.log("no hubo ningún usuario encontrado.");
             usersGuardados[clave].Conectado = false;
             // guardo el cambio nuevamente en localStorage
-            localStorage.setItem("usuarios",JSON.stringify(usersGuardados));
         }
+        localStorage.setItem("usuarios",JSON.stringify(usersGuardados));
         userNum++;
     }while(userNum < Object.keys(usersGuardados).length && !usuarioExistente);
 
-    return !usuarioExistente;
+    return usuarioExistente;
+}
+console.log("impresion externa del obj "+ JSON.stringify(usersGuardados));
+
+// creo variables que voy a exportar para manipular el localStorage de usuarios
+
+/**
+ * Manipula el objeto usuario conectado y guarda los cambios
+ */
+export function objUsuario(clave, valor, accion = 'agregar'){
+    let nroUsuario = 0;
+
+    let bandera = false;
+    do{
+        // obtengo un arreglo con las claves (usuarios)
+    let nameUsers = Object.keys(usersGuardados)[nroUsuario];
+        // itero sobre los nombres de usuario
+    // console.log("el estado de conexion del usuario "+nameUsers+" es "+usersGuardados[nameUsers].Conectado);
+    if(usersGuardados[nameUsers].Conectado === true){
+        bandera = true;
+        // verifico si la clave ingresada por parametro es un arreglo:
+        if(Array.isArray(usersGuardados[nameUsers][clave])){
+            if(accion === 'agregar'){ //si se mantiene la accion por defecto
+                // si lo es, guardamos el valor como un elemento pusheado 
+                usersGuardados[nameUsers][clave].push(valor);
+            }else{ //si se eliminan
+                const userFavoritas = usersGuardados[nameUsers]["Favoritas"];
+                const indice = userFavoritas.findIndex(arr=> JSON.stringify(arr) === JSON.stringify(valor));
+                // let index = usersGuardados[nameUsers][clave].indexOf(valor);
+                console.log(indice);
+                if (indice > -1) { //si se encontró el índice, retorna el número referente a su posición
+                    usersGuardados[nameUsers][clave].splice(indice, 1);
+                    console.log("indice encontrado y eliminado. Ahora están: "+ usersGuardados[nameUsers][clave]);
+                }else{
+                    console.log("no se encontró el indice");
+                }
+            }
+        }else{
+            // si no es un arreglo, simplemente guardamos el valor en la clave
+            usersGuardados[nameUsers][clave] = valor;
+        }
+    }
+    nroUsuario++;
+        // usersGuardados[nameUsers].Conectado 
+    }while(nroUsuario < Object.keys(usersGuardados).length && !bandera);
+    // guardo los cambios en el localStorage 
+    localStorage.setItem('usuarios', JSON.stringify(usersGuardados));
+}
+// objUsuario();
+
+/**
+ * recorre el arreglo de objetos de usuarios almacenados y retorna el usuario conectado
+ */
+export function userConectado(){
+
+    let userNames = Object.keys(usersGuardados);
+    for(let i = 0; i < userNames.length; i++){
+        if(usersGuardados[userNames[i]].Conectado === true){
+            return usersGuardados[userNames[i]];
+        }
+    }
 }
 
+/**
+ * desconecta al usuario.
+ */
+
+export function userDesconect(){
+    let usuarioConectado = userConectado();
+    usuarioConectado.Conectado = false;
+    localStorage.setItem("usuarios",JSON.stringify(usersGuardados));
+}
 
 export function cambiarVisibilidad(){
     let ojoClick = document.getElementById("eyeButton");
@@ -146,7 +246,7 @@ export function mailValido(email){
     // var email = document.getElementById("newEmail");
     var valido = true;
 
-    // var email = document.getElementById("email");
+    // var email = document.getElementById("emailUser");
     var emailValor = email.value;
     var emailPartes = emailValor.split('@');
     var user = emailPartes[0];
@@ -242,8 +342,13 @@ export function validar(){
             let cantClaves = Object.keys(usersGuardados).length;
             let userNro = "user"+(cantClaves+1);
             usersGuardados[userNro] = {
+                Nombre: nombre.value,
+                Apellido: apellido.value,
                 Email: email.value,
-                Contraseña: contraseña.value
+                Contraseña: contraseña.value,
+                Tipo: "Cliente",
+                Favoritas: [],
+                Conectado: true
             };
             // actualizo el localStorage con el nuevo usuario
             localStorage.setItem('usuarios', JSON.stringify(usersGuardados));
@@ -251,30 +356,17 @@ export function validar(){
         }
 
     }else{ /* iniciar sesión */
-        var emailExists = document.getElementById("email");
+        var emailExists = document.getElementById("emailUser");
         var contraExists = document.getElementById("contraseña");
 
-        /* if(!mailValido(emailExists)){
-            validezForm = false;
-        }
-        if(!contraseñaValida(contraExists)){
-            validezForm = false;
-        } else{
-            contraExists.style.borderColor = 'green';
-        } */
-        if(compareUserData()){
+        if(!compareUserData()){ /* si el correo y la contraseña ingresadas no se encuentran */
             validezForm = false;
             emailExists.style.borderColor = 'red';
             contraExists.style.borderColor = 'red';
-            
-            const noEncontrado = document.createElement('p');
-            noEncontrado.innerText = 'email y contraseña no encontrados.';
-            noEncontrado.style.color = 'red';
-            noEncontrado.style.marginTop = '50px';
-            noEncontrado.style.marginLeft = '20px';
+            document.getElementById('noEncontrado').style.display = 'block';
 
-            const ultimoHijo = boxForm.lastElementChild;
-            boxForm.insertBefore(noEncontrado,ultimoHijo);
+        }else{
+            document.getElementById('noEncontrado').style.display = 'none';
         }
 
         if(validezForm){

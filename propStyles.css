@@ -548,3 +548,22 @@ li{
 .refTexts{
     display: inline;
 }
+/* mini div */
+.miniContainer{
+    width: 150px;
+    height: 60px;
+    /* display: block; */
+    background-color: rgb(229, 229, 229);
+    border-radius: 10px;
+    outline: none;
+}
+.miniIMG{
+    width: 75px;
+    height: 60px;
+    float: left;
+    margin-right: 5px;
+} 
+.miniTexts{
+    font-size: 0.65rem;
+    margin: 6px;
+}

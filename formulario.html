@@ -169,7 +169,7 @@
         <form action="" id="ingreso">
             <h2>Bienvenido</h2>
             <!-- <label for="nombre">Ingrese su nombre o su mail:</label><br> -->
-            <input type="text" name="email" id="email" placeholder="ingrese su email"><br>
+            <input type="text" name="email" id="emailUser" placeholder="ingrese su email"><br>
             <!-- <label for="apellido">Ingrese su apellido:</label><br> -->
              <div class= "passDiv">
                  <input type="text" name="contraseña" id="contraseña" placeholder="ingrese su contraseña">
@@ -194,14 +194,20 @@
             <input type="text" name="newContraRep" id="newContraRep"><br>
         </form>
         <input type="button" value="ingresar" id="botonIngreso" onclick="return validar()">
+        <p id="noEncontrado" style="color: red; margin-top: 50px; margin-left: 20px; display: none;">email y contraseña no encontrados.</p>
         <p id="imNew">nuevo en la página? <u onclick="mostrarForm()" style="color: orangered; cursor:pointer">Regístrese</u></p>
 
     </div>
     
 <script type="module">
     import{
-        cambiarVisibilidad, validar, mostrarForm
+        cambiarVisibilidad, validar, mostrarForm, objUsuario, compareUserData
     } from './validacionForms.js';
+    window.cambiarVisibilidad = cambiarVisibilidad;
+    window.validar = validar;
+    window.mostrarForm = mostrarForm;
+    window.objUsuario = objUsuario;
+    window.compareUserData = compareUserData;
     document.getElementById('eyeButton').addEventListener('click', cambiarVisibilidad);
     document.getElementById('imNew').addEventListener('click', mostrarForm);
     document.getElementById('botonIngreso').addEventListener('click', validar);

@@ -196,19 +196,29 @@
 <script type="module">
     import { verPropuesta } from './home.js';
     import { despliega, showContent, conversor } from './viewScripts.js';
+    import { userConectado, userDesconect } from './validacionForms.js';
     window.verPropuesta = verPropuesta;
     window.despliega = despliega;
     window.showContent = showContent;
     window.conversor = conversor;
-    var sesion = document.getElementById('admSesion');
+    window.userConectado = userConectado;
+    window.userDesconect = userDesconect;
+    var sesion = document.getElementsByClassName('admSesion')[0];
     // si la clave usuarioRegistrado guarda el valor true:
     if(localStorage.getItem('usuarioRegistrado') === 'true'){
-        sesion.innerText = 'Mi perfil';
+        const usuarioRef = userConectado();
+        sesion.innerText = 'Bienvenido ' + usuarioRef['Username'];
         document.querySelector('.panel-lateral').style.display = 'block';
     }else{
         document.querySelector('.panel-lateral').style.display = 'none';
         sesion.innerText = 'Iniciar Sesión';
     }
+    sesion.addEventListener('click',function(){
+        if(localStorage.getItem('usuarioRegistrado') === 'true'){
+            localStorage.setItem('usuarioRegistrado',false);
+            userDesconect();
+        }
+    })
 </script>
 </body>
 </html>
