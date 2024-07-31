@@ -894,6 +894,9 @@ document.getElementById("form-filtros").addEventListener('submit',filtro);
     const accionSeleccionada = localStorage.getItem('selectAccion');
     const localidadSeleccionada = localStorage.getItem('selectLocalidad');
     const inmuebleSeleccionado = localStorage.getItem('selectPropiedad');
+    const zonaSugerida = localStorage.getItem('zonaSugerida');
+    const seleccionRealizada = localStorage.getItem('seleccionRealizada');
+
     if (accionSeleccionada) {
         // cambio el input por defecto de accion por el almacenado 
         document.getElementById('selectAccion').value = accionSeleccionada;
@@ -915,4 +918,16 @@ document.getElementById("form-filtros").addEventListener('submit',filtro);
         filtro(new Event('submit')); // Simula un evento de submit
         // Limpiar localStorage para evitar selección en recargas futuras
         localStorage.removeItem('selectPropiedad');
+    }
+    if(zonaSugerida){
+        document.getElementById('inputZona').value = zonaSugerida;
+        filtro(new Event('submit')); // Simula un evento de submit
+        // Limpiar localStorage para evitar selección en recargas futuras
+        localStorage.removeItem('zonaSugerida');
+    }
+    if(seleccionRealizada){
+        document.getElementById('selectLocalidad').value = seleccionRealizada;
+        filtro(new Event('submit')); // Simula un evento de submit
+        // Limpiar localStorage para evitar selección en recargas futuras
+        localStorage.removeItem('seleccionRealizada');
     }

@@ -1,6 +1,21 @@
 
 const seccion = document.getElementById('seccionElegida');
-
+const zonasCiudades = { "Los Santos":
+    ["Richman", "Rodeo", "Santa Maria Beach", "Marina", "Vinewood", "Verona Beach", "Mulholland", "Temple",
+    "Market", "Conference Centre", "Verdant Bluffs", "Downtown", "Cruce de Mulholland", "Commerce", 
+    "Pershing Square", "Little Mexico", "El Corona", "Los Santos Internacional", "Glen Park", "Idlewood",
+    "Las Colinas", "Jefferson", "East Los Santos", "Las Flores", "East Beach", "Ganton", "Willowfield", 
+    "Playa de Seville", "Ocean Docks"], 
+    "San Fierro":
+    ["Doherty", "Garcia", "Chinatown", "Downtown/Financial", "Easter Basin", "King's, Queens", "Missionary Hill",
+    "City Hall", "Santa Flora", "Hashbury", "Paradiso", "Battery Point", "Juniper Hill", "Juniper Hollow", "Ocean Flats",
+    "Calton Heights", "Avispa Country Club", "Palisades", "Foster Valley", "Esplanade North", "Esplanade East", 
+    "Easter Bay Airport"], 
+    "Las Venturas":
+    ["The Strip", "Old Venturas Strip", "Blackfield", "Pilgrim", "The Camel's Toe", "Come-A-Lot", "Whitewood Estates", 
+    "The Emerald Isle", "Roca Escalante", "Redsands West", "Rockshore East", "Rockshore West", "Prickle Pine", "Spinybed",
+    "K.A.C.C. Military Fuels", "Creek", "Randolph Industrial Estate", "Yellow Bell Golf Course", "Greenglass College", 
+    "Aeropuerto Las Venturas", "The Pirates In Men's Pants"]};
 import {
     ciudades
 } from './infoProps.js';
@@ -193,6 +208,9 @@ import {
         seccion.appendChild(backgroundOpcion);
     }
 
+/**
+ * despliega las tarjetas de presentación dependiendo del boton seleccionado en home
+ */
 export function verPropuesta(button){
     // location.href='#seccionElegida';
     let buttonContainer = document.getElementById('button-container');
@@ -243,3 +261,88 @@ export function verPropuesta(button){
     }
     
 }
+
+
+/**
+ * muestra sugerencias de ciudades coincidentes con las letras ingresadas en el input de la pagina home
+ */
+export function autocompletado(zonaInput){
+    var zonasSugeridas;
+    // var zonaInput = document.getElementById('eleccion');
+    // primero, verifico cuál es el <option> seleccionado en el <select> para saber qué zonas mostrar del arreglo zonasCiudades
+    var elemSelect = document.getElementById('ciudadOption');
+    // por defecto 'Todas las localidades'
+    var citySelected =  elemSelect.value;
+    // console.log("valor por defecto:" + citySelected);
+    // si el elemento select fue seleccionado y cambiado, cambio el valor de citySelected
+    elemSelect.addEventListener('change',function(){
+        citySelected = elemSelect.value;
+        console.log(citySelected);
+    });
+
+    
+
+    const sugerenciasZonas = document.getElementById('sugerenciasZonas');
+    zonaInput.addEventListener('input',function(event){
+        const textoIngresado = (event.target.value).toLowerCase();
+        console.log(textoIngresado.length);
+        var heightTotal = 0;
+        // limpio el contenedor con las sugerencias anteriores
+        sugerenciasZonas.innerHTML = '';
+        // si el texto ingresado (sin contar espacios) es mayor igual que 1:
+        if((textoIngresado.trim()).length >= 1){
+            // si se sigue manteniendo el valor por defecto, fusiono todos los valores de los arreglos en uno solo
+            if(citySelected === 'Todas las localidades'){
+                var zonasValues = Object.values(zonasCiudades);
+                zonasSugeridas = zonasValues.flat();
+            }else{ //sino, utilizo el sitySelected como clave para las ciudades específicas de referencia
+                zonasSugeridas = zonasCiudades[citySelected];
+            }
+            // aplico toLowerCase al arreglo para poner todo en minusculas y realizar las comparaciones
+            zonasSugeridas = zonasSugeridas.map(cadena => cadena.toLowerCase());
+            
+            // el bucle externo itera las palabras
+            for(let i = 0; i < zonasSugeridas.length; i++){
+                    // si el texto ingresado forma parte de alguna de las zonas iteradas
+                if(zonasSugeridas[i].indexOf(textoIngresado) !== -1){
+                    // intento poner el texto coincidente en una variable con negrita
+                    var boldWord = '<b>'+textoIngresado+'</b>';
+                    var equalWord = zonasSugeridas[i].replace(textoIngresado, boldWord);
+                    heightTotal += 20;
+                    var zonaParrafo = document.createElement('p');
+                    zonaParrafo.className = 'zonasCoincidentes';
+                    zonaParrafo.innerHTML = equalWord;
+                    zonaParrafo.addEventListener('click', function(){
+                        console.log(this.innerText);
+                        // guardo el valor clickeado en el valor del input
+                        zonaInput.value = this.innerText;
+                        // reestablezco el tamaño del contenedor en 0px;
+                        sugerenciasZonas.style.height = '0px';
+                        // elimino el contenido (hijos) del contenedor
+                        sugerenciasZonas.innerHTML = '';
+                    })
+                    sugerenciasZonas.appendChild(zonaParrafo);        
+                }
+            }
+            sugerenciasZonas.style.height = heightTotal+'px';
+            if(parseInt(sugerenciasZonas.style.height) > 200){
+                sugerenciasZonas.style.height = '200px';
+            }
+            // agregamos el evento click en caso de clickear una sugerencia
+            /* sugerenciasZonas.addEventListener('click',function(){
+                console.log(sugerenciasZonas);
+            }) */
+        }else{
+            sugerenciasZonas.style.height = '0px';
+        }
+    })
+
+}
+
+
+/* export function guardaInputs(){
+    localStorage.setItem('zonaSugerida',(document.getElementById('eleccion').value));
+    localStorage.setItem('seleccionRealizada',(document.getElementById('ciudadOption').value));
+    window.location.href = 'propiedades.html';
+}
+ */

@@ -17,7 +17,7 @@
                 <li><a href="propiedades.html">Propiedades</a></li>
                 <!-- <li><a href="Nosotros.html">Nosotros</a></li> -->
                 <li><a href="Mapa.html">Mapa</a></li>
-                <li><a href="formulario.html" id="admSesion">Iniciar Sesión</a></li>
+                <li><a href="formulario.html" class="admSesion">Iniciar Sesión</a></li>
             </ul>
             
         </div>
@@ -33,19 +33,22 @@
                     <button id="buton4" onclick="verPropuesta(this)">ver <br> Propiedades</button>
                 </div>
                 <div id="form-container">
-                    <form action="">
+                    <form id="searchForm">
                         <input type="text" name="eleccion" id="eleccion" placeholder="dónde quisieras mudarte">
-                        <select name="tipoPropiedad" id="tipoPropiedad">
-                            <option value="sanfierro">Todas las localidades</option>
-                            <option value="sanfierro">San Fierro</option>
-                            <option value="lossantos">Los Santos</option>
-                            <option value="lasventuras">Las Venturas</option>   
+                        <select name="tipoPropiedad" id="ciudadOption">
+                            <option value="Todas las localidades">Todas las localidades</option>
+                            <option value="San Fierro">San Fierro</option>
+                            <option value="Los Santos">Los Santos</option>
+                            <option value="Las Venturas">Las Venturas</option>   
                         </select>
                         <!-- <input type="submit" value="Buscar"> onclick=return propiedades() -->
-                        <button class="search-button">
+                        <button class="search-button" type="submit">
                             <span class="search-icon"></span>
                         </button>
                     </form>
+                    <div id="sugerenciasZonas">
+                        
+                    </div>
                 </div>
             </div>
 
@@ -194,7 +197,9 @@
     </div>
 </footer>
 <script type="module">
-    import { verPropuesta } from './home.js';
+    const formularioSubmit = document.getElementById('searchForm');
+
+    import { verPropuesta, autocompletado } from './home.js';
     import { despliega, showContent, conversor } from './viewScripts.js';
     import { userConectado, userDesconect } from './validacionForms.js';
     window.verPropuesta = verPropuesta;
@@ -203,7 +208,9 @@
     window.conversor = conversor;
     window.userConectado = userConectado;
     window.userDesconect = userDesconect;
-    var sesion = document.getElementsByClassName('admSesion')[0];
+    window.autocompletado = autocompletado;
+    document.addEventListener('DOMContentLoaded', function(){
+        var sesion = document.getElementsByClassName('admSesion')[0];
     // si la clave usuarioRegistrado guarda el valor true:
     if(localStorage.getItem('usuarioRegistrado') === 'true'){
         const usuarioRef = userConectado();
@@ -219,6 +226,24 @@
             userDesconect();
         }
     })
+
+    formularioSubmit.addEventListener('submit',function(event){
+        event.preventDefault();
+        var cityRef = document.getElementById('ciudadOption').value; 
+        // console.log("submit presionado");
+        window.location.href = 'propiedades.html';
+        console.log(document.getElementById('eleccion').value);
+        console.log(document.getElementById('ciudadOption').value);
+        localStorage.setItem('zonaSugerida',(document.getElementById('eleccion').value));
+        if(cityRef === 'Todas las localidades'){
+            cityRef = 'Todas';
+        }
+        localStorage.setItem('seleccionRealizada',cityRef);
+    });
+
+    autocompletado(document.getElementById('eleccion'));
+    });
+    
 </script>
 </body>
 </html>

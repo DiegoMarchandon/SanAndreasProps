@@ -393,3 +393,18 @@ footer a{
     align-items: center;
     justify-content: center;
 }
+#sugerenciasZonas{
+    /* display: none; */
+    width: 250px;
+    height: 0px;
+    background-color: rgb(255, 221, 159);
+    overflow: auto;
+}
+#sugerenciasZonas p{
+    margin: 0px;
+    font-family: Roboto;
+}
+#sugerenciasZonas p:hover{
+    background-color: orange;
+    cursor: pointer;
+}

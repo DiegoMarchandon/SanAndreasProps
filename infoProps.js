@@ -885,7 +885,7 @@ export var casasTotales = {
     emprend2SF: { //zero
         nombre: "Zero RC",
         localidad: "San Fierro",
-        ubicacion: "García",
+        ubicacion: "Garcia",
         tipoProp: "Comercio",
         opcion: "Alquilar",
         precio: 429000,
