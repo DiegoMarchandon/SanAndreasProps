@@ -16,22 +16,56 @@ export function insertProp(contenedor, correccion){
         }
     
         var casaUbicacion = document.createElement('div');
-            casaUbicacion.id = "casaNro"+casa["primaryKey"];
-            casaUbicacion.className = "IMGcontainer";
+        casaUbicacion.id = "casaNro"+casa["primaryKey"];
+        casaUbicacion.className = "IMGcontainer";
+        
+        var colourBall = document.createElement('div');
+        colourBall.className = "colourBall";
+        if(casa.tipoProp === "Comercio"){
+            colourBall.classList.add("lblueBall");
+        }
+        casaUbicacion.appendChild(colourBall);
+        // casaUbicacion.alt = "casa no seleccionada";
+        // casaUbicacion.src = "imagenes/orangeUbicationLogo.png";
+        casaUbicacion.style.bottom = casa["Bottom"]+"%";
+        casaUbicacion.style.right = casa["Right"]+"%";
+        contenedor.appendChild(casaUbicacion); 
+        // agrego el evento mouseover para mostrar una previsualización de la propiedad que lo redirija a propiedad seleccionada
+        casaUbicacion.addEventListener('mouseover',function(){
+            var divIlustrativo = document.createElement('div');
             
-            var colourBall = document.createElement('div');
-            colourBall.className = "colourBall";
-            if(casa.tipoProp === "Comercio"){
-                colourBall.classList.add("lblueBall");
-            }
-            casaUbicacion.appendChild(colourBall);
-            // casaUbicacion.alt = "casa no seleccionada";
-            // casaUbicacion.src = "imagenes/orangeUbicationLogo.png";
-            casaUbicacion.style.bottom = casa["Bottom"]+"%";
-            casaUbicacion.style.right = casa["Right"]+"%";
-            contenedor.appendChild(casaUbicacion); 
+            var iconScale = casaUbicacion.style.transform;
+            divIlustrativo.className = 'divIlustrativo';
+            divIlustrativo.style.bottom = (parseInt(casa["Bottom"]) + 3)+"%";
+            divIlustrativo.style.right = (parseInt(casa["Right"]) + 3)+"%";
+            divIlustrativo.style.transform = iconScale;
+
+
+            var IMGilustrativa = document.createElement('img');
+            IMGilustrativa.className = 'IMGilustrativa';
+            IMGilustrativa.src = casa.imagenes[0];
+            IMGilustrativa.alt = 'imagen de ilustracion de la casa';
+
+            var textIlustrativo = document.createElement('p');
+            textIlustrativo.className = 'textIlustrativo';
+            textIlustrativo.innerHTML = casa.localidad + '<br>' + casa.ubicacion;
+
+            divIlustrativo.append(IMGilustrativa, textIlustrativo);
+            contenedor.appendChild(divIlustrativo);
+            // agrego el evento en donde acerco el contenedor ilustrativo en caso de zoom
+            divIlustrativo.addEventListener('wheel', function(){
+
+            })
+            // elimino el div una vez quito el mouse
+            casaUbicacion.addEventListener('mouseout', function(){
+                // como el evento mouseout se puede activar en cualquier lugar, verificamos antes si el div sigue siendo hijo del contenedor.
+                if(contenedor.contains(divIlustrativo)){
+                    contenedor.removeChild(divIlustrativo);
+                }
+            });
+            
         });
-    
+    });   
 }
 
 /**
@@ -39,8 +73,6 @@ export function insertProp(contenedor, correccion){
  * El contenedor de zoom,
  * Y la escala y posicion iniciales
 */
-
-
 export function mapaDinamico(){
     var scale = 1,
     panning = false,
@@ -90,6 +122,8 @@ export function mapaDinamico(){
                 // console.log("nueva escala: "+ newScale);
                 icon.style.transform = "translate( 0px, 0px) scale("+ newScale +")";
             });
+            // si divRef existe
+            
         }
         e.preventDefault();
         var xs = (e.clientX - pointX) / scale,
@@ -102,6 +136,8 @@ export function mapaDinamico(){
         pointY = e.clientY - ys * scale;
 
         setTransform();
+        
     }
+    
 }
     

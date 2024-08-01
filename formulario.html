@@ -90,8 +90,8 @@
             text-align: center;
         }
         label{
-            vertical-align: middle;
-           
+            /* vertical-align: baseline; */
+           /* margin-top: 10px; */
             color: orangered;
             font-weight: bold;
             font-size: 15px;
@@ -100,7 +100,11 @@
         #registro{
             display: none;
         }
-    
+
+        #newRegistro{
+            /* grid-column: span 2; */
+            margin-bottom: 5px;
+        }
         #botonIngreso{
             background-image: linear-gradient(to right, orangered , orange);
             padding: 10px 60px;
@@ -181,17 +185,21 @@
             <!-- olvidé mi contraseña: opción que parezca si se ingresa mal la contraseña 2 veces -->
         </form>
         <form action="" id="registro">
-            <h2>Registro</h2>
-            <label for="newNombre">Nombre</label><br>
-            <input type="text" name="newNombre" id="newNombre"><br>
-            <label for="newApellido">Apellido</label><br>
-            <input type="text" name="newApellido" id="newApellido"><br>
-            <label for="newEmail">email</label><br>
-            <input type="text" name="newEmail" id="newEmail"><br>
-            <label for="newEmail">contraseña</label><br>
-            <input type="text" name="newContra" id="newContra"><br>
-            <label for="newEmail">reescriba contraseña</label><br>
-            <input type="text" name="newContraRep" id="newContraRep"><br>
+            <h2 id="newRegistro">Registro</h2>
+            <label for="newusername" class="newLabel">nombre de usuario</label><br>
+            <input type="text" name="newusername" id="newusername" class="newInput"><br>
+            <label for="newNombre" class="newLabel">Nombre</label><br>
+            <input type="text" name="newNombre" id="newNombre" class="newInput"><br>
+            <label for="newApellido" class="newLabel">Apellido</label><br>
+            <input type="text" name="newApellido" id="newApellido" class="newInput"><br>
+            <label for="newEmail" class="newLabel">email</label><br>
+            <input type="text" name="newEmail" id="newEmail" class="newInput"><br>
+            <label for="newEmail" class="newLabel">contraseña</label><br>
+            <input type="text" name="newContra" id="newContra" class="newInput"><br>
+            <label for="newEmail" class="newLabel">reescriba contraseña</label><br>
+            <input type="text" name="newContraRep" id="newContraRep" class="newInput"><br>
+            
+            
         </form>
         <input type="button" value="ingresar" id="botonIngreso" onclick="return validar()">
         <p id="noEncontrado" style="color: red; margin-top: 50px; margin-left: 20px; display: none;">email y contraseña no encontrados.</p>

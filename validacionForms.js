@@ -203,12 +203,13 @@ export function mostrarForm(){
     registro.style.display = 'block';
     registrarse.style.display = 'none';
     parrafoSoyNuevo.style.display = 'none';
-    boxForm.style.height = '500px';
+    boxForm.style.height = '530px';
+    // boxForm.style.width = '600px';
     /* manualmente, me aseguro de que todos los estilos se apliquen .*/
     // var formulario = document.getElementsByTagName("form")[1];
     /* la coleccion devuelta no es un array real sino un objeto de tipo
     'HTML collection'. Puedo convertirla a coleccion usando Array.from */
-    registro.style.marginTop = '50px';
+    registro.style.marginTop = '10px';
     registro.style.textAlign = 'center';
     return registro;
 }
@@ -280,6 +281,19 @@ function contraseñaValida(contra){
     return valido;
 }
 
+function usernameValido(user){
+    const usernameValid = /^[A-Za-z0-9]+$/;
+    var valido = true;
+    if(!(usernameValid.test(user.value))){
+        user.style.borderColor = 'red';
+        user.placeholder = 'username inválido';
+        valido = false;
+    }else{
+        user.style.borderColor = 'green';
+    }
+    return valido;
+}
+
 // validar datos de un usuario nuevo. Si son todos válidos, se almacenan en el local storage
 export function validar(){
     var validezForm = true;
@@ -291,7 +305,11 @@ export function validar(){
         var email = document.getElementById("newEmail");
         var contraseña = document.getElementById("newContra");
         var contraDenuevo = document.getElementById("newContraRep");
+        var newUsername = document.getElementById('newusername');
         
+        if(!usernameValido(newUsername)){
+            validezForm = false;
+        }
         if(!mailValido(email)){
             validezForm = false;
         }
@@ -338,10 +356,11 @@ export function validar(){
 
         // si los datos son válidos, guardo el email y la contraseña
         if(validezForm){
-            alert("todos los datos validos");
+            
             let cantClaves = Object.keys(usersGuardados).length;
-            let userNro = "user"+(cantClaves+1);
+            let userNro = "user"+(cantClaves);
             usersGuardados[userNro] = {
+                Username: newUsername.value,
                 Nombre: nombre.value,
                 Apellido: apellido.value,
                 Email: email.value,
@@ -352,7 +371,8 @@ export function validar(){
             };
             // actualizo el localStorage con el nuevo usuario
             localStorage.setItem('usuarios', JSON.stringify(usersGuardados));
-            window.location.replace('index.html');
+            window.location.href = 'index.html';
+            localStorage.setItem('usuarioRegistrado','true');
         }
 
     }else{ /* iniciar sesión */

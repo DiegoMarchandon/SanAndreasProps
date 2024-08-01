@@ -77,3 +77,25 @@
         background-color: var(--color-inicial-final);
     }
 } 
+
+.divIlustrativo{
+    width: 150px;
+    height: 60px;
+    /* display: block; */
+    background-color: rgb(251, 156, 93);
+    border-radius: 10px;
+    opacity: 0.95;
+    position: absolute;
+    overflow: hidden;
+    border: 0.5px solid white;
+}
+.IMGilustrativa{
+    width: 75px;
+    height: 60px;
+    float: left;
+    margin-right: 5px;
+}
+.textIlustrativo{
+    font-size: 0.65rem;
+    margin: 6px;
+}

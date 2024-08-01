@@ -272,48 +272,55 @@ function divProp(propiedad){
         buttonFavoritos.addEventListener('click',function(event){
             event.stopPropagation();
             // poner un if(){ } afuera que se encargue de redireccionar a iniciar sesión en caso de que no haya un usuario logueado
-            
-            const miniContainer = document.createElement('div');
-            miniContainer.className = 'miniContainer';
-            miniContainer.id='miniContainerNro-'+propiedad.primaryKey;
-            const miniIMG = document.createElement('img');
-            miniIMG.src = propiedad.imagenes[0];
-            miniIMG.className = 'miniIMG';
-            const miniLocalidad = document.createElement('h3');
-            miniLocalidad.innerText = propiedad.localidad;
-            miniLocalidad.className = 'miniTexts';
-            const miniUbicacion = document.createElement('h5');
-            miniUbicacion.innerText = propiedad.ubicacion;
-            miniUbicacion.className = 'miniTexts';
-            miniContainer.append(miniIMG, miniLocalidad, miniUbicacion);
-            
-            const containerPropsFavs = document.getElementsByClassName('contenidoDesplegado')[0];
-            const noPropsText = document.getElementsByClassName('contenidoVacio')[0];
-            if(imgFavoritos2.style.display === 'inline'){
-                /* escondo el corazon gris y agrego la propiedad a favoritos */
-                imgFavoritos2.style.display = 'none';
-                /* escondo el parrafo que dice que no hay propiedades que mostrar (en este caso, el de la posición 0) */
-                noPropsText.style.display = 'none';
-                // función que se encarga de guardar o actualizar datos del usuario conectado
-                objUsuario("Favoritas", [propiedad.primaryKey, propiedad.localidad, propiedad.ubicacion], 'agregar');
-                console.log("imagen: "+propiedad.imagenes[0] + " localidad: "+propiedad.localidad + " ubicacion: "+propiedad.ubicacion);
-                // ahora, agrego el miniContainer al div que muestra las propiedades favoritas
-                containerPropsFavs.appendChild(miniContainer);
-            }else{ // === 'none'
-                /* vuelvo a mostrar el corazon gris */
-                imgFavoritos2.style.display = 'inline';
-                /* elimino la propiedad de favoritos, primero verifico si existe: */
-                const containerPorID = document.getElementById('miniContainerNro-'+propiedad.primaryKey);
-                if(containerPorID){
-                    containerPropsFavs.removeChild(containerPorID);
+            if(localStorage.getItem('usuarioRegistrado') === 'true'){
+                const miniContainer = document.createElement('div');
+                miniContainer.className = 'miniContainer';
+                miniContainer.id='miniContainerNro-'+propiedad.primaryKey;
+                const miniIMG = document.createElement('img');
+                miniIMG.src = propiedad.imagenes[0];
+                miniIMG.className = 'miniIMG';
+                const miniLocalidad = document.createElement('h3');
+                miniLocalidad.innerText = propiedad.localidad;
+                miniLocalidad.className = 'miniTexts';
+                const miniUbicacion = document.createElement('h5');
+                miniUbicacion.innerText = propiedad.ubicacion;
+                miniUbicacion.className = 'miniTexts';
+                miniContainer.append(miniIMG, miniLocalidad, miniUbicacion);
+                
+                const containerPropsFavs = document.getElementsByClassName('contenidoDesplegado')[0];
+                const noPropsText = document.getElementsByClassName('contenidoVacio')[0];
+                if(imgFavoritos2.style.display === 'inline'){
+                    /* escondo el corazon gris y agrego la propiedad a favoritos */
+                    imgFavoritos2.style.display = 'none';
+                    /* escondo el parrafo que dice que no hay propiedades que mostrar (en este caso, el de la posición 0) */
+                    noPropsText.style.display = 'none';
+                    // función que se encarga de guardar o actualizar datos del usuario conectado
+                    objUsuario("Favoritas", [propiedad.primaryKey, propiedad.localidad, propiedad.ubicacion], 'agregar');
+                    console.log("imagen: "+propiedad.imagenes[0] + " localidad: "+propiedad.localidad + " ubicacion: "+propiedad.ubicacion);
+                    // ahora, agrego el miniContainer al div que muestra las propiedades favoritas
+                    containerPropsFavs.appendChild(miniContainer);
+                }else{ // === 'none'
+                    /* vuelvo a mostrar el corazon gris */
+                    imgFavoritos2.style.display = 'inline';
+                    /* elimino la propiedad de favoritos, primero verifico si existe: */
+                    const containerPorID = document.getElementById('miniContainerNro-'+propiedad.primaryKey);
+                    if(containerPorID){
+                        containerPropsFavs.removeChild(containerPorID);
+                    }
+                    objUsuario("Favoritas",[propiedad.primaryKey, propiedad.localidad, propiedad.ubicacion], 'eliminar')
+                    /* si quito todas las propiedades */
+                    const elemHijos = containerPropsFavs.children;
+                    // console.log("cantidad de nodos hijos actual es de: " + elemHijos.length + " y son: " + JSON.stringify(elemHijos));
+                    if(elemHijos.length === 1){
+                        noPropsText.style.display = 'inline';
+                    }
                 }
-                objUsuario("Favoritas",[propiedad.primaryKey, propiedad.localidad, propiedad.ubicacion], 'eliminar')
-                /* si quito todas las propiedades */
-                const elemHijos = containerPropsFavs.children;
-                // console.log("cantidad de nodos hijos actual es de: " + elemHijos.length + " y son: " + JSON.stringify(elemHijos));
-                if(elemHijos.length === 1){
-                    noPropsText.style.display = 'inline';
-                }
+                // agrego dentro del evento click, el evento load para que los cambios en los corazones de favoritos persistan 
+                window.addEventListener('load',function(){
+                    
+                })
+            }else{
+                window.location.href = 'formulario.html';
             }
             
         });

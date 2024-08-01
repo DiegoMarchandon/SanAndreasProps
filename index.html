@@ -222,7 +222,7 @@
     }
     sesion.addEventListener('click',function(){
         if(localStorage.getItem('usuarioRegistrado') === 'true'){
-            localStorage.setItem('usuarioRegistrado',false);
+            localStorage.setItem('usuarioRegistrado','false');
             userDesconect();
         }
     })
