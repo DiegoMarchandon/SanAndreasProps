@@ -650,6 +650,21 @@ function propiedadElegida(slidePropiedad, imagenesProp, caracteristicasProp, bot
         }
         validacionDatos();
     })
+
+    contactoDatos.addEventListener('submit',function(){
+        // event.preventDefault();
+        const NyAuser = NyAInput.value;
+        // console.log(NyAuser);
+        const telUser = telefonoContacto.value;
+        const mailUser = mailInput.value;
+        const mensajeUser = mensajeDeContacto.value;
+        var arrUserInfo = [idProp, NyAuser, telUser, mailUser, mensajeUser];
+        const usuariosTotales = JSON.parse(localStorage.getItem('usuarios'));
+        const corredor = usuariosTotales["user4"];
+        corredor['Contactos'].push(arrUserInfo);
+        localStorage.setItem("usuarios",JSON.stringify(usuariosTotales));
+    })
+    
     // contenedor de la escala ('#zoom_outer')
     const contenedorExterno = document.createElement('div');
     contenedorExterno.id = 'propUbicacion';

@@ -42,6 +42,7 @@ const boxForm = document.getElementById('box-form');
         Contraseña: "GrooveStreet",
         Tipo: "Corredor",
         PropsGuardadas: [],
+        Contactos: [],
         Conectado: false
     }
 }; */
