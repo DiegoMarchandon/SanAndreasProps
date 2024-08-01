@@ -300,7 +300,7 @@ function divProp(propiedad){
                     noPropsText.style.display = 'none';
                     // función que se encarga de guardar o actualizar datos del usuario conectado
                     objUsuario("Favoritas", [propiedad.primaryKey, propiedad.localidad, propiedad.ubicacion], 'agregar');
-                    console.log("imagen: "+propiedad.imagenes[0] + " localidad: "+propiedad.localidad + " ubicacion: "+propiedad.ubicacion);
+                    // console.log("imagen: "+propiedad.imagenes[0] + " localidad: "+propiedad.localidad + " ubicacion: "+propiedad.ubicacion);
                     // ahora, agrego el miniContainer al div que muestra las propiedades favoritas
                     containerPropsFavs.appendChild(creoMiniContainer());
                 }else{ // === 'none'
@@ -338,7 +338,7 @@ function divProp(propiedad){
                     objUsuario['Favoritas'].forEach(propFav => {
                         // si el primary key de la propiedad en cuestión y el primer indice del arreglo de la propiedad (PK) coinciden, cambio el display del coraozn
                         if((propiedad.primaryKey === propFav[0])){
-                            console.log("tiene display inline");
+                            // console.log("tiene display inline");
                             imgFavoritos2.style.display = 'none';
                         }
                     });
@@ -728,14 +728,14 @@ function propiedadElegida(slidePropiedad, imagenesProp, caracteristicasProp, bot
         const zoomWidth = contenedorInterno.offsetWidth;
         const zoomHeight = contenedorInterno.offsetHeight;
     
-        console.log("dimensiones(contenedor externo): "+ contenedorExterno.offsetWidth + " y "+contenedorExterno.offsetHeight);
-        console.log("dimensiones: "+ zoomWidth + " y "+zoomHeight);
+        // console.log("dimensiones(contenedor externo): "+ contenedorExterno.offsetWidth + " y "+contenedorExterno.offsetHeight);
+        // console.log("dimensiones: "+ zoomWidth + " y "+zoomHeight);
         
 
         const ejeX = zoomWidth * (rightPorc / 100);
         const ejeY = zoomHeight * (bottomPorc / 100);
     
-        console.log("ejes: "+ejeX +" y "+ejeY);
+        // console.log("ejes: "+ejeX +" y "+ejeY);
     
         // calculo los valores de traslación
         // const traslacionX = -(ejeX * (escala-1));
@@ -746,7 +746,7 @@ function propiedadElegida(slidePropiedad, imagenesProp, caracteristicasProp, bot
         const traslacionX = -((ejeX - (zoomWidth / 2)) * (escala - 1)) * factorCorreccionX;
         const traslacionY = -((ejeY - (zoomHeight / 2)) * (escala - 1)) * factorCorreccionY;    
 
-        console.log("traslacion: "+ traslacionX +" y "+traslacionY+"; escala:"+escala);
+        // console.log("traslacion: "+ traslacionX +" y "+traslacionY+"; escala:"+escala);
         // reduzco el tamaño de los iconos proporcionalmente al aumento de la escala: 
         // también resto un 1.3 de right para corregir la posición de las propiedades relativas 
         const casasIconos = document.querySelectorAll('.IMGcontainer');
