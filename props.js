@@ -709,7 +709,7 @@ function propiedadElegida(slidePropiedad, imagenesProp, caracteristicasProp, bot
      
      referenciasContainer.append(greyBall,greyRef,greenBall,greenRef, blueBall, blueRef);
     //  contenedorInterno.appendChild(referenciasContainer);
-     // imagen 
+    // imagen 
     const IMGmap = document.createElement('img');
     IMGmap.alt = "GTA MAP";
     IMGmap.id = "propiedadElegida";

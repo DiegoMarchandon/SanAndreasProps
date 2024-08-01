@@ -408,3 +408,43 @@ footer a{
     background-color: orange;
     cursor: pointer;
 }
+
+#contactosContainer{
+    margin: 0 auto;
+    width: 700px;
+    height: 400px;
+    background-color: white;
+    background-image: linear-gradient(rgb(255, 255, 255), rgb(255, 218, 148));
+    border-radius: 20px;
+    overflow: auto;
+}
+#contactosContainer h2{
+    text-align: center;
+    font-family: Courier;
+    color: orangered;
+}
+.contactoDiv{
+    float: left;
+    margin: 5px;
+    width: 300px;
+    height: 270px;
+    background-color: rgb(255, 213, 136);
+    border-radius: 20px;
+}
+.contactoDiv button{
+    background-color: orangered;
+    color: white;
+    padding: 5px;
+    margin: 3px;
+}
+.contactoDiv textarea{
+    margin: 5px;
+    background-color: antiquewhite;
+    border-radius: 10px;
+}
+.infoContacto{
+    margin: 10px;
+}
+.muestraMensaje{
+    background-color: white;
+}

@@ -201,7 +201,7 @@
 
     import { verPropuesta, autocompletado } from './home.js';
     import { despliega, showContent, conversor } from './viewScripts.js';
-    import { userConectado, userDesconect } from './validacionForms.js';
+    import { userConectado, userDesconect, corredorConected } from './validacionForms.js';
     window.verPropuesta = verPropuesta;
     window.despliega = despliega;
     window.showContent = showContent;
@@ -209,6 +209,7 @@
     window.userConectado = userConectado;
     window.userDesconect = userDesconect;
     window.autocompletado = autocompletado;
+    window.corredorConected = corredorConected;
     document.addEventListener('DOMContentLoaded', function(){
         var sesion = document.getElementsByClassName('admSesion')[0];
     // si la clave usuarioRegistrado guarda el valor true:
@@ -244,6 +245,8 @@
     autocompletado(document.getElementById('eleccion'));
     });
     
+    corredorConected();
+
 </script>
 </body>
 </html>

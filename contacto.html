@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#contactosContainer{
+    width: 750px;
+    height: 550px;
+    background-color: white;
+    background-image: linear-gradient(rgb(255, 255, 255), rgb(255, 218, 148));
+    border-radius: 20px;
+    overflow: auto;
+}
+#contactosContainer h2{
+    text-align: center;
+    font-family: Courier;
+    color: orangered;
+}
+.contactoDiv{
+    float: left;
+    margin: 5px;
+    width: 300px;
+    height: 270px;
+    background-color: rgb(255, 213, 136);
+    border-radius: 20px;
+}
+.contactoDiv button{
+    background-color: orangered;
+    color: white;
+    padding: 5px;
+    margin: 3px;
+}
+.contactoDiv textarea{
+    margin: 5px;
+    background-color: antiquewhite;
+    border-radius: 10px;
+}
+.infoContacto{
+    margin: 10px;
+}
+.muestraMensaje{
+    background-color: white;
+}
+</style>
+<title>Document</title>
+</head>
+<body>
+    
+    <div id="contactosContainer">
+        <h2>Contactos recientes</h2>
+        <div class="contactoDiv" id="contactoNro1">
+            <p class="infoContacto">Nombre: </p>
+            <p class="infoContacto">Apellido: </p>
+            <p class="infoContacto">id Propiedad: </p>
+            <p class="infoContacto">Mensaje: </p>
+            <textarea class="muestraMensaje" cols="30" rows="5">aca se va a mostrar el mensaje recibido por el usuario interesado</textarea>
+            <button>Negociar propiedad</button>
+            <button>Descartar contacto</button>
+        </div>
+
+        <div class="contactoDiv" id="contactoNro2">
+            <p class="infoContacto">Nombre: </p>
+            <p class="infoContacto">Apellido: </p>
+            <p class="infoContacto">id Propiedad: </p>
+            <p class="infoContacto">Mensaje: </p>
+            <textarea class="muestraMensaje" cols="30" rows="5">aca se va a mostrar el mensaje recibido por el usuario interesado</textarea>
+            <button>Negociar propiedad</button>
+            <button>Descartar contacto</button>
+        </div>
+
+        <div class="contactoDiv" id="contactoNro3">
+            <p class="infoContacto">Nombre: </p>
+            <p class="infoContacto">Apellido: </p>
+            <p class="infoContacto">id Propiedad: </p>
+            <p class="infoContacto">Mensaje: </p>
+            <textarea class="muestraMensaje" cols="30" rows="5">aca se va a mostrar el mensaje recibido por el usuario interesado</textarea>
+            <button>Negociar propiedad</button>
+            <button>Descartar contacto</button>
+        </div>
+    </div>
+</body>
+</html>

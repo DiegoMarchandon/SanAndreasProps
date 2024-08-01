@@ -372,12 +372,16 @@ export function validar(){
             };
             // actualizo el localStorage con el nuevo usuario
 
-            delete usersGuardados["user"+(cantClaves+2)];
+            localStorage.setItem('usuarios', JSON.stringify(usersGuardados));
+            
             localStorage.setItem('usuarios', JSON.stringify(usersGuardados));
             window.location.href = 'index.html';
             localStorage.setItem('usuarioRegistrado','true');
         }
-
+        // para eliminar el ultimo registro duplicado:
+        let numClaves = Object.keys(usersGuardados);
+        let ultClave = numClaves[numClaves.length-1];
+        delete usersGuardados[ultClave];
     }else{ /* iniciar sesión */
         var emailExists = document.getElementById("emailUser");
         var contraExists = document.getElementById("contraseña");
@@ -399,4 +403,92 @@ export function validar(){
         }
     }   
     return validezForm;
+}
+
+/**
+ * verifico si el usuario que está conectado es el corredor para personalizar la página home 
+ */
+export function corredorConected(){
+    const containerHome = document.getElementById('home');
+    let userCorredor = userConectado();
+    var buscaCiudadContainer = document.getElementsByClassName('buscarCiudad')[0];
+    if(userCorredor['Tipo'] === 'Corredor'){
+        buscaCiudadContainer.style.display = 'none';
+        const contactosContainer = document.createElement('div');
+        contactosContainer.id = 'contactosContainer';
+
+        if(userCorredor['Contactos'].length !== 0){            
+        
+        const contactosRec = document.createElement('h2');
+        contactosRec.innerText = 'Contactos recientes';
+
+        contactosContainer.appendChild(contactosRec);
+
+        userCorredor['Contactos'].forEach(arrContacto => {
+            
+            const contactoDiv = document.createElement('div');
+            contactoDiv.className = 'contactoDiv';
+            contactoDiv.id = 'contactoIDprop'+ arrContacto[0];
+
+            const NyAContacto = document.createElement('p');
+            NyAContacto.className = 'infoContacto';
+            NyAContacto.innerHTML = 'Nombre y apellido: <b>' + arrContacto[1] + '</b>';
+
+            const telContacto = document.createElement('p');
+            telContacto.className = 'infoContacto';
+            telContacto.innerHTML = 'Telefono: <b>' + arrContacto[2] + '</b>';
+
+            const emailContacto = document.createElement('p');
+            emailContacto.className = 'infoContacto';
+            emailContacto.innerHTML = 'Email: <b>' + arrContacto[3] + '</b>';
+
+            const idPropContacto = document.createElement('p');
+            idPropContacto.className = 'infoContacto';
+            idPropContacto.innerHTML = 'id de propiedad interesada: <b>' + arrContacto[0] + '</b>';
+
+            const mensajeContacto = document.createElement('textarea');
+            mensajeContacto.cols = 30;
+            mensajeContacto.rows = 5;
+            mensajeContacto.className = 'infoContacto';
+            mensajeContacto.value = arrContacto[4];
+
+            // para cambiar el estado de la propiedad o eliminar el container
+            /* const buttonNegociar = document.createElement('button');
+            buttonNegociar.className = 'negociarButton';
+            buttonNegociar.innerText = 'Negociar propiedad'; */
+
+            // botón para eliminar (tanto del localStorage como del div) el contacto realizado
+            const buttonDescartar = document.createElement('button');
+            buttonDescartar.className = 'descartarButton';
+            buttonDescartar.innerText = 'Descartar contacto';
+
+            contactoDiv.append(NyAContacto, telContacto, emailContacto, idPropContacto, mensajeContacto, buttonDescartar);
+            contactosContainer.appendChild(contactoDiv);
+
+            // si clickeo el botón 'descartar', se elimina el contenedor
+            buttonDescartar.addEventListener('click', function(){    
+                // lo elimino del contenedor
+                contactoDiv.remove();
+                // lo elimino también del localStorage
+                let indiceContacto = usersGuardados['user4']['Contactos'].indexOf(arrContacto);
+                usersGuardados['user4']['Contactos'].splice(indiceContacto, 1);
+                localStorage.setItem("usuarios",JSON.stringify(usersGuardados));
+            });
+
+            /* buttonNegociar.addEventListener('click',function(){
+                // accion de boton negociar
+            }) */
+        });
+
+
+        }else{
+            const sinContactos = document.createElement('h2');
+            sinContactos.innerText = 'No hay contactos.';
+            contactosContainer.appendChild(sinContactos);
+        }
+        containerHome.appendChild(contactosContainer);
+    }else{
+        console.log("el usuario conectado no es un corredor.");
+        buscaCiudadContainer.style.display = 'flex';
+    }
 }
