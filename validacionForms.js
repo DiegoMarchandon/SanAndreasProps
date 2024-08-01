@@ -358,7 +358,7 @@ export function validar(){
         if(validezForm){
             
             let cantClaves = Object.keys(usersGuardados).length;
-            let userNro = "user"+(cantClaves);
+            let userNro = "user"+(cantClaves+1);
             usersGuardados[userNro] = {
                 Username: newUsername.value,
                 Nombre: nombre.value,
@@ -370,6 +370,8 @@ export function validar(){
                 Conectado: true
             };
             // actualizo el localStorage con el nuevo usuario
+
+            delete usersGuardados["user"+(cantClaves+2)];
             localStorage.setItem('usuarios', JSON.stringify(usersGuardados));
             window.location.href = 'index.html';
             localStorage.setItem('usuarioRegistrado','true');
@@ -390,7 +392,6 @@ export function validar(){
         }
 
         if(validezForm){
-            alert("el usuario existe");
             window.location.replace('index.html');
             // guardo en localStorage una clave-valor para cambiar el iniciar sesión a cerrar sesión
             localStorage.setItem('usuarioRegistrado','true');
@@ -398,4 +399,3 @@ export function validar(){
     }   
     return validezForm;
 }
-

@@ -268,27 +268,31 @@ function divProp(propiedad){
     
     buttonFavoritos.append(imgFavoritos, imgFavoritos2);
 
-
+    function creoMiniContainer(){
+        const miniContainer = document.createElement('div');
+        miniContainer.className = 'miniContainer';
+        miniContainer.id='miniContainerNro-'+propiedad.primaryKey;
+        const miniIMG = document.createElement('img');
+        miniIMG.src = propiedad.imagenes[0];
+        miniIMG.className = 'miniIMG';
+        const miniLocalidad = document.createElement('h3');
+        miniLocalidad.innerText = propiedad.localidad;
+        miniLocalidad.className = 'miniTexts';
+        const miniUbicacion = document.createElement('h5');
+        miniUbicacion.innerText = propiedad.ubicacion;
+        miniUbicacion.className = 'miniTexts';
+        miniContainer.append(miniIMG, miniLocalidad, miniUbicacion);
+        return miniContainer;
+    }
+        const containerPropsFavs = document.getElementsByClassName('contenidoDesplegado')[0];
+        const noPropsText = document.getElementsByClassName('contenidoVacio')[0];
         buttonFavoritos.addEventListener('click',function(event){
             event.stopPropagation();
-            // poner un if(){ } afuera que se encargue de redireccionar a iniciar sesión en caso de que no haya un usuario logueado
+
             if(localStorage.getItem('usuarioRegistrado') === 'true'){
-                const miniContainer = document.createElement('div');
-                miniContainer.className = 'miniContainer';
-                miniContainer.id='miniContainerNro-'+propiedad.primaryKey;
-                const miniIMG = document.createElement('img');
-                miniIMG.src = propiedad.imagenes[0];
-                miniIMG.className = 'miniIMG';
-                const miniLocalidad = document.createElement('h3');
-                miniLocalidad.innerText = propiedad.localidad;
-                miniLocalidad.className = 'miniTexts';
-                const miniUbicacion = document.createElement('h5');
-                miniUbicacion.innerText = propiedad.ubicacion;
-                miniUbicacion.className = 'miniTexts';
-                miniContainer.append(miniIMG, miniLocalidad, miniUbicacion);
                 
-                const containerPropsFavs = document.getElementsByClassName('contenidoDesplegado')[0];
-                const noPropsText = document.getElementsByClassName('contenidoVacio')[0];
+                // creoMiniContainer();
+
                 if(imgFavoritos2.style.display === 'inline'){
                     /* escondo el corazon gris y agrego la propiedad a favoritos */
                     imgFavoritos2.style.display = 'none';
@@ -298,7 +302,7 @@ function divProp(propiedad){
                     objUsuario("Favoritas", [propiedad.primaryKey, propiedad.localidad, propiedad.ubicacion], 'agregar');
                     console.log("imagen: "+propiedad.imagenes[0] + " localidad: "+propiedad.localidad + " ubicacion: "+propiedad.ubicacion);
                     // ahora, agrego el miniContainer al div que muestra las propiedades favoritas
-                    containerPropsFavs.appendChild(miniContainer);
+                    containerPropsFavs.appendChild(creoMiniContainer());
                 }else{ // === 'none'
                     /* vuelvo a mostrar el corazon gris */
                     imgFavoritos2.style.display = 'inline';
@@ -315,15 +319,32 @@ function divProp(propiedad){
                         noPropsText.style.display = 'inline';
                     }
                 }
-                // agrego dentro del evento click, el evento load para que los cambios en los corazones de favoritos persistan 
-                window.addEventListener('load',function(){
-                    
-                })
+                
             }else{
                 window.location.href = 'formulario.html';
             }
             
         });
+
+        window.addEventListener('load',function(){
+
+            // console.log("pagina recargada");
+            if(localStorage.getItem('usuarioRegistrado') === 'true'){
+
+                // retomo la referencia al objeto usuario
+                let objUsuario = userConectado();
+                if(objUsuario['Favoritas'].length ==! 0){
+                    containerPropsFavs.appendChild(creoMiniContainer());
+                    objUsuario['Favoritas'].forEach(propFav => {
+                        // si el primary key de la propiedad en cuestión y el primer indice del arreglo de la propiedad (PK) coinciden, cambio el display del coraozn
+                        if((propiedad.primaryKey === propFav[0])){
+                            console.log("tiene display inline");
+                            imgFavoritos2.style.display = 'none';
+                        }
+                    });
+                }
+            }
+        })
 
 
 
@@ -341,16 +362,6 @@ function divProp(propiedad){
     return divPropContainer;
 }
 
-
-// tengo en cuenta el evento de recarga de pagina para mantener las propiedades en favoritos
-document.addEventListener('load',function(){
-    // guardo en una variable el objeto retornado del usuario conectado
-    let objUsuario = userConectado();
-    const miniContenedor = document.getElementsByClassName('miniContainer');
-    if(miniContenedor){
-        
-    }
-});
 
 /**
  * función para mostrar las características la propiedad seleccionada
