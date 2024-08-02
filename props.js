@@ -286,7 +286,7 @@ function divProp(propiedad){
     }
         const containerPropsFavs = document.getElementsByClassName('contenidoDesplegado')[0];
         const noPropsText = document.getElementsByClassName('contenidoVacio')[0];
-        buttonFavoritos.addEventListener('click',function(event){
+        buttonFavoritos.addEventListener('dblclick',function(event){
             event.stopPropagation();
 
             if(localStorage.getItem('usuarioRegistrado') === 'true'){
@@ -326,23 +326,35 @@ function divProp(propiedad){
             
         });
 
+        
+        
         window.addEventListener('load',function(){
-
+            
             // console.log("pagina recargada");
+            // si hay un usuario registrado...
             if(localStorage.getItem('usuarioRegistrado') === 'true'){
-
                 // retomo la referencia al objeto usuario
                 let objUsuario = userConectado();
-                if(objUsuario['Favoritas'].length ==! 0){
-                    containerPropsFavs.appendChild(creoMiniContainer());
+                
+                // console.log(objUsuario);
+                // ... Y si ese usuario tiene una más propiedades en favoritos
+                if(objUsuario['Favoritas'].length > 0){
+                    noPropsText.style.visibility = 'hidden';
+                    console.log(noPropsText.style.display);
+                    
                     objUsuario['Favoritas'].forEach(propFav => {
-                        // si el primary key de la propiedad en cuestión y el primer indice del arreglo de la propiedad (PK) coinciden, cambio el display del coraozn
+                        /* escondo el parrafo que dice que no hay propiedades que mostrar (en este caso, el de la posición 0) */
+                        // oculto el corazón gris para las propiedades guardadas 
                         if((propiedad.primaryKey === propFav[0])){
-                            // console.log("tiene display inline");
+                            // creo los mini containers y los guardo en el panel lateral
+                            creoMiniContainer();
+                            
+                            containerPropsFavs.appendChild(creoMiniContainer());
+                            console.log("coinciden las PK");
                             imgFavoritos2.style.display = 'none';
                         }
                     });
-                }
+                }else noPropsText.style.visibility = 'visible';
             }
         })
 
