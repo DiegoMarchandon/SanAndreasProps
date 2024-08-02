@@ -40,7 +40,7 @@ const boxForm = document.getElementById('box-form');
         Apellido: "Johnson",
         Email: "CarlJohnsonCJ@hotmail.com",
         Contraseña: "GrooveStreet",
-        Tipo: "Corredor",
+        Tipo: "Agente",
         PropsGuardadas: [],
         Contactos: [],
         Conectado: false
@@ -406,25 +406,25 @@ export function validar(){
 }
 
 /**
- * verifico si el usuario que está conectado es el corredor para personalizar la página home 
+ * verifico si el usuario que está conectado es el Agente para personalizar la página home 
  */
-export function corredorConected(){
+export function AgenteConected(){
     const containerHome = document.getElementById('home');
-    let userCorredor = userConectado();
+    let userAgente = userConectado();
     var buscaCiudadContainer = document.getElementsByClassName('buscarCiudad')[0];
-    if(userCorredor['Tipo'] === 'Corredor'){
+    if(userAgente['Tipo'] === 'Agente'){
         buscaCiudadContainer.style.display = 'none';
         const contactosContainer = document.createElement('div');
         contactosContainer.id = 'contactosContainer';
 
-        if(userCorredor['Contactos'].length !== 0){            
+        if(userAgente['Contactos'].length !== 0){            
         
         const contactosRec = document.createElement('h2');
         contactosRec.innerText = 'Contactos recientes';
 
         contactosContainer.appendChild(contactosRec);
 
-        userCorredor['Contactos'].forEach(arrContacto => {
+        userAgente['Contactos'].forEach(arrContacto => {
             
             const contactoDiv = document.createElement('div');
             contactoDiv.className = 'contactoDiv';
@@ -488,7 +488,7 @@ export function corredorConected(){
         }
         containerHome.appendChild(contactosContainer);
     }else{
-        console.log("el usuario conectado no es un corredor.");
+        console.log("el usuario conectado no es un Agente.");
         buscaCiudadContainer.style.display = 'flex';
     }
 }

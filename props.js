@@ -1,12 +1,4 @@
-// import imagenes from './imagenes.js';
-/* import {
-    Casa1LSfotos, Casa2LSfotos, Casa3LSfotos, Casa4LSfotos, Depto1LSfotos, 
-    Casa5LSfotos, Depto2LSfotos, Mansion1LSfotos, Mansion2LSfotos, Casa1SFfotos, 
-    Casa2SFfotos, Casa3SFfotos, Depto1SFfotos, Casa4SFfotos, Casa5SFfotos, 
-    Casa6SFfotos, Casa1LVfotos, Casa2LVfotos, Casa3LVfotos, Depto1LVfotos, 
-    Depto2LVfotos, Depto3LVfotos, Depto4LVfotos, Depto5LVfotos, Casa4LVfotos
-} from './infoProps.js'; */
-  
+
 import {
     casasTotales
 } from './infoProps.js';
@@ -16,13 +8,12 @@ import {
 } from './validacionForms.js';
 
 import { 
-    mapaDinamico, insertProp 
+    insertProp 
 } from "./mapSettings.js";
 
 import {
     objUsuario, userConectado
 } from "./validacionForms.js";
-// mapaDinamico();
 
 // contenedor principal para visualización de las propiedades
 const contenedorPropiedades = document.getElementById('vistaPropiedades');
@@ -286,14 +277,21 @@ function divProp(propiedad){
     }
         const containerPropsFavs = document.getElementsByClassName('contenidoDesplegado')[0];
         const noPropsText = document.getElementsByClassName('contenidoVacio')[0];
+
+         // retomo la referencia al objeto usuario
+        let objUserConectado = userConectado();
+
+
         buttonFavoritos.addEventListener('dblclick',function(event){
             event.stopPropagation();
-
             if(localStorage.getItem('usuarioRegistrado') === 'true'){
+               
+                document.getElementById('cantPropsFavs').innerText = parseInt(objUserConectado['Favoritas'].length);
                 
                 // creoMiniContainer();
 
                 if(imgFavoritos2.style.display === 'inline'){
+                    
                     /* escondo el corazon gris y agrego la propiedad a favoritos */
                     imgFavoritos2.style.display = 'none';
                     /* escondo el parrafo que dice que no hay propiedades que mostrar (en este caso, el de la posición 0) */
@@ -303,6 +301,9 @@ function divProp(propiedad){
                     // console.log("imagen: "+propiedad.imagenes[0] + " localidad: "+propiedad.localidad + " ubicacion: "+propiedad.ubicacion);
                     // ahora, agrego el miniContainer al div que muestra las propiedades favoritas
                     containerPropsFavs.appendChild(creoMiniContainer());
+
+                    // actualizo el texto de la parte superior 
+                    document.getElementById('cantPropsFavs').innerText = parseInt(objUserConectado['Favoritas'].length);
                 }else{ // === 'none'
                     /* vuelvo a mostrar el corazon gris */
                     imgFavoritos2.style.display = 'inline';
@@ -318,6 +319,8 @@ function divProp(propiedad){
                     if(elemHijos.length === 1){
                         noPropsText.style.display = 'inline';
                     }
+                    // actualizo el texto de la parte superior 
+                    document.getElementById('cantPropsFavs').innerText = parseInt(objUserConectado['Favoritas'].length);
                 }
                 
             }else{
@@ -333,16 +336,15 @@ function divProp(propiedad){
             // console.log("pagina recargada");
             // si hay un usuario registrado...
             if(localStorage.getItem('usuarioRegistrado') === 'true'){
-                // retomo la referencia al objeto usuario
-                let objUsuario = userConectado();
+                
                 
                 // console.log(objUsuario);
                 // ... Y si ese usuario tiene una más propiedades en favoritos
-                if(objUsuario['Favoritas'].length > 0){
+                if(objUserConectado['Favoritas'].length > 0){
                     noPropsText.style.visibility = 'hidden';
                     console.log(noPropsText.style.display);
                     
-                    objUsuario['Favoritas'].forEach(propFav => {
+                    objUserConectado['Favoritas'].forEach(propFav => {
                         /* escondo el parrafo que dice que no hay propiedades que mostrar (en este caso, el de la posición 0) */
                         // oculto el corazón gris para las propiedades guardadas 
                         if((propiedad.primaryKey === propFav[0])){
@@ -511,22 +513,22 @@ function propiedadElegida(slidePropiedad, imagenesProp, caracteristicasProp, bot
         }
     })
 
-    // formulario de contacto con el corredor
+    // formulario de contacto con el Agente
     const formularioContacto = document.createElement('div');
     formularioContacto.id = 'formContacto';
     // creo imagenes y textos del div: 
     let contactoH2 = document.createElement('h2');
     contactoH2.innerText = 'Contacto';
-    let nombreCorredor = document.createElement('h3');
-    nombreCorredor.innerText = 'Carl Johnson';
-    let corredorCaracteristicas = document.createElement('p');
-    corredorCaracteristicas.innerHTML = '<i><strong>SA PROPS</strong> Ganton</i>';
+    let nombreAgente = document.createElement('h3');
+    nombreAgente.innerText = 'Carl Johnson';
+    let AgenteCaracteristicas = document.createElement('p');
+    AgenteCaracteristicas.innerHTML = '<i><strong>SA PROPS</strong> Ganton</i>';
     let contactanos = document.createElement('h2');
     contactanos.innerText = 'déjanos tu contacto';
     let imgCJ = document.createElement('img');
     imgCJ.id = 'CJ';
     imgCJ.src = 'imagenes/gallery149.jpg';
-    imgCJ.alt = 'Corredor Carl Johnson';
+    imgCJ.alt = 'Agente Carl Johnson';
     let imgMailLogo = document.createElement('img');
     imgMailLogo.id = 'mailLogo';
     imgMailLogo.className = 'logosContacto';
@@ -605,7 +607,7 @@ function propiedadElegida(slidePropiedad, imagenesProp, caracteristicasProp, bot
     contactoDatos.append(NyAContainer, errorNyA, telefonoContainer, errorTelefono, emailContainer, errorEmail, mensajeContainer, envioDatos);
 
     // inserto el formulario + textos + imagenes en el div de formulario
-    formularioContacto.append(contactoH2, nombreCorredor, corredorCaracteristicas, contactanos, imgCJ, imgMailLogo, imgTelLogo, contactoDatos);
+    formularioContacto.append(contactoH2, nombreAgente, AgenteCaracteristicas, contactanos, imgCJ, imgMailLogo, imgTelLogo, contactoDatos);
 
     // si se comprueba que todos los datos son válidos, se activa el botón submit
     function validacionDatos(){
@@ -672,8 +674,8 @@ function propiedadElegida(slidePropiedad, imagenesProp, caracteristicasProp, bot
         const mensajeUser = mensajeDeContacto.value;
         var arrUserInfo = [idProp, NyAuser, telUser, mailUser, mensajeUser];
         const usuariosTotales = JSON.parse(localStorage.getItem('usuarios'));
-        const corredor = usuariosTotales["user4"];
-        corredor['Contactos'].push(arrUserInfo);
+        const Agente = usuariosTotales["user4"];
+        Agente['Contactos'].push(arrUserInfo);
         localStorage.setItem("usuarios",JSON.stringify(usuariosTotales));
     })
     
@@ -920,18 +922,7 @@ function cambioImagen(action, coleccionIMG, containerIMG){
 
 /* registro el evento submit del formulario */
 document.getElementById("form-filtros").addEventListener('submit',filtro);
-/* funciones a exportar a home.js */
-/* export function muestraAlquileres(){
-    var accionSeleccionada = document.getElementById('selectAccion');
-    var accionAlquilar = accionSeleccionada.selectedIndex = 2;
-    Object.values(casasTotales).forEach(casa => {
-        // aplicar un strcasecmp para comparación insensible a minúsculas y mayúsculas
-        if(casa.opcion === accionAlquilar){
-            divProp(casa);
-        }
 
-    });
-} */
 
 /* registro que, si existen las variables, aplico el filtro con los valores modificados */
 

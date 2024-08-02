@@ -208,6 +208,7 @@
     if(localStorage.getItem('usuarioRegistrado') === 'true'){
         const usuarioRef = userConectado();
         sesion.innerText = 'Bienvenido ' + usuarioRef['Username'];
+        cantPropsFavs.innerText = usuarioRef['Tipo'] === 'Cliente' ? usuarioRef['Favoritas'].length : " N/A";
         document.querySelector('.panel-lateral').style.display = 'block';
     }else{
         document.querySelector('.panel-lateral').style.display = 'none';

@@ -198,10 +198,10 @@
 </footer>
 <script type="module">
     const formularioSubmit = document.getElementById('searchForm');
-
+    const cantPropsFavs = document.getElementById('cantPropsFavs');
     import { verPropuesta, autocompletado } from './home.js';
     import { despliega, showContent, conversor } from './viewScripts.js';
-    import { userConectado, userDesconect, corredorConected } from './validacionForms.js';
+    import { userConectado, userDesconect, AgenteConected } from './validacionForms.js';
     window.verPropuesta = verPropuesta;
     window.despliega = despliega;
     window.showContent = showContent;
@@ -209,13 +209,14 @@
     window.userConectado = userConectado;
     window.userDesconect = userDesconect;
     window.autocompletado = autocompletado;
-    window.corredorConected = corredorConected;
+    window.AgenteConected = AgenteConected;
     document.addEventListener('DOMContentLoaded', function(){
         var sesion = document.getElementsByClassName('admSesion')[0];
     // si la clave usuarioRegistrado guarda el valor true:
     if(localStorage.getItem('usuarioRegistrado') === 'true'){
         const usuarioRef = userConectado();
         sesion.innerText = 'Bienvenido ' + usuarioRef['Username'];
+        cantPropsFavs.innerText = usuarioRef['Tipo'] === 'Cliente' ? usuarioRef['Favoritas'].length : " N/A";
         document.querySelector('.panel-lateral').style.display = 'block';
     }else{
         document.querySelector('.panel-lateral').style.display = 'none';
@@ -245,7 +246,7 @@
     autocompletado(document.getElementById('eleccion'));
     });
     
-    corredorConected();
+    AgenteConected();
 
 </script>
 </body>
