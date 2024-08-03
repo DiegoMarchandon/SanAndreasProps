@@ -137,3 +137,17 @@
 #monedaValue2{
     margin-left: 4px;
 }
+
+.MSJLateralContainer{
+    width: 120px;
+    height: 65px;
+    background-color: white;
+    border-bottom: 2px dashed black;
+    margin: 5px;
+}
+#MSJcontenido{
+    margin: 5px;
+    vertical-align:middle;
+    color: black;
+    font-weight: 400;
+}

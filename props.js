@@ -284,7 +284,7 @@ function divProp(propiedad){
 
         buttonFavoritos.addEventListener('dblclick',function(event){
             event.stopPropagation();
-            if(localStorage.getItem('usuarioRegistrado') === 'true'){
+            if(localStorage.getItem('usuarioRegistrado') === 'true' && objUserConectado['Tipo'] === 'Cliente'){
                
                 document.getElementById('cantPropsFavs').innerText = parseInt(objUserConectado['Favoritas'].length);
                 
@@ -335,7 +335,7 @@ function divProp(propiedad){
             
             // console.log("pagina recargada");
             // si hay un usuario registrado...
-            if(localStorage.getItem('usuarioRegistrado') === 'true'){
+            if(localStorage.getItem('usuarioRegistrado') === 'true' && objUserConectado['Tipo'] === 'Cliente'){
                 
                 
                 // console.log(objUsuario);

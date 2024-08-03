@@ -413,80 +413,106 @@ export function AgenteConected(){
     let userAgente = userConectado();
     var buscaCiudadContainer = document.getElementsByClassName('buscarCiudad')[0];
     if(userAgente['Tipo'] === 'Agente'){
-        buscaCiudadContainer.style.display = 'none';
+        if(buscaCiudadContainer){
+            buscaCiudadContainer.style.display = 'none';
+        }
         const contactosContainer = document.createElement('div');
         contactosContainer.id = 'contactosContainer';
 
+        let MSJdisponibles = document.getElementsByClassName('contenidoVacio')[1];
+        const mensajesContainer = document.getElementsByClassName('contenidoDesplegado')[2];
         if(userAgente['Contactos'].length !== 0){            
-        
-        const contactosRec = document.createElement('h2');
-        contactosRec.innerText = 'Contactos recientes';
 
-        contactosContainer.appendChild(contactosRec);
+            // oculto el parrafo que se muestra por defecto en la seccion de mensajes
+            MSJdisponibles.style.display = 'none';
 
-        userAgente['Contactos'].forEach(arrContacto => {
-            
-            const contactoDiv = document.createElement('div');
-            contactoDiv.className = 'contactoDiv';
-            contactoDiv.id = 'contactoIDprop'+ arrContacto[0];
+            const contactosRec = document.createElement('h2');
+            contactosRec.innerText = 'Contactos recientes';
 
-            const NyAContacto = document.createElement('p');
-            NyAContacto.className = 'infoContacto';
-            NyAContacto.innerHTML = 'Nombre y apellido: <b>' + arrContacto[1] + '</b>';
+            contactosContainer.appendChild(contactosRec);
 
-            const telContacto = document.createElement('p');
-            telContacto.className = 'infoContacto';
-            telContacto.innerHTML = 'Telefono: <b>' + arrContacto[2] + '</b>';
+            userAgente['Contactos'].forEach(arrContacto => {
+                
+                //elementos HTML para visualizar mensajes en la barra lateral
+                const MSJLateralContainer = document.createElement('div');
+                MSJLateralContainer.className = 'MSJLateralContainer';
 
-            const emailContacto = document.createElement('p');
-            emailContacto.className = 'infoContacto';
-            emailContacto.innerHTML = 'Email: <b>' + arrContacto[3] + '</b>';
+                const MSJcontenido = document.createElement('h4');
+                MSJcontenido.id = 'MSJcontenido';
+                MSJcontenido.innerHTML = 'Nuevo Mensaje por la propiedad con el ID : <b>' + arrContacto[0] + '</b>';
 
-            const idPropContacto = document.createElement('p');
-            idPropContacto.className = 'infoContacto';
-            idPropContacto.innerHTML = 'id de propiedad interesada: <b>' + arrContacto[0] + '</b>';
+                MSJLateralContainer.appendChild(MSJcontenido);
+                mensajesContainer.appendChild(MSJLateralContainer);
 
-            const mensajeContacto = document.createElement('textarea');
-            mensajeContacto.cols = 30;
-            mensajeContacto.rows = 5;
-            mensajeContacto.className = 'infoContacto';
-            mensajeContacto.value = arrContacto[4];
+                // elementos HTML para visualizarse en la seccion home
+                const contactoDiv = document.createElement('div');
+                contactoDiv.className = 'contactoDiv';
+                contactoDiv.id = 'contactoIDprop'+ arrContacto[0];
 
-            // para cambiar el estado de la propiedad o eliminar el container
-            /* const buttonNegociar = document.createElement('button');
-            buttonNegociar.className = 'negociarButton';
-            buttonNegociar.innerText = 'Negociar propiedad'; */
+                const NyAContacto = document.createElement('p');
+                NyAContacto.className = 'infoContacto';
+                NyAContacto.innerHTML = 'Nombre y apellido: <b>' + arrContacto[1] + '</b>';
 
-            // botón para eliminar (tanto del localStorage como del div) el contacto realizado
-            const buttonDescartar = document.createElement('button');
-            buttonDescartar.className = 'descartarButton';
-            buttonDescartar.innerText = 'Descartar contacto';
+                const telContacto = document.createElement('p');
+                telContacto.className = 'infoContacto';
+                telContacto.innerHTML = 'Telefono: <b>' + arrContacto[2] + '</b>';
 
-            contactoDiv.append(NyAContacto, telContacto, emailContacto, idPropContacto, mensajeContacto, buttonDescartar);
-            contactosContainer.appendChild(contactoDiv);
+                const emailContacto = document.createElement('p');
+                emailContacto.className = 'infoContacto';
+                emailContacto.innerHTML = 'Email: <b>' + arrContacto[3] + '</b>';
 
-            // si clickeo el botón 'descartar', se elimina el contenedor
-            buttonDescartar.addEventListener('click', function(){    
-                // lo elimino del contenedor
-                contactoDiv.remove();
-                // lo elimino también del localStorage
-                let indiceContacto = usersGuardados['user4']['Contactos'].indexOf(arrContacto);
-                usersGuardados['user4']['Contactos'].splice(indiceContacto, 1);
-                localStorage.setItem("usuarios",JSON.stringify(usersGuardados));
+                const idPropContacto = document.createElement('p');
+                idPropContacto.className = 'infoContacto';
+                idPropContacto.innerHTML = 'id de propiedad interesada: <b>' + arrContacto[0] + '</b>';
+
+                const mensajeContacto = document.createElement('textarea');
+                mensajeContacto.cols = 30;
+                mensajeContacto.rows = 5;
+                mensajeContacto.className = 'infoContacto';
+                mensajeContacto.value = arrContacto[4];
+
+                // para cambiar el estado de la propiedad o eliminar el container
+                /* const buttonNegociar = document.createElement('button');
+                buttonNegociar.className = 'negociarButton';
+                buttonNegociar.innerText = 'Negociar propiedad'; */
+
+                // botón para eliminar (tanto del localStorage como del div) el contacto realizado
+                const buttonDescartar = document.createElement('button');
+                buttonDescartar.className = 'descartarButton';
+                buttonDescartar.innerText = 'Descartar contacto';
+
+                contactoDiv.append(NyAContacto, telContacto, emailContacto, idPropContacto, mensajeContacto, buttonDescartar);
+                contactosContainer.appendChild(contactoDiv);
+
+                // si clickeo el botón 'descartar', se elimina el contenedor
+                buttonDescartar.addEventListener('click', function(){    
+                    // lo elimino del contenedor
+                    contactoDiv.remove();
+                    // lo elimino de los mensajes de la barra lateral
+                    MSJLateralContainer.remove();
+                    // lo elimino también del localStorage
+                    let indiceContacto = usersGuardados['user4']['Contactos'].indexOf(arrContacto);
+                    usersGuardados['user4']['Contactos'].splice(indiceContacto, 1);
+                    localStorage.setItem("usuarios",JSON.stringify(usersGuardados));
+                });
+
+                /* buttonNegociar.addEventListener('click',function(){
+                    // accion de boton negociar
+                }) */
             });
-
-            /* buttonNegociar.addEventListener('click',function(){
-                // accion de boton negociar
-            }) */
-        });
 
 
         }else{
             const sinContactos = document.createElement('h2');
             sinContactos.innerText = 'No hay contactos.';
             contactosContainer.appendChild(sinContactos);
+            // muestro de nuevo el parrafo que se muestra por defecto en la seccion de mensajes
+            MSJdisponibles.style.display = 'inline';
+
         }
-        containerHome.appendChild(contactosContainer);
+        if(containerHome){
+            containerHome.appendChild(contactosContainer);
+        }
     }else{
         console.log("el usuario conectado no es un Agente.");
         buscaCiudadContainer.style.display = 'flex';

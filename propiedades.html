@@ -214,30 +214,43 @@
 <script type="module">
     import { verPropuesta } from './home.js';
     import { despliega, showContent, conversor } from './viewScripts.js';
-    import { userConectado, userDesconect } from './validacionForms.js';
+    import { userConectado, userDesconect, AgenteConected } from './validacionForms.js';
     window.verPropuesta = verPropuesta;
     window.despliega = despliega;
     window.showContent = showContent;
     window.conversor = conversor;
     window.userConectado = userConectado;
     window.userDesconect = userDesconect;
+    window.AgenteConected = AgenteConected;
     var sesion = document.getElementsByClassName('admSesion')[0];
+    const noMSJS = document.getElementsByClassName('contenidoVacio')[0];
     // si la clave usuarioRegistrado guarda el valor true:
     if(localStorage.getItem('usuarioRegistrado') === 'true'){
         const usuarioRef = userConectado();
         sesion.innerText = 'Bienvenido ' + usuarioRef['Username'];
         cantPropsFavs.innerText = usuarioRef['Tipo'] === 'Cliente' ? usuarioRef['Favoritas'].length : " N/A";
+
+        if(usuarioRef['Tipo'] === 'Agente' && (usuarioRef['Contactos'].length > 0)){
+            noMSJS.style.display = 'none';
+        }else{
+            noMSJS.style.display = 'inline';
+        }
+
         document.querySelector('.panel-lateral').style.display = 'block';
     }else{
         document.querySelector('.panel-lateral').style.display = 'none';
         sesion.innerText = 'Iniciar Sesión';
     }
+
+    
     sesion.addEventListener('click',function(){
         if(localStorage.getItem('usuarioRegistrado') === 'true'){
             localStorage.setItem('usuarioRegistrado',false);
             userDesconect();
         }
     })
+
+    AgenteConected();
 </script>
 </body>
 </html>
