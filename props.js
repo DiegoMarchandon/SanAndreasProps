@@ -4,7 +4,7 @@ import {
 } from './infoProps.js';
 
 import {
-    nombreValido, telefonoValido, mailValido
+    nombreValido, telefonoValido, mailValido, newPropsGuardadas
 } from './validacionForms.js';
 
 import { 
@@ -298,6 +298,11 @@ function divProp(propiedad){
                     noPropsText.style.display = 'none';
                     // función que se encarga de guardar o actualizar datos del usuario conectado
                     objUsuario("Favoritas", [propiedad.primaryKey, propiedad.localidad, propiedad.ubicacion], 'agregar');
+
+                    // también actualizo el obj de propiedades guardadas en el Agente
+                    console.log('voy a agregar la prop');
+                    newPropsGuardadas(propiedad.primaryKey, 'agregar');
+
                     // console.log("imagen: "+propiedad.imagenes[0] + " localidad: "+propiedad.localidad + " ubicacion: "+propiedad.ubicacion);
                     // ahora, agrego el miniContainer al div que muestra las propiedades favoritas
                     containerPropsFavs.appendChild(creoMiniContainer());
@@ -313,6 +318,9 @@ function divProp(propiedad){
                         containerPropsFavs.removeChild(containerPorID);
                     }
                     objUsuario("Favoritas",[propiedad.primaryKey, propiedad.localidad, propiedad.ubicacion], 'eliminar')
+                    // también actualizo el obj de propiedades guardadas en el Agente
+                    console.log('322');
+                    newPropsGuardadas(propiedad.primaryKey, 'eliminar');
                     /* si quito todas las propiedades */
                     const elemHijos = containerPropsFavs.children;
                     // console.log("cantidad de nodos hijos actual es de: " + elemHijos.length + " y son: " + JSON.stringify(elemHijos));
@@ -342,7 +350,7 @@ function divProp(propiedad){
                 // ... Y si ese usuario tiene una más propiedades en favoritos
                 if(objUserConectado['Favoritas'].length > 0){
                     noPropsText.style.visibility = 'hidden';
-                    console.log(noPropsText.style.display);
+                    // console.log(noPropsText.style.display);
                     
                     objUserConectado['Favoritas'].forEach(propFav => {
                         /* escondo el parrafo que dice que no hay propiedades que mostrar (en este caso, el de la posición 0) */
@@ -352,7 +360,7 @@ function divProp(propiedad){
                             creoMiniContainer();
                             
                             containerPropsFavs.appendChild(creoMiniContainer());
-                            console.log("coinciden las PK");
+                            // console.log("coinciden las PK");
                             imgFavoritos2.style.display = 'none';
                         }
                     });

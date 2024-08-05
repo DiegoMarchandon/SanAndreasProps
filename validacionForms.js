@@ -41,7 +41,7 @@ const boxForm = document.getElementById('box-form');
         Email: "CarlJohnsonCJ@hotmail.com",
         Contraseña: "GrooveStreet",
         Tipo: "Agente",
-        PropsGuardadas: [],
+        PropsGuardadas: {},
         Contactos: [],
         Conectado: false
     }
@@ -129,11 +129,13 @@ export function objUsuario(clave, valor, accion = 'agregar'){
             if(accion === 'agregar'){ //si se mantiene la accion por defecto
                 // si lo es, guardamos el valor como un elemento pusheado 
                 usersGuardados[nameUsers][clave].push(valor);
+                // newPropsGuardadas(valor[0],'agregar');
             }else{ //si se eliminan
                 const userFavoritas = usersGuardados[nameUsers]["Favoritas"];
                 const indice = userFavoritas.findIndex(arr=> JSON.stringify(arr) === JSON.stringify(valor));
                 // let index = usersGuardados[nameUsers][clave].indexOf(valor);
                 console.log(indice);
+                // newPropsGuardadas(valor[0],'eliminar');
                 if (indice > -1) { //si se encontró el índice, retorna el número referente a su posición
                     usersGuardados[nameUsers][clave].splice(indice, 1);
                     console.log("indice encontrado y eliminado. Ahora están: "+ usersGuardados[nameUsers][clave]);
@@ -406,7 +408,7 @@ export function validar(){
 }
 
 /**
- * verifico si el usuario que está conectado es el Agente para personalizar la página home 
+ * verifico si el usuario que está conectado es el Agente para personalizar la página home y la barra lateral
  */
 export function AgenteConected(){
     const containerHome = document.getElementById('home');
@@ -419,12 +421,16 @@ export function AgenteConected(){
         const contactosContainer = document.createElement('div');
         contactosContainer.id = 'contactosContainer';
 
-        let MSJdisponibles = document.getElementsByClassName('contenidoVacio')[1];
+        const MSJdisponibles = document.getElementsByClassName('contenidoVacio')[1];
         const mensajesContainer = document.getElementsByClassName('contenidoDesplegado')[2];
+        const puntoNewMSJ = document.getElementById('avisoMSJ');
+        const novedadesDisponibles = document.getElementsByClassName('contenidoVacio')[2];
+        const novedadesText = document.getElementById('novedadesText');
+        const novedadesContainer = document.getElementsByClassName('contenidoDesplegado')[3];
+
         if(userAgente['Contactos'].length !== 0){            
 
-            // oculto el parrafo que se muestra por defecto en la seccion de mensajes
-            MSJdisponibles.style.display = 'none';
+            puntoNewMSJ.style.backgroundColor = 'lightgreen';
 
             const contactosRec = document.createElement('h2');
             contactosRec.innerText = 'Contactos recientes';
@@ -494,6 +500,10 @@ export function AgenteConected(){
                     let indiceContacto = usersGuardados['user4']['Contactos'].indexOf(arrContacto);
                     usersGuardados['user4']['Contactos'].splice(indiceContacto, 1);
                     localStorage.setItem("usuarios",JSON.stringify(usersGuardados));
+                    if(mensajesContainer.childElementCount === 0){
+                        puntoNewMSJ.style.backgroundColor = 'gray';
+                        MSJdisponibles.innerText = 'No hay mensajes disponibles.';
+                    }
                 });
 
                 /* buttonNegociar.addEventListener('click',function(){
@@ -503,18 +513,66 @@ export function AgenteConected(){
 
 
         }else{
+            puntoNewMSJ.style.backgroundColor = 'gray';
             const sinContactos = document.createElement('h2');
             sinContactos.innerText = 'No hay contactos.';
             contactosContainer.appendChild(sinContactos);
             // muestro de nuevo el parrafo que se muestra por defecto en la seccion de mensajes
-            MSJdisponibles.style.display = 'inline';
-
+            MSJdisponibles.innerText = 'No hay mensajes disponibles.';
         }
         if(containerHome){
             containerHome.appendChild(contactosContainer);
         }
+
+        let userKeys = Object.keys(usersGuardados);
+        userKeys.forEach(userKey =>{
+            var sumaProps = 0;
+            if(usersGuardados[userKey]['Favoritas'].length > 0){
+                sumaProps += usersGuardados[userKey]['Favoritas'].length;
+            }
+        });
+        if(sumaProps > 0){
+            // novedadesContainer
+            /* mostrar en novedadesContainer la información con las propiedades más guardadas */
+            novedadesDisponibles.style.backgroundColor = 'lightgreen';
+
+        }else{
+            novedadesText.innerText = 'No hay novedades disponibles.';
+            novedadesDisponibles.style.backgroundColor = 'gray';
+        }
     }else{
-        console.log("el usuario conectado no es un Agente.");
-        buscaCiudadContainer.style.display = 'flex';
+        if(buscaCiudadContainer){
+            console.log("el usuario conectado no es un Agente.");
+            buscaCiudadContainer.style.display = 'flex';
+        }
     }
+}
+
+/**
+ * actualizo el objeto de propiedades guardadas dentro del agente cada vez que un usuario agrega una propiedad a favoritos.
+ */
+export function newPropsGuardadas(idParam, accion = 'agregar'){
+    
+    var idProp = 'idProp'+idParam;
+    if(accion == 'agregar'){
+        console.log(usersGuardados['user4']['PropsGuardadas'][idProp]);
+        if(usersGuardados['user4']['PropsGuardadas'][idProp]){
+            console.log('prop existente. Se incrementará el valor ');
+            usersGuardados['user4']['PropsGuardadas'][idProp] += 1;
+        }else{
+            console.log('prop no existente, se agregará con valor 1');
+            usersGuardados['user4']['PropsGuardadas'][idProp] = 1;
+        }
+    }else if(accion == 'eliminar'){ //'eliminar'
+        console.log('propiedad eliminada en propsGuardadas');
+        usersGuardados['user4']['PropsGuardadas'][idProp]--;
+        // si determinada clave (referente a una propiedad) se queda en 0, la elimino
+        if(usersGuardados['user4']['PropsGuardadas'][idProp] <= 0 || usersGuardados['user4']['PropsGuardadas'][idProp] === null){
+            delete usersGuardados['user4']['PropsGuardadas'][idProp];
+        }
+    }else{
+        console.log('nofunsioan');
+    }
+    
+    localStorage.setItem("usuarios",JSON.stringify(usersGuardados));
 }

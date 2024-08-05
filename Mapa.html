@@ -178,7 +178,7 @@
             <p class="trianguloDesplegable" onclick="showContent(this)">▲</p>
         </div>
         <div class="contenidoDesplegado">
-            <p class="contenidoVacio">No hay mensajes.</p>
+            <p class="contenidoVacio"></p>
         </div>
     </div>
     
@@ -189,7 +189,7 @@
             <p class="trianguloDesplegable" onclick="showContent(this)">▲</p>
         </div>
         <div class="contenidoDesplegado">
-            <p class="contenidoVacio">No hay novedades.</p>
+            <p class="contenidoVacio"></p>
         </div>
     </div>
 </div>
@@ -198,12 +198,13 @@
     import { mapaDinamico } from "./mapSettings.js";
     mapaDinamico();
     import { despliega, showContent, conversor } from './viewScripts.js';
-    import { userConectado, userDesconect } from './validacionForms.js';
+    import { userConectado, userDesconect, AgenteConected } from './validacionForms.js';
     window.despliega = despliega;
     window.showContent = showContent;
     window.conversor = conversor;
     window.userConectado = userConectado;
     window.userDesconect = userDesconect;
+    window.AgenteConected  = AgenteConected ;
     var sesion = document.getElementsByClassName('admSesion')[0];
     if(localStorage.getItem('usuarioRegistrado') === 'true'){
         const usuarioRef = userConectado();
@@ -220,6 +221,8 @@
             userDesconect();
         }
     })
+
+    AgenteConected();
 </script>
 </body>
 </html>
