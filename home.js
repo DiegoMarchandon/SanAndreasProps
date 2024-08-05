@@ -338,11 +338,3 @@ export function autocompletado(zonaInput){
     })
 
 }
-
-
-/* export function guardaInputs(){
-    localStorage.setItem('zonaSugerida',(document.getElementById('eleccion').value));
-    localStorage.setItem('seleccionRealizada',(document.getElementById('ciudadOption').value));
-    window.location.href = 'propiedades.html';
-}
- */
