@@ -537,7 +537,7 @@ function propiedadElegida(slidePropiedad, imagenesProp, caracteristicasProp, bot
     contactanos.innerText = 'déjanos tu contacto';
     let imgCJ = document.createElement('img');
     imgCJ.id = 'CJ';
-    imgCJ.src = 'imagenes/gallery149.jpg';
+    imgCJ.src = 'https://i.imgur.com/iDuPEYu.jpeg';
     imgCJ.alt = 'Agente Carl Johnson';
     let imgMailLogo = document.createElement('img');
     imgMailLogo.id = 'mailLogo';
@@ -737,7 +737,7 @@ function propiedadElegida(slidePropiedad, imagenesProp, caracteristicasProp, bot
     const IMGmap = document.createElement('img');
     IMGmap.alt = "GTA MAP";
     IMGmap.id = "propiedadElegida";
-    IMGmap.src = "imagenes/SanAndreasMap.png";
+    IMGmap.src = "https://i.imgur.com/euiIx5B.png";
     
     contenedorInterno.appendChild(IMGmap);
     // inserto las propiedades en el minimapa y utilizo el segundo parametro para aplicar la correccion

@@ -161,7 +161,8 @@ import {
         }
         // ahora personalizo la tarjeta dependiendo de la opción:
         if(opcion === "emprendimiento"){
-            backgroundOpcion.style.backgroundImage = 'url(imagenes/wang-cars.jpg)';
+            // backgroundOpcion.style.backgroundImage = 'url(imagenes/wang-cars.jpg)';
+            backgroundOpcion.style.backgroundImage = 'url(https://files.libertycity.net/download/gtasade_scripts/thumbs/2021-11/ozhivlenie-avtosalona-wang-cars_1686008926_451464.jpg)';
             cardOpcion.style.border = '2px solid lightblue';
             cardOpcion.style.backgroundColor = '#0dd8ce10';
             cardOpcion.style.cursor = 'pointer';
@@ -170,7 +171,7 @@ import {
                 localStorage.setItem('selectPropiedad', 'Comercio');
             })
             IMGopcionContainer.style.backgroundImage = 'linear-gradient(lightblue,black)';
-            IMGopcionEjemplo.src = 'imagenes/wangCarsAI.jpg';
+            IMGopcionEjemplo.src = 'https://th.bing.com/th/id/R.9e1adb6ec18e7a28d342f0c260ee8a59?rik=yJLoCGVVyvJIiQ&riu=http%3a%2f%2fimg-fotki.yandex.ru%2fget%2f9329%2f142340513.1a%2f0_14ae5c_3091b2de_orig.jpg&ehk=1E7Z2ceT5BkWYikFhJYujmkkpiT6lZs2TBJhdAHyNZA%3d&risl=&pid=ImgRaw&r=0';
             textOpcion.innerText = 'Ofrecemos inversiones atractivas a través de fondos de comercio y demás unidades comerciales con precios competitivos y diversas facilidades de pago. Abarcamos una gama exclusiva de proyectos innovadores y de alta calidad, diseñados para satisfacer sus necesidades y transformar sus sueños en realidades.';
             buttonOpcion.style.backgroundColor = 'lightblue';
             buttonOpcion.innerText = ' ver Emprendimientos';
@@ -184,13 +185,15 @@ import {
                 window.location.href = 'propiedades.html';
             })
             IMGopcionContainer.style.backgroundImage = 'linear-gradient(rgb(64, 180, 64),black)';
-            IMGopcionEjemplo.src = 'imagenes/prop1Smoke.jpg';
+            IMGopcionEjemplo.src = 'https://i.imgur.com/E6xDjpK.jpeg';
             textOpcion.innerHTML = '<b>descubre tu hogar ideal con nosotros. </b> Escoge entre una amplia variedad de opciones que se adaptan a tus necesidades y estilo de vida. Desde acogedores apartamentos hasta lujosas casas, cada propiedad ha sido seleccionada cuidadosamente para ofrecerte la mejor calidad y ubicación. ¡Tu próxima aventura comienza con un nuevo hogar, y estamos aquí para ayudarte a encontrarlo!';
             buttonOpcion.style.backgroundColor = 'lightgreen';
             buttonOpcion.innerText = ' ver Propiedades';
 
         }else if(opcion === "alquileres"){
-            backgroundOpcion.style.backgroundImage = 'url(imagenes/alquileresBackground.jpg)';
+            // backgroundOpcion.style.backgroundImage = 'url(imagenes/alquileresBackground.jpg)';
+            backgroundOpcion.style.backgroundImage = 'url(https://staticg.sportskeeda.com/editor/2021/11/6cf5b-16373453675647-1920.jpg)';
+            
             cardOpcion.style.border = '2px solid rgb(233, 166, 66)';
             cardOpcion.style.backgroundColor = '#ee871210';
             cardOpcion.style.cursor = 'pointer';

@@ -27,7 +27,7 @@ body{
     /* background-size: cover; */
     /* background-position: center -75px; */
     background: linear-gradient(to bottom, rgba(255,0,0,0) 60%, rgba(255, 152, 0,1)), 
-                url(imagenes/saProps.png) no-repeat center -75px / cover;
+                url(https://kalix.club/uploads/posts/2022-12/1671474529_kalix-club-p-arizona-rp-oboi-krasivo-10.jpg) no-repeat center -75px / cover;
     background-size: 100% 700px;
     height: auto;
 }
@@ -158,7 +158,7 @@ select{
     background-size: cover;
 }
 .losSantos{
-    background-image: url(imagenes/losSantosCityFoto.png);
+    background-image: url(https://kartinki.pics/uploads/posts/2021-04/1617609559_21-p-gta-san-andreas-fon-21.png);
     bottom: 10%;
     right: 5%;
 }
@@ -170,7 +170,7 @@ select{
 }
 
 .lasVenturas{
-    background-image: url(imagenes/lasVenturasCityFoto.png);
+    background-image: url(https://vignette.wikia.nocookie.net/es.gta/images/1/16/Vista_panoramica_de_Las_Venturas.PNG/revision/latest/scale-to-width-down/640?cb=20110206181757);
     bottom: 10%;
     right: 5%;
 }
@@ -334,7 +334,7 @@ footer a{
     justify-content: center;
     height: 700px;
     width: 100%;
-    background-image: url(imagenes/wang-cars.jpg);
+    background-image: url(https://files.libertycity.net/download/gtasade_scripts/thumbs/2021-11/ozhivlenie-avtosalona-wang-cars_1686008926_451464.jpg);
     background-size: cover;
     background-repeat: no-repeat;
 }
