@@ -1,284 +1,463 @@
 
 export var Casa1LSfotos = [
-    'imagenes/slider/casasFotos/gallery32Casa1LS.jpg',
-    'imagenes/slider/casasFotos/gallery24.jpg',
-    'imagenes/slider/casasFotos/gallery25.jpg',
-    'imagenes/slider/casasFotos/gallery26.jpg',
-    'imagenes/slider/casasFotos/gallery27.jpg',
-    'imagenes/slider/casasFotos/gallery28.jpg',
-    'imagenes/slider/casasFotos/gallery30.jpg',
-    'imagenes/slider/casasFotos/gallery31.jpg'
+    // 'imagenes/slider/casasFotos/gallery32Casa1LS.jpg',
+    'https://i.imgur.com/EIYYIfy.jpeg',
+    // 'imagenes/slider/casasFotos/gallery24.jpg',
+    'https://i.imgur.com/qtC9OJi.jpeg',
+    // 'imagenes/slider/casasFotos/gallery25.jpg',
+    'https://i.imgur.com/lEGjc8d.jpeg',
+    // 'imagenes/slider/casasFotos/gallery26.jpg',
+    'https://i.imgur.com/KRztRiM.jpeg',
+    // 'imagenes/slider/casasFotos/gallery27.jpg',
+    'https://i.imgur.com/W2kiONL.jpeg',
+    // 'imagenes/slider/casasFotos/gallery28.jpg',
+    'https://i.imgur.com/Dl4MJKP.jpeg',
+    // 'imagenes/slider/casasFotos/gallery30.jpg',
+    'https://i.imgur.com/NTCWetl.jpeg',
+    // 'imagenes/slider/casasFotos/gallery31.jpg'
+    'https://i.imgur.com/lP3YHt5.jpeg'
 ];
 
 export var Casa2LSfotos = [
-    'imagenes/slider/casasFotos/gallery36Casa2LS.jpg',
-    'imagenes/slider/casasFotos/gallery35.jpg',
-    'imagenes/slider/casasFotos/gallery32N.jpg',
-    'imagenes/slider/casasFotos/gallery33.jpg',
-    'imagenes/slider/casasFotos/gallery34.jpg'
+    // 'imagenes/slider/casasFotos/gallery36Casa2LS.jpg',
+    'https://i.imgur.com/JghOxgG.jpeg',
+    // 'imagenes/slider/casasFotos/gallery35.jpg',
+    'https://i.imgur.com/ZY4HfYg.jpeg',
+    // 'imagenes/slider/casasFotos/gallery32N.jpg',
+    'https://i.imgur.com/3nDLgSN.jpeg',
+    // 'imagenes/slider/casasFotos/gallery33.jpg',
+    'https://i.imgur.com/1Cdz7HO.jpeg',
+    // 'imagenes/slider/casasFotos/gallery34.jpg'
+    'https://i.imgur.com/3D0sbiA.jpeg'
 ];
 
 export var Casa3LSfotos = [
-    'imagenes/slider/casasFotos/gallery40.jpg',
-    'imagenes/slider/casasFotos/gallery32.jpg',
-    'imagenes/slider/casasFotos/gallery36.jpg',
-    'imagenes/slider/casasFotos/gallery37.jpg',
-    'imagenes/slider/casasFotos/gallery38.jpg',
-    'imagenes/slider/casasFotos/gallery39.jpg'
+    // 'imagenes/slider/casasFotos/gallery40.jpg',
+    'https://i.imgur.com/y6d7f1s.jpeg',
+    // 'imagenes/slider/casasFotos/gallery32.jpg',
+    'https://i.imgur.com/4Ix5maD.jpeg',
+    // 'imagenes/slider/casasFotos/gallery36.jpg',
+    'https://i.imgur.com/2CeVflq.jpeg',
+    // 'imagenes/slider/casasFotos/gallery37.jpg',
+    'https://i.imgur.com/DH96sDa.jpeg',
+    // 'imagenes/slider/casasFotos/gallery38.jpg',
+    'https://i.imgur.com/i9mce2o.jpeg',
+    // 'imagenes/slider/casasFotos/gallery39.jpg'
+    'https://i.imgur.com/YjZkgHa.jpeg'
 ];
 
 export var Casa4LSfotos = [
-    'imagenes/slider/casasFotos/gallery47.jpg',
-    'imagenes/slider/casasFotos/gallery48.jpg',
-    'imagenes/slider/casasFotos/gallery42.jpg',
-    'imagenes/slider/casasFotos/gallery45.jpg',
-    'imagenes/slider/casasFotos/gallery46.jpg',
-    'imagenes/slider/casasFotos/gallery41.jpg'
+    // 'imagenes/slider/casasFotos/gallery47.jpg',
+    'https://i.imgur.com/dOvBFn9.jpeg',
+    // 'imagenes/slider/casasFotos/gallery48.jpg',
+    'https://i.imgur.com/j1xzf1w.jpeg',
+    // 'imagenes/slider/casasFotos/gallery42.jpg',
+    'https://i.imgur.com/A0BB54V.jpeg',
+    // 'imagenes/slider/casasFotos/gallery45.jpg',
+    'https://i.imgur.com/vCteKRX.jpeg',
+    // 'imagenes/slider/casasFotos/gallery46.jpg',
+    'https://i.imgur.com/aBA2wqc.jpeg',
+    // 'imagenes/slider/casasFotos/gallery41.jpg'
+    'https://i.imgur.com/NL9Q8ZN.jpeg'
 ];
 
 export var Depto1LSfotos = [
-    'imagenes/slider/casasFotos/gallery50.jpg',
-    'imagenes/slider/casasFotos/gallery49.jpg',
-    'imagenes/slider/casasFotos/gallery28.jpg'
+    // 'imagenes/slider/casasFotos/gallery50.jpg',
+    'https://i.imgur.com/PuVQihm.jpeg',
+    // 'imagenes/slider/casasFotos/gallery49.jpg',
+    'https://i.imgur.com/LL26cem.jpeg',
+    // 'imagenes/slider/casasFotos/gallery28.jpg'
+    'https://i.imgur.com/Dl4MJKP.jpeg'
 ]; 
 
 export var Casa5LSfotos = [
-    'imagenes/slider/casasFotos/gallery51.jpg',
-    'imagenes/slider/casasFotos/gallery52.jpg',
-    'imagenes/slider/casasFotos/gallery53.jpg'
+    // 'imagenes/slider/casasFotos/gallery51.jpg',
+    'https://i.imgur.com/L1qixUb.jpeg',
+    // 'imagenes/slider/casasFotos/gallery52.jpg',
+    'https://i.imgur.com/pg27KgF.jpeg',
+    // 'imagenes/slider/casasFotos/gallery53.jpg',
+    'https://i.imgur.com/sGb2g2K.jpeg'
 ];
 
 export var Depto2LSfotos = [
-    'imagenes/slider/casasFotos/gallery54.jpg',
-    'imagenes/slider/casasFotos/gallery55.jpg'
+    // 'imagenes/slider/casasFotos/gallery54.jpg',
+    'https://i.imgur.com/NFy7QfX.jpeg',
+    // 'imagenes/slider/casasFotos/gallery55.jpg',
+    'https://i.imgur.com/pCMQx9P.jpeg'
 ];
 
 export var Mansion1LSfotos = [
-    'imagenes/slider/casasFotos/gallery58.jpg',
-    'imagenes/slider/casasFotos/gallery59.jpg',
-    'imagenes/slider/casasFotos/gallery78.jpg',
-    'imagenes/slider/casasFotos/gallery60.jpg',
-    'imagenes/slider/casasFotos/gallery61.jpg',
-    'imagenes/slider/casasFotos/gallery62.jpg',
-    'imagenes/slider/casasFotos/gallery63.jpg',
-    'imagenes/slider/casasFotos/gallery64.jpg',
-    'imagenes/slider/casasFotos/gallery65.jpg',
-    'imagenes/slider/casasFotos/gallery66.jpg',
-    'imagenes/slider/casasFotos/gallery67.jpg',
-    'imagenes/slider/casasFotos/gallery68.jpg',
-    'imagenes/slider/casasFotos/gallery69.jpg',
-    'imagenes/slider/casasFotos/gallery70.jpg',
-    'imagenes/slider/casasFotos/gallery71.jpg',
-    'imagenes/slider/casasFotos/gallery72.jpg',
-    'imagenes/slider/casasFotos/gallery73.jpg',
-    'imagenes/slider/casasFotos/gallery74.jpg',
-    'imagenes/slider/casasFotos/gallery75.jpg',
-    'imagenes/slider/casasFotos/gallery76.jpg',
-    'imagenes/slider/casasFotos/gallery77.jpg'
+    // 'imagenes/slider/casasFotos/gallery58.jpg',
+    'https://i.imgur.com/IQSnH6i.jpeg',
+    // 'imagenes/slider/casasFotos/gallery59.jpg',
+    'https://i.imgur.com/RglVEcl.jpeg',
+    // 'imagenes/slider/casasFotos/gallery78.jpg',
+    'https://i.imgur.com/QcJWVZa.jpeg',
+    // 'imagenes/slider/casasFotos/gallery60.jpg',
+    'https://i.imgur.com/WYXValp.jpeg',
+    // 'imagenes/slider/casasFotos/gallery61.jpg',
+    'https://i.imgur.com/WYXValp.jpeg',
+    // 'imagenes/slider/casasFotos/gallery62.jpg',
+    'https://i.imgur.com/nXolyAe.jpeg',
+    // 'imagenes/slider/casasFotos/gallery63.jpg',
+    'https://i.imgur.com/YOQmbyf.jpeg',
+    // 'imagenes/slider/casasFotos/gallery64.jpg',
+    'https://i.imgur.com/6rHdt6A.jpeg',
+    // 'imagenes/slider/casasFotos/gallery65.jpg',
+    'https://i.imgur.com/it37BYK.jpeg',
+    // 'imagenes/slider/casasFotos/gallery66.jpg',
+    'https://i.imgur.com/U63xQMH.jpeg',
+    // 'imagenes/slider/casasFotos/gallery67.jpg',
+    'https://i.imgur.com/V0RPVGy.jpeg',
+    // 'imagenes/slider/casasFotos/gallery68.jpg',
+    'https://i.imgur.com/AnZKN0r.jpeg',
+    // 'imagenes/slider/casasFotos/gallery69.jpg',
+    'https://i.imgur.com/CR8Jj2h.jpeg',
+    // 'imagenes/slider/casasFotos/gallery70.jpg',
+    'https://i.imgur.com/bNLUe0K.jpeg',
+    // 'imagenes/slider/casasFotos/gallery71.jpg',
+    'https://i.imgur.com/FS4RUZP.jpeg',
+    // 'imagenes/slider/casasFotos/gallery72.jpg',
+    'https://i.imgur.com/UffM6cv.jpeg',
+    // 'imagenes/slider/casasFotos/gallery73.jpg',
+    'https://i.imgur.com/ZtfvLtT.jpeg',
+    // 'imagenes/slider/casasFotos/gallery74.jpg',
+    'https://i.imgur.com/Pc6gQsd.jpeg',
+    // 'imagenes/slider/casasFotos/gallery75.jpg',
+    'https://i.imgur.com/rjbKWvY.jpeg',
+    // 'imagenes/slider/casasFotos/gallery76.jpg',
+    'https://i.imgur.com/InncPbz.jpeg',
+    // 'imagenes/slider/casasFotos/gallery77.jpg'
+    'https://i.imgur.com/Ntp1DoX.jpeg'
 ];
 
 export var Mansion2LSfotos = [
-    'imagenes/slider/casasFotos/gallery79.jpg',
-    'imagenes/slider/casasFotos/gallery80.jpg',
-    'imagenes/slider/casasFotos/gallery81.jpg',
-    'imagenes/slider/casasFotos/gallery82.jpg',
-    'imagenes/slider/casasFotos/gallery83.jpg',
-    'imagenes/slider/casasFotos/gallery84.jpg',
-    'imagenes/slider/casasFotos/gallery85.jpg',
-    'imagenes/slider/casasFotos/gallery86.jpg',
-    'imagenes/slider/casasFotos/gallery87.jpg',
-    'imagenes/slider/casasFotos/gallery88.jpg'
+    // 'imagenes/slider/casasFotos/gallery79.jpg',
+    'https://i.imgur.com/Tk98EsL.jpeg',
+    // 'imagenes/slider/casasFotos/gallery80.jpg',
+    'https://i.imgur.com/MTyKPQH.jpeg',
+    // 'imagenes/slider/casasFotos/gallery81.jpg',
+    'https://i.imgur.com/FxpdYlH.jpeg',
+    // 'imagenes/slider/casasFotos/gallery82.jpg',
+    'https://i.imgur.com/NZTRZPy.jpeg',
+    // 'imagenes/slider/casasFotos/gallery83.jpg',
+    'https://i.imgur.com/OffaBh3.jpeg',
+    // 'imagenes/slider/casasFotos/gallery84.jpg',
+    'https://i.imgur.com/SXKgBON.jpeg',
+    // 'imagenes/slider/casasFotos/gallery85.jpg',
+    'https://i.imgur.com/hjxV3jy.jpeg',
+    // 'imagenes/slider/casasFotos/gallery86.jpg',
+    'https://i.imgur.com/NOZY2ti.jpeg',
+    // 'imagenes/slider/casasFotos/gallery87.jpg',
+    'https://i.imgur.com/6RU5grv.jpeg',
+    // 'imagenes/slider/casasFotos/gallery88.jpg'
+    'https://i.imgur.com/OHrI4AW.jpeg'
 ];
 
 export var Casa1SFfotos = [
-    'imagenes/slider/casasFotos/gallery89.jpg',
-    'imagenes/slider/casasFotos/gallery90.jpg',
-    'imagenes/slider/casasFotos/gallery91.jpg',
-    'imagenes/slider/casasFotos/gallery92.jpg',
-    'imagenes/slider/casasFotos/gallery93.jpg'
+    // 'imagenes/slider/casasFotos/gallery89.jpg',
+    'https://i.imgur.com/INZmsUg.jpeg',
+    // 'imagenes/slider/casasFotos/gallery90.jpg',
+    'https://i.imgur.com/2Epu720.jpeg',
+    // 'imagenes/slider/casasFotos/gallery91.jpg',
+    'https://i.imgur.com/WdJRlQw.jpeg',
+    // 'imagenes/slider/casasFotos/gallery92.jpg',
+    'https://i.imgur.com/g8rVPfv.jpeg',
+    // 'imagenes/slider/casasFotos/gallery93.jpg'
+    'https://i.imgur.com/sfA6Loe.jpeg'
 ];
 
 export var Casa2SFfotos = [
-    'imagenes/slider/casasFotos/gallery94.jpg',
-    'imagenes/slider/casasFotos/gallery95.jpg'
+    // 'imagenes/slider/casasFotos/gallery94.jpg',
+    'https://i.imgur.com/kYC4XcK.jpeg',
+    // 'imagenes/slider/casasFotos/gallery95.jpg'
+    'https://i.imgur.com/epHoLC9.jpeg'
 ];
 
 export var Casa3SFfotos = [
-    'imagenes/slider/casasFotos/gallery101.jpg',
-    'imagenes/slider/casasFotos/gallery102.jpg',
-    'imagenes/slider/casasFotos/gallery103.jpg',
-    'imagenes/slider/casasFotos/gallery104.jpg'
+    // 'imagenes/slider/casasFotos/gallery101.jpg',
+    'https://i.imgur.com/0r3E4Hp.jpeg',
+    // 'imagenes/slider/casasFotos/gallery102.jpg',
+    'https://i.imgur.com/zmfcRCc.jpeg',
+    // 'imagenes/slider/casasFotos/gallery103.jpg',
+    'https://i.imgur.com/yKW5qJb.jpeg',
+    // 'imagenes/slider/casasFotos/gallery104.jpg'
+    'https://i.imgur.com/x3Eu73p.jpeg'
 ];
 
 export var Depto1SFfotos = [
-    'imagenes/slider/casasFotos/gallery105.jpg',
-    'imagenes/slider/casasFotos/gallery106.jpg',
-    'imagenes/slider/casasFotos/gallery107.jpg'
+    // 'imagenes/slider/casasFotos/gallery105.jpg',
+    'https://i.imgur.com/n560YnM.jpeg',
+    // 'imagenes/slider/casasFotos/gallery106.jpg',
+    'https://i.imgur.com/bVcg88B.jpeg',
+    // 'imagenes/slider/casasFotos/gallery107.jpg'
+    'https://i.imgur.com/TArRRwL.jpeg'
 ];
 
 export var Casa4SFfotos = [
-    'imagenes/slider/casasFotos/gallery108.jpg',
-    'imagenes/slider/casasFotos/gallery109.jpg',
-    'imagenes/slider/casasFotos/gallery110.jpg'
+    // 'imagenes/slider/casasFotos/gallery108.jpg',
+    'https://i.imgur.com/ga6NJJv.jpeg',
+    // 'imagenes/slider/casasFotos/gallery109.jpg',
+    'https://i.imgur.com/Q5gujEC.jpeg',
+    // 'imagenes/slider/casasFotos/gallery110.jpg'
+    'https://i.imgur.com/0D4Qj21.jpeg'
 ];
 
 export var Casa5SFfotos = [
-    'imagenes/slider/casasFotos/gallery111.jpg',
-    'imagenes/slider/casasFotos/gallery112.jpg',
-    'imagenes/slider/casasFotos/gallery83.jpg',
-    'imagenes/slider/casasFotos/gallery84.jpg'
+    // 'imagenes/slider/casasFotos/gallery111.jpg',
+    'https://i.imgur.com/6qOrVXA.jpeg',
+    // 'imagenes/slider/casasFotos/gallery112.jpg',
+    'https://i.imgur.com/FASEa0e.jpeg',
+    // 'imagenes/slider/casasFotos/gallery83.jpg',
+    'https://i.imgur.com/OffaBh3.jpeg',
+    // 'imagenes/slider/casasFotos/gallery84.jpg'
+    'https://i.imgur.com/SXKgBON.jpeg'
 ];
 
 export var Casa6SFfotos = [
-    'imagenes/slider/casasFotos/gallery113.jpg',
-    'imagenes/slider/casasFotos/gallery114.jpg',
-    'imagenes/slider/casasFotos/gallery103.jpg',
+    // 'imagenes/slider/casasFotos/gallery113.jpg',
+    'https://i.imgur.com/s1SpLsc.jpeg',
+    // 'imagenes/slider/casasFotos/gallery114.jpg',
+    'https://i.imgur.com/ryvNhx0.jpeg',
+    // 'imagenes/slider/casasFotos/gallery103.jpg'
+    'https://i.imgur.com/yKW5qJb.jpeg'
 ];
 
 export var Casa1LVfotos = [
-    'imagenes/slider/casasFotos/gallery115.jpg',
-    'imagenes/slider/casasFotos/gallery116.jpg',
-    'imagenes/slider/casasFotos/gallery117.jpg',
-    'imagenes/slider/casasFotos/gallery118.jpg'
+    // 'imagenes/slider/casasFotos/gallery115.jpg',
+    'https://i.imgur.com/5SzvVLV.jpeg',
+    // 'imagenes/slider/casasFotos/gallery116.jpg',
+    'https://i.imgur.com/pp9mIEm.jpeg',
+    // 'imagenes/slider/casasFotos/gallery117.jpg',
+    'https://i.imgur.com/3POfCbP.jpeg',
+    // 'imagenes/slider/casasFotos/gallery118.jpg'
+    'https://i.imgur.com/D7nbyWu.jpeg'
 ];
 
 export var Casa2LVfotos = [
-    'imagenes/slider/casasFotos/gallery119.jpg',
-    'imagenes/slider/casasFotos/gallery120.jpg',
-    'imagenes/slider/casasFotos/gallery121.jpg'
+    // 'imagenes/slider/casasFotos/gallery119.jpg',
+    'https://i.imgur.com/cHUky9b.jpeg',
+    // 'imagenes/slider/casasFotos/gallery120.jpg',
+    'https://i.imgur.com/hpLyS8Q.jpeg',
+    // 'imagenes/slider/casasFotos/gallery121.jpg'
+    'https://i.imgur.com/rqDu0Xy.jpeg'
 ];
 
 export var Casa3LVfotos = [
-    'imagenes/slider/casasFotos/gallery122.jpg',
-    'imagenes/slider/casasFotos/gallery123.jpg',
-    'imagenes/slider/casasFotos/gallery124.jpg',
-    'imagenes/slider/casasFotos/gallery125.jpg',
-    'imagenes/slider/casasFotos/gallery126.jpg',
-    'imagenes/slider/casasFotos/gallery127.jpg',
-    'imagenes/slider/casasFotos/gallery128.jpg'
+    // 'imagenes/slider/casasFotos/gallery122.jpg',
+    'https://i.imgur.com/bo4zpiL.jpeg',
+    // 'imagenes/slider/casasFotos/gallery123.jpg',
+    'https://i.imgur.com/Dw3MSer.jpeg',
+    // 'imagenes/slider/casasFotos/gallery124.jpg',
+    'https://i.imgur.com/x7K1sOc.jpeg',
+    // 'imagenes/slider/casasFotos/gallery125.jpg',
+    'https://i.imgur.com/mnk33JG.jpeg',
+    // 'imagenes/slider/casasFotos/gallery126.jpg',
+    'https://i.imgur.com/lCb4Ens.jpeg',
+    // 'imagenes/slider/casasFotos/gallery127.jpg',
+    'https://i.imgur.com/0sETc9f.jpeg',
+    // 'imagenes/slider/casasFotos/gallery128.jpg'
+    'https://i.imgur.com/uMsbXT2.jpeg'
 ];
 
 export var Depto1LVfotos = [
-    'imagenes/slider/casasFotos/gallery129.jpg',
-    'imagenes/slider/casasFotos/gallery130.jpg',
-    'imagenes/slider/casasFotos/gallery131.jpg',
-    'imagenes/slider/casasFotos/gallery132.jpg'
+    // 'imagenes/slider/casasFotos/gallery129.jpg',
+    'https://i.imgur.com/SYDH9hw.jpeg',
+    // 'imagenes/slider/casasFotos/gallery130.jpg',
+    'https://i.imgur.com/6GO89ur.jpeg',
+    // 'imagenes/slider/casasFotos/gallery131.jpg',
+    'https://i.imgur.com/iflWi0O.jpeg',
+    // 'imagenes/slider/casasFotos/gallery132.jpg'
+    'https://i.imgur.com/9Fz5UMC.jpeg'
 ];
 
 export var Depto2LVfotos = [
-    'imagenes/slider/casasFotos/gallery133.jpg',
-    'imagenes/slider/casasFotos/gallery134.jpg',
-    'imagenes/slider/casasFotos/gallery114.jpg'
+    // 'imagenes/slider/casasFotos/gallery133.jpg',
+    'https://i.imgur.com/8QE7knn.jpeg',
+    // 'imagenes/slider/casasFotos/gallery134.jpg',
+    'https://i.imgur.com/FcvAQlA.jpeg',
+    // 'imagenes/slider/casasFotos/gallery114.jpg'
+    'https://i.imgur.com/ryvNhx0.jpeg'
 ];
 
 export var Depto3LVfotos = [
-    'imagenes/slider/casasFotos/gallery194.jpg',
-    'imagenes/slider/casasFotos/gallery135.jpg',
-    'imagenes/slider/casasFotos/gallery136.jpg',
-    'imagenes/slider/casasFotos/gallery137.jpg',
-    'imagenes/slider/casasFotos/gallery138.jpg'
+    // 'imagenes/slider/casasFotos/gallery194.jpg',
+    'https://i.imgur.com/FZPoMUQ.jpeg',
+    // 'imagenes/slider/casasFotos/gallery135.jpg',
+    'https://i.imgur.com/uDFV5tZ.jpeg',
+    // 'imagenes/slider/casasFotos/gallery136.jpg',
+    'https://i.imgur.com/nbemCyU.jpeg',
+    // 'imagenes/slider/casasFotos/gallery137.jpg',
+    'https://i.imgur.com/A90Oc4e.jpeg',
+    // 'imagenes/slider/casasFotos/gallery138.jpg'
+    'https://i.imgur.com/Ljh6CIf.jpeg'
 ];
 
 export var Depto4LVfotos = [
-    'imagenes/slider/casasFotos/gallery201.jpg',
-    'imagenes/slider/casasFotos/gallery202.jpg',
-    'imagenes/slider/casasFotos/gallery139.jpg',
-    'imagenes/slider/casasFotos/gallery140.jpg',
-    'imagenes/slider/casasFotos/gallery141.jpg',
-    'imagenes/slider/casasFotos/gallery142.jpg'
+    // 'imagenes/slider/casasFotos/gallery201.jpg',
+    'https://i.imgur.com/vJ5i2S8.jpeg',
+    // 'imagenes/slider/casasFotos/gallery202.jpg',
+    'https://i.imgur.com/6HZft3F.jpeg',
+    // 'imagenes/slider/casasFotos/gallery139.jpg',
+    'https://i.imgur.com/1h51fUu.jpeg',
+    // 'imagenes/slider/casasFotos/gallery140.jpg',
+    'https://i.imgur.com/sGDgEXV.jpeg',
+    // 'imagenes/slider/casasFotos/gallery141.jpg',
+    'https://i.imgur.com/gC47Dks.jpeg',
+    // 'imagenes/slider/casasFotos/gallery142.jpg'
+    'https://i.imgur.com/npN2aRC.jpeg'
 ];
 
 export var Depto5LVfotos = [
-    'imagenes/slider/casasFotos/gallery143.jpg',
-    'imagenes/slider/casasFotos/gallery144.jpg',
-    'imagenes/slider/casasFotos/gallery145.jpg',
+    // 'imagenes/slider/casasFotos/gallery143.jpg',
+    'https://i.imgur.com/7qzUPBz.jpeg',
+    // 'imagenes/slider/casasFotos/gallery144.jpg',
+    'https://i.imgur.com/sWV8c74.jpeg',
+    // 'imagenes/slider/casasFotos/gallery145.jpg',
+    'https://i.imgur.com/XmMB4Q0.jpeg'
 ];
 
 export var Casa4LVfotos = [
-    'imagenes/slider/casasFotos/gallery146.jpg',
-    'imagenes/slider/casasFotos/gallery32N.jpg',
-    'imagenes/slider/casasFotos/gallery33.jpg',
-    'imagenes/slider/casasFotos/gallery34.jpg'
+    // 'imagenes/slider/casasFotos/gallery146.jpg',
+    'https://i.imgur.com/fWH7FUt.jpeg',
+    // 'imagenes/slider/casasFotos/gallery32N.jpg',
+    'https://i.imgur.com/3nDLgSN.jpeg',
+    // 'imagenes/slider/casasFotos/gallery33.jpg',
+    'https://i.imgur.com/1Cdz7HO.jpeg',
+    // 'imagenes/slider/casasFotos/gallery34.jpg'
+    'https://i.imgur.com/3D0sbiA.jpeg'
 ];
 /* fotos de los emprendimientos */
 export var emprend1LSfotos = [
-    'imagenes/slider/casasFotos/gallery152.jpg',
-    'imagenes/slider/casasFotos/gallery153.jpg',
-    'imagenes/slider/casasFotos/gallery154.jpg',
-    'imagenes/slider/casasFotos/gallery155.jpg'
+    // 'imagenes/slider/casasFotos/gallery152.jpg',
+    'https://i.imgur.com/4BSFYl8.jpeg',
+    // 'imagenes/slider/casasFotos/gallery153.jpg',
+    'https://i.imgur.com/y2m0jI6.jpeg',
+    // 'imagenes/slider/casasFotos/gallery154.jpg',
+    'https://i.imgur.com/ewaGwOj.jpeg',
+    // 'imagenes/slider/casasFotos/gallery155.jpg'
+    'https://i.imgur.com/2PvFm14.jpeg'
 ];
 
 export var emprend2LSfotos = [
-    'imagenes/slider/casasFotos/gallery156.jpg',
-    'imagenes/slider/casasFotos/gallery157.jpg',
-    'imagenes/slider/casasFotos/gallery158.jpg'
+    // 'imagenes/slider/casasFotos/gallery156.jpg',
+    'https://i.imgur.com/Mn6rH5b.jpeg',
+    // 'imagenes/slider/casasFotos/gallery157.jpg',
+    'https://i.imgur.com/0izBmOy.jpeg',
+    // 'imagenes/slider/casasFotos/gallery158.jpg'
+    'https://i.imgur.com/OpN4lnk.jpeg'
 ];
 
 export var emprend3LSfotos = [
-    'imagenes/slider/casasFotos/gallery159.jpg',
-    'imagenes/slider/casasFotos/gallery160.jpg',
-    'imagenes/slider/casasFotos/gallery161.jpg',
-    'imagenes/slider/casasFotos/gallery162.jpg',
-    'imagenes/slider/casasFotos/gallery163.jpg',
-    'imagenes/slider/casasFotos/gallery164.jpg',
-    'imagenes/slider/casasFotos/gallery165.jpg'
+    // 'imagenes/slider/casasFotos/gallery159.jpg',
+    'https://i.imgur.com/iH5dqgG.jpeg',
+    // 'imagenes/slider/casasFotos/gallery160.jpg',
+    'https://i.imgur.com/5o45UxE.jpeg',
+    // 'imagenes/slider/casasFotos/gallery161.jpg',
+    'https://i.imgur.com/d4S6IkU.jpeg',
+    // 'imagenes/slider/casasFotos/gallery162.jpg',
+    'https://i.imgur.com/4DAutTO.jpeg',
+    // 'imagenes/slider/casasFotos/gallery163.jpg',
+    'https://i.imgur.com/QCBQl0Q.jpeg',
+    // 'imagenes/slider/casasFotos/gallery164.jpg',
+    'https://i.imgur.com/IGPoV5h.jpeg',
+    // 'imagenes/slider/casasFotos/gallery165.jpg'
+    'https://i.imgur.com/dUz3jk1.jpeg'
 ];
 /* wang cars */
 export var emprend1SFfotos = [
-    'imagenes/slider/casasFotos/gallery171.jpg',
-    'imagenes/slider/casasFotos/gallery166.jpg',
-    'imagenes/slider/casasFotos/gallery167.jpg',
-    'imagenes/slider/casasFotos/gallery168.jpg',
-    'imagenes/slider/casasFotos/gallery169.jpg',
-    'imagenes/slider/casasFotos/gallery170.jpg'
+    // 'imagenes/slider/casasFotos/gallery171.jpg',
+    'https://i.imgur.com/HAuBn8w.jpeg',
+    // 'imagenes/slider/casasFotos/gallery166.jpg',
+    'https://i.imgur.com/sqcpPYi.jpeg',
+    // 'imagenes/slider/casasFotos/gallery167.jpg',
+    'https://i.imgur.com/KfOWJT8.jpeg',
+    // 'imagenes/slider/casasFotos/gallery168.jpg',
+    'https://i.imgur.com/CunR8vd.jpeg',
+    // 'imagenes/slider/casasFotos/gallery169.jpg',
+    'https://i.imgur.com/QrMIpsS.jpeg',
+    // 'imagenes/slider/casasFotos/gallery170.jpg'
+    'https://i.imgur.com/4urDYd9.jpeg'
 ];
 
 /* zero */
 export var emprend2SFfotos = [
-    'imagenes/slider/casasFotos/gallery173.jpg',
-    'imagenes/slider/casasFotos/gallery174.jpg',
-    'imagenes/slider/casasFotos/gallery175.jpg',
-    'imagenes/slider/casasFotos/gallery176.jpg',
-    'imagenes/slider/casasFotos/gallery177.jpg',
-    'imagenes/slider/casasFotos/gallery178.jpg',
-    'imagenes/slider/casasFotos/gallery179.jpg'
+    // 'imagenes/slider/casasFotos/gallery173.jpg',
+    'https://i.imgur.com/BDpSMj9.jpeg',
+    // 'imagenes/slider/casasFotos/gallery174.jpg',
+    'https://i.imgur.com/pRXVrWF.jpeg',
+    // 'imagenes/slider/casasFotos/gallery175.jpg',
+    'https://i.imgur.com/ooTdhjq.jpeg',
+    // 'imagenes/slider/casasFotos/gallery176.jpg',
+    'https://i.imgur.com/5GTdpj0.jpeg',
+    // 'imagenes/slider/casasFotos/gallery177.jpg',
+    'https://i.imgur.com/7NXst4c.jpeg',
+    // 'imagenes/slider/casasFotos/gallery178.jpg',
+    'https://i.imgur.com/au6m8pr.jpeg',
+    // 'imagenes/slider/casasFotos/gallery179.jpg'
+    'https://i.imgur.com/H92CPIB.jpeg'
 ];
 /* zombotech labs */
 export var emprend3SFfotos = [
-    'imagenes/slider/casasFotos/zomblabs.jpg',
-    'imagenes/slider/casasFotos/gallery186.jpg',
-    'imagenes/slider/casasFotos/gallery180.jpg',
-    'imagenes/slider/casasFotos/gallery181.jpg',
-    'imagenes/slider/casasFotos/gallery182.jpg',
-    'imagenes/slider/casasFotos/gallery183.jpg',
-    'imagenes/slider/casasFotos/gallery184.jpg',
-    'imagenes/slider/casasFotos/gallery185.jpg'
+    // 'imagenes/slider/casasFotos/zomblabs.jpg',
+    'https://i.imgur.com/ACTaofg.png',
+    // 'imagenes/slider/casasFotos/gallery186.jpg',
+    'https://i.imgur.com/gHHNSKG.jpeg',
+    // 'imagenes/slider/casasFotos/gallery180.jpg',
+    'https://i.imgur.com/9sFrwp3.jpeg',
+    // 'imagenes/slider/casasFotos/gallery181.jpg',
+    'https://i.imgur.com/lBmgkqK.jpeg',
+    // 'imagenes/slider/casasFotos/gallery182.jpg',
+    'https://i.imgur.com/125ZEL0.jpeg',
+    // 'imagenes/slider/casasFotos/gallery183.jpg',
+    'https://i.imgur.com/IsBEqf2.jpeg',
+    // 'imagenes/slider/casasFotos/gallery184.jpg',
+    'https://i.imgur.com/Ha5IG2b.jpeg',
+    // 'imagenes/slider/casasFotos/gallery185.jpg'
+    'https://i.imgur.com/HqeI0wD.jpeg',
 ];
 /* muelles de red county */
 export var emprend1LVfotos = [
-    'imagenes/slider/casasFotos/gallery188.jpg',
-    'imagenes/slider/casasFotos/gallery187.jpg',
-    'imagenes/slider/casasFotos/gallery189.jpg',
-    'imagenes/slider/casasFotos/gallery190.jpg'
+    // 'imagenes/slider/casasFotos/gallery188.jpg',
+    'https://i.imgur.com/5GyYql5.jpeg',
+    // 'imagenes/slider/casasFotos/gallery187.jpg',
+    'https://i.imgur.com/g6mspOI.jpeg',
+    // 'imagenes/slider/casasFotos/gallery189.jpg',
+    'https://i.imgur.com/1Qhtd6X.jpeg',
+    // 'imagenes/slider/casasFotos/gallery190.jpg'
+    'https://i.imgur.com/sEjcorx.jpeg'
 ];
 /* casino Caligula en The Strip */
 export var emprend2LVfotos = [
-    'imagenes/slider/casasFotos/gallery191.jpg',
-    'imagenes/slider/casasFotos/gallery192.jpg',
-    'imagenes/slider/casasFotos/gallery193.jpg',
-    'imagenes/slider/casasFotos/gallery195.jpg',
-    'imagenes/slider/casasFotos/gallery196.jpg',
-    'imagenes/slider/casasFotos/gallery197.jpg',
-    'imagenes/slider/casasFotos/gallery198.jpg',
-    'imagenes/slider/casasFotos/gallery199.jpg',
-    'imagenes/slider/casasFotos/gallery200.jpg'
+    // 'imagenes/slider/casasFotos/gallery191.jpg',
+    'https://i.imgur.com/DXwAoOa.jpeg',
+    // 'imagenes/slider/casasFotos/gallery192.jpg',
+    'https://i.imgur.com/qVBzONK.jpeg',
+    // 'imagenes/slider/casasFotos/gallery193.jpg',
+    'https://i.imgur.com/vWHwnoC.jpeg',
+    // 'imagenes/slider/casasFotos/gallery195.jpg',
+    'https://i.imgur.com/kX8u3qr.jpeg',
+    // 'imagenes/slider/casasFotos/gallery196.jpg',
+    'https://i.imgur.com/vowr1bS.jpeg',
+    // 'imagenes/slider/casasFotos/gallery197.jpg',
+    'https://i.imgur.com/8oH2W0O.jpeg',
+    // 'imagenes/slider/casasFotos/gallery198.jpg',
+    'https://i.imgur.com/XlJmrsh.jpeg',
+    // 'imagenes/slider/casasFotos/gallery199.jpg',
+    'https://i.imgur.com/8pf0F8U.jpeg',
+    // 'imagenes/slider/casasFotos/gallery200.jpg'
+    'https://i.imgur.com/v9ywWLF.jpeg'
 ];
 /* Binco tienda de ropa */
 export var emprend3LVfotos = [
-    'imagenes/slider/casasFotos/gallery203.jpg',
-    'imagenes/slider/casasFotos/gallery204.jpg',
-    'imagenes/slider/casasFotos/gallery205.jpg',
-    'imagenes/slider/casasFotos/gallery206.jpg'
+    // 'imagenes/slider/casasFotos/gallery203.jpg',
+    'https://i.imgur.com/YLGtb0Y.jpeg',
+    // 'imagenes/slider/casasFotos/gallery204.jpg',
+    'https://i.imgur.com/3ZrijDM.jpeg',
+    // 'imagenes/slider/casasFotos/gallery205.jpg',
+    'https://i.imgur.com/avtYHl6.jpeg',
+    // 'imagenes/slider/casasFotos/gallery206.jpg'
+    'https://i.imgur.com/aO2dUqE.jpeg'
 ];
 /* 
 ciudades/pueblos de San Andreas: 

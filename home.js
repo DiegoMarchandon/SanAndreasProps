@@ -200,7 +200,8 @@ import {
                 localStorage.setItem('selectAccion', 'Alquilar');    
             });
             IMGopcionContainer.style.backgroundImage = 'linear-gradient(rgb(233, 166, 66),black)';
-            IMGopcionEjemplo.src = 'imagenes/slider/casasFotos/gallery55.jpg';
+            // IMGopcionEjemplo.src = 'imagenes/slider/casasFotos/gallery55.jpg';
+            IMGopcionEjemplo.src = 'https://i.imgur.com/pCMQx9P.jpeg'; 
             textOpcion.innerText = 'Encuentra, en nuestra amplia gama de opciones, la que mejor se adapte a tu presupuesto y estilo de vida. Ya sea que busques un apartamento moderno en el centro de la ciudad o una casa espaciosa en un barrio tranquilo, tenemos la propiedad ideal para ti. Descubre la comodidad y flexibilidad del alquiler con nosotros, y encuentra tu próximo hogar sin complicaciones.';
             buttonOpcion.style.backgroundColor = 'rgb(233, 166, 66)';
             buttonOpcion.innerText = ' ver Alquileres';

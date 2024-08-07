@@ -482,7 +482,7 @@ function propiedadElegida(slidePropiedad, imagenesProp, caracteristicasProp, bot
         verticalSlide.style.height = '150px'; 
     }else if(imagenesProp.length <= 6){
         verticalSlide.style.height = '250px';
-    }else if(imagenesProp.length > 9){ //más de 9 imagenes
+    }else if(imagenesProp.length >= 9){ //más de 9 imagenes
         verticalSlide.style.width = '315px';
 
     }
@@ -502,7 +502,9 @@ function propiedadElegida(slidePropiedad, imagenesProp, caracteristicasProp, bot
         if(event.target.tagName === 'IMG'){
             // console.log(event.target.src);
             let enlaceCompleto = event.target.src;
-            let inicioEnlace = "imagenes/";
+            /* cuando las imagenes estaban almacenadas en el proyecto: */
+            // let inicioEnlace = "imagenes/";
+            let inicioEnlace = 'https://i.imgur.com/';
             let encontrado = enlaceCompleto.indexOf(inicioEnlace);
             if(encontrado !== -1){ 
                 var IMGseleccionada = enlaceCompleto.substring(encontrado);
